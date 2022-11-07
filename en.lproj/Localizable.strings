@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  Wolfie
+
+  Created by Amadeusz Blanik on 07/11/2022.
+  
+*/
+
+"app_name" = "Wolfie.app";
+"guest_view_header" = "Welcome hooman!";
+"sign_in" = "Sign in";
+"sign_up" = "Sign up";

@@ -16,6 +16,17 @@
 		4E24B6F329147D7700405D06 /* WolfieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E24B6F229147D7700405D06 /* WolfieTests.swift */; };
 		4E24B6FD29147D7700405D06 /* WolfieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E24B6FC29147D7700405D06 /* WolfieUITests.swift */; };
 		4E24B6FF29147D7700405D06 /* WolfieUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E24B6FE29147D7700405D06 /* WolfieUITestsLaunchTests.swift */; };
+		4EE651B0291971EA007F115A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651AF291971EA007F115A /* MainView.swift */; };
+		4EE651B32919724A007F115A /* MainDevView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651B22919724A007F115A /* MainDevView.swift */; };
+		4EE651B62919734F007F115A /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651B52919734F007F115A /* ButtonComponent.swift */; };
+		4EE651B92919769D007F115A /* GuestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651B82919769D007F115A /* GuestView.swift */; };
+		4EE651BC291978E6007F115A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EE651BE291978E6007F115A /* Localizable.strings */; };
+		4EE651C129197D2E007F115A /* AppViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651C029197D2E007F115A /* AppViews.swift */; };
+		4EE651C32919BF82007F115A /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651C22919BF82007F115A /* SignInView.swift */; };
+		4EE651C52919BF8A007F115A /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651C42919BF8A007F115A /* SignUpView.swift */; };
+		5A5B64933940BF9FA99F7785 /* Pods_Wolfie_WolfieUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 386429BF285A0850E511C6CE /* Pods_Wolfie_WolfieUITests.framework */; };
+		99FB6251CB87AB011D4A34AB /* Pods_WolfieTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DBB399146447508763BB66F /* Pods_WolfieTests.framework */; };
+		AA0B70C3838D2D1041BB2F5C /* Pods_Wolfie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE453118ECAA8D8079CE24CF /* Pods_Wolfie.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		386429BF285A0850E511C6CE /* Pods_Wolfie_WolfieUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wolfie_WolfieUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E24B6D929147D7600405D06 /* Wolfie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wolfie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E24B6DC29147D7600405D06 /* WolfieApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WolfieApp.swift; sourceTree = "<group>"; };
 		4E24B6DE29147D7600405D06 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -48,6 +60,23 @@
 		4E24B6F829147D7700405D06 /* WolfieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WolfieUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E24B6FC29147D7700405D06 /* WolfieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WolfieUITests.swift; sourceTree = "<group>"; };
 		4E24B6FE29147D7700405D06 /* WolfieUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WolfieUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4EE651AF291971EA007F115A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		4EE651B22919724A007F115A /* MainDevView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDevView.swift; sourceTree = "<group>"; };
+		4EE651B52919734F007F115A /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
+		4EE651B82919769D007F115A /* GuestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestView.swift; sourceTree = "<group>"; };
+		4EE651BD291978E6007F115A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4EE651BF291978EA007F115A /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4EE651C029197D2E007F115A /* AppViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViews.swift; sourceTree = "<group>"; };
+		4EE651C22919BF82007F115A /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		4EE651C42919BF8A007F115A /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		6DBB399146447508763BB66F /* Pods_WolfieTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WolfieTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E145B83477B9F6DE9692BE7 /* Pods-Wolfie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wolfie.release.xcconfig"; path = "Target Support Files/Pods-Wolfie/Pods-Wolfie.release.xcconfig"; sourceTree = "<group>"; };
+		BAF54684DC61906065739B00 /* Pods-Wolfie-WolfieUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wolfie-WolfieUITests.release.xcconfig"; path = "Target Support Files/Pods-Wolfie-WolfieUITests/Pods-Wolfie-WolfieUITests.release.xcconfig"; sourceTree = "<group>"; };
+		BE453118ECAA8D8079CE24CF /* Pods_Wolfie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wolfie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEE5F843C7CF21FB9EF2EF47 /* Pods-Wolfie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wolfie.debug.xcconfig"; path = "Target Support Files/Pods-Wolfie/Pods-Wolfie.debug.xcconfig"; sourceTree = "<group>"; };
+		D4BFF1B1755AF614DED75A82 /* Pods-WolfieTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WolfieTests.release.xcconfig"; path = "Target Support Files/Pods-WolfieTests/Pods-WolfieTests.release.xcconfig"; sourceTree = "<group>"; };
+		E5C3C974C2CCFB47A6DAFB32 /* Pods-WolfieTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WolfieTests.debug.xcconfig"; path = "Target Support Files/Pods-WolfieTests/Pods-WolfieTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EE06FD797580D804DCA77FDC /* Pods-Wolfie-WolfieUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wolfie-WolfieUITests.debug.xcconfig"; path = "Target Support Files/Pods-Wolfie-WolfieUITests/Pods-Wolfie-WolfieUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA0B70C3838D2D1041BB2F5C /* Pods_Wolfie.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99FB6251CB87AB011D4A34AB /* Pods_WolfieTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,19 +100,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A5B64933940BF9FA99F7785 /* Pods_Wolfie_WolfieUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16D32E8A68DE4F3D6E86FAA7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CEE5F843C7CF21FB9EF2EF47 /* Pods-Wolfie.debug.xcconfig */,
+				9E145B83477B9F6DE9692BE7 /* Pods-Wolfie.release.xcconfig */,
+				EE06FD797580D804DCA77FDC /* Pods-Wolfie-WolfieUITests.debug.xcconfig */,
+				BAF54684DC61906065739B00 /* Pods-Wolfie-WolfieUITests.release.xcconfig */,
+				E5C3C974C2CCFB47A6DAFB32 /* Pods-WolfieTests.debug.xcconfig */,
+				D4BFF1B1755AF614DED75A82 /* Pods-WolfieTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		4E24B6D029147D7600405D06 = {
 			isa = PBXGroup;
 			children = (
+				4EE651BE291978E6007F115A /* Localizable.strings */,
 				4E24B6DB29147D7600405D06 /* Wolfie */,
 				4E24B6F129147D7700405D06 /* WolfieTests */,
 				4E24B6FB29147D7700405D06 /* WolfieUITests */,
 				4E24B6DA29147D7600405D06 /* Products */,
+				16D32E8A68DE4F3D6E86FAA7 /* Pods */,
+				61766D039E443B97722970C0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,6 +146,8 @@
 		4E24B6DB29147D7600405D06 /* Wolfie */ = {
 			isa = PBXGroup;
 			children = (
+				4EE651B429197343007F115A /* Components */,
+				4EE651AD291971CD007F115A /* App */,
 				4E24B6DC29147D7600405D06 /* WolfieApp.swift */,
 				4E24B6DE29147D7600405D06 /* ContentView.swift */,
 				4E24B6E029147D7700405D06 /* Assets.xcassets */,
@@ -133,6 +183,61 @@
 			path = WolfieUITests;
 			sourceTree = "<group>";
 		};
+		4EE651AD291971CD007F115A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				4EE651B729197691007F115A /* GuestView */,
+				4EE651B129197234007F115A /* MainDev */,
+				4EE651AE291971D7007F115A /* Main */,
+				4EE651C029197D2E007F115A /* AppViews.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		4EE651AE291971D7007F115A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				4EE651AF291971EA007F115A /* MainView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		4EE651B129197234007F115A /* MainDev */ = {
+			isa = PBXGroup;
+			children = (
+				4EE651B22919724A007F115A /* MainDevView.swift */,
+			);
+			path = MainDev;
+			sourceTree = "<group>";
+		};
+		4EE651B429197343007F115A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				4EE651B52919734F007F115A /* ButtonComponent.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		4EE651B729197691007F115A /* GuestView */ = {
+			isa = PBXGroup;
+			children = (
+				4EE651B82919769D007F115A /* GuestView.swift */,
+				4EE651C22919BF82007F115A /* SignInView.swift */,
+				4EE651C42919BF8A007F115A /* SignUpView.swift */,
+			);
+			path = GuestView;
+			sourceTree = "<group>";
+		};
+		61766D039E443B97722970C0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BE453118ECAA8D8079CE24CF /* Pods_Wolfie.framework */,
+				386429BF285A0850E511C6CE /* Pods_Wolfie_WolfieUITests.framework */,
+				6DBB399146447508763BB66F /* Pods_WolfieTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -140,9 +245,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4E24B70229147D7700405D06 /* Build configuration list for PBXNativeTarget "Wolfie" */;
 			buildPhases = (
+				B397EBCAA02CFF5727E1661D /* [CP] Check Pods Manifest.lock */,
 				4E24B6D529147D7600405D06 /* Sources */,
 				4E24B6D629147D7600405D06 /* Frameworks */,
 				4E24B6D729147D7600405D06 /* Resources */,
+				19D71AB7483872ECFDD632C7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -157,6 +264,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4E24B70529147D7700405D06 /* Build configuration list for PBXNativeTarget "WolfieTests" */;
 			buildPhases = (
+				932A5DB46480F87832693DBB /* [CP] Check Pods Manifest.lock */,
 				4E24B6EA29147D7700405D06 /* Sources */,
 				4E24B6EB29147D7700405D06 /* Frameworks */,
 				4E24B6EC29147D7700405D06 /* Resources */,
@@ -175,9 +283,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4E24B70829147D7700405D06 /* Build configuration list for PBXNativeTarget "WolfieUITests" */;
 			buildPhases = (
+				EC5D4F6771D94E28D55C2167 /* [CP] Check Pods Manifest.lock */,
 				4E24B6F429147D7700405D06 /* Sources */,
 				4E24B6F529147D7700405D06 /* Frameworks */,
 				4E24B6F629147D7700405D06 /* Resources */,
+				26831C5F1749B049F4FB9FBF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -218,6 +328,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				pl,
 				Base,
 			);
 			mainGroup = 4E24B6D029147D7600405D06;
@@ -238,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E24B6E429147D7700405D06 /* Preview Assets.xcassets in Resources */,
+				4EE651BC291978E6007F115A /* Localizable.strings in Resources */,
 				4E24B6E129147D7700405D06 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,6 +370,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		19D71AB7483872ECFDD632C7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Wolfie/Pods-Wolfie-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Wolfie/Pods-Wolfie-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Wolfie/Pods-Wolfie-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		26831C5F1749B049F4FB9FBF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Wolfie-WolfieUITests/Pods-Wolfie-WolfieUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Wolfie-WolfieUITests/Pods-Wolfie-WolfieUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Wolfie-WolfieUITests/Pods-Wolfie-WolfieUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		932A5DB46480F87832693DBB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WolfieTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B397EBCAA02CFF5727E1661D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Wolfie-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC5D4F6771D94E28D55C2167 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Wolfie-WolfieUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4E24B6D529147D7600405D06 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -266,7 +481,14 @@
 				4E24B6E629147D7700405D06 /* Persistence.swift in Sources */,
 				4E24B6E929147D7700405D06 /* Wolfie.xcdatamodeld in Sources */,
 				4E24B6DF29147D7600405D06 /* ContentView.swift in Sources */,
+				4EE651C129197D2E007F115A /* AppViews.swift in Sources */,
+				4EE651C32919BF82007F115A /* SignInView.swift in Sources */,
+				4EE651C52919BF8A007F115A /* SignUpView.swift in Sources */,
+				4EE651B0291971EA007F115A /* MainView.swift in Sources */,
+				4EE651B62919734F007F115A /* ButtonComponent.swift in Sources */,
+				4EE651B92919769D007F115A /* GuestView.swift in Sources */,
 				4E24B6DD29147D7600405D06 /* WolfieApp.swift in Sources */,
+				4EE651B32919724A007F115A /* MainDevView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +523,18 @@
 			targetProxy = 4E24B6F929147D7700405D06 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4EE651BE291978E6007F115A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4EE651BD291978E6007F115A /* en */,
+				4EE651BF291978EA007F115A /* pl */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		4E24B70029147D7700405D06 /* Debug */ = {
@@ -353,7 +587,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -407,7 +641,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -419,6 +653,7 @@
 		};
 		4E24B70329147D7700405D06 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CEE5F843C7CF21FB9EF2EF47 /* Pods-Wolfie.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -428,11 +663,14 @@
 				DEVELOPMENT_TEAM = 6WY65SAG73;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Wolfie.app;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -448,6 +686,7 @@
 		};
 		4E24B70429147D7700405D06 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E145B83477B9F6DE9692BE7 /* Pods-Wolfie.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -457,11 +696,14 @@
 				DEVELOPMENT_TEAM = 6WY65SAG73;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Wolfie.app;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -477,6 +719,7 @@
 		};
 		4E24B70629147D7700405D06 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5C3C974C2CCFB47A6DAFB32 /* Pods-WolfieTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -497,6 +740,7 @@
 		};
 		4E24B70729147D7700405D06 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4BFF1B1755AF614DED75A82 /* Pods-WolfieTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -517,6 +761,7 @@
 		};
 		4E24B70929147D7700405D06 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE06FD797580D804DCA77FDC /* Pods-Wolfie-WolfieUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -535,6 +780,7 @@
 		};
 		4E24B70A29147D7700405D06 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BAF54684DC61906065739B00 /* Pods-Wolfie-WolfieUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
