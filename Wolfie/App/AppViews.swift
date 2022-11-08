@@ -8,10 +8,10 @@
 import Foundation
 import SwiftUI
 
-enum AppViews {
-    case guest
-    case dev
-    case app
+enum AppViews: String, CaseIterable {
+    case guest = "GuestView()"
+    case dashboard = "DashboardView()"
+    case profile = "ProfileView()"
 }
 
 enum GuestViews: String, CaseIterable {

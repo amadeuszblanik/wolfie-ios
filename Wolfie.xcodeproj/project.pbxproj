@@ -24,6 +24,7 @@
 		4EE651C129197D2E007F115A /* AppViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651C029197D2E007F115A /* AppViews.swift */; };
 		4EE651C32919BF82007F115A /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651C22919BF82007F115A /* SignInView.swift */; };
 		4EE651C52919BF8A007F115A /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651C42919BF8A007F115A /* SignUpView.swift */; };
+		4EE651CA2919D310007F115A /* ShakeGestureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651C92919D310007F115A /* ShakeGestureManager.swift */; };
 		5A5B64933940BF9FA99F7785 /* Pods_Wolfie_WolfieUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 386429BF285A0850E511C6CE /* Pods_Wolfie_WolfieUITests.framework */; };
 		99FB6251CB87AB011D4A34AB /* Pods_WolfieTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DBB399146447508763BB66F /* Pods_WolfieTests.framework */; };
 		AA0B70C3838D2D1041BB2F5C /* Pods_Wolfie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE453118ECAA8D8079CE24CF /* Pods_Wolfie.framework */; };
@@ -69,6 +70,7 @@
 		4EE651C029197D2E007F115A /* AppViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViews.swift; sourceTree = "<group>"; };
 		4EE651C22919BF82007F115A /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		4EE651C42919BF8A007F115A /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		4EE651C92919D310007F115A /* ShakeGestureManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeGestureManager.swift; sourceTree = "<group>"; };
 		6DBB399146447508763BB66F /* Pods_WolfieTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WolfieTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E145B83477B9F6DE9692BE7 /* Pods-Wolfie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wolfie.release.xcconfig"; path = "Target Support Files/Pods-Wolfie/Pods-Wolfie.release.xcconfig"; sourceTree = "<group>"; };
 		BAF54684DC61906065739B00 /* Pods-Wolfie-WolfieUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wolfie-WolfieUITests.release.xcconfig"; path = "Target Support Files/Pods-Wolfie-WolfieUITests/Pods-Wolfie-WolfieUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 		4E24B6DB29147D7600405D06 /* Wolfie */ = {
 			isa = PBXGroup;
 			children = (
+				4EE651C82919D2FE007F115A /* Gestures */,
 				4EE651B429197343007F115A /* Components */,
 				4EE651AD291971CD007F115A /* App */,
 				4E24B6DC29147D7600405D06 /* WolfieApp.swift */,
@@ -226,6 +229,14 @@
 				4EE651C42919BF8A007F115A /* SignUpView.swift */,
 			);
 			path = GuestView;
+			sourceTree = "<group>";
+		};
+		4EE651C82919D2FE007F115A /* Gestures */ = {
+			isa = PBXGroup;
+			children = (
+				4EE651C92919D310007F115A /* ShakeGestureManager.swift */,
+			);
+			path = Gestures;
 			sourceTree = "<group>";
 		};
 		61766D039E443B97722970C0 /* Frameworks */ = {
@@ -480,6 +491,7 @@
 			files = (
 				4E24B6E629147D7700405D06 /* Persistence.swift in Sources */,
 				4E24B6E929147D7700405D06 /* Wolfie.xcdatamodeld in Sources */,
+				4EE651CA2919D310007F115A /* ShakeGestureManager.swift in Sources */,
 				4E24B6DF29147D7600405D06 /* ContentView.swift in Sources */,
 				4EE651C129197D2E007F115A /* AppViews.swift in Sources */,
 				4EE651C32919BF82007F115A /* SignInView.swift in Sources */,

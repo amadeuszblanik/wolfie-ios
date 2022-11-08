@@ -8,25 +8,37 @@
 import SwiftUI
 
 struct MainDevView: View {
-    @State var isGuestViewActive = false
-    
+    @State private var selectedView: AppViews? = nil
+
     var body: some View {
-        NavigationView {
+        NavigationSplitView {
             VStack {
                 Text("Development mode")
                     .font(.largeTitle)
+                    .padding(.bottom)
                 
-                List {
-                    NavigationLink(
-                        destination: GuestView(),
-                        isActive: $isGuestViewActive
-                    ) {
-                        Button("GuestView") {
-                            isGuestViewActive = true;
-                        }
-                    }
-                }
+                Text("Shake to back to this screen")
+                    .font(.callout)
             }
+            .padding(.vertical)
+            
+            List(AppViews.allCases, id: \.self, selection: $selectedView) { appView in
+                NavigationLink(appView.rawValue, value: appView)
+            }
+        } detail: {
+            if let appView = selectedView {
+                switch appView {
+                case .guest:
+                    GuestView()
+                default:
+                    Text("Not implemented yet.")
+                }
+            } else {
+                ProgressView()
+            }
+        }
+        .onReceive(messagePublisher) { _ in
+            selectedView = nil
         }
     }
 }
