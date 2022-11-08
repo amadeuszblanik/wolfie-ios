@@ -32,6 +32,8 @@ struct MainDevView: View {
                     MainView()
                 case .guest:
                     GuestView()
+                case .dashboard:
+                    DashboardView()
                 default:
                     Text("Not implemented yet.")
                 }
