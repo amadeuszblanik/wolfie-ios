@@ -52,14 +52,12 @@ struct GuestView: View {
                 case GuestViews.signIn:
                     SignInView()
                 case GuestViews.signUp:
-                    SignUpView()
+                    SignUpView(selectedView: $selectedView)
                 }
             } else {
                 ProgressView()
             }
         }
-        .navigationBarHidden(true)
-        .navigationBarBackButtonHidden(true)
     }
 }
 

@@ -8,14 +8,23 @@
 
 "app_name" = "Wolfie.app";
 "guest_view_header" = "Welcome hooman!";
+
 "sign_in" = "Sign in";
 "sign_in_header" = "Welcome back!";
 "sign_in_sub_header" = "Sign in to your account";
 
 "sign_up" = "Sign up";
+"sign_up_header" = "Welcome new Hooman!";
+"sign_up_sub_header" = "Create your new account";
 
 "please_wait" = "Please wait…";
 
+"email" = "Email";
 "username" = "Username";
+"first_name" = "First name";
+"last_name" = "Last name";
 "password" = "Password";
+"password_confirm" = "Confirm password";
 "keep_me_signed_in" = "Keep me sign in";
+"weight_unit" = "Weight units";
+"gdpr_consent" = "Lorem ipsum dolor sit amet";
