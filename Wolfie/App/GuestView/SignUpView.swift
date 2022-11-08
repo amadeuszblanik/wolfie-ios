@@ -43,10 +43,9 @@ struct SignUpView: View {
             
             UIInput(label: String(localized: "password_confirm"), state: $vm.passwordConfirm, type: .Password)
                 .padding(.vertical)
-            
-            UIInput(label: String(localized: "weight_unit"), state: $vm.weightUnit)
+
+            UISelect(label: String(localized: "weight_unit"), values: WeightUnits.selectItemList, state: $vm.weightUnit)
                 .padding(.vertical)
-                .disabled(true)
             
             UICheckbox(label: String(localized: "gdpr_consent"), state: $vm.gdprConsent)
         }

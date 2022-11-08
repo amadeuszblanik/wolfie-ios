@@ -14,7 +14,7 @@ extension SignUpView {
         @Published var lastName: String = ""
         @Published var password: String = ""
         @Published var passwordConfirm: String = ""
-        @Published var weightUnit: String = "KG"
+        @Published var weightUnit: String = WeightUnits.Kilogram.rawValue
         @Published var gdprConsent: Bool = false
         @Published var isActive: Bool = true
         @Published var isLoading: Bool = false

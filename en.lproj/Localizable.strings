@@ -27,4 +27,8 @@
 "password_confirm" = "Confirm password";
 "keep_me_signed_in" = "Keep me sign in";
 "weight_unit" = "Weight units";
+"weight_unit_kg" = "Kilograms";
+"weight_unit_g" = "Grams";
+"weight_unit_lb" = "Pounds";
+"weight_unit_oz" = "Ounce";
 "gdpr_consent" = "Lorem ipsum dolor sit amet";
