@@ -9,12 +9,22 @@ import SwiftUI
 
 struct DashboardView: View {
     var body: some View {
-        Text("DashboardView()")
+        ScrollView {
+            PetCardComponent()
+                .padding(.bottom)
+            PetCardComponent()
+                .padding(.bottom)
+            PetCardComponent()
+                .padding(.bottom)
+        }
+        .padding()
     }
 }
 
 struct DashboardView_Previews: PreviewProvider {
     static var previews: some View {
         DashboardView()
+        DashboardView()
+            .preferredColorScheme(.dark)
     }
 }

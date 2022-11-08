@@ -32,3 +32,16 @@
 "weight_unit_lb" = "Pounds";
 "weight_unit_oz" = "Ounce";
 "gdpr_consent" = "Lorem ipsum dolor sit amet";
+
+"age" = "Age";
+"microchip" = "Microchip";
+"breed" = "Breed";
+"breed_english_pointer" = "English pointer";
+"breed_english_setter" = "English setter";
+"breed_kerry_blue_terrier" = "Kerry blue terrier";
+"breed_cairn_terrier" = "Cairn terrier";
+"breed_english_cocker_spaniel" = "English cocker spaniel";
+"breed_giant_schnauzer" = "Giant schnauzer";
+"breed_schnauzer" = "Schnauzer";
+"breed_miniature_schnauzer" = "Miniature schnauzer";
+"breed_mixed" = "Mixed";
