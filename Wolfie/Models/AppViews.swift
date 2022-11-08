@@ -9,9 +9,18 @@ import Foundation
 import SwiftUI
 
 enum AppViews: String, CaseIterable {
-    case guest = "GuestView()"
     case dashboard = "DashboardView()"
     case profile = "ProfileView()"
+    
+    var icon: Image {
+        switch self {
+        case .dashboard:
+            return Image("apps-outline")
+            
+        case .profile:
+            return Image("person-outline")
+        }
+    }
 }
 
 enum AppDevViews: String, CaseIterable {
