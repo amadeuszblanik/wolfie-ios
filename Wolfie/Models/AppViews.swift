@@ -14,6 +14,13 @@ enum AppViews: String, CaseIterable {
     case profile = "ProfileView()"
 }
 
+enum AppDevViews: String, CaseIterable {
+    case main = "MainView()"
+    case guest = "GuestView()"
+    case dashboard = "DashboardView()"
+    case profile = "ProfileView()"
+}
+
 enum GuestViews: String, CaseIterable {
     case signIn = "sign_in"
     case signUp = "sign_up"

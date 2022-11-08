@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainDevView: View {
-    @State private var selectedView: AppViews? = nil
+    @State private var selectedView: AppDevViews? = nil
 
     var body: some View {
         NavigationSplitView {
@@ -22,12 +22,14 @@ struct MainDevView: View {
             }
             .padding(.vertical)
             
-            List(AppViews.allCases, id: \.self, selection: $selectedView) { appView in
-                NavigationLink(appView.rawValue, value: appView)
+            List(AppDevViews.allCases, id: \.self, selection: $selectedView) { appDevView in
+                NavigationLink(appDevView.rawValue, value: appDevView)
             }
         } detail: {
-            if let appView = selectedView {
-                switch appView {
+            if let appDevView = selectedView {
+                switch appDevView {
+                case .main:
+                    MainView()
                 case .guest:
                     GuestView()
                 default:

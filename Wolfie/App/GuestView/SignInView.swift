@@ -22,7 +22,7 @@ struct SignInView: View {
             Spacer()
             
             VStack {
-                UIInput(label: String(localized: "username"), state: $vm.username)
+                UIInput(label: String(localized: "username"), state: $vm.username, keyboardType: .emailAddress)
                     .padding(.vertical)
                 
                 UIInput(label: String(localized: "password"), state: $vm.password, type: .Password)
@@ -41,6 +41,13 @@ struct SignInView: View {
                             .foregroundColor(Color(UIColor.secondaryLabel))
                     }
                     .padding(.bottom)
+                }
+                
+                if (vm.isInvalid) {
+                    Text(vm.errorMessage)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.red)
+                        .padding(.bottom)
                 }
                 
                 UIButton(text: String(localized: "sign_in"), fullWidth: true) {
