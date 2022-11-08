@@ -9,4 +9,13 @@
 "app_name" = "Wolfie.app";
 "guest_view_header" = "Welcome hooman!";
 "sign_in" = "Sign in";
+"sign_in_header" = "Welcome back!";
+"sign_in_sub_header" = "Sign in to your account";
+
 "sign_up" = "Sign up";
+
+"please_wait" = "Please wait…";
+
+"username" = "Username";
+"password" = "Password";
+"keep_me_signed_in" = "Keep me sign in";

@@ -9,4 +9,13 @@
 "app_name" = "Wolfie.app";
 "guest_view_header" = "Witaj człowieku!";
 "sign_in" = "Zaloguj się";
+"sign_in_header" = "Witaj ponownie!";
+"sign_in_sub_header" = "Zaloguj się do swojego konta";
+
 "sign_up" = "Zarejestruj się";
+
+"please_wait" = "Proszę poczekaj…";
+
+"username" = "Nazwa konta";
+"password" = "Hasło";
+"keep_me_signed_in" = "Zapamiętaj konto";

@@ -16,6 +16,9 @@
 		4E24B6F329147D7700405D06 /* WolfieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E24B6F229147D7700405D06 /* WolfieTests.swift */; };
 		4E24B6FD29147D7700405D06 /* WolfieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E24B6FC29147D7700405D06 /* WolfieUITests.swift */; };
 		4E24B6FF29147D7700405D06 /* WolfieUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E24B6FE29147D7700405D06 /* WolfieUITestsLaunchTests.swift */; };
+		4E79464A291AD3FC000C356C /* InputComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E794649291AD3FC000C356C /* InputComponent.swift */; };
+		4E79464C291AD58F000C356C /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E79464B291AD58F000C356C /* SignInViewModel.swift */; };
+		4E794651291AE000000C356C /* CheckboxComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E794650291AE000000C356C /* CheckboxComponent.swift */; };
 		4EE651B0291971EA007F115A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651AF291971EA007F115A /* MainView.swift */; };
 		4EE651B32919724A007F115A /* MainDevView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651B22919724A007F115A /* MainDevView.swift */; };
 		4EE651B62919734F007F115A /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651B52919734F007F115A /* ButtonComponent.swift */; };
@@ -25,6 +28,7 @@
 		4EE651C32919BF82007F115A /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651C22919BF82007F115A /* SignInView.swift */; };
 		4EE651C52919BF8A007F115A /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651C42919BF8A007F115A /* SignUpView.swift */; };
 		4EE651CA2919D310007F115A /* ShakeGestureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651C92919D310007F115A /* ShakeGestureManager.swift */; };
+		4EFC7435291AE32D0086A6AB /* JumbotronComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7434291AE32D0086A6AB /* JumbotronComponent.swift */; };
 		5A5B64933940BF9FA99F7785 /* Pods_Wolfie_WolfieUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 386429BF285A0850E511C6CE /* Pods_Wolfie_WolfieUITests.framework */; };
 		99FB6251CB87AB011D4A34AB /* Pods_WolfieTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DBB399146447508763BB66F /* Pods_WolfieTests.framework */; };
 		AA0B70C3838D2D1041BB2F5C /* Pods_Wolfie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE453118ECAA8D8079CE24CF /* Pods_Wolfie.framework */; };
@@ -61,6 +65,9 @@
 		4E24B6F829147D7700405D06 /* WolfieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WolfieUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E24B6FC29147D7700405D06 /* WolfieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WolfieUITests.swift; sourceTree = "<group>"; };
 		4E24B6FE29147D7700405D06 /* WolfieUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WolfieUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4E794649291AD3FC000C356C /* InputComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputComponent.swift; sourceTree = "<group>"; };
+		4E79464B291AD58F000C356C /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		4E794650291AE000000C356C /* CheckboxComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxComponent.swift; sourceTree = "<group>"; };
 		4EE651AF291971EA007F115A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		4EE651B22919724A007F115A /* MainDevView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDevView.swift; sourceTree = "<group>"; };
 		4EE651B52919734F007F115A /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
@@ -71,6 +78,7 @@
 		4EE651C22919BF82007F115A /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		4EE651C42919BF8A007F115A /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		4EE651C92919D310007F115A /* ShakeGestureManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeGestureManager.swift; sourceTree = "<group>"; };
+		4EFC7434291AE32D0086A6AB /* JumbotronComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JumbotronComponent.swift; sourceTree = "<group>"; };
 		6DBB399146447508763BB66F /* Pods_WolfieTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WolfieTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E145B83477B9F6DE9692BE7 /* Pods-Wolfie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wolfie.release.xcconfig"; path = "Target Support Files/Pods-Wolfie/Pods-Wolfie.release.xcconfig"; sourceTree = "<group>"; };
 		BAF54684DC61906065739B00 /* Pods-Wolfie-WolfieUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wolfie-WolfieUITests.release.xcconfig"; path = "Target Support Files/Pods-Wolfie-WolfieUITests/Pods-Wolfie-WolfieUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -217,6 +225,9 @@
 			isa = PBXGroup;
 			children = (
 				4EE651B52919734F007F115A /* ButtonComponent.swift */,
+				4E794649291AD3FC000C356C /* InputComponent.swift */,
+				4E794650291AE000000C356C /* CheckboxComponent.swift */,
+				4EFC7434291AE32D0086A6AB /* JumbotronComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -227,6 +238,7 @@
 				4EE651B82919769D007F115A /* GuestView.swift */,
 				4EE651C22919BF82007F115A /* SignInView.swift */,
 				4EE651C42919BF8A007F115A /* SignUpView.swift */,
+				4E79464B291AD58F000C356C /* SignInViewModel.swift */,
 			);
 			path = GuestView;
 			sourceTree = "<group>";
@@ -491,11 +503,15 @@
 			files = (
 				4E24B6E629147D7700405D06 /* Persistence.swift in Sources */,
 				4E24B6E929147D7700405D06 /* Wolfie.xcdatamodeld in Sources */,
+				4E79464A291AD3FC000C356C /* InputComponent.swift in Sources */,
 				4EE651CA2919D310007F115A /* ShakeGestureManager.swift in Sources */,
 				4E24B6DF29147D7600405D06 /* ContentView.swift in Sources */,
 				4EE651C129197D2E007F115A /* AppViews.swift in Sources */,
+				4EFC7435291AE32D0086A6AB /* JumbotronComponent.swift in Sources */,
+				4E794651291AE000000C356C /* CheckboxComponent.swift in Sources */,
 				4EE651C32919BF82007F115A /* SignInView.swift in Sources */,
 				4EE651C52919BF8A007F115A /* SignUpView.swift in Sources */,
+				4E79464C291AD58F000C356C /* SignInViewModel.swift in Sources */,
 				4EE651B0291971EA007F115A /* MainView.swift in Sources */,
 				4EE651B62919734F007F115A /* ButtonComponent.swift in Sources */,
 				4EE651B92919769D007F115A /* GuestView.swift in Sources */,

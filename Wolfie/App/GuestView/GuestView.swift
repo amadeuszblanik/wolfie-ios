@@ -45,6 +45,7 @@ struct GuestView: View {
                     
                 }
             }
+            .padding()
         } detail: {
             if let guestView = selectedView {
                 switch guestView {
@@ -57,7 +58,6 @@ struct GuestView: View {
                 ProgressView()
             }
         }
-        .padding()
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
     }
