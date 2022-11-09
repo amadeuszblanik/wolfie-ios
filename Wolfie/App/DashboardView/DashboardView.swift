@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct DashboardView: View {
+    @State private var isAddOpen = false
+    @State private var path: [DashboardViews] = []
     @StateObject var vm = ViewModel();
     
     var list: some View {
@@ -39,18 +41,28 @@ struct DashboardView: View {
                 Spacer()
 
                 UIButton(text: String(localized: "dashboard_empty_button"), fullWidth: true) {
-                    print("Create new pet")
+                    isAddOpen = true
                 }
                 .padding()
+                .sheet(isPresented: $isAddOpen) {
+                    PetForm()
+                }
             }
         }
     }
     
     var body: some View {
-        if (vm.petsList.count <= 0) {
-            empty
-        } else {
-            list
+        NavigationStack(path: $path) {
+            VStack {
+                if (vm.petsList.count <= 0) {
+                    empty
+                } else {
+                    list
+                }
+            }
+            .navigationDestination(for: DashboardViews.self) { dashboardView in
+                Text(dashboardView.rawValue)
+            }
         }
     }
 }

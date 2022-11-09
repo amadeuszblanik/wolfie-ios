@@ -18,9 +18,12 @@
 "sign_up_sub_header" = "Create your new account";
 
 "please_wait" = "Please wait…";
+"update" = "Update";
+"add" = "Add";
 
 "email" = "Email";
 "username" = "Username";
+"name" = "Name";
 "first_name" = "First name";
 "last_name" = "Last name";
 "password" = "Password";
@@ -35,6 +38,8 @@
 
 "age" = "Age";
 "microchip" = "Microchip";
+"birthdate" = "Birth date";
+"birthday" = "Birthday";
 "breed" = "Breed";
 "breed_english_pointer" = "English pointer";
 "breed_english_setter" = "English setter";
@@ -49,3 +54,6 @@
 "dashboard_header" = "Dashboard";
 "dashboard_sub_header_empty" = "You have not added any pet yet";
 "dashboard_empty_button" = "Add your first one";
+
+"pet_form_header_edit" = "Edit your pet";
+"pet_form_header_add" = "Add new pet";
