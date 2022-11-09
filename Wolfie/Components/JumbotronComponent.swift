@@ -8,17 +8,21 @@
 import SwiftUI
 
 struct UIJumbotron: View {
-    var header: String!
-    var subHeader: String!
+    var header: String?
+    var subHeader: String?
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(header)
-                .font(.title)
-                .padding(.bottom, 2)
+            if (header != nil) {
+                Text(header!)
+                    .font(.title)
+                    .padding(.bottom, 2)
+            }
             
-            Text(subHeader)
-                .font(.title3)
+            if (subHeader != nil) {
+                Text(subHeader!)
+                    .font(.title3)
+            }
         }
         .padding()
         .padding(.bottom, 15)

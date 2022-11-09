@@ -45,3 +45,7 @@
 "breed_schnauzer" = "Schnauzer";
 "breed_miniature_schnauzer" = "Miniature schnauzer";
 "breed_mixed" = "Mixed";
+
+"dashboard_header" = "Dashboard";
+"dashboard_sub_header_empty" = "You have not added any pet yet";
+"dashboard_empty_button" = "Add your first one";
