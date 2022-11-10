@@ -42,7 +42,6 @@ enum GuestViews: String, CaseIterable {
 enum DashboardViews: String, CaseIterable {
     case details = "details"
     case weight = "weight"
-    case weightSingle = "weight_single"
     case healthLog = "health_log"
     case healthLogSingle = "health_log_single"
 }
