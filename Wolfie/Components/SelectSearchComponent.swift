@@ -10,6 +10,7 @@ import SwiftUI
 struct UISelectSearch: View {
     var label: String!
     var values: [SelectItem]
+    var plain = false
     @Binding var state: SelectItem?
     @State private var isOpen = false
     @State private var query = ""
@@ -29,7 +30,7 @@ struct UISelectSearch: View {
             
             Spacer()
             
-            Button(state?.label ?? "——") {
+            Button(state?.label ?? String(localized: "breed_mixed")) {
                 isOpen = true
             }
         }
@@ -60,15 +61,15 @@ struct UISelectSearch: View {
             }
         }
         .frame(maxWidth: .infinity)
-        .padding()
+        .padding(plain ? 0 : 16)
         .foregroundColor(Color(.label))
-        .background(Color(.secondarySystemBackground))
+        .background(plain ? nil : Color(.secondarySystemBackground))
         .cornerRadius(8)
     }
 }
 
 struct UISelectSearch_Previews: PreviewProvider {
-    @State static var selectedValue: SelectItem? = nil
+    @State static var selectedValue: SelectItem? = SelectItem(label: BREED_SCHNAUZER.localizedName, id: String(BREED_SCHNAUZER.id))
     
     static var values: [SelectItem] = [
         SelectItem(label: "English Pointer", id: "1"),
@@ -79,17 +80,39 @@ struct UISelectSearch_Previews: PreviewProvider {
     ]
     
     static var previews: some View {
-        UISelectSearch(
-            label: "Select breed",
-            values: values,
-            state: $selectedValue
-        )
+        VStack {
+            UISelectSearch(
+                label: "Select breed",
+                values: values,
+                state: $selectedValue
+            )
+            .padding(.bottom)
+            
+            UISelectSearch(
+                label: "Select breed",
+                values: values,
+                plain: true,
+                state: $selectedValue
+            )
+        }
+        .padding(.horizontal)
         
-        UISelectSearch(
-            label: "Select breed",
-            values: values,
-            state: $selectedValue
-        )
-            .preferredColorScheme(.dark)
+        VStack {
+            UISelectSearch(
+                label: "Select breed",
+                values: values,
+                state: $selectedValue
+            )
+            .padding(.bottom)
+            
+            UISelectSearch(
+                label: "Select breed",
+                values: values,
+                plain: true,
+                state: $selectedValue
+            )
+        }
+        .padding(.horizontal)
+        .preferredColorScheme(.dark)
     }
 }

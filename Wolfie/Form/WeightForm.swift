@@ -33,17 +33,26 @@ struct WeightForm: View {
                     HStack {
                         DatePicker(String(localized: "date"), selection: $vm.date, in: dateRange, displayedComponents: [.date])
                             .focused($focusedField, equals: .date)
+                            .foregroundColor(Color(UIColor.secondaryLabel))
                     }
                     .listRowBackground(Color(UIColor.secondarySystemBackground))
                     
                     HStack {
-                        DatePicker(String(localized: "time"), selection: $vm.date, in: dateRange, displayedComponents: [.hourAndMinute])
+                        DatePicker(
+                            String(localized: "time"),
+                            selection: $vm.date,
+                            in: dateRange,
+                            displayedComponents: [.hourAndMinute]
+                        )
                             .focused($focusedField, equals: .time)
+                            .foregroundColor(Color(UIColor.secondaryLabel))
                     }
                     .listRowBackground(Color(UIColor.secondarySystemBackground))
 
                     HStack {
                         Text(vm.weightUnits.rawValue.lowercased())
+                            .foregroundColor(Color(UIColor.secondaryLabel))
+
                         TextField("", value: $vm.weight, formatter: NumberFormatter())
                             .textFieldStyle(PlainTextFieldStyle())
                             .keyboardType(.decimalPad)

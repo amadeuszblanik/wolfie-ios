@@ -9,25 +9,54 @@ import SwiftUI
 
 struct PetForm: View {
     @StateObject var vm = ViewModel()
+    
+    var dateRange: ClosedRange<Date> {
+        let calendar = Calendar.current
+        let startComponents = calendar.dateComponents([.day, .month, .year, .hour, .minute], from: Date(timeIntervalSince1970: 0))
+        let endComponents = calendar.dateComponents([.day, .month, .year, .hour, .minute], from: Date())
+        
+        return calendar.date(from: startComponents)!...calendar.date(from: endComponents)!
+    }
 
     var body: some View {
         NavigationView {
             VStack {
-                VStack {
-                    UIInput(label: String(localized: "name"), state: $vm.name)
-                        .padding(.bottom)
+                Form {
+                    HStack {
+                        Text(String(localized: "name"))
+                            .foregroundColor(Color(UIColor.secondaryLabel))
+
+                        TextField("", text: $vm.name)
+                            .multilineTextAlignment(.trailing)
+                    }
                     
-                    UISelectSearch(label: String(localized: "breed"), values: vm.breeds, state: $vm.breed)
-                        .padding(.bottom)
+                    HStack {
+                        UISelectSearch(
+                            label: String(localized: "breed"),
+                            values: vm.breeds,
+                            plain: true,
+                            state: $vm.breed
+                        )
+                    }
                     
-                    UIInput(label: String(localized: "microchip"), state: $vm.microchip)
-                        .padding(.bottom)
+                    HStack {
+                        Text(String(localized: "microchip"))
+                            .foregroundColor(Color(UIColor.secondaryLabel))
+
+                        TextField("", text: $vm.microchip)
+                            .multilineTextAlignment(.trailing)
+                    }
                     
-                    UIInputDate(label: String(localized: "birthdate"), state: $vm.birthDate)
-                    
-                    Spacer()
+                    HStack {
+                        DatePicker(
+                            String(localized: "birthdate"),
+                            selection: $vm.birthDate,
+                            in: dateRange,
+                            displayedComponents: [.date, .hourAndMinute]
+                        )
+                            .foregroundColor(Color(UIColor.secondaryLabel))
+                    }
                 }
-                .padding(.horizontal)
             }
             .navigationTitle(String(localized: vm.id != nil ? "pet_form_header_edit" : "pet_form_header_add"))
             .navigationBarTitleDisplayMode(.inline)
