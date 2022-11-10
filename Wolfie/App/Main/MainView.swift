@@ -50,11 +50,14 @@ struct MainView: View {
     }
     
     var body: some View {
-        if !vm.authenticated {
-            GuestView()
-        } else {
-            signed
+        VStack {
+            if !vm.authenticated {
+                GuestView()
+            } else {
+                signed
+            }
         }
+        .navigationBarHidden(true)
     }
 }
 

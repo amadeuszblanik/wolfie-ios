@@ -9,10 +9,32 @@ import Foundation
 
 extension DashboardView {
     @MainActor class ViewModel: ObservableObject {
-        var petsList: [ApiPetSingle]
+        @Published var petsList: [ApiPetSingle] {
+            didSet {
+                // @TODO Will fetch data from config
+                isAllowedToAddPet = self.petsList.count < 3
+            }
+        }
+        @Published var isAllowedToAddPet = true
         
         init(petList: [ApiPetSingle] = []) {
             self.petsList = petList
+        }
+        
+        func devAddPet() -> Void {
+            petsList.append(PET_GOLDIE)
+        }
+        
+        func devClearPetList() -> Void {
+            petsList = []
+        }
+        
+        func devRemoveLastPet() -> Void {
+            if (petsList.isEmpty) {
+                return
+            }
+            
+            petsList.removeLast()
         }
     }
 }

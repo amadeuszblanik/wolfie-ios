@@ -17,13 +17,13 @@ extension PetForm {
         @Published var birthDate: Date
         var breeds = [BREED_ENGLISH_POINTER, BREED_ENGLISH_SETTER, BREED_GIANT_SCHNAUZER, BREED_SCHNAUZER, BREED_MINIATURE_SCHNAUZER].map { SelectItem(label: $0.localizedName, id: String($0.id)) }
         
-        init(id: String? = nil, name: String = "", kind: PetKind = PetKind.Dog, breed: SelectItem? = nil, microchip: String = "", birthDate: Date = Date.now) {
-            self.id = id
-            self.name = name
-            self.kind = kind
-            self.breed = breed
-            self.microchip = microchip
-            self.birthDate = birthDate
+        init(pet: ApiPetSingle? = nil) {
+            self.id = pet?.id
+            self.name = pet?.name ?? ""
+            self.kind = pet?.kind ?? PetKind.Dog
+            self.breed = pet?.breed != nil ? SelectItem(label: pet!.breed!.localizedName, id: String(pet!.breed!.id)) : nil
+            self.microchip = pet?.microchip ?? ""
+            self.birthDate = pet?.birthDate ?? Date()
         }
 
         func createPet() -> Void {

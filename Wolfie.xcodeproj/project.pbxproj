@@ -51,6 +51,9 @@
 		4EFC7468291C403C0086A6AB /* PetFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7467291C403C0086A6AB /* PetFormViewModel.swift */; };
 		4EFC746A291C43B00086A6AB /* SelectSearchComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7469291C43B00086A6AB /* SelectSearchComponent.swift */; };
 		4EFC746C291C53E70086A6AB /* SequenceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC746B291C53E70086A6AB /* SequenceType.swift */; };
+		4EFC746E291C76660086A6AB /* DashboardSingleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC746D291C76660086A6AB /* DashboardSingleView.swift */; };
+		4EFC7470291C76FD0086A6AB /* CardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC746F291C76FD0086A6AB /* CardComponent.swift */; };
+		4EFC7473291C83B10086A6AB /* PetDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7472291C83B10086A6AB /* PetDto.swift */; };
 		5A5B64933940BF9FA99F7785 /* Pods_Wolfie_WolfieUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 386429BF285A0850E511C6CE /* Pods_Wolfie_WolfieUITests.framework */; };
 		99FB6251CB87AB011D4A34AB /* Pods_WolfieTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DBB399146447508763BB66F /* Pods_WolfieTests.framework */; };
 		AA0B70C3838D2D1041BB2F5C /* Pods_Wolfie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE453118ECAA8D8079CE24CF /* Pods_Wolfie.framework */; };
@@ -124,6 +127,9 @@
 		4EFC7467291C403C0086A6AB /* PetFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetFormViewModel.swift; sourceTree = "<group>"; };
 		4EFC7469291C43B00086A6AB /* SelectSearchComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSearchComponent.swift; sourceTree = "<group>"; };
 		4EFC746B291C53E70086A6AB /* SequenceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceType.swift; sourceTree = "<group>"; };
+		4EFC746D291C76660086A6AB /* DashboardSingleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardSingleView.swift; sourceTree = "<group>"; };
+		4EFC746F291C76FD0086A6AB /* CardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardComponent.swift; sourceTree = "<group>"; };
+		4EFC7472291C83B10086A6AB /* PetDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDto.swift; sourceTree = "<group>"; };
 		6DBB399146447508763BB66F /* Pods_WolfieTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WolfieTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E145B83477B9F6DE9692BE7 /* Pods-Wolfie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wolfie.release.xcconfig"; path = "Target Support Files/Pods-Wolfie/Pods-Wolfie.release.xcconfig"; sourceTree = "<group>"; };
 		BAF54684DC61906065739B00 /* Pods-Wolfie-WolfieUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wolfie-WolfieUITests.release.xcconfig"; path = "Target Support Files/Pods-Wolfie-WolfieUITests/Pods-Wolfie-WolfieUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -284,6 +290,7 @@
 				4EFC7451291B0E370086A6AB /* PetCardComponent.swift */,
 				4EFC7457291B103F0086A6AB /* AvatarComponent.swift */,
 				4EFC7469291C43B00086A6AB /* SelectSearchComponent.swift */,
+				4EFC746F291C76FD0086A6AB /* CardComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -312,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				4EFC7448291B0BD00086A6AB /* Api */,
+				4EFC7471291C839A0086A6AB /* Dto */,
 				4EE651C029197D2E007F115A /* AppViews.swift */,
 				4EFC743D291AF6920086A6AB /* WeightUnits.swift */,
 				4EFC744B291B0C310086A6AB /* PetKind.swift */,
@@ -324,6 +332,7 @@
 			children = (
 				4EFC7440291B06920086A6AB /* DashboardView.swift */,
 				4EFC7462291C30260086A6AB /* DashboardViewModel.swift */,
+				4EFC746D291C76660086A6AB /* DashboardSingleView.swift */,
 			);
 			path = DashboardView;
 			sourceTree = "<group>";
@@ -373,6 +382,14 @@
 				4EFC7467291C403C0086A6AB /* PetFormViewModel.swift */,
 			);
 			path = Form;
+			sourceTree = "<group>";
+		};
+		4EFC7471291C839A0086A6AB /* Dto */ = {
+			isa = PBXGroup;
+			children = (
+				4EFC7472291C83B10086A6AB /* PetDto.swift */,
+			);
+			path = Dto;
 			sourceTree = "<group>";
 		};
 		61766D039E443B97722970C0 /* Frameworks */ = {
@@ -628,11 +645,13 @@
 				4E24B6E629147D7700405D06 /* Persistence.swift in Sources */,
 				4EFC745F291B1ACD0086A6AB /* TimeInterval.swift in Sources */,
 				4EFC746A291C43B00086A6AB /* SelectSearchComponent.swift in Sources */,
+				4EFC7470291C76FD0086A6AB /* CardComponent.swift in Sources */,
 				4EFC7458291B103F0086A6AB /* AvatarComponent.swift in Sources */,
 				4E24B6E929147D7700405D06 /* Wolfie.xcdatamodeld in Sources */,
 				4EFC7455291B0E4E0086A6AB /* ApiPets.swift in Sources */,
 				4E79464A291AD3FC000C356C /* InputComponent.swift in Sources */,
 				4EFC7468291C403C0086A6AB /* PetFormViewModel.swift in Sources */,
+				4EFC7473291C83B10086A6AB /* PetDto.swift in Sources */,
 				4EFC743C291AF64C0086A6AB /* SelectComponent.swift in Sources */,
 				4EE651CA2919D310007F115A /* ShakeGestureManager.swift in Sources */,
 				4EFC746C291C53E70086A6AB /* SequenceType.swift in Sources */,
@@ -647,6 +666,7 @@
 				4E794651291AE000000C356C /* CheckboxComponent.swift in Sources */,
 				4EFC7441291B06920086A6AB /* DashboardView.swift in Sources */,
 				4EFC7461291B1AE60086A6AB /* TimeInvervalFormatter.swift in Sources */,
+				4EFC746E291C76660086A6AB /* DashboardSingleView.swift in Sources */,
 				4EFC744E291B0C5F0086A6AB /* WeightValue.swift in Sources */,
 				4EFC7437291AE6C00086A6AB /* MainViewModel.swift in Sources */,
 				4EFC7450291B0CE60086A6AB /* Breed.swift in Sources */,

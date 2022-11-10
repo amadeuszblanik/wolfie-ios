@@ -58,6 +58,8 @@ struct GuestView: View {
                 ProgressView()
             }
         }
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
     }
 }
 

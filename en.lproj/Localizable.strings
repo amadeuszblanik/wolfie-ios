@@ -29,11 +29,13 @@
 "password" = "Password";
 "password_confirm" = "Confirm password";
 "keep_me_signed_in" = "Keep me sign in";
+"weight" = "Weight";
 "weight_unit" = "Weight units";
 "weight_unit_kg" = "Kilograms";
 "weight_unit_g" = "Grams";
 "weight_unit_lb" = "Pounds";
 "weight_unit_oz" = "Ounce";
+"health_log" = "Health log";
 "gdpr_consent" = "Lorem ipsum dolor sit amet";
 
 "age" = "Age";
@@ -52,7 +54,8 @@
 "breed_mixed" = "Mixed";
 
 "dashboard_header" = "Dashboard";
-"dashboard_sub_header_empty" = "You have not added any pet yet";
+"dashboard_empty" = "You have not added any pet yet";
+"dashboard_button" = "Add new pet";
 "dashboard_empty_button" = "Add your first one";
 
 "pet_form_header_edit" = "Edit your pet";

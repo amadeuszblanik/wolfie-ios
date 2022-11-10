@@ -21,9 +21,13 @@ struct DashboardView: View {
                 
                 ScrollView {
                     ForEach(vm.petsList) { petSingle in
-                        PetCardComponent(pet: petSingle)
-                            .padding(.horizontal)
-                            .padding(.bottom)
+                        Button {
+                            path.append(DashboardViews.details)
+                        } label: {
+                            PetCardComponent(pet: petSingle)
+                                .padding(.horizontal)
+                                .padding(.bottom)
+                        }
                     }
                 }
             }
@@ -33,36 +37,70 @@ struct DashboardView: View {
     var empty: some View {
         Group {
             VStack {
-                UIJumbotron(
-                    header: String(localized: "dashboard_header"),
-                    subHeader: String(localized: "dashboard_sub_header_empty")
-                )
-                
-                Spacer()
-
-                UIButton(text: String(localized: "dashboard_empty_button"), fullWidth: true) {
-                    isAddOpen = true
-                }
-                .padding()
-                .sheet(isPresented: $isAddOpen) {
-                    PetForm()
-                }
+                UIJumbotron(header: String(localized: "dashboard_header"))
             }
+            
+            Spacer()
+            
+            Text(String(localized: "dashboard_empty"))
+                .fontWeight(.semibold)
         }
     }
     
     var body: some View {
         NavigationStack(path: $path) {
             VStack {
-                if (vm.petsList.count <= 0) {
+                if (vm.petsList.isEmpty) {
                     empty
                 } else {
                     list
                 }
+                
+                Spacer()
+                
+                if vm.isAllowedToAddPet {
+                    UIButton(text: String(localized: vm.petsList.isEmpty ? "dashboard_empty_button" : "dashboard_button"), fullWidth: true) {
+                        isAddOpen = true
+                    }
+                    .padding()
+                    .sheet(isPresented: $isAddOpen) {
+                        PetForm()
+                    }
+                }
+                
+                #if DEBUG
+                ScrollView(.horizontal) {
+                    HStack {
+                        Button("Add pet") {
+                            vm.devAddPet()
+                        }
+                        .buttonStyle(.bordered)
+                        
+                        Button("Clear pet list") {
+                            vm.devClearPetList()
+                        }
+                        .buttonStyle(.bordered)
+                        
+                        Button("Remove last pet") {
+                            vm.devRemoveLastPet()
+                        }
+                        .buttonStyle(.bordered)
+                        .disabled(vm.petsList.isEmpty)
+                    }
+                    .padding(.horizontal)
+                }
+                #endif
             }
             .navigationDestination(for: DashboardViews.self) { dashboardView in
-                Text(dashboardView.rawValue)
+                switch (dashboardView) {
+                case .details:
+                    DashboardSingleView(pet: PET_GOLDIE)
+                default:
+                    Text(dashboardView.rawValue)
+                }
             }
+            .navigationBarHidden(true)
+            .navigationTitle(String(localized: "dashboard_header"))
         }
     }
 }

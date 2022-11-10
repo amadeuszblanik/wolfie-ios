@@ -47,6 +47,7 @@ struct PetCardComponent: View {
                 )
             }
             .frame(maxWidth: .infinity)
+            .foregroundColor(Color(UIColor.lightText))
         }
     }
     
@@ -67,6 +68,7 @@ struct PetCardComponent: View {
         }
         .padding(.vertical, 20)
         .padding(.horizontal)
+        .foregroundColor(.white)
         .background(
             LinearGradient(gradient: Gradient(colors: [.indigo, .blue]), startPoint: .bottomLeading, endPoint: .topTrailing)
         )
