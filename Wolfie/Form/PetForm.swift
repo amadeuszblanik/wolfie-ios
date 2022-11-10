@@ -28,7 +28,7 @@ struct PetForm: View {
                 UIInput(label: String(localized: "microchip"), state: $vm.microchip)
                     .padding(.bottom)
                 
-                UIInput(label: String(localized: "birthdate"), state: $vm.microchip)
+                UIInputDate(label: String(localized: "birthdate"), state: $vm.birthDate)
                 
                 Spacer()
                 
@@ -48,6 +48,9 @@ struct PetForm_Previews: PreviewProvider {
     static var previews: some View {
         PetForm()
         PetForm()
+            .preferredColorScheme(.dark)
+        PetForm(vm: PetForm.ViewModel(pet: PET_GOLDIE))
+        PetForm(vm: PetForm.ViewModel(pet: PET_GOLDIE))
             .preferredColorScheme(.dark)
     }
 }
