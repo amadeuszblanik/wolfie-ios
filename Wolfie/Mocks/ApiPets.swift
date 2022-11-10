@@ -25,3 +25,15 @@ let PET_GOLDIE = ApiPetSingle(
     createdAt: Date(),
     updatedAt: Date()
 )
+
+let PET_TESTIE = ApiPetSingle(
+    id: "321",
+    name: "Testie",
+    kind: .Dog,
+    image: "",
+    birthDate: Date(timeIntervalSince1970: 1644663600),
+    healthLog: 0,
+    breed: BREED_ENGLISH_SETTER,
+    createdAt: Date(),
+    updatedAt: Date()
+)

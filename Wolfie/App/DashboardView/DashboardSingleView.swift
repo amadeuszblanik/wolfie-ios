@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DashboardSingleView: View {
-    var pet: ApiPetSingle!
+    @Binding var pet: ApiPetSingle
     
     @State private var isOpenEdit = false
     
@@ -59,9 +59,11 @@ struct DashboardSingleView: View {
 }
 
 struct DashboardSingleView_Previews: PreviewProvider {
+    @State static var pet = PET_GOLDIE
+    
     static var previews: some View {
-        DashboardSingleView(pet: PET_GOLDIE)
-        DashboardSingleView(pet: PET_GOLDIE)
+        DashboardSingleView(pet: $pet)
+        DashboardSingleView(pet: $pet)
             .preferredColorScheme(.dark)
     }
 }

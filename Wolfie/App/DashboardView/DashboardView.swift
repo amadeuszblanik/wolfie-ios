@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DashboardView: View {
+    @State private var selectedPet: ApiPetSingle = PET_GOLDIE // @TODO Refactor it later, too tired right now
     @State private var isAddOpen = false
     @State private var path: [DashboardViews] = []
     @StateObject var vm = ViewModel();
@@ -22,6 +23,7 @@ struct DashboardView: View {
                 ScrollView {
                     ForEach(vm.petsList) { petSingle in
                         Button {
+                            selectedPet = petSingle
                             path.append(DashboardViews.details)
                         } label: {
                             PetCardComponent(pet: petSingle)
@@ -94,7 +96,7 @@ struct DashboardView: View {
             .navigationDestination(for: DashboardViews.self) { dashboardView in
                 switch (dashboardView) {
                 case .details:
-                    DashboardSingleView(pet: PET_GOLDIE)
+                    DashboardSingleView(pet: $selectedPet)
                 default:
                     Text(dashboardView.rawValue)
                 }

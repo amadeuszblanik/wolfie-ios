@@ -22,7 +22,7 @@ extension DashboardView {
         }
         
         func devAddPet() -> Void {
-            petsList.append(PET_GOLDIE)
+            petsList.append([PET_GOLDIE, PET_TESTIE].randomElement()!)
         }
         
         func devClearPetList() -> Void {
