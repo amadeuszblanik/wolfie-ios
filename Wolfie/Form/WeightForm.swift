@@ -46,6 +46,7 @@ struct WeightForm: View {
                         Text(vm.weightUnits.rawValue.lowercased())
                         TextField("", value: $vm.weight, formatter: NumberFormatter())
                             .textFieldStyle(PlainTextFieldStyle())
+                            .keyboardType(.decimalPad)
                             .focused($focusedField, equals: .weight)
                             .multilineTextAlignment(.trailing)
                             .onAppear {
