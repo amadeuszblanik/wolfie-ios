@@ -61,6 +61,9 @@
 		4EFC747F291D9B100086A6AB /* NumberExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC747E291D9B100086A6AB /* NumberExtensions.swift */; };
 		4EFC7481291D9B3C0086A6AB /* DateIntervalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7480291D9B3C0086A6AB /* DateIntervalExtensions.swift */; };
 		4EFC7483291D9B5A0086A6AB /* DateIntervalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7482291D9B5A0086A6AB /* DateIntervalFormatter.swift */; };
+		4EFC7485291DA4F90086A6AB /* WeightForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7484291DA4F90086A6AB /* WeightForm.swift */; };
+		4EFC7487291DA5040086A6AB /* WeightFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7486291DA5040086A6AB /* WeightFormViewModel.swift */; };
+		4EFC7489291DA75C0086A6AB /* WeightDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7488291DA75C0086A6AB /* WeightDto.swift */; };
 		5A5B64933940BF9FA99F7785 /* Pods_Wolfie_WolfieUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 386429BF285A0850E511C6CE /* Pods_Wolfie_WolfieUITests.framework */; };
 		99FB6251CB87AB011D4A34AB /* Pods_WolfieTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DBB399146447508763BB66F /* Pods_WolfieTests.framework */; };
 		AA0B70C3838D2D1041BB2F5C /* Pods_Wolfie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE453118ECAA8D8079CE24CF /* Pods_Wolfie.framework */; };
@@ -144,6 +147,9 @@
 		4EFC747E291D9B100086A6AB /* NumberExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberExtensions.swift; sourceTree = "<group>"; };
 		4EFC7480291D9B3C0086A6AB /* DateIntervalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateIntervalExtensions.swift; sourceTree = "<group>"; };
 		4EFC7482291D9B5A0086A6AB /* DateIntervalFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateIntervalFormatter.swift; sourceTree = "<group>"; };
+		4EFC7484291DA4F90086A6AB /* WeightForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightForm.swift; sourceTree = "<group>"; };
+		4EFC7486291DA5040086A6AB /* WeightFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightFormViewModel.swift; sourceTree = "<group>"; };
+		4EFC7488291DA75C0086A6AB /* WeightDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightDto.swift; sourceTree = "<group>"; };
 		6DBB399146447508763BB66F /* Pods_WolfieTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WolfieTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E145B83477B9F6DE9692BE7 /* Pods-Wolfie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wolfie.release.xcconfig"; path = "Target Support Files/Pods-Wolfie/Pods-Wolfie.release.xcconfig"; sourceTree = "<group>"; };
 		BAF54684DC61906065739B00 /* Pods-Wolfie-WolfieUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wolfie-WolfieUITests.release.xcconfig"; path = "Target Support Files/Pods-Wolfie-WolfieUITests/Pods-Wolfie-WolfieUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -401,6 +407,8 @@
 			children = (
 				4EFC7465291C3F990086A6AB /* PetForm.swift */,
 				4EFC7467291C403C0086A6AB /* PetFormViewModel.swift */,
+				4EFC7484291DA4F90086A6AB /* WeightForm.swift */,
+				4EFC7486291DA5040086A6AB /* WeightFormViewModel.swift */,
 			);
 			path = Form;
 			sourceTree = "<group>";
@@ -409,6 +417,7 @@
 			isa = PBXGroup;
 			children = (
 				4EFC7472291C83B10086A6AB /* PetDto.swift */,
+				4EFC7488291DA75C0086A6AB /* WeightDto.swift */,
 			);
 			path = Dto;
 			sourceTree = "<group>";
@@ -689,6 +698,7 @@
 				4EE651C129197D2E007F115A /* AppViews.swift in Sources */,
 				4EFC7435291AE32D0086A6AB /* JumbotronComponent.swift in Sources */,
 				4E794651291AE000000C356C /* CheckboxComponent.swift in Sources */,
+				4EFC7485291DA4F90086A6AB /* WeightForm.swift in Sources */,
 				4EFC7441291B06920086A6AB /* DashboardView.swift in Sources */,
 				4EFC747F291D9B100086A6AB /* NumberExtensions.swift in Sources */,
 				4EFC7461291B1AE60086A6AB /* TimeInvervalFormatter.swift in Sources */,
@@ -702,6 +712,7 @@
 				4E79464C291AD58F000C356C /* SignInViewModel.swift in Sources */,
 				4EFC7463291C30260086A6AB /* DashboardViewModel.swift in Sources */,
 				4EE651B0291971EA007F115A /* MainView.swift in Sources */,
+				4EFC7487291DA5040086A6AB /* WeightFormViewModel.swift in Sources */,
 				4EFC743E291AF6920086A6AB /* WeightUnits.swift in Sources */,
 				4EFC7481291D9B3C0086A6AB /* DateIntervalExtensions.swift in Sources */,
 				4EE651B62919734F007F115A /* ButtonComponent.swift in Sources */,
@@ -710,6 +721,7 @@
 				4EFC7447291B0B990086A6AB /* MyPets.swift in Sources */,
 				4E24B6DD29147D7600405D06 /* WolfieApp.swift in Sources */,
 				4EE651B32919724A007F115A /* MainDevView.swift in Sources */,
+				4EFC7489291DA75C0086A6AB /* WeightDto.swift in Sources */,
 				4EFC744A291B0BF20086A6AB /* PetSingle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

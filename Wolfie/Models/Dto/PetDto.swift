@@ -7,8 +7,16 @@
 
 import Foundation
 
-public struct DtoPet: Identifiable, Codable {
-    public var id: String?
+public struct DtoPet: Codable {
+    var name: String
+    var kind: PetKind
+    var microchip: String?
+    var birthDate: Date
+    var breed: Int
+}
+
+public struct DtoPetUpdate: Identifiable, Codable {
+    public var id: String
     var name: String
     var kind: PetKind
     var microchip: String?

@@ -46,6 +46,8 @@
 "microchip" = "Microchip";
 "birthdate" = "Birth date";
 "birthday" = "Birthday";
+"date" = "Date";
+"time" = "Time";
 "breed" = "Breed";
 "breed_english_pointer" = "English pointer";
 "breed_english_setter" = "English setter";
@@ -62,8 +64,11 @@
 "dashboard_button" = "Add new pet";
 "dashboard_empty_button" = "Add your first one";
 
-"pet_form_header_edit" = "Edit your pet";
-"pet_form_header_add" = "Add new pet";
+"pet_form_header_edit" = "Edit pet";
+"pet_form_header_add" = "Add pet";
+
+"weight_form_header_edit" = "Edit weight";
+"weight_form_header_add" = "Add weight";
 
 "action_delete_alert_title" = "Confirm deletion";
 "action_delete_alert_message" = "Are you sure to delete this entry?";

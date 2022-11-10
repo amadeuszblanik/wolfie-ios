@@ -104,7 +104,7 @@ struct DashboardView: View {
                         }
                 case .weight:
                     DashboardWeightsView(
-                        pet: selectedPet,
+                        pet: $selectedPet,
                         vm: DashboardWeightsView.ViewModel(data: [WEIGHT_142, WEIGHT_140, WEIGHT_138])
                     )
                     .toolbar {
@@ -115,7 +115,7 @@ struct DashboardView: View {
                         }
                     }
                     .sheet(isPresented: $isAddWeightOpen) {
-                        Text("Add weight")
+                        WeightForm(pet: $selectedPet)
                     }
                     .navigationTitle(String(localized: "weights"))
                 default:

@@ -9,8 +9,9 @@ import SwiftUI
 import Charts
 
 struct DashboardWeightsView: View {
-    var pet: ApiPetSingle
+    @Binding var pet: ApiPetSingle
 
+    @State private var isEditWeightOpen = false;
     @State private var isDeleteOpen = false;
     @StateObject var vm = ViewModel()
     
@@ -54,6 +55,9 @@ struct DashboardWeightsView: View {
                             Button(String(localized: "delete")) {
                                 isDeleteOpen = true
                             }.tint(.red)
+                            Button(String(localized: "edit")) {
+                                isEditWeightOpen = true
+                            }.tint(.accentColor)
                         }
                         .alert(isPresented: $isDeleteOpen) {
                             Alert(
@@ -64,6 +68,9 @@ struct DashboardWeightsView: View {
                                 },
                                 secondaryButton: .cancel()
                             )
+                        }
+                        .sheet(isPresented: $isEditWeightOpen) {
+                            WeightForm(pet: $pet, vm: WeightForm.ViewModel(weight: data))
                         }
                     }
                 } header: {
@@ -79,17 +86,19 @@ struct DashboardWeightsView: View {
 }
 
 struct DashboardWeightsView_Previews: PreviewProvider {
+    @State static var pet = PET_GOLDIE
+    
     static var previews: some View {
-        DashboardWeightsView(pet: PET_GOLDIE)
-        DashboardWeightsView(pet: PET_GOLDIE)
+        DashboardWeightsView(pet: $pet)
+        DashboardWeightsView(pet: $pet)
             .preferredColorScheme(.dark)
         
-        DashboardWeightsView(pet: PET_GOLDIE, vm: DashboardWeightsView.ViewModel(data: [WEIGHT_142]))
-        DashboardWeightsView(pet: PET_GOLDIE, vm: DashboardWeightsView.ViewModel(data: [WEIGHT_142]))
+        DashboardWeightsView(pet: $pet, vm: DashboardWeightsView.ViewModel(data: [WEIGHT_142]))
+        DashboardWeightsView(pet: $pet, vm: DashboardWeightsView.ViewModel(data: [WEIGHT_142]))
             .preferredColorScheme(.dark)
         
-        DashboardWeightsView(pet: PET_GOLDIE, vm: DashboardWeightsView.ViewModel(data: [WEIGHT_142, WEIGHT_140, WEIGHT_138]))
-        DashboardWeightsView(pet: PET_GOLDIE, vm: DashboardWeightsView.ViewModel(data: [WEIGHT_142, WEIGHT_140, WEIGHT_138]))
+        DashboardWeightsView(pet: $pet, vm: DashboardWeightsView.ViewModel(data: [WEIGHT_142, WEIGHT_140, WEIGHT_138]))
+        DashboardWeightsView(pet: $pet, vm: DashboardWeightsView.ViewModel(data: [WEIGHT_142, WEIGHT_140, WEIGHT_138]))
             .preferredColorScheme(.dark)
     }
 }
