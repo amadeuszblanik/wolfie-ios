@@ -39,7 +39,6 @@ struct UISummary: View {
 
             Spacer()
         }
-        .frame(width: .infinity)
     }
 }
 

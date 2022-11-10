@@ -63,7 +63,7 @@ struct PetForm: View {
             .toolbar {
                 ToolbarItem {
                     Button(String(localized: "save")) {
-                        vm.createPet()
+                        vm.id != nil ? vm.update() : vm.create()
                     }
                 }
             }

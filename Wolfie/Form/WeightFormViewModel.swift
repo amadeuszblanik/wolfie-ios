@@ -25,7 +25,7 @@ extension WeightForm {
         }
         
         func update() -> Void {
-            print("Update \n\(weight)\n\(date)")
+            print("Update \(id)\n\(weight)\n\(date)")
         }
     }
 }

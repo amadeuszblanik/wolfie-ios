@@ -7,7 +7,7 @@
 
 import Foundation
 
-func dateFormatter(dateStyle: DateFormatter.Style? = .long, dateFormat: String? = nil, timeStyle: DateFormatter.Style? = .none) -> DateFormatter {
+func dateFormatter(dateStyle: DateFormatter.Style? = .long, dateFormat: String? = nil, timeStyle: DateFormatter.Style? = DateFormatter.Style.none) -> DateFormatter {
     let formatter = DateFormatter()
     if (dateStyle != nil) {
         formatter.dateStyle = dateStyle!

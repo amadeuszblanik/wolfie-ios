@@ -26,8 +26,12 @@ extension PetForm {
             self.birthDate = pet?.birthDate ?? Date()
         }
 
-        func createPet() -> Void {
-            print("Create pet\n\(name)\n\(kind)\n\(breed)\n\(microchip)\n\(birthDate)")
+        func create() -> Void {
+            print("Create \n\(name)\n\(kind)\n\(breed)\n\(microchip)\n\(birthDate)")
+        }
+        
+        func update() -> Void {
+            print("Update \(id)\n\(name)\n\(kind)\n\(breed)\n\(microchip)\n\(birthDate)")
         }
     }
 }
