@@ -17,7 +17,7 @@ extension Date {
     }
     
     func toFormattedWithTime() -> String {
-        return dateFormatter(timeStyle: .short).string(from: self)
+        return dateFormatter(dateStyle: .medium, timeStyle: .short).string(from: self)
     }
     
     func toFormattedShort() -> String {

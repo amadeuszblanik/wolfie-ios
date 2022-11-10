@@ -19,7 +19,10 @@
 
 "please_wait" = "Please wait…";
 "update" = "Update";
+"edit" = "Edit";
 "add" = "Add";
+"save" = "Save";
+"delete" = "Delete";
 
 "email" = "Email";
 "username" = "Username";
@@ -35,6 +38,7 @@
 "weight_unit_g" = "Grams";
 "weight_unit_lb" = "Pounds";
 "weight_unit_oz" = "Ounce";
+"weights" = "Weights";
 "health_log" = "Health log";
 "gdpr_consent" = "Lorem ipsum dolor sit amet";
 
@@ -53,10 +57,13 @@
 "breed_miniature_schnauzer" = "Miniature schnauzer";
 "breed_mixed" = "Mixed";
 
-"dashboard_header" = "Dashboard";
+"dashboard" = "Dashboard";
 "dashboard_empty" = "You have not added any pet yet";
 "dashboard_button" = "Add new pet";
 "dashboard_empty_button" = "Add your first one";
 
 "pet_form_header_edit" = "Edit your pet";
 "pet_form_header_add" = "Add new pet";
+
+"action_delete_alert_title" = "Confirm deletion";
+"action_delete_alert_message" = "Are you sure to delete this entry?";

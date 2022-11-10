@@ -55,6 +55,12 @@
 		4EFC7470291C76FD0086A6AB /* CardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC746F291C76FD0086A6AB /* CardComponent.swift */; };
 		4EFC7473291C83B10086A6AB /* PetDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7472291C83B10086A6AB /* PetDto.swift */; };
 		4EFC7475291C85AB0086A6AB /* InputDateComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7474291C85AB0086A6AB /* InputDateComponent.swift */; };
+		4EFC7477291D8CC60086A6AB /* DashboardWeightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7476291D8CC60086A6AB /* DashboardWeightsView.swift */; };
+		4EFC7479291D8D0E0086A6AB /* DashboardWeightViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7478291D8D0E0086A6AB /* DashboardWeightViewModel.swift */; };
+		4EFC747D291D9AE50086A6AB /* SummaryComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC747C291D9AE50086A6AB /* SummaryComponent.swift */; };
+		4EFC747F291D9B100086A6AB /* NumberExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC747E291D9B100086A6AB /* NumberExtensions.swift */; };
+		4EFC7481291D9B3C0086A6AB /* DateIntervalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7480291D9B3C0086A6AB /* DateIntervalExtensions.swift */; };
+		4EFC7483291D9B5A0086A6AB /* DateIntervalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7482291D9B5A0086A6AB /* DateIntervalFormatter.swift */; };
 		5A5B64933940BF9FA99F7785 /* Pods_Wolfie_WolfieUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 386429BF285A0850E511C6CE /* Pods_Wolfie_WolfieUITests.framework */; };
 		99FB6251CB87AB011D4A34AB /* Pods_WolfieTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DBB399146447508763BB66F /* Pods_WolfieTests.framework */; };
 		AA0B70C3838D2D1041BB2F5C /* Pods_Wolfie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE453118ECAA8D8079CE24CF /* Pods_Wolfie.framework */; };
@@ -132,6 +138,12 @@
 		4EFC746F291C76FD0086A6AB /* CardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardComponent.swift; sourceTree = "<group>"; };
 		4EFC7472291C83B10086A6AB /* PetDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDto.swift; sourceTree = "<group>"; };
 		4EFC7474291C85AB0086A6AB /* InputDateComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDateComponent.swift; sourceTree = "<group>"; };
+		4EFC7476291D8CC60086A6AB /* DashboardWeightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardWeightsView.swift; sourceTree = "<group>"; };
+		4EFC7478291D8D0E0086A6AB /* DashboardWeightViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardWeightViewModel.swift; sourceTree = "<group>"; };
+		4EFC747C291D9AE50086A6AB /* SummaryComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryComponent.swift; sourceTree = "<group>"; };
+		4EFC747E291D9B100086A6AB /* NumberExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberExtensions.swift; sourceTree = "<group>"; };
+		4EFC7480291D9B3C0086A6AB /* DateIntervalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateIntervalExtensions.swift; sourceTree = "<group>"; };
+		4EFC7482291D9B5A0086A6AB /* DateIntervalFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateIntervalFormatter.swift; sourceTree = "<group>"; };
 		6DBB399146447508763BB66F /* Pods_WolfieTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WolfieTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E145B83477B9F6DE9692BE7 /* Pods-Wolfie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wolfie.release.xcconfig"; path = "Target Support Files/Pods-Wolfie/Pods-Wolfie.release.xcconfig"; sourceTree = "<group>"; };
 		BAF54684DC61906065739B00 /* Pods-Wolfie-WolfieUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wolfie-WolfieUITests.release.xcconfig"; path = "Target Support Files/Pods-Wolfie-WolfieUITests/Pods-Wolfie-WolfieUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -294,6 +306,7 @@
 				4EFC7469291C43B00086A6AB /* SelectSearchComponent.swift */,
 				4EFC746F291C76FD0086A6AB /* CardComponent.swift */,
 				4EFC7474291C85AB0086A6AB /* InputDateComponent.swift */,
+				4EFC747C291D9AE50086A6AB /* SummaryComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -336,6 +349,8 @@
 				4EFC7440291B06920086A6AB /* DashboardView.swift */,
 				4EFC7462291C30260086A6AB /* DashboardViewModel.swift */,
 				4EFC746D291C76660086A6AB /* DashboardSingleView.swift */,
+				4EFC7476291D8CC60086A6AB /* DashboardWeightsView.swift */,
+				4EFC7478291D8D0E0086A6AB /* DashboardWeightViewModel.swift */,
 			);
 			path = DashboardView;
 			sourceTree = "<group>";
@@ -374,6 +389,9 @@
 				4EFC745E291B1ACD0086A6AB /* TimeInterval.swift */,
 				4EFC7460291B1AE60086A6AB /* TimeInvervalFormatter.swift */,
 				4EFC746B291C53E70086A6AB /* SequenceType.swift */,
+				4EFC747E291D9B100086A6AB /* NumberExtensions.swift */,
+				4EFC7480291D9B3C0086A6AB /* DateIntervalExtensions.swift */,
+				4EFC7482291D9B5A0086A6AB /* DateIntervalFormatter.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -647,18 +665,22 @@
 			files = (
 				4E24B6E629147D7700405D06 /* Persistence.swift in Sources */,
 				4EFC745F291B1ACD0086A6AB /* TimeInterval.swift in Sources */,
+				4EFC747D291D9AE50086A6AB /* SummaryComponent.swift in Sources */,
 				4EFC746A291C43B00086A6AB /* SelectSearchComponent.swift in Sources */,
 				4EFC7470291C76FD0086A6AB /* CardComponent.swift in Sources */,
 				4EFC7458291B103F0086A6AB /* AvatarComponent.swift in Sources */,
+				4EFC7479291D8D0E0086A6AB /* DashboardWeightViewModel.swift in Sources */,
 				4E24B6E929147D7700405D06 /* Wolfie.xcdatamodeld in Sources */,
 				4EFC7455291B0E4E0086A6AB /* ApiPets.swift in Sources */,
 				4E79464A291AD3FC000C356C /* InputComponent.swift in Sources */,
 				4EFC7468291C403C0086A6AB /* PetFormViewModel.swift in Sources */,
 				4EFC7473291C83B10086A6AB /* PetDto.swift in Sources */,
 				4EFC743C291AF64C0086A6AB /* SelectComponent.swift in Sources */,
+				4EFC7483291D9B5A0086A6AB /* DateIntervalFormatter.swift in Sources */,
 				4EE651CA2919D310007F115A /* ShakeGestureManager.swift in Sources */,
 				4EFC746C291C53E70086A6AB /* SequenceType.swift in Sources */,
 				4EFC743A291AEA6F0086A6AB /* SignUpViewModel.swift in Sources */,
+				4EFC7477291D8CC60086A6AB /* DashboardWeightsView.swift in Sources */,
 				4EFC7466291C3F990086A6AB /* PetForm.swift in Sources */,
 				4E24B6DF29147D7600405D06 /* ContentView.swift in Sources */,
 				4EFC7452291B0E370086A6AB /* PetCardComponent.swift in Sources */,
@@ -668,6 +690,7 @@
 				4EFC7435291AE32D0086A6AB /* JumbotronComponent.swift in Sources */,
 				4E794651291AE000000C356C /* CheckboxComponent.swift in Sources */,
 				4EFC7441291B06920086A6AB /* DashboardView.swift in Sources */,
+				4EFC747F291D9B100086A6AB /* NumberExtensions.swift in Sources */,
 				4EFC7461291B1AE60086A6AB /* TimeInvervalFormatter.swift in Sources */,
 				4EFC746E291C76660086A6AB /* DashboardSingleView.swift in Sources */,
 				4EFC744E291B0C5F0086A6AB /* WeightValue.swift in Sources */,
@@ -680,6 +703,7 @@
 				4EFC7463291C30260086A6AB /* DashboardViewModel.swift in Sources */,
 				4EE651B0291971EA007F115A /* MainView.swift in Sources */,
 				4EFC743E291AF6920086A6AB /* WeightUnits.swift in Sources */,
+				4EFC7481291D9B3C0086A6AB /* DateIntervalExtensions.swift in Sources */,
 				4EE651B62919734F007F115A /* ButtonComponent.swift in Sources */,
 				4EFC7475291C85AB0086A6AB /* InputDateComponent.swift in Sources */,
 				4EE651B92919769D007F115A /* GuestView.swift in Sources */,

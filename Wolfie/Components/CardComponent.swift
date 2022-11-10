@@ -25,7 +25,7 @@ struct CardComponent: View {
             HStack(alignment: .lastTextBaseline) {
                 Text(label)
                     .lineLimit(1)
-                Text(value ?? "0")
+                Text(value ?? "—")
                     .font(.title)
                     .lineLimit(1)
             }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DashboardSingleView: View {
     @Binding var pet: ApiPetSingle
+    @Binding var path: [DashboardViews]
     
     @State private var isOpenEdit = false
     
@@ -16,26 +17,19 @@ struct DashboardSingleView: View {
         NavigationView {
             VStack {
                 ScrollView {
-                    Button {
-                        isOpenEdit = true
-                    } label: {
-                        PetCardComponent(pet: pet)
-                    }
-                    .padding()
-                    .sheet(isPresented: $isOpenEdit) {
-                        PetForm(vm: PetForm.ViewModel(pet: pet))
-                    }
+                    PetCardComponent(pet: pet)
+                        .padding()
                     
                     Spacer()
                     
                     HStack {
                         Button {
-                            print("Weight clicked")
+                            path.append(.weight)
                         } label: {
                             CardComponent(
                                 label: String(localized: "weight"),
                                 icon: "barbell-outline",
-                                value: "14.2 KG"
+                                value: pet.currentWeight?.formatted
                             )
                         }
                         
@@ -45,7 +39,7 @@ struct DashboardSingleView: View {
                             CardComponent(
                                 label: String(localized: "health_log"),
                                 icon: "heart-outline",
-                                value: "9",
+                                value: String(pet.healthLog),
                                 background: .red
                             )
                         }
@@ -60,10 +54,11 @@ struct DashboardSingleView: View {
 
 struct DashboardSingleView_Previews: PreviewProvider {
     @State static var pet = PET_GOLDIE
+    @State static var path: [DashboardViews] = []
     
     static var previews: some View {
-        DashboardSingleView(pet: $pet)
-        DashboardSingleView(pet: $pet)
+        DashboardSingleView(pet: $pet, path: $path)
+        DashboardSingleView(pet: $pet, path: $path)
             .preferredColorScheme(.dark)
     }
 }

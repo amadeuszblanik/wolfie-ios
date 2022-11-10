@@ -10,16 +10,14 @@ import SwiftUI
 struct DashboardView: View {
     @State private var selectedPet: ApiPetSingle = PET_GOLDIE // @TODO Refactor it later, too tired right now
     @State private var isAddOpen = false
+    @State private var isPetEditOpen = false
+    @State private var isAddWeightOpen = false
     @State private var path: [DashboardViews] = []
     @StateObject var vm = ViewModel();
     
     var list: some View {
         Group {
             VStack {
-                UIJumbotron(
-                    header: String(localized: "dashboard_header")
-                )
-                
                 ScrollView {
                     ForEach(vm.petsList) { petSingle in
                         Button {
@@ -38,10 +36,6 @@ struct DashboardView: View {
     
     var empty: some View {
         Group {
-            VStack {
-                UIJumbotron(header: String(localized: "dashboard_header"))
-            }
-            
             Spacer()
             
             Text(String(localized: "dashboard_empty"))
@@ -96,13 +90,39 @@ struct DashboardView: View {
             .navigationDestination(for: DashboardViews.self) { dashboardView in
                 switch (dashboardView) {
                 case .details:
-                    DashboardSingleView(pet: $selectedPet)
+                    DashboardSingleView(pet: $selectedPet, path: $path)
+                        .navigationTitle(selectedPet.name)
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarTrailing) {
+                                Button(String(localized: "edit")) {
+                                    isPetEditOpen = true
+                                }
+                            }
+                        }
+                        .sheet(isPresented: $isPetEditOpen) {
+                            PetForm(vm: PetForm.ViewModel(pet: selectedPet))
+                        }
+                case .weight:
+                    DashboardWeightsView(
+                        pet: selectedPet,
+                        vm: DashboardWeightsView.ViewModel(data: [WEIGHT_142, WEIGHT_140, WEIGHT_138])
+                    )
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button(String(localized: "add")) {
+                                isAddWeightOpen = true
+                            }
+                        }
+                    }
+                    .sheet(isPresented: $isAddWeightOpen) {
+                        Text("Add weight")
+                    }
+                    .navigationTitle(String(localized: "weights"))
                 default:
                     Text(dashboardView.rawValue)
                 }
             }
-            .navigationBarHidden(true)
-            .navigationTitle(String(localized: "dashboard_header"))
+            .navigationTitle(String(localized: "dashboard"))
         }
     }
 }
