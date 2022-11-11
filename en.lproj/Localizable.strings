@@ -40,6 +40,14 @@
 "weight_unit_oz" = "Ounce";
 "weights" = "Weights";
 "health_log" = "Health log";
+"healt_log_empty" = "You don't have any health log data";
+"health_log_kind_vaccination_rabies" = "Vaccination rabbies";
+"health_log_kind_vaccination" = "Vaccination";
+"health_log_kind_deworming" = "Deworming";
+"health_log_kind_external_parasite" = "External parasite";
+"health_log_kind_regulations_of_breeding" = "Regulations of breeding";
+"health_log_kind_use_of_gamagloubin" = "Use of gamagloubin";
+"health_log_kind_treatment" = "Treatment";
 "gdpr_consent" = "Lorem ipsum dolor sit amet";
 
 "age" = "Age";

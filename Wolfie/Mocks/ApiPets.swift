@@ -17,6 +17,14 @@ let WEIGHT_142 = ApiWeightValue(id: "ABC-142", raw: 14.2, formatted: "14.2 KG", 
 let WEIGHT_140 = ApiWeightValue(id: "ABC-140", raw: 14, formatted: "14 KG", rawGram: 14000, date: Date(timeIntervalSinceNow: -86400), createdAt: Date(), updatedAt: Date())
 let WEIGHT_138 = ApiWeightValue(id: "ABC-138", raw: 13.8, formatted: "13.8 KG", rawGram: 13800, date: Date(timeIntervalSinceNow: -86400 * 7), createdAt: Date(), updatedAt: Date())
 
+let SIMPLE_USER_0 = ApiUserSimple(email: "amadeusz@blanik.me", firstName: "Amadeusz", lastName: "Blanik")
+
+let SIMPLE_MEDICINE_0 = ApiShortMedicineValue(productNumber: "MEDICINE-0", name: "Medicine from database")
+
+let HEALTHLOG_0 = ApiHealthLogValue(id: "HEALTH-LOG-0", kind: .Deworming, date: "2022-03-23", medicine: [SIMPLE_MEDICINE_0], additionalMedicines: ["Medicine added by user"], veterinary: "London, Common Str 1024", diagnosis: "Everything is good", nextVisit: Date(), description: "Lorem ipsum dolor sit amet",  addedBy: SIMPLE_USER_0, createdAt: Date(), updatedAt: Date())
+let HEALTHLOG_1 = ApiHealthLogValue(id: "HEALTH-LOG-1", kind: .ExternalParasite, date: "2022-03-24", medicine: [], additionalMedicines: ["Medicine added by user"], addedBy: SIMPLE_USER_0, createdAt: Date(), updatedAt: Date())
+let HEALTHLOG_2 = ApiHealthLogValue(id: "HEALTH-LOG-2", kind: .Treatment, date: "2022-03-25", medicine: [], additionalMedicines: [], addedBy: SIMPLE_USER_0, createdAt: Date(), updatedAt: Date())
+
 let PET_GOLDIE = ApiPetSingle(
     id: "123",
     name: "Goldie",

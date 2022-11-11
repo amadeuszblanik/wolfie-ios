@@ -10,6 +10,7 @@ import Foundation
 extension DashboardWeightsView {
     @MainActor class ViewModel: ObservableObject {
         var data: [ApiWeightValue]
+        var units: WeightUnits = .Kilogram
         
         init (data: [ApiWeightValue] = []) {
             self.data = data

@@ -12,6 +12,7 @@ struct DashboardView: View {
     @State private var isAddOpen = false
     @State private var isPetEditOpen = false
     @State private var isAddWeightOpen = false
+    @State private var isAddHealthLogOpen = false
     @State private var path: [DashboardViews] = []
     @StateObject var vm = ViewModel();
     
@@ -118,6 +119,22 @@ struct DashboardView: View {
                         WeightForm(pet: $selectedPet)
                     }
                     .navigationTitle(String(localized: "weights"))
+                case .healthLog:
+                    HealthLogView(
+                        pet: $selectedPet,
+                        vm: HealthLogView.ViewModel(data: [HEALTHLOG_0, HEALTHLOG_1, HEALTHLOG_2])
+                    )
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button(String(localized: "add")) {
+                                isAddHealthLogOpen = true
+                            }
+                        }
+                    }
+                    .sheet(isPresented: $isAddHealthLogOpen) {
+                        Text("Not implemented yet")
+                    }
+                    .navigationTitle(String(localized: "health_log"))
                 default:
                     Text(dashboardView.rawValue)
                 }

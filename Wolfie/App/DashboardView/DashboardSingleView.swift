@@ -34,7 +34,7 @@ struct DashboardSingleView: View {
                         }
                         
                         Button {
-                            print("Health log clicked")
+                            path.append(.healthLog)
                         } label: {
                             CardComponent(
                                 label: String(localized: "health_log"),

@@ -74,7 +74,7 @@ struct DashboardWeightsView: View {
                         }
                     }
                 } header: {
-                    Text("KG")
+                    Text(vm.units.rawValue.uppercased())
                 }
                 .listRowBackground(Color(UIColor.secondarySystemBackground))
             }

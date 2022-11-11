@@ -16,6 +16,13 @@
 		4E24B6F329147D7700405D06 /* WolfieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E24B6F229147D7700405D06 /* WolfieTests.swift */; };
 		4E24B6FD29147D7700405D06 /* WolfieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E24B6FC29147D7700405D06 /* WolfieUITests.swift */; };
 		4E24B6FF29147D7700405D06 /* WolfieUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E24B6FE29147D7700405D06 /* WolfieUITestsLaunchTests.swift */; };
+		4E51E584291EFC750007887B /* HealthLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E51E583291EFC750007887B /* HealthLogView.swift */; };
+		4E51E586291EFC820007887B /* HealthLogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E51E585291EFC820007887B /* HealthLogViewModel.swift */; };
+		4E51E588291EFCCF0007887B /* HealthLogValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E51E587291EFCCF0007887B /* HealthLogValue.swift */; };
+		4E51E58A291EFD180007887B /* HealthLogKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E51E589291EFD180007887B /* HealthLogKind.swift */; };
+		4E51E58C291EFDA10007887B /* MediciineValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E51E58B291EFDA10007887B /* MediciineValue.swift */; };
+		4E51E58E291EFE440007887B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E51E58D291EFE440007887B /* User.swift */; };
+		4E51E590291F01F80007887B /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E51E58F291F01F80007887B /* StringExtensions.swift */; };
 		4E79464A291AD3FC000C356C /* InputComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E794649291AD3FC000C356C /* InputComponent.swift */; };
 		4E79464C291AD58F000C356C /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E79464B291AD58F000C356C /* SignInViewModel.swift */; };
 		4E794651291AE000000C356C /* CheckboxComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E794650291AE000000C356C /* CheckboxComponent.swift */; };
@@ -100,6 +107,13 @@
 		4E24B6F829147D7700405D06 /* WolfieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WolfieUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E24B6FC29147D7700405D06 /* WolfieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WolfieUITests.swift; sourceTree = "<group>"; };
 		4E24B6FE29147D7700405D06 /* WolfieUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WolfieUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4E51E583291EFC750007887B /* HealthLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthLogView.swift; sourceTree = "<group>"; };
+		4E51E585291EFC820007887B /* HealthLogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthLogViewModel.swift; sourceTree = "<group>"; };
+		4E51E587291EFCCF0007887B /* HealthLogValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthLogValue.swift; sourceTree = "<group>"; };
+		4E51E589291EFD180007887B /* HealthLogKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthLogKind.swift; sourceTree = "<group>"; };
+		4E51E58B291EFDA10007887B /* MediciineValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediciineValue.swift; sourceTree = "<group>"; };
+		4E51E58D291EFE440007887B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4E51E58F291F01F80007887B /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		4E794649291AD3FC000C356C /* InputComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputComponent.swift; sourceTree = "<group>"; };
 		4E79464B291AD58F000C356C /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		4E794650291AE000000C356C /* CheckboxComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxComponent.swift; sourceTree = "<group>"; };
@@ -345,6 +359,7 @@
 				4EE651C029197D2E007F115A /* AppViews.swift */,
 				4EFC743D291AF6920086A6AB /* WeightUnits.swift */,
 				4EFC744B291B0C310086A6AB /* PetKind.swift */,
+				4E51E589291EFD180007887B /* HealthLogKind.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -357,6 +372,8 @@
 				4EFC746D291C76660086A6AB /* DashboardSingleView.swift */,
 				4EFC7476291D8CC60086A6AB /* DashboardWeightsView.swift */,
 				4EFC7478291D8D0E0086A6AB /* DashboardWeightViewModel.swift */,
+				4E51E583291EFC750007887B /* HealthLogView.swift */,
+				4E51E585291EFC820007887B /* HealthLogViewModel.swift */,
 			);
 			path = DashboardView;
 			sourceTree = "<group>";
@@ -375,6 +392,9 @@
 				4EFC7449291B0BF20086A6AB /* PetSingle.swift */,
 				4EFC744D291B0C5F0086A6AB /* WeightValue.swift */,
 				4EFC744F291B0CE60086A6AB /* Breed.swift */,
+				4E51E587291EFCCF0007887B /* HealthLogValue.swift */,
+				4E51E58B291EFDA10007887B /* MediciineValue.swift */,
+				4E51E58D291EFE440007887B /* User.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -398,6 +418,7 @@
 				4EFC747E291D9B100086A6AB /* NumberExtensions.swift */,
 				4EFC7480291D9B3C0086A6AB /* DateIntervalExtensions.swift */,
 				4EFC7482291D9B5A0086A6AB /* DateIntervalFormatter.swift */,
+				4E51E58F291F01F80007887B /* StringExtensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -683,7 +704,10 @@
 				4EFC7455291B0E4E0086A6AB /* ApiPets.swift in Sources */,
 				4E79464A291AD3FC000C356C /* InputComponent.swift in Sources */,
 				4EFC7468291C403C0086A6AB /* PetFormViewModel.swift in Sources */,
+				4E51E58C291EFDA10007887B /* MediciineValue.swift in Sources */,
 				4EFC7473291C83B10086A6AB /* PetDto.swift in Sources */,
+				4E51E588291EFCCF0007887B /* HealthLogValue.swift in Sources */,
+				4E51E590291F01F80007887B /* StringExtensions.swift in Sources */,
 				4EFC743C291AF64C0086A6AB /* SelectComponent.swift in Sources */,
 				4EFC7483291D9B5A0086A6AB /* DateIntervalFormatter.swift in Sources */,
 				4EE651CA2919D310007F115A /* ShakeGestureManager.swift in Sources */,
@@ -693,6 +717,7 @@
 				4EFC7466291C3F990086A6AB /* PetForm.swift in Sources */,
 				4E24B6DF29147D7600405D06 /* ContentView.swift in Sources */,
 				4EFC7452291B0E370086A6AB /* PetCardComponent.swift in Sources */,
+				4E51E584291EFC750007887B /* HealthLogView.swift in Sources */,
 				4EFC744C291B0C310086A6AB /* PetKind.swift in Sources */,
 				4EFC745B291B1A370086A6AB /* DateExtensions.swift in Sources */,
 				4EE651C129197D2E007F115A /* AppViews.swift in Sources */,
@@ -718,11 +743,14 @@
 				4EE651B62919734F007F115A /* ButtonComponent.swift in Sources */,
 				4EFC7475291C85AB0086A6AB /* InputDateComponent.swift in Sources */,
 				4EE651B92919769D007F115A /* GuestView.swift in Sources */,
+				4E51E58A291EFD180007887B /* HealthLogKind.swift in Sources */,
 				4EFC7447291B0B990086A6AB /* MyPets.swift in Sources */,
 				4E24B6DD29147D7600405D06 /* WolfieApp.swift in Sources */,
 				4EE651B32919724A007F115A /* MainDevView.swift in Sources */,
 				4EFC7489291DA75C0086A6AB /* WeightDto.swift in Sources */,
 				4EFC744A291B0BF20086A6AB /* PetSingle.swift in Sources */,
+				4E51E586291EFC820007887B /* HealthLogViewModel.swift in Sources */,
+				4E51E58E291EFE440007887B /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

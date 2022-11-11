@@ -20,6 +20,10 @@ extension Date {
         return dateFormatter(dateStyle: .medium, timeStyle: .short).string(from: self)
     }
     
+    var asFormattedMedium: String {
+        return dateFormatter(dateStyle: .medium).string(from: self)
+    }
+    
     func toFormattedShort() -> String {
         return dateFormatter(dateStyle: .short).string(from: self)
     }
