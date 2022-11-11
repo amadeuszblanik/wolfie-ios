@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HealthLogView: View {
+    @Binding var path: [DashboardViews]
+
     @Binding var pet: ApiPetSingle
     @StateObject var vm = ViewModel()
     
@@ -19,6 +21,7 @@ struct HealthLogView: View {
                         ForEach(vm.data) { data in
                             Button {
                                 print("Pressed on healthlog \(data.id)")
+                                path.append(.healthLogSingle)
                             } label: {
                                 HStack {
                                     Text(data.kind.localized)
@@ -61,15 +64,16 @@ struct HealthLogView: View {
 }
 
 struct HealthLogView_Previews: PreviewProvider {
+    @State static var path = [DashboardViews.healthLog]
     @State static var pet = PET_GOLDIE
     
     static var previews: some View {
-        HealthLogView(pet: $pet)
-        HealthLogView(pet: $pet)
+        HealthLogView(path: $path, pet: $pet)
+        HealthLogView(path: $path, pet: $pet)
             .preferredColorScheme(.dark)
 
-        HealthLogView(pet: $pet, vm: HealthLogView.ViewModel(data: [HEALTHLOG_0, HEALTHLOG_1, HEALTHLOG_2]))
-        HealthLogView(pet: $pet, vm: HealthLogView.ViewModel(data: [HEALTHLOG_0, HEALTHLOG_1, HEALTHLOG_2]))
+        HealthLogView(path: $path, pet: $pet, vm: HealthLogView.ViewModel(data: [HEALTHLOG_0, HEALTHLOG_1, HEALTHLOG_2]))
+        HealthLogView(path: $path, pet: $pet, vm: HealthLogView.ViewModel(data: [HEALTHLOG_0, HEALTHLOG_1, HEALTHLOG_2]))
             .preferredColorScheme(.dark)
     }
 }

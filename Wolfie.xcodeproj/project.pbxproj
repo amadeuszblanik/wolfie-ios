@@ -23,6 +23,8 @@
 		4E51E58C291EFDA10007887B /* MediciineValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E51E58B291EFDA10007887B /* MediciineValue.swift */; };
 		4E51E58E291EFE440007887B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E51E58D291EFE440007887B /* User.swift */; };
 		4E51E590291F01F80007887B /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E51E58F291F01F80007887B /* StringExtensions.swift */; };
+		4E51E594291F08780007887B /* HealthLogSingleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E51E593291F08780007887B /* HealthLogSingleView.swift */; };
+		4E51E596291F089D0007887B /* HealthLogSingleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E51E595291F089D0007887B /* HealthLogSingleViewModel.swift */; };
 		4E79464A291AD3FC000C356C /* InputComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E794649291AD3FC000C356C /* InputComponent.swift */; };
 		4E79464C291AD58F000C356C /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E79464B291AD58F000C356C /* SignInViewModel.swift */; };
 		4E794651291AE000000C356C /* CheckboxComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E794650291AE000000C356C /* CheckboxComponent.swift */; };
@@ -57,7 +59,7 @@
 		4EFC7466291C3F990086A6AB /* PetForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7465291C3F990086A6AB /* PetForm.swift */; };
 		4EFC7468291C403C0086A6AB /* PetFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7467291C403C0086A6AB /* PetFormViewModel.swift */; };
 		4EFC746A291C43B00086A6AB /* SelectSearchComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7469291C43B00086A6AB /* SelectSearchComponent.swift */; };
-		4EFC746C291C53E70086A6AB /* SequenceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC746B291C53E70086A6AB /* SequenceType.swift */; };
+		4EFC746C291C53E70086A6AB /* SequenceTypeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC746B291C53E70086A6AB /* SequenceTypeExtensions.swift */; };
 		4EFC746E291C76660086A6AB /* DashboardSingleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC746D291C76660086A6AB /* DashboardSingleView.swift */; };
 		4EFC7470291C76FD0086A6AB /* CardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC746F291C76FD0086A6AB /* CardComponent.swift */; };
 		4EFC7473291C83B10086A6AB /* PetDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7472291C83B10086A6AB /* PetDto.swift */; };
@@ -114,6 +116,8 @@
 		4E51E58B291EFDA10007887B /* MediciineValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediciineValue.swift; sourceTree = "<group>"; };
 		4E51E58D291EFE440007887B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4E51E58F291F01F80007887B /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		4E51E593291F08780007887B /* HealthLogSingleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthLogSingleView.swift; sourceTree = "<group>"; };
+		4E51E595291F089D0007887B /* HealthLogSingleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthLogSingleViewModel.swift; sourceTree = "<group>"; };
 		4E794649291AD3FC000C356C /* InputComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputComponent.swift; sourceTree = "<group>"; };
 		4E79464B291AD58F000C356C /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		4E794650291AE000000C356C /* CheckboxComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxComponent.swift; sourceTree = "<group>"; };
@@ -150,7 +154,7 @@
 		4EFC7465291C3F990086A6AB /* PetForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetForm.swift; sourceTree = "<group>"; };
 		4EFC7467291C403C0086A6AB /* PetFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetFormViewModel.swift; sourceTree = "<group>"; };
 		4EFC7469291C43B00086A6AB /* SelectSearchComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSearchComponent.swift; sourceTree = "<group>"; };
-		4EFC746B291C53E70086A6AB /* SequenceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceType.swift; sourceTree = "<group>"; };
+		4EFC746B291C53E70086A6AB /* SequenceTypeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceTypeExtensions.swift; sourceTree = "<group>"; };
 		4EFC746D291C76660086A6AB /* DashboardSingleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardSingleView.swift; sourceTree = "<group>"; };
 		4EFC746F291C76FD0086A6AB /* CardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardComponent.swift; sourceTree = "<group>"; };
 		4EFC7472291C83B10086A6AB /* PetDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDto.swift; sourceTree = "<group>"; };
@@ -285,6 +289,26 @@
 			path = WolfieUITests;
 			sourceTree = "<group>";
 		};
+		4E51E591291F08560007887B /* HealthLog */ = {
+			isa = PBXGroup;
+			children = (
+				4E51E583291EFC750007887B /* HealthLogView.swift */,
+				4E51E585291EFC820007887B /* HealthLogViewModel.swift */,
+				4E51E593291F08780007887B /* HealthLogSingleView.swift */,
+				4E51E595291F089D0007887B /* HealthLogSingleViewModel.swift */,
+			);
+			path = HealthLog;
+			sourceTree = "<group>";
+		};
+		4E51E592291F08620007887B /* WeightView */ = {
+			isa = PBXGroup;
+			children = (
+				4EFC7476291D8CC60086A6AB /* DashboardWeightsView.swift */,
+				4EFC7478291D8D0E0086A6AB /* DashboardWeightViewModel.swift */,
+			);
+			path = WeightView;
+			sourceTree = "<group>";
+		};
 		4EE651AD291971CD007F115A /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -367,13 +391,11 @@
 		4EFC743F291B06830086A6AB /* DashboardView */ = {
 			isa = PBXGroup;
 			children = (
+				4E51E592291F08620007887B /* WeightView */,
+				4E51E591291F08560007887B /* HealthLog */,
 				4EFC7440291B06920086A6AB /* DashboardView.swift */,
 				4EFC7462291C30260086A6AB /* DashboardViewModel.swift */,
 				4EFC746D291C76660086A6AB /* DashboardSingleView.swift */,
-				4EFC7476291D8CC60086A6AB /* DashboardWeightsView.swift */,
-				4EFC7478291D8D0E0086A6AB /* DashboardWeightViewModel.swift */,
-				4E51E583291EFC750007887B /* HealthLogView.swift */,
-				4E51E585291EFC820007887B /* HealthLogViewModel.swift */,
 			);
 			path = DashboardView;
 			sourceTree = "<group>";
@@ -414,7 +436,7 @@
 				4EFC745C291B1A630086A6AB /* DateFormatter.swift */,
 				4EFC745E291B1ACD0086A6AB /* TimeInterval.swift */,
 				4EFC7460291B1AE60086A6AB /* TimeInvervalFormatter.swift */,
-				4EFC746B291C53E70086A6AB /* SequenceType.swift */,
+				4EFC746B291C53E70086A6AB /* SequenceTypeExtensions.swift */,
 				4EFC747E291D9B100086A6AB /* NumberExtensions.swift */,
 				4EFC7480291D9B3C0086A6AB /* DateIntervalExtensions.swift */,
 				4EFC7482291D9B5A0086A6AB /* DateIntervalFormatter.swift */,
@@ -696,6 +718,7 @@
 				4E24B6E629147D7700405D06 /* Persistence.swift in Sources */,
 				4EFC745F291B1ACD0086A6AB /* TimeInterval.swift in Sources */,
 				4EFC747D291D9AE50086A6AB /* SummaryComponent.swift in Sources */,
+				4E51E596291F089D0007887B /* HealthLogSingleViewModel.swift in Sources */,
 				4EFC746A291C43B00086A6AB /* SelectSearchComponent.swift in Sources */,
 				4EFC7470291C76FD0086A6AB /* CardComponent.swift in Sources */,
 				4EFC7458291B103F0086A6AB /* AvatarComponent.swift in Sources */,
@@ -711,7 +734,7 @@
 				4EFC743C291AF64C0086A6AB /* SelectComponent.swift in Sources */,
 				4EFC7483291D9B5A0086A6AB /* DateIntervalFormatter.swift in Sources */,
 				4EE651CA2919D310007F115A /* ShakeGestureManager.swift in Sources */,
-				4EFC746C291C53E70086A6AB /* SequenceType.swift in Sources */,
+				4EFC746C291C53E70086A6AB /* SequenceTypeExtensions.swift in Sources */,
 				4EFC743A291AEA6F0086A6AB /* SignUpViewModel.swift in Sources */,
 				4EFC7477291D8CC60086A6AB /* DashboardWeightsView.swift in Sources */,
 				4EFC7466291C3F990086A6AB /* PetForm.swift in Sources */,
@@ -747,6 +770,7 @@
 				4EFC7447291B0B990086A6AB /* MyPets.swift in Sources */,
 				4E24B6DD29147D7600405D06 /* WolfieApp.swift in Sources */,
 				4EE651B32919724A007F115A /* MainDevView.swift in Sources */,
+				4E51E594291F08780007887B /* HealthLogSingleView.swift in Sources */,
 				4EFC7489291DA75C0086A6AB /* WeightDto.swift in Sources */,
 				4EFC744A291B0BF20086A6AB /* PetSingle.swift in Sources */,
 				4E51E586291EFC820007887B /* HealthLogViewModel.swift in Sources */,

@@ -20,4 +20,10 @@ struct ApiHealthLogValue: Identifiable, Codable {
     var addedBy: ApiUserSimple
     var createdAt: Date
     var updatedAt: Date
+    
+    var medicineAsString: String {
+        var medicines =  self.medicine.map { $0.name } + self.additionalMedicines
+        
+        return medicines.joined(separator: ", ")
+    }
 }

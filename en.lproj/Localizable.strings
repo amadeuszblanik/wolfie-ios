@@ -18,6 +18,7 @@
 "sign_up_sub_header" = "Create your new account";
 
 "please_wait" = "Please wait…";
+"sample_data" = "Sample data";
 "update" = "Update";
 "edit" = "Edit";
 "add" = "Add";
@@ -50,6 +51,7 @@
 "health_log_kind_treatment" = "Treatment";
 "gdpr_consent" = "Lorem ipsum dolor sit amet";
 
+"kind" = "Kind";
 "age" = "Age";
 "microchip" = "Microchip";
 "birthdate" = "Birth date";
@@ -66,6 +68,12 @@
 "breed_schnauzer" = "Schnauzer";
 "breed_miniature_schnauzer" = "Miniature schnauzer";
 "breed_mixed" = "Mixed";
+"medicines" = "Medicines";
+"veterinary" = "Veterinary";
+"diagnosis" = "Diagnosis";
+"next_visit" = "Next visit";
+"description" = "Description";
+"added_by" = "Added by";
 
 "dashboard" = "Dashboard";
 "dashboard_empty" = "You have not added any pet yet";

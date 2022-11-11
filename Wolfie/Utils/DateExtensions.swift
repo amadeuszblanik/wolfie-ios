@@ -12,11 +12,19 @@ extension Date {
         return Date().timeIntervalSinceReferenceDate - self.timeIntervalSinceReferenceDate
     }
     
-    func toFormatted() -> String {
+    func toFormatted() -> String { // @TODO DEPRECATED
         return dateFormatter().string(from: self)
     }
     
-    func toFormattedWithTime() -> String {
+    var asFormatted: String {
+        return dateFormatter().string(from: self)
+    }
+    
+    func toFormattedWithTime() -> String { // @TODO DEPRECATED
+        return dateFormatter(dateStyle: .medium, timeStyle: .short).string(from: self)
+    }
+    
+    var asFormattedWithTime: String {
         return dateFormatter(dateStyle: .medium, timeStyle: .short).string(from: self)
     }
     
@@ -24,11 +32,19 @@ extension Date {
         return dateFormatter(dateStyle: .medium).string(from: self)
     }
     
-    func toFormattedShort() -> String {
+    func toFormattedShort() -> String { // @TODO DEPRECATED
         return dateFormatter(dateStyle: .short).string(from: self)
     }
     
-    func toFormattedChart() -> String {
+    var asFormattedShort: String {
+        return dateFormatter(dateStyle: .short).string(from: self)
+    }
+    
+    func toFormattedChart() -> String { // @TODO DEPRECATED
+        return dateFormatter(dateStyle: nil, dateFormat: "dd MMM").string(from: self)
+    }
+    
+    var asFormattedChart: String {
         return dateFormatter(dateStyle: nil, dateFormat: "dd MMM").string(from: self)
     }
 }

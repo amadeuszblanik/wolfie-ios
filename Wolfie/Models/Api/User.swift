@@ -9,6 +9,7 @@ import Foundation
 
 struct ApiUserSimple: Identifiable, Codable {
     var email: String
+    var fullName: String
     var firstName: String
     var lastName: String
     
