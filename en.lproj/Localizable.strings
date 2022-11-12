@@ -86,5 +86,8 @@
 "weight_form_header_edit" = "Edit weight";
 "weight_form_header_add" = "Add weight";
 
+"health_form_header_edit" = "Edit health log";
+"health_form_header_add" = "Add health log";
+
 "action_delete_alert_title" = "Confirm deletion";
 "action_delete_alert_message" = "Are you sure to delete this entry?";

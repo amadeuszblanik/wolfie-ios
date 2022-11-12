@@ -15,6 +15,7 @@ struct SelectItem: Hashable, Identifiable {
 struct UISelect: View {
     var label: String = "Picker label"
     var values: [SelectItem]
+    var plain = false
     var state: Binding<String>?
     @State private var selectedDefault: String = ""
     
@@ -26,8 +27,6 @@ struct UISelect: View {
     
     var body: some View {
         HStack{
-            Text(label)
-            Spacer()
             Picker(label, selection: state ?? $selectedDefault) {
                 ForEach(values) { value in
                     Text(value.label)
@@ -36,11 +35,12 @@ struct UISelect: View {
                 }
             }
         }
+        .lineLimit(1)
         .pickerStyle(MenuPickerStyle())
         .frame(maxWidth: .infinity)
-        .padding()
+        .padding(plain ? 0 : 16)
         .foregroundColor(Color(.label))
-        .background(Color(.secondarySystemBackground))
+        .background(plain ? nil : Color(.secondarySystemBackground))
         .cornerRadius(8)
     }
 }
@@ -48,10 +48,16 @@ struct UISelect: View {
 struct UISelect_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            UISelect(label: "Weight units", values: WeightUnits.selectItemList)
-                .preferredColorScheme(.dark)
-            UISelect(label: "Weight units", values: WeightUnits.selectItemList)
-                .preferredColorScheme(.light)
+            VStack {
+                UISelect(label: "Weight units", values: WeightUnits.selectItemList)
+                UISelect(label: "Weight units", values: WeightUnits.selectItemList, plain: true)
+            }
+
+            VStack {
+                UISelect(label: "Weight units", values: WeightUnits.selectItemList)
+                UISelect(label: "Weight units", values: WeightUnits.selectItemList, plain: true)
+            }
+            .preferredColorScheme(.dark)
         }
     }
 }

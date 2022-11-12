@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwiftUI
 
 enum WeightUnits: String, CaseIterable {
     case Kilogram = "KG"

@@ -66,11 +66,6 @@ struct WeightForm: View {
             }
             .scrollContentBackground(.hidden)
             .cornerRadius(8)
-//                    UIInput(label: String(localized: "weight"), state: $vm.weight)
-//                        .padding(.bottom)
-//
-//                    UIInput(label: String(localized: "date"), state: $vm.date)
-//                        .padding(.bottom)
 
                 Spacer()
             }

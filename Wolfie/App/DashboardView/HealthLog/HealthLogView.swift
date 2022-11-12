@@ -9,8 +9,9 @@ import SwiftUI
 
 struct HealthLogView: View {
     @Binding var path: [DashboardViews]
-
     @Binding var pet: ApiPetSingle
+    
+    @State private var isDeleteOpen = false
     @StateObject var vm = ViewModel()
     
     var filled: some View {
@@ -33,6 +34,21 @@ struct HealthLogView: View {
                                     
                                     Image(systemName: "chevron.right")
                                 }
+                            }
+                            .swipeActions() {
+                                Button(String(localized: "delete")) {
+                                    isDeleteOpen = true
+                                }.tint(.red)
+                            }
+                            .alert(isPresented: $isDeleteOpen) {
+                                Alert(
+                                    title: Text(String(localized: "action_delete_alert_title")),
+                                    message: Text(String(localized: "action_delete_alert_message")),
+                                    primaryButton: .destructive(Text(String(localized: "delete"))) {
+                                        vm.delete(data.id)
+                                    },
+                                    secondaryButton: .cancel()
+                                )
                             }
                         }
                     } header: {

@@ -134,7 +134,7 @@ struct DashboardView: View {
                         }
                     }
                     .sheet(isPresented: $isAddHealthLogOpen) {
-                        Text("Not implemented yet")
+                        HealthLogForm(vm: HealthLogForm.ViewModel(pet: selectedPet))
                     }
                     .navigationTitle(String(localized: "health_log"))
                 case .healthLogSingle:
@@ -149,7 +149,7 @@ struct DashboardView: View {
                         }
                     }
                     .sheet(isPresented: $isEditHealthLogOpen) {
-                        Text("Not implemented yet")
+                        HealthLogForm(vm: HealthLogForm.ViewModel(pet: selectedPet, healthLog: HEALTHLOG_0))
                     }
                     .navigationTitle(String(localized: "health_log"))
                 default:

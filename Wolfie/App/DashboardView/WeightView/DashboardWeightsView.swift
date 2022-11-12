@@ -11,8 +11,8 @@ import Charts
 struct DashboardWeightsView: View {
     @Binding var pet: ApiPetSingle
 
-    @State private var isEditWeightOpen = false;
-    @State private var isDeleteOpen = false;
+    @State private var isEditOpen = false
+    @State private var isDeleteOpen = false
     @StateObject var vm = ViewModel()
     
     var body: some View {
@@ -56,7 +56,7 @@ struct DashboardWeightsView: View {
                                 isDeleteOpen = true
                             }.tint(.red)
                             Button(String(localized: "edit")) {
-                                isEditWeightOpen = true
+                                isEditOpen = true
                             }.tint(.accentColor)
                         }
                         .alert(isPresented: $isDeleteOpen) {
@@ -69,7 +69,7 @@ struct DashboardWeightsView: View {
                                 secondaryButton: .cancel()
                             )
                         }
-                        .sheet(isPresented: $isEditWeightOpen) {
+                        .sheet(isPresented: $isEditOpen) {
                             WeightForm(pet: $pet, vm: WeightForm.ViewModel(weight: data))
                         }
                     }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum HealthLogKind: String, Codable {
+enum HealthLogKind: String, CaseIterable, Codable {
     case VaccinationRabies = "VACCINATION_RABIES"
     case Vaccination = "VACCINATION"
     case Deworming = "DEWORMING"
@@ -18,5 +18,11 @@ enum HealthLogKind: String, Codable {
     
     var localized: String {
         return NSLocalizedString("health_log_kind_\(rawValue.lowercased())", comment: "")
+    }
+    
+    static var selectItemList: [SelectItem] {
+        return allCases.map() { healthLogKind in
+            return SelectItem(label: healthLogKind.localized, id: healthLogKind.rawValue)
+        }
     }
 }

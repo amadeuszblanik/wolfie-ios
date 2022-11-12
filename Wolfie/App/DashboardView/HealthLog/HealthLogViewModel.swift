@@ -14,5 +14,9 @@ extension HealthLogView {
         init(data: [ApiHealthLogValue] = []) {
             self.data = data
         }
+        
+        func delete(_ id: String) -> Void {
+            print("Delete \(id)")
+        }
     }
 }

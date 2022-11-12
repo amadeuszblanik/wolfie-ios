@@ -60,6 +60,7 @@ struct UISelectSearch: View {
                 .navigationTitle(label)
             }
         }
+        .lineLimit(1)
         .frame(maxWidth: .infinity)
         .padding(plain ? 0 : 16)
         .foregroundColor(Color(.label))
