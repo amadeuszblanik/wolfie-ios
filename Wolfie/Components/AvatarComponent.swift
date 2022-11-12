@@ -13,7 +13,7 @@ struct UIAvatar: View {
     
     var body: some View {
         ZStack {
-            AsyncImage(url: URL(string: url)) { phase in
+            AsyncImage(url: URL(string: (url.isEmpty ? "force-fail" : url))) { phase in
                 if let image = phase.image {
                     image.resizable()
                 } else if phase.error != nil {
@@ -36,6 +36,8 @@ struct AvatarComponent_Previews: PreviewProvider {
         VStack {
             UIAvatar(url: "https://uploads.wolfie.app/SU1HXzQ0MTUtMTY2NDczNTE0ODg4Mw.jpg")
             UIAvatar(url: "https://uploads.wolfie.app/SU1HXzQ0MTUtMTY2NDczNTE0ODg4Mw.jpx")
+            UIAvatar(url: "")
+            UIAvatar(url: "non-url")
         }
     }
 }
