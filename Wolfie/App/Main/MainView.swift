@@ -45,7 +45,7 @@ struct MainView: View {
     
     var body: some View {
         VStack {
-            if !vm.authenticated {
+            if vm.accessToken == nil {
                 GuestView()
             } else {
                 signed

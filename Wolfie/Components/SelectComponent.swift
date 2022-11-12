@@ -27,6 +27,11 @@ struct UISelect: View {
     
     var body: some View {
         HStack{
+            Text(label)
+                .foregroundColor(Color(UIColor.secondaryLabel))
+            
+            Spacer()
+            
             Picker(label, selection: state ?? $selectedDefault) {
                 ForEach(values) { value in
                     Text(value.label)

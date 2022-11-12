@@ -23,6 +23,10 @@ struct ProfileItemView: View {
 }
 
 struct ProfileView: View {
+    @State private var isUpdateProfilOpen = false
+    @State private var isChangePasswordOpen = false
+    @State private var isAuthorizedDevicesOpen = false
+    @State private var isGdprOpen = false
     @StateObject var vm = ViewModel()
     
     var userProfile: some View {
@@ -62,21 +66,39 @@ struct ProfileView: View {
 
                 Section {
                     Button {
-                        print("Clicked update profile")
+                        isUpdateProfilOpen = true
                     } label: {
                         ProfileItemView(label: String(localized: "update_profile"))
                     }
-                    
-                    Button {
-                        print("Clicked change password")
-                    } label: {
-                        ProfileItemView(label: String(localized: "change_password"))
+                    .sheet(isPresented: $isUpdateProfilOpen) {
+                        WebView(url: "https://next.wolfie.app/settings/profile")
                     }
                     
                     Button {
-                        print("Clicked authorized devices")
+                        isChangePasswordOpen = true
+                    } label: {
+                        ProfileItemView(label: String(localized: "change_password"))
+                    }
+                    .sheet(isPresented: $isChangePasswordOpen) {
+                        WebView(url: "https://next.wolfie.app/settings/change-password")
+                    }
+                    
+                    Button {
+                        isAuthorizedDevicesOpen = true
                     } label: {
                         ProfileItemView(label: String(localized: "authorized_devices"))
+                    }
+                    .sheet(isPresented: $isAuthorizedDevicesOpen) {
+                        WebView(url: "https://next.wolfie.app/settings/authorized-devices")
+                    }
+                    
+                    Button {
+                        isGdprOpen = true
+                    } label: {
+                        ProfileItemView(label: String(localized: "read_gdpr"))
+                    }
+                    .sheet(isPresented: $isGdprOpen) {
+                        WebView(url: "https://next.wolfie.app/privacy-policy")
                     }
                     
                     Button {

@@ -25,6 +25,8 @@
 "save" = "Save";
 "delete" = "Delete";
 
+"read_gdpr" = "Policy privacy (GDPR)";
+
 "user_pets" = "Pets";
 "user_role_banned" = "Banned";
 "user_role_user" = "User";

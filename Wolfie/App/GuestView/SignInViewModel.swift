@@ -12,7 +12,7 @@ let MOCKED_PASSWORD = "Passw0rd!1"
 
 extension SignInView {
     @MainActor class ViewModel: ObservableObject {
-        @AppStorage("AUTH_TOKEN") var authenticated = false {
+        @AppStorage("AUTH_ACCESS_TOKEN") var accessToken: String? {
             willSet { objectWillChange.send() }
         }
         
@@ -27,15 +27,11 @@ extension SignInView {
         
         var device: String = UIDevice().name
         
-        func toggleAuthenticated(_ next: Bool? = nil) {
+        func setAccessToken(_ next: String? = nil) {
             self.password = ""
             
             withAnimation {
-                if let value = next {
-                    authenticated = value
-                } else {
-                    authenticated.toggle()
-                }
+                accessToken = next
             }
         }
         
@@ -59,7 +55,7 @@ extension SignInView {
                     return
                 }
                 
-                self.toggleAuthenticated(true)
+                self.setAccessToken("ACCESS_TOKEN")
             }
         }
     }

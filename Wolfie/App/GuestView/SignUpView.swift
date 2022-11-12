@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SignUpView: View {
+    @State private var isGdprOpen = false
     @Binding var selectedView: GuestViews?
     @StateObject private var vm = ViewModel()
     
@@ -48,6 +49,15 @@ struct SignUpView: View {
                 .padding(.vertical)
             
             UICheckbox(label: String(localized: "gdpr_consent"), state: $vm.gdprConsent)
+                .padding(.vertical)
+            
+            Button(String(localized: "read_gdpr")) {
+                isGdprOpen = true
+            }
+            .sheet(isPresented: $isGdprOpen) {
+                WebView(url: "https://next.wolfie.app/privacy-policy")
+            }
+            .padding(.top)
         }
     }
     

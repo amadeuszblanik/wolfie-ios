@@ -9,14 +9,8 @@ import SwiftUI
 
 extension MainView {
     @MainActor class ViewModel: ObservableObject {
-        @AppStorage("AUTH_TOKEN") var authenticated = true {
+        @AppStorage("AUTH_ACCESS_TOKEN") var accessToken: String? {
             willSet { objectWillChange.send() }
-        }
-        
-        func signOff() -> Void {
-            withAnimation {
-                authenticated = false
-            }
         }
     }
 }
