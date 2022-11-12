@@ -17,6 +17,11 @@ let WEIGHT_142 = ApiWeightValue(id: "ABC-142", raw: 14.2, formatted: "14.2 KG", 
 let WEIGHT_140 = ApiWeightValue(id: "ABC-140", raw: 14, formatted: "14 KG", rawGram: 14000, date: Date(timeIntervalSinceNow: -86400), createdAt: Date(), updatedAt: Date())
 let WEIGHT_138 = ApiWeightValue(id: "ABC-138", raw: 13.8, formatted: "13.8 KG", rawGram: 13800, date: Date(timeIntervalSinceNow: -86400 * 7), createdAt: Date(), updatedAt: Date())
 
+let CONFIG_0 = ApiConfig(role: .SuperUser, weightUnits: .Kilogram, userPets: 3, userPetsAllowed: 10, canAddNewPet: true)
+let CONFIG_1 = ApiConfig(role: .User, weightUnits: .Kilogram, userPets: 3, userPetsAllowed: 3, canAddNewPet: false)
+
+let USER_0 = ApiUser(id: "USER-0", email: "amadeusz@blanik.me", fullName: "Amadeusz Blanik", firstName: "Amadeusz", lastName: "Blanik", isActive: true, isEmailVerified: true, weightUnit: .Kilogram, userRole: .SuperUser, createdAt: Date(), updatedAt: Date())
+
 let SIMPLE_USER_0 = ApiUserSimple(email: "amadeusz@blanik.me", fullName: "Amadeusz Blanik", firstName: "Amadeusz", lastName: "Blanik")
 
 let SIMPLE_MEDICINE_0 = ApiShortMedicineValue(productNumber: "MEDICINE-0", name: "Medicine from database")

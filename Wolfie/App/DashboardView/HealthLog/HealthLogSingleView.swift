@@ -69,6 +69,7 @@ struct HealthLogSingleView: View {
                 Text(String(localized: "sample_data"))
             }
         }
+        .listStyle(InsetGroupedListStyle())
     }
 }
 
@@ -84,6 +85,14 @@ struct HealthLogSingleView_Previews: PreviewProvider {
 
         HealthLogSingleView(vm: HealthLogSingleView.ViewModel(data: HEALTHLOG_2))
         HealthLogSingleView(vm: HealthLogSingleView.ViewModel(data: HEALTHLOG_2))
+            .preferredColorScheme(.dark)
+        
+        NavigationView {
+            HealthLogSingleView(vm: HealthLogSingleView.ViewModel(data: HEALTHLOG_0))
+        }
+        NavigationView {
+            HealthLogSingleView(vm: HealthLogSingleView.ViewModel(data: HEALTHLOG_0))
+        }
             .preferredColorScheme(.dark)
     }
 }

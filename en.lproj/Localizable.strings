@@ -25,6 +25,18 @@
 "save" = "Save";
 "delete" = "Delete";
 
+"user_pets" = "Pets";
+"user_role_banned" = "Banned";
+"user_role_user" = "User";
+"user_role_plus" = "User+";
+"user_role_superuser" = "Super User";
+"user_out_of_limit" = "You are not allowed to add any new pet";
+
+"update_profile" = "Update profile";
+"change_password" = "Change password";
+"authorized_devices" = "Authorized devices";
+"sign_off" = "Sign off";
+
 "email" = "Email";
 "username" = "Username";
 "name" = "Name";

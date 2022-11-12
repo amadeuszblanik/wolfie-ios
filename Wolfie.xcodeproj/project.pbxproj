@@ -29,6 +29,11 @@
 		4E51E59A291F12370007887B /* HealthLogFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E51E599291F12370007887B /* HealthLogFormViewModel.swift */; };
 		4E51E59C291F22480007887B /* MultiSelectSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E51E59B291F22480007887B /* MultiSelectSearch.swift */; };
 		4E51E5A0291F25D90007887B /* ListSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E51E59F291F25D90007887B /* ListSelection.swift */; };
+		4E51E5A3291F29D60007887B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E51E5A2291F29D60007887B /* ProfileView.swift */; };
+		4E51E5A5291F29E20007887B /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E51E5A4291F29E20007887B /* ProfileViewModel.swift */; };
+		4E51E5A7291F2B0B0007887B /* RefreshToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E51E5A6291F2B0B0007887B /* RefreshToken.swift */; };
+		4E51E5A9291F2DB20007887B /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E51E5A8291F2DB20007887B /* Config.swift */; };
+		4E51E5AB291F2DE00007887B /* UserRoles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E51E5AA291F2DE00007887B /* UserRoles.swift */; };
 		4E79464A291AD3FC000C356C /* InputComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E794649291AD3FC000C356C /* InputComponent.swift */; };
 		4E79464C291AD58F000C356C /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E79464B291AD58F000C356C /* SignInViewModel.swift */; };
 		4E794651291AE000000C356C /* CheckboxComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E794650291AE000000C356C /* CheckboxComponent.swift */; };
@@ -126,6 +131,11 @@
 		4E51E599291F12370007887B /* HealthLogFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthLogFormViewModel.swift; sourceTree = "<group>"; };
 		4E51E59B291F22480007887B /* MultiSelectSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectSearch.swift; sourceTree = "<group>"; };
 		4E51E59F291F25D90007887B /* ListSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSelection.swift; sourceTree = "<group>"; };
+		4E51E5A2291F29D60007887B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		4E51E5A4291F29E20007887B /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		4E51E5A6291F2B0B0007887B /* RefreshToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshToken.swift; sourceTree = "<group>"; };
+		4E51E5A8291F2DB20007887B /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		4E51E5AA291F2DE00007887B /* UserRoles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRoles.swift; sourceTree = "<group>"; };
 		4E794649291AD3FC000C356C /* InputComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputComponent.swift; sourceTree = "<group>"; };
 		4E79464B291AD58F000C356C /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		4E794650291AE000000C356C /* CheckboxComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxComponent.swift; sourceTree = "<group>"; };
@@ -326,9 +336,19 @@
 			path = Playgrounds;
 			sourceTree = "<group>";
 		};
+		4E51E5A1291F29C60007887B /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				4E51E5A2291F29D60007887B /* ProfileView.swift */,
+				4E51E5A4291F29E20007887B /* ProfileViewModel.swift */,
+			);
+			path = ProfileView;
+			sourceTree = "<group>";
+		};
 		4EE651AD291971CD007F115A /* App */ = {
 			isa = PBXGroup;
 			children = (
+				4E51E5A1291F29C60007887B /* ProfileView */,
 				4EFC743F291B06830086A6AB /* DashboardView */,
 				4EE651B729197691007F115A /* GuestView */,
 				4EE651B129197234007F115A /* MainDev */,
@@ -402,6 +422,7 @@
 				4EFC743D291AF6920086A6AB /* WeightUnits.swift */,
 				4EFC744B291B0C310086A6AB /* PetKind.swift */,
 				4E51E589291EFD180007887B /* HealthLogKind.swift */,
+				4E51E5AA291F2DE00007887B /* UserRoles.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -435,6 +456,8 @@
 				4E51E587291EFCCF0007887B /* HealthLogValue.swift */,
 				4E51E58B291EFDA10007887B /* MedicineValue.swift */,
 				4E51E58D291EFE440007887B /* User.swift */,
+				4E51E5A6291F2B0B0007887B /* RefreshToken.swift */,
+				4E51E5A8291F2DB20007887B /* Config.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -743,6 +766,7 @@
 				4EFC7470291C76FD0086A6AB /* CardComponent.swift in Sources */,
 				4EFC7458291B103F0086A6AB /* AvatarComponent.swift in Sources */,
 				4EFC7479291D8D0E0086A6AB /* DashboardWeightViewModel.swift in Sources */,
+				4E51E5A7291F2B0B0007887B /* RefreshToken.swift in Sources */,
 				4E24B6E929147D7700405D06 /* Wolfie.xcdatamodeld in Sources */,
 				4EFC7455291B0E4E0086A6AB /* ApiPets.swift in Sources */,
 				4E79464A291AD3FC000C356C /* InputComponent.swift in Sources */,
@@ -753,7 +777,9 @@
 				4E51E588291EFCCF0007887B /* HealthLogValue.swift in Sources */,
 				4E51E59A291F12370007887B /* HealthLogFormViewModel.swift in Sources */,
 				4E51E590291F01F80007887B /* StringExtensions.swift in Sources */,
+				4E51E5A5291F29E20007887B /* ProfileViewModel.swift in Sources */,
 				4EFC743C291AF64C0086A6AB /* SelectComponent.swift in Sources */,
+				4E51E5A9291F2DB20007887B /* Config.swift in Sources */,
 				4EFC7483291D9B5A0086A6AB /* DateIntervalFormatter.swift in Sources */,
 				4EE651CA2919D310007F115A /* ShakeGestureManager.swift in Sources */,
 				4EFC746C291C53E70086A6AB /* SequenceTypeExtensions.swift in Sources */,
@@ -762,6 +788,7 @@
 				4EFC7466291C3F990086A6AB /* PetForm.swift in Sources */,
 				4E24B6DF29147D7600405D06 /* ContentView.swift in Sources */,
 				4EFC7452291B0E370086A6AB /* PetCardComponent.swift in Sources */,
+				4E51E5A3291F29D60007887B /* ProfileView.swift in Sources */,
 				4E51E584291EFC750007887B /* HealthLogView.swift in Sources */,
 				4EFC744C291B0C310086A6AB /* PetKind.swift in Sources */,
 				4EFC745B291B1A370086A6AB /* DateExtensions.swift in Sources */,
@@ -770,6 +797,7 @@
 				4E794651291AE000000C356C /* CheckboxComponent.swift in Sources */,
 				4EFC7485291DA4F90086A6AB /* WeightForm.swift in Sources */,
 				4EFC7441291B06920086A6AB /* DashboardView.swift in Sources */,
+				4E51E5AB291F2DE00007887B /* UserRoles.swift in Sources */,
 				4EFC747F291D9B100086A6AB /* NumberExtensions.swift in Sources */,
 				4EFC7461291B1AE60086A6AB /* TimeInvervalFormatter.swift in Sources */,
 				4EFC746E291C76660086A6AB /* DashboardSingleView.swift in Sources */,

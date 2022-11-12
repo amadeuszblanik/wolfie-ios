@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum WeightUnits: String, CaseIterable {
+enum WeightUnits: String, CaseIterable, Codable {
     case Kilogram = "KG"
     case Gram = "G"
     case Pound = "LB"

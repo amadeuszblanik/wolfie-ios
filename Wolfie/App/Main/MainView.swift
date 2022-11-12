@@ -19,13 +19,7 @@ struct MainView: View {
                     case .dashboard:
                         DashboardView()
                     case .profile:
-                        VStack {
-                            Text("Signed in")
-                            Button("Sign off") {
-                                vm.signOff()
-                            }
-                            .buttonStyle(.bordered)
-                        }
+                        ProfileView()
                     }
                 }
                     .toolbar {
