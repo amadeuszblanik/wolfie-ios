@@ -37,6 +37,9 @@
 		4E79464A291AD3FC000C356C /* InputComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E794649291AD3FC000C356C /* InputComponent.swift */; };
 		4E79464C291AD58F000C356C /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E79464B291AD58F000C356C /* SignInViewModel.swift */; };
 		4E794651291AE000000C356C /* CheckboxComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E794650291AE000000C356C /* CheckboxComponent.swift */; };
+		4E8B68AE29201D9900A0BBE1 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68AD29201D9900A0BBE1 /* RealmManager.swift */; };
+		4E8B68B129201E5F00A0BBE1 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68B029201E5F00A0BBE1 /* Test.swift */; };
+		4E8B68B429201F7100A0BBE1 /* RealmPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68B329201F7100A0BBE1 /* RealmPlayground.swift */; };
 		4EE651B0291971EA007F115A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651AF291971EA007F115A /* MainView.swift */; };
 		4EE651B32919724A007F115A /* MainDevView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651B22919724A007F115A /* MainDevView.swift */; };
 		4EE651B62919734F007F115A /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651B52919734F007F115A /* ButtonComponent.swift */; };
@@ -139,6 +142,9 @@
 		4E794649291AD3FC000C356C /* InputComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputComponent.swift; sourceTree = "<group>"; };
 		4E79464B291AD58F000C356C /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		4E794650291AE000000C356C /* CheckboxComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxComponent.swift; sourceTree = "<group>"; };
+		4E8B68AD29201D9900A0BBE1 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		4E8B68B029201E5F00A0BBE1 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		4E8B68B329201F7100A0BBE1 /* RealmPlayground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmPlayground.swift; sourceTree = "<group>"; };
 		4EE651AF291971EA007F115A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		4EE651B22919724A007F115A /* MainDevView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDevView.swift; sourceTree = "<group>"; };
 		4EE651B52919734F007F115A /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
@@ -263,6 +269,8 @@
 		4E24B6DB29147D7600405D06 /* Wolfie */ = {
 			isa = PBXGroup;
 			children = (
+				4E8B68B229201F6500A0BBE1 /* Playground */,
+				4E8B68AC29201D1500A0BBE1 /* Realm */,
 				4E51E5AE291F358C0007887B /* ViewRepresentables */,
 				4EFC7464291C3F900086A6AB /* Form */,
 				4EFC7459291B1A2B0086A6AB /* Utils */,
@@ -343,6 +351,31 @@
 				4E51E5AF291F35A10007887B /* WebView.swift */,
 			);
 			path = ViewRepresentables;
+			sourceTree = "<group>";
+		};
+		4E8B68AC29201D1500A0BBE1 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				4E8B68AF29201E4B00A0BBE1 /* Models */,
+				4E8B68AD29201D9900A0BBE1 /* RealmManager.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		4E8B68AF29201E4B00A0BBE1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4E8B68B029201E5F00A0BBE1 /* Test.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4E8B68B229201F6500A0BBE1 /* Playground */ = {
+			isa = PBXGroup;
+			children = (
+				4E8B68B329201F7100A0BBE1 /* RealmPlayground.swift */,
+			);
+			path = Playground;
 			sourceTree = "<group>";
 		};
 		4EE651AD291971CD007F115A /* App */ = {
@@ -777,8 +810,10 @@
 				4E51E588291EFCCF0007887B /* HealthLogValue.swift in Sources */,
 				4E51E59A291F12370007887B /* HealthLogFormViewModel.swift in Sources */,
 				4E51E590291F01F80007887B /* StringExtensions.swift in Sources */,
+				4E8B68B129201E5F00A0BBE1 /* Test.swift in Sources */,
 				4E51E5A5291F29E20007887B /* ProfileViewModel.swift in Sources */,
 				4EFC743C291AF64C0086A6AB /* SelectComponent.swift in Sources */,
+				4E8B68B429201F7100A0BBE1 /* RealmPlayground.swift in Sources */,
 				4E51E5A9291F2DB20007887B /* Config.swift in Sources */,
 				4EFC7483291D9B5A0086A6AB /* DateIntervalFormatter.swift in Sources */,
 				4EE651CA2919D310007F115A /* ShakeGestureManager.swift in Sources */,
@@ -805,6 +840,7 @@
 				4EFC744E291B0C5F0086A6AB /* WeightValue.swift in Sources */,
 				4EFC7437291AE6C00086A6AB /* MainViewModel.swift in Sources */,
 				4EFC7450291B0CE60086A6AB /* Breed.swift in Sources */,
+				4E8B68AE29201D9900A0BBE1 /* RealmManager.swift in Sources */,
 				4EE651C32919BF82007F115A /* SignInView.swift in Sources */,
 				4EE651C52919BF8A007F115A /* SignUpView.swift in Sources */,
 				4EFC745D291B1A630086A6AB /* DateFormatter.swift in Sources */,

@@ -28,6 +28,7 @@ enum AppDevViews: String, CaseIterable {
     case guest = "GuestView()"
     case dashboard = "DashboardView()"
     case profile = "ProfileView()"
+    case playground = "PlaygroundView()"
 }
 
 enum GuestViews: String, CaseIterable {

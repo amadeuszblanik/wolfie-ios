@@ -36,6 +36,8 @@ struct MainDevView: View {
                     DashboardView()
                 case .profile:
                     ProfileView()
+                case .playground:
+                    RealmPlayground()
                 default:
                     Text("Not implemented yet.")
                 }
