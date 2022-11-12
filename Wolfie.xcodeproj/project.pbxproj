@@ -27,6 +27,8 @@
 		4E51E596291F089D0007887B /* HealthLogSingleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E51E595291F089D0007887B /* HealthLogSingleViewModel.swift */; };
 		4E51E598291F122C0007887B /* HealthLogForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E51E597291F122C0007887B /* HealthLogForm.swift */; };
 		4E51E59A291F12370007887B /* HealthLogFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E51E599291F12370007887B /* HealthLogFormViewModel.swift */; };
+		4E51E59C291F22480007887B /* MultiSelectSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E51E59B291F22480007887B /* MultiSelectSearch.swift */; };
+		4E51E5A0291F25D90007887B /* ListSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E51E59F291F25D90007887B /* ListSelection.swift */; };
 		4E79464A291AD3FC000C356C /* InputComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E794649291AD3FC000C356C /* InputComponent.swift */; };
 		4E79464C291AD58F000C356C /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E79464B291AD58F000C356C /* SignInViewModel.swift */; };
 		4E794651291AE000000C356C /* CheckboxComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E794650291AE000000C356C /* CheckboxComponent.swift */; };
@@ -122,6 +124,8 @@
 		4E51E595291F089D0007887B /* HealthLogSingleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthLogSingleViewModel.swift; sourceTree = "<group>"; };
 		4E51E597291F122C0007887B /* HealthLogForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthLogForm.swift; sourceTree = "<group>"; };
 		4E51E599291F12370007887B /* HealthLogFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthLogFormViewModel.swift; sourceTree = "<group>"; };
+		4E51E59B291F22480007887B /* MultiSelectSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectSearch.swift; sourceTree = "<group>"; };
+		4E51E59F291F25D90007887B /* ListSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSelection.swift; sourceTree = "<group>"; };
 		4E794649291AD3FC000C356C /* InputComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputComponent.swift; sourceTree = "<group>"; };
 		4E79464B291AD58F000C356C /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		4E794650291AE000000C356C /* CheckboxComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxComponent.swift; sourceTree = "<group>"; };
@@ -226,6 +230,7 @@
 		4E24B6D029147D7600405D06 = {
 			isa = PBXGroup;
 			children = (
+				4E51E59D291F25960007887B /* Playgrounds */,
 				4EE651BE291978E6007F115A /* Localizable.strings */,
 				4E24B6DB29147D7600405D06 /* Wolfie */,
 				4E24B6F129147D7700405D06 /* WolfieTests */,
@@ -313,6 +318,14 @@
 			path = WeightView;
 			sourceTree = "<group>";
 		};
+		4E51E59D291F25960007887B /* Playgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				4E51E59F291F25D90007887B /* ListSelection.swift */,
+			);
+			path = Playgrounds;
+			sourceTree = "<group>";
+		};
 		4EE651AD291971CD007F115A /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,6 +368,7 @@
 				4EFC746F291C76FD0086A6AB /* CardComponent.swift */,
 				4EFC7474291C85AB0086A6AB /* InputDateComponent.swift */,
 				4EFC747C291D9AE50086A6AB /* SummaryComponent.swift */,
+				4E51E59B291F22480007887B /* MultiSelectSearch.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -735,6 +749,7 @@
 				4EFC7468291C403C0086A6AB /* PetFormViewModel.swift in Sources */,
 				4E51E58C291EFDA10007887B /* MedicineValue.swift in Sources */,
 				4EFC7473291C83B10086A6AB /* PetDto.swift in Sources */,
+				4E51E59C291F22480007887B /* MultiSelectSearch.swift in Sources */,
 				4E51E588291EFCCF0007887B /* HealthLogValue.swift in Sources */,
 				4E51E59A291F12370007887B /* HealthLogFormViewModel.swift in Sources */,
 				4E51E590291F01F80007887B /* StringExtensions.swift in Sources */,
@@ -768,6 +783,7 @@
 				4EFC7463291C30260086A6AB /* DashboardViewModel.swift in Sources */,
 				4EE651B0291971EA007F115A /* MainView.swift in Sources */,
 				4E51E598291F122C0007887B /* HealthLogForm.swift in Sources */,
+				4E51E5A0291F25D90007887B /* ListSelection.swift in Sources */,
 				4EFC7487291DA5040086A6AB /* WeightFormViewModel.swift in Sources */,
 				4EFC743E291AF6920086A6AB /* WeightUnits.swift in Sources */,
 				4EFC7481291D9B3C0086A6AB /* DateIntervalExtensions.swift in Sources */,

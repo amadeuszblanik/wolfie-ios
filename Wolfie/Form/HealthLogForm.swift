@@ -60,6 +60,23 @@ struct HealthLogForm: View {
                 DatePicker(String(localized: "date"), selection: $vm.date, in: dateRange, displayedComponents: [.date])
                 .listRowBackground(Color(UIColor.secondarySystemBackground))
                 
+                UIMultiSelectSearch(
+                    label: String(localized: "medicines"),
+                    values: vm.medicinesList,
+                    plain: true,
+                    state: $vm.medicines
+                )
+                .listRowBackground(Color(UIColor.secondarySystemBackground))
+                
+                HStack {
+                    Text(String(localized: "additional_medicines_short"))
+                    
+                    TextField("", text: $vm.additionalMedicines)
+                        .multilineTextAlignment(.trailing)
+                        .foregroundColor(Color(UIColor.label))
+                }
+                .listRowBackground(Color(UIColor.secondarySystemBackground))
+                
                 HStack {
                     Text(String(localized: "veterinary"))
                     

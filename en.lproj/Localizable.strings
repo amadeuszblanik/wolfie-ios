@@ -69,6 +69,8 @@
 "breed_miniature_schnauzer" = "Miniature schnauzer";
 "breed_mixed" = "Mixed";
 "medicines" = "Medicines";
+"additional_medicines" = "Additional medicines";
+"additional_medicines_short" = "More meds";
 "veterinary" = "Veterinary";
 "diagnosis" = "Diagnosis";
 "next_visit" = "Next visit";
