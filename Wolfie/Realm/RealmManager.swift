@@ -12,13 +12,7 @@ class RealmManager: ObservableObject {
     private(set) var localRealm: Realm?
     
     @Published var tests: [Test] = []
-    @Published var pets: [PetDB] = [] {
-        didSet {
-            isAllowedToAddPet = self.pets.count <= 3 // @TODO Fetch it from config
-            print("Updated pets // didSet on Published \(self.pets.count)")
-        }
-    }
-    @Published var isAllowedToAddPet: Bool = true
+    @Published var pets: [PetDB] = []
     
     init() {
         openRealm()
@@ -116,8 +110,6 @@ class RealmManager: ObservableObject {
             }
             
             pets = next
-            
-            print("Updated pets \(allResults.count)\\\(pets.count)")
         }
     }
     

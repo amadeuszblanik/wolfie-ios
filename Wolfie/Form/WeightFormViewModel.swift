@@ -10,15 +10,10 @@ import Foundation
 extension WeightForm {
     @MainActor class ViewModel: ObservableObject {
         var id: String?
-        @Published var weight: Float?
-        @Published var date: Date
-        @Published var weightUnits: WeightUnits = .Kilogram
-
-        init(weight: ApiWeightValue? = nil) {
-            self.id = weight?.id
-            self.weight = weight?.raw
-            self.date = weight?.date ?? Date()
-        }
+        @Published var pet: PetDB?
+        @Published var weight: Float? = nil
+        @Published var date: Date = Date()
+        @Published var weightUnits: WeightUnits = .Kilogram // @TODO Config
 
         func create() -> Void {
             print("Create \n\(weight)\n\(date)")

@@ -99,6 +99,8 @@
 "pet_form_header_edit" = "Edit pet";
 "pet_form_header_add" = "Add pet";
 
+"weight_empty" = "You have not added any pet weights yet";
+
 "weight_form_header_edit" = "Edit weight";
 "weight_form_header_add" = "Add weight";
 

@@ -49,7 +49,7 @@ let PET_TESTIE = ApiPetSingle(
     name: "Testie",
     kind: .Dog,
     image: "",
-    birthDate: Date(timeIntervalSince1970: 1644663600),
+    birthDate: Date(timeIntervalSince1970: 1656324000),
     healthLog: 0,
     breed: BREED_ENGLISH_SETTER,
     createdAt: Date(),

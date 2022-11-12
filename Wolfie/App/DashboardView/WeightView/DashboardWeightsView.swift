@@ -9,35 +9,18 @@ import SwiftUI
 import Charts
 
 struct DashboardWeightsView: View {
-    @Binding var pet: ApiPetSingle
+    var pet: PetDB
 
     @State private var isEditOpen = false
     @State private var isDeleteOpen = false
     @StateObject var vm = ViewModel()
     
-    var body: some View {
-        VStack {
-            if (vm.data.count >= 3) {
-                VStack {
-                    UISummary(averageValue: 19.80, unit: "kg", dateRange: DateInterval(start: Date(timeIntervalSinceNow: -213769420), end: Date()))
-                        .padding(.bottom)
-                    
-                    Chart(vm.data.reversed()) {
-                        LineMark(
-                            x: .value("X", $0.date),
-                            y: .value("Y", $0.raw)
-                        )
-                        PointMark(
-                            x: .value("X", $0.date),
-                            y: .value("Y", $0.raw)
-                        )
-                    }
-                    .frame(height: UIScreen.main.bounds.height / 4.2)
-                }
-                .padding(.top)
-                .padding(.horizontal)
-            }
-            
+    var empty: some View {
+        Text(String(localized: "weight_empty"))
+    }
+    
+    var list: some View {
+        Group {
             List() {
                 Section {
                     ForEach(vm.data) { data in
@@ -70,7 +53,7 @@ struct DashboardWeightsView: View {
                             )
                         }
                         .sheet(isPresented: $isEditOpen) {
-                            WeightForm(pet: $pet, vm: WeightForm.ViewModel(weight: data))
+                            WeightForm(pet: pet, weight: WeightValueDB.fromApi(data: data))
                         }
                     }
                 } header: {
@@ -83,22 +66,53 @@ struct DashboardWeightsView: View {
             .cornerRadius(8)
         }
     }
+    
+    var body: some View {
+        VStack {
+            if (vm.data.count >= 3) {
+                VStack {
+                    UISummary(averageValue: 19.80, unit: "kg", dateRange: DateInterval(start: Date(timeIntervalSinceNow: -213769420), end: Date()))
+                        .padding(.bottom)
+                    
+                    Chart(vm.data.reversed()) {
+                        LineMark(
+                            x: .value("X", $0.date),
+                            y: .value("Y", $0.raw)
+                        )
+                        PointMark(
+                            x: .value("X", $0.date),
+                            y: .value("Y", $0.raw)
+                        )
+                    }
+                    .frame(height: UIScreen.main.bounds.height / 4.2)
+                }
+                .padding(.top)
+                .padding(.horizontal)
+            }
+            
+            if (vm.data.isEmpty) {
+                empty
+            } else {
+                list
+            }
+        }
+    }
 }
 
 struct DashboardWeightsView_Previews: PreviewProvider {
-    @State static var pet = PET_GOLDIE
+    static var pet = PetDB.fromApi(data: PET_GOLDIE)
     
     static var previews: some View {
-        DashboardWeightsView(pet: $pet)
-        DashboardWeightsView(pet: $pet)
+        DashboardWeightsView(pet: pet)
+        DashboardWeightsView(pet: pet)
             .preferredColorScheme(.dark)
         
-        DashboardWeightsView(pet: $pet, vm: DashboardWeightsView.ViewModel(data: [WEIGHT_142]))
-        DashboardWeightsView(pet: $pet, vm: DashboardWeightsView.ViewModel(data: [WEIGHT_142]))
+        DashboardWeightsView(pet: pet, vm: DashboardWeightsView.ViewModel(data: [WEIGHT_142]))
+        DashboardWeightsView(pet: pet, vm: DashboardWeightsView.ViewModel(data: [WEIGHT_142]))
             .preferredColorScheme(.dark)
         
-        DashboardWeightsView(pet: $pet, vm: DashboardWeightsView.ViewModel(data: [WEIGHT_142, WEIGHT_140, WEIGHT_138]))
-        DashboardWeightsView(pet: $pet, vm: DashboardWeightsView.ViewModel(data: [WEIGHT_142, WEIGHT_140, WEIGHT_138]))
+        DashboardWeightsView(pet: pet, vm: DashboardWeightsView.ViewModel(data: [WEIGHT_142, WEIGHT_140, WEIGHT_138]))
+        DashboardWeightsView(pet: pet, vm: DashboardWeightsView.ViewModel(data: [WEIGHT_142, WEIGHT_140, WEIGHT_138]))
             .preferredColorScheme(.dark)
     }
 }

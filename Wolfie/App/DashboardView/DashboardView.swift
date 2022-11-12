@@ -98,22 +98,22 @@ struct DashboardView: View {
                         .sheet(isPresented: $isPetEditOpen) {
                             PetForm(onSave: handleSave, onDelete: handleDelete, vm: PetForm.ViewModel(pet: pet))
                         }
-//                case .weight:
-//                    DashboardWeightsView(
-//                        pet: PET_GOLDIE,
-//                        vm: DashboardWeightsView.ViewModel(data: [WEIGHT_142, WEIGHT_140, WEIGHT_138])
-//                    )
-//                    .toolbar {
-//                        ToolbarItem(placement: .navigationBarTrailing) {
-//                            Button(String(localized: "add")) {
-//                                isAddWeightOpen = true
-//                            }
-//                        }
-//                    }
-//                    .sheet(isPresented: $isAddWeightOpen) {
-//                        WeightForm(pet: PET_GOLDIE)
-//                    }
-//                    .navigationTitle(String(localized: "weights"))
+                case .weight(let pet):
+                    DashboardWeightsView(
+                        pet: pet,
+                        vm: DashboardWeightsView.ViewModel(data: [WEIGHT_142, WEIGHT_140, WEIGHT_138])
+                    )
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button(String(localized: "add")) {
+                                isAddWeightOpen = true
+                            }
+                        }
+                    }
+                    .sheet(isPresented: $isAddWeightOpen) {
+                        WeightForm(pet: pet)
+                    }
+                    .navigationTitle(String(localized: "weights"))
 //                case .healthLog:
 //                    HealthLogView(
 //                        path: $path,

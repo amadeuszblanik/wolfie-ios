@@ -13,10 +13,19 @@ struct WeightForm: View {
         case time
         case weight
     }
-    
-    @Binding var pet: ApiPetSingle
+
+    var pet: PetDB
     @StateObject var vm = ViewModel()
     @FocusState private var focusedField: FocusField?
+    
+    init(pet: PetDB, weight: WeightValueDB? = nil) {
+        self.pet = pet
+        vm.pet = pet
+
+        vm.id = weight?.id ?? nil
+        vm.date = weight?.date ?? Date()
+        vm.weight = weight?.raw ?? nil
+    }
     
     var dateRange: ClosedRange<Date> {
         let calendar = Calendar.current
@@ -83,20 +92,32 @@ struct WeightForm: View {
 }
 
 struct WeightForm_Previews: PreviewProvider {
-    @State static var pet = PET_GOLDIE
+    static var pet = PetDB.fromApi(data: PET_GOLDIE)
+    static var weight = WeightValueDB.fromApi(data: WEIGHT_142)
     @State static var isOpen = true
     
     static var previews: some View {
         VStack {
-            WeightForm(pet: $pet)
+            WeightForm(pet: pet)
         }.sheet(isPresented: $isOpen) {
-            WeightForm(pet: $pet)
+            WeightForm(pet: pet)
         }
-        
         VStack {
-            WeightForm(pet: $pet)
+            WeightForm(pet: pet)
         }.sheet(isPresented: $isOpen) {
-            WeightForm(pet: $pet)
+            WeightForm(pet: pet)
+        }
+        .preferredColorScheme(.dark)
+
+        VStack {
+            WeightForm(pet: pet, weight: weight)
+        }.sheet(isPresented: $isOpen) {
+            WeightForm(pet: pet)
+        }
+        VStack {
+            WeightForm(pet: pet, weight: weight)
+        }.sheet(isPresented: $isOpen) {
+            WeightForm(pet: pet)
         }
         .preferredColorScheme(.dark)
     }
