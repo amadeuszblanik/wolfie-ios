@@ -1,0 +1,13 @@
+//
+//  ConfigDebug.xcconfig
+//  Wolfie
+//
+//  Created by Amadeusz Blanik on 12/11/2022.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "Pods/Target Support Files/Pods-Wolfie/Pods-Wolfie.debug.xcconfig"
+
+SENTRY_DSN = // Use https:/$()/ instead of https://

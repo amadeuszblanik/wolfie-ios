@@ -30,7 +30,8 @@ class RealmManager: ObservableObject {
             
             localRealm = try Realm()
         } catch {
-            print("Error while trying to open Realm", error)
+            debugPrint(error)
+            sentryLog("Error while trying to open Realm")
         }
     }
     
@@ -49,7 +50,8 @@ class RealmManager: ObservableObject {
                     print("Added to realm")
                 }
             } catch {
-                print("Error while adding data to Realm", error)
+                debugPrint(error)
+                sentryLog("Error while trying to add test to Realm")
             }
         }
     }
@@ -78,7 +80,8 @@ class RealmManager: ObservableObject {
                         print("Deleted from Realm")
                     }
                 } catch {
-                    print("Error while deleting data from Realm")
+                    debugPrint(error)
+                    sentryLog("Error while trying to delete test from Realm")
                 }
             }
         }

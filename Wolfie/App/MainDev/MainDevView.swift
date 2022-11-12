@@ -22,9 +22,20 @@ struct MainDevView: View {
             }
             .padding(.vertical)
             
-            List(AppDevViews.allCases, id: \.self, selection: $selectedView) { appDevView in
-                NavigationLink(appDevView.rawValue, value: appDevView)
+            List {
+                Section("Views") {
+                    ForEach(AppDevViews.allCases, id: \.self) { appDevView in
+                        NavigationLink(appDevView.rawValue, value: appDevView)
+                    }
+                }
+                
+                Section("Utils") {
+                    Button("Sentry test") {
+                        sentryLog("Sentry test")
+                    }
+                }
             }
+            .listStyle(InsetGroupedListStyle())
         } detail: {
             if let appDevView = selectedView {
                 switch appDevView {

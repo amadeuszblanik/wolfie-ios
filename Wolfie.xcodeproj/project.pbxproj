@@ -40,6 +40,8 @@
 		4E8B68AE29201D9900A0BBE1 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68AD29201D9900A0BBE1 /* RealmManager.swift */; };
 		4E8B68B129201E5F00A0BBE1 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68B029201E5F00A0BBE1 /* Test.swift */; };
 		4E8B68B429201F7100A0BBE1 /* RealmPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68B329201F7100A0BBE1 /* RealmPlayground.swift */; };
+		4E8B68B729202A0500A0BBE1 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 4E8B68B52920298B00A0BBE1 /* Config.xcconfig */; };
+		4E8B68BA29202ADC00A0BBE1 /* SentryLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68B929202ADC00A0BBE1 /* SentryLog.swift */; };
 		4EE651B0291971EA007F115A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651AF291971EA007F115A /* MainView.swift */; };
 		4EE651B32919724A007F115A /* MainDevView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651B22919724A007F115A /* MainDevView.swift */; };
 		4EE651B62919734F007F115A /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651B52919734F007F115A /* ButtonComponent.swift */; };
@@ -145,6 +147,11 @@
 		4E8B68AD29201D9900A0BBE1 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		4E8B68B029201E5F00A0BBE1 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		4E8B68B329201F7100A0BBE1 /* RealmPlayground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmPlayground.swift; sourceTree = "<group>"; };
+		4E8B68B52920298B00A0BBE1 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		4E8B68B6292029A400A0BBE1 /* ConfigExample.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigExample.xcconfig; sourceTree = "<group>"; };
+		4E8B68B929202ADC00A0BBE1 /* SentryLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentryLog.swift; sourceTree = "<group>"; };
+		4E8B68BB29202DF700A0BBE1 /* ConfigDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigDebug.xcconfig; sourceTree = "<group>"; };
+		4E8B68BC29202E2600A0BBE1 /* ConfigDebugExample.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigDebugExample.xcconfig; sourceTree = "<group>"; };
 		4EE651AF291971EA007F115A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		4EE651B22919724A007F115A /* MainDevView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDevView.swift; sourceTree = "<group>"; };
 		4EE651B52919734F007F115A /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
@@ -246,6 +253,10 @@
 		4E24B6D029147D7600405D06 = {
 			isa = PBXGroup;
 			children = (
+				4E8B68BC29202E2600A0BBE1 /* ConfigDebugExample.xcconfig */,
+				4E8B68B6292029A400A0BBE1 /* ConfigExample.xcconfig */,
+				4E8B68BB29202DF700A0BBE1 /* ConfigDebug.xcconfig */,
+				4E8B68B52920298B00A0BBE1 /* Config.xcconfig */,
 				4EE651BE291978E6007F115A /* Localizable.strings */,
 				4E24B6DB29147D7600405D06 /* Wolfie */,
 				4E24B6F129147D7700405D06 /* WolfieTests */,
@@ -515,6 +526,7 @@
 				4EFC7480291D9B3C0086A6AB /* DateIntervalExtensions.swift */,
 				4EFC7482291D9B5A0086A6AB /* DateIntervalFormatter.swift */,
 				4E51E58F291F01F80007887B /* StringExtensions.swift */,
+				4E8B68B929202ADC00A0BBE1 /* SentryLog.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -661,6 +673,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E8B68B729202A0500A0BBE1 /* Config.xcconfig in Resources */,
 				4E24B6E429147D7700405D06 /* Preview Assets.xcassets in Resources */,
 				4EE651BC291978E6007F115A /* Localizable.strings in Resources */,
 				4E24B6E129147D7700405D06 /* Assets.xcassets in Resources */,
@@ -820,6 +833,7 @@
 				4EFC746C291C53E70086A6AB /* SequenceTypeExtensions.swift in Sources */,
 				4EFC743A291AEA6F0086A6AB /* SignUpViewModel.swift in Sources */,
 				4EFC7477291D8CC60086A6AB /* DashboardWeightsView.swift in Sources */,
+				4E8B68BA29202ADC00A0BBE1 /* SentryLog.swift in Sources */,
 				4EFC7466291C3F990086A6AB /* PetForm.swift in Sources */,
 				4E24B6DF29147D7600405D06 /* ContentView.swift in Sources */,
 				4EFC7452291B0E370086A6AB /* PetCardComponent.swift in Sources */,
@@ -1027,7 +1041,7 @@
 		};
 		4E24B70329147D7700405D06 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CEE5F843C7CF21FB9EF2EF47 /* Pods-Wolfie.debug.xcconfig */;
+			baseConfigurationReference = 4E8B68BB29202DF700A0BBE1 /* ConfigDebug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1061,7 +1075,7 @@
 		};
 		4E24B70429147D7700405D06 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9E145B83477B9F6DE9692BE7 /* Pods-Wolfie.release.xcconfig */;
+			baseConfigurationReference = 4E8B68B52920298B00A0BBE1 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

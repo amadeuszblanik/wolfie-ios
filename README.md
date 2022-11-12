@@ -9,7 +9,10 @@ _THIS APPLICATION IS IN DEVELOPMENT. FUTURE RELEASE MIGHT NOT BE BACKWARDS COMPA
 
 ## Installation
 
-`pod install`
+* `pod install`
+* Create `ConfigDebug.xcconfig` file based on 
+`ConfigDebugExample.xcconfig` 
+and `Config.xcconfig` file based on `ConfigExample.xcconfig`
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
