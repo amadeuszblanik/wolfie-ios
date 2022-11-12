@@ -42,6 +42,9 @@
 		4E8B68B429201F7100A0BBE1 /* RealmPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68B329201F7100A0BBE1 /* RealmPlayground.swift */; };
 		4E8B68B729202A0500A0BBE1 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 4E8B68B52920298B00A0BBE1 /* Config.xcconfig */; };
 		4E8B68BA29202ADC00A0BBE1 /* SentryLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68B929202ADC00A0BBE1 /* SentryLog.swift */; };
+		4E8B68BE292032E300A0BBE1 /* PetDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68BD292032E300A0BBE1 /* PetDB.swift */; };
+		4E8B68C02920349100A0BBE1 /* WeightValueDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68BF2920349100A0BBE1 /* WeightValueDB.swift */; };
+		4E8B68C2292034EA00A0BBE1 /* BreedDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68C1292034EA00A0BBE1 /* BreedDB.swift */; };
 		4EE651B0291971EA007F115A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651AF291971EA007F115A /* MainView.swift */; };
 		4EE651B32919724A007F115A /* MainDevView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651B22919724A007F115A /* MainDevView.swift */; };
 		4EE651B62919734F007F115A /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651B52919734F007F115A /* ButtonComponent.swift */; };
@@ -69,7 +72,6 @@
 		4EFC745D291B1A630086A6AB /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC745C291B1A630086A6AB /* DateFormatter.swift */; };
 		4EFC745F291B1ACD0086A6AB /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC745E291B1ACD0086A6AB /* TimeInterval.swift */; };
 		4EFC7461291B1AE60086A6AB /* TimeInvervalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7460291B1AE60086A6AB /* TimeInvervalFormatter.swift */; };
-		4EFC7463291C30260086A6AB /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7462291C30260086A6AB /* DashboardViewModel.swift */; };
 		4EFC7466291C3F990086A6AB /* PetForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7465291C3F990086A6AB /* PetForm.swift */; };
 		4EFC7468291C403C0086A6AB /* PetFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7467291C403C0086A6AB /* PetFormViewModel.swift */; };
 		4EFC746A291C43B00086A6AB /* SelectSearchComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7469291C43B00086A6AB /* SelectSearchComponent.swift */; };
@@ -152,6 +154,9 @@
 		4E8B68B929202ADC00A0BBE1 /* SentryLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentryLog.swift; sourceTree = "<group>"; };
 		4E8B68BB29202DF700A0BBE1 /* ConfigDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigDebug.xcconfig; sourceTree = "<group>"; };
 		4E8B68BC29202E2600A0BBE1 /* ConfigDebugExample.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigDebugExample.xcconfig; sourceTree = "<group>"; };
+		4E8B68BD292032E300A0BBE1 /* PetDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDB.swift; sourceTree = "<group>"; };
+		4E8B68BF2920349100A0BBE1 /* WeightValueDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightValueDB.swift; sourceTree = "<group>"; };
+		4E8B68C1292034EA00A0BBE1 /* BreedDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDB.swift; sourceTree = "<group>"; };
 		4EE651AF291971EA007F115A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		4EE651B22919724A007F115A /* MainDevView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDevView.swift; sourceTree = "<group>"; };
 		4EE651B52919734F007F115A /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
@@ -181,7 +186,6 @@
 		4EFC745C291B1A630086A6AB /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		4EFC745E291B1ACD0086A6AB /* TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
 		4EFC7460291B1AE60086A6AB /* TimeInvervalFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInvervalFormatter.swift; sourceTree = "<group>"; };
-		4EFC7462291C30260086A6AB /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		4EFC7465291C3F990086A6AB /* PetForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetForm.swift; sourceTree = "<group>"; };
 		4EFC7467291C403C0086A6AB /* PetFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetFormViewModel.swift; sourceTree = "<group>"; };
 		4EFC7469291C43B00086A6AB /* SelectSearchComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSearchComponent.swift; sourceTree = "<group>"; };
@@ -377,6 +381,9 @@
 			isa = PBXGroup;
 			children = (
 				4E8B68B029201E5F00A0BBE1 /* Test.swift */,
+				4E8B68BD292032E300A0BBE1 /* PetDB.swift */,
+				4E8B68BF2920349100A0BBE1 /* WeightValueDB.swift */,
+				4E8B68C1292034EA00A0BBE1 /* BreedDB.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -477,7 +484,6 @@
 				4E51E592291F08620007887B /* WeightView */,
 				4E51E591291F08560007887B /* HealthLog */,
 				4EFC7440291B06920086A6AB /* DashboardView.swift */,
-				4EFC7462291C30260086A6AB /* DashboardViewModel.swift */,
 				4EFC746D291C76660086A6AB /* DashboardSingleView.swift */,
 			);
 			path = DashboardView;
@@ -808,11 +814,13 @@
 				4EFC745F291B1ACD0086A6AB /* TimeInterval.swift in Sources */,
 				4EFC747D291D9AE50086A6AB /* SummaryComponent.swift in Sources */,
 				4E51E596291F089D0007887B /* HealthLogSingleViewModel.swift in Sources */,
+				4E8B68C2292034EA00A0BBE1 /* BreedDB.swift in Sources */,
 				4EFC746A291C43B00086A6AB /* SelectSearchComponent.swift in Sources */,
 				4EFC7470291C76FD0086A6AB /* CardComponent.swift in Sources */,
 				4EFC7458291B103F0086A6AB /* AvatarComponent.swift in Sources */,
 				4EFC7479291D8D0E0086A6AB /* DashboardWeightViewModel.swift in Sources */,
 				4E51E5A7291F2B0B0007887B /* RefreshToken.swift in Sources */,
+				4E8B68BE292032E300A0BBE1 /* PetDB.swift in Sources */,
 				4E24B6E929147D7700405D06 /* Wolfie.xcdatamodeld in Sources */,
 				4EFC7455291B0E4E0086A6AB /* ApiPets.swift in Sources */,
 				4E79464A291AD3FC000C356C /* InputComponent.swift in Sources */,
@@ -859,12 +867,12 @@
 				4EE651C52919BF8A007F115A /* SignUpView.swift in Sources */,
 				4EFC745D291B1A630086A6AB /* DateFormatter.swift in Sources */,
 				4E79464C291AD58F000C356C /* SignInViewModel.swift in Sources */,
-				4EFC7463291C30260086A6AB /* DashboardViewModel.swift in Sources */,
 				4EE651B0291971EA007F115A /* MainView.swift in Sources */,
 				4E51E598291F122C0007887B /* HealthLogForm.swift in Sources */,
 				4EFC7487291DA5040086A6AB /* WeightFormViewModel.swift in Sources */,
 				4EFC743E291AF6920086A6AB /* WeightUnits.swift in Sources */,
 				4EFC7481291D9B3C0086A6AB /* DateIntervalExtensions.swift in Sources */,
+				4E8B68C02920349100A0BBE1 /* WeightValueDB.swift in Sources */,
 				4EE651B62919734F007F115A /* ButtonComponent.swift in Sources */,
 				4EFC7475291C85AB0086A6AB /* InputDateComponent.swift in Sources */,
 				4EE651B92919769D007F115A /* GuestView.swift in Sources */,

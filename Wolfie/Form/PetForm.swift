@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct PetForm: View {
+    var onSuccess: () -> ()
+    
+    @State private var isDeleteOpen = false
     @StateObject var vm = ViewModel()
+    @StateObject var realmDb = RealmManager()
     
     var dateRange: ClosedRange<Date> {
         let calendar = Calendar.current
@@ -25,7 +29,7 @@ struct PetForm: View {
                     HStack {
                         Text(String(localized: "name"))
                             .foregroundColor(Color(UIColor.secondaryLabel))
-
+                        
                         TextField("", text: $vm.name)
                             .multilineTextAlignment(.trailing)
                     }
@@ -33,7 +37,7 @@ struct PetForm: View {
                     HStack {
                         UISelectSearch(
                             label: String(localized: "breed"),
-                            values: vm.breeds,
+                            values: vm.breedsSelectedItem,
                             plain: true,
                             state: $vm.breed
                         )
@@ -42,7 +46,7 @@ struct PetForm: View {
                     HStack {
                         Text(String(localized: "microchip"))
                             .foregroundColor(Color(UIColor.secondaryLabel))
-
+                        
                         TextField("", text: $vm.microchip)
                             .multilineTextAlignment(.trailing)
                     }
@@ -54,7 +58,23 @@ struct PetForm: View {
                             in: dateRange,
                             displayedComponents: [.date, .hourAndMinute]
                         )
-                            .foregroundColor(Color(UIColor.secondaryLabel))
+                        .foregroundColor(Color(UIColor.secondaryLabel))
+                    }
+                    
+                    if let id = vm.id {
+                        UIButton(text: String(localized: "delete"), color: .red, fullWidth: true) {
+                            isDeleteOpen = true
+                        }
+                        .alert(isPresented: $isDeleteOpen) {
+                            Alert(
+                                title: Text(String(localized: "action_delete_alert_title")),
+                                message: Text(String(localized: "action_delete_alert_message")),
+                                primaryButton: .destructive(Text(String(localized: "delete"))) {
+                                    realmDb.deletPet(id)
+                                },
+                                secondaryButton: .cancel()
+                            )
+                        }
                     }
                 }
             }
@@ -73,29 +93,32 @@ struct PetForm: View {
 
 struct PetForm_Previews: PreviewProvider {
     @State static var isOpen = true
+    static func onSuccess() {
+        print("Success")
+    }
     
     static var previews: some View {
         VStack {
-            PetForm()
+            PetForm(onSuccess: onSuccess)
         }.sheet(isPresented: $isOpen) {
-            PetForm()
+            PetForm(onSuccess: onSuccess)
         }
         VStack {
-            PetForm()
+            PetForm(onSuccess: onSuccess)
         }.sheet(isPresented: $isOpen) {
-            PetForm()
+            PetForm(onSuccess: onSuccess)
         }
         .preferredColorScheme(.dark)
         
         VStack {
-            PetForm(vm: PetForm.ViewModel(pet: PET_GOLDIE))
+            PetForm(onSuccess: onSuccess, vm: PetForm.ViewModel(pet: PET_GOLDIE))
         }.sheet(isPresented: $isOpen) {
-            PetForm(vm: PetForm.ViewModel(pet: PET_GOLDIE))
+            PetForm(onSuccess: onSuccess, vm: PetForm.ViewModel(pet: PET_GOLDIE))
         }
         VStack {
-            PetForm(vm: PetForm.ViewModel(pet: PET_GOLDIE))
+            PetForm(onSuccess: onSuccess, vm: PetForm.ViewModel(pet: PET_GOLDIE))
         }.sheet(isPresented: $isOpen) {
-            PetForm(vm: PetForm.ViewModel(pet: PET_GOLDIE))
+            PetForm(onSuccess: onSuccess, vm: PetForm.ViewModel(pet: PET_GOLDIE))
         }
         .preferredColorScheme(.dark)
     }

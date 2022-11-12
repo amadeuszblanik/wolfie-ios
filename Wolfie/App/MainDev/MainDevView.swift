@@ -22,7 +22,7 @@ struct MainDevView: View {
             }
             .padding(.vertical)
             
-            List {
+            List(selection: $selectedView) {
                 Section("Views") {
                     ForEach(AppDevViews.allCases, id: \.self) { appDevView in
                         NavigationLink(appDevView.rawValue, value: appDevView)

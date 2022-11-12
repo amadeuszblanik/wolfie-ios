@@ -15,18 +15,18 @@ struct DashboardView: View {
     @State private var isAddHealthLogOpen = false
     @State private var isEditHealthLogOpen = false
     @State private var path: [DashboardViews] = []
-    @StateObject var vm = ViewModel();
+    @StateObject var realmDb = RealmManager()
     
     var list: some View {
         Group {
             VStack {
                 ScrollView {
-                    ForEach(vm.petsList) { petSingle in
+                    ForEach(realmDb.pets) { petSingle in
                         Button {
-                            selectedPet = petSingle
+                            selectedPet = petSingle.asApi
                             path.append(DashboardViews.details)
                         } label: {
-                            PetCardComponent(pet: petSingle)
+                            PetCardComponent(pet: petSingle.asApi)
                                 .padding(.horizontal)
                                 .padding(.bottom)
                         }
@@ -48,7 +48,7 @@ struct DashboardView: View {
     var body: some View {
         NavigationStack(path: $path) {
             VStack {
-                if (vm.petsList.isEmpty) {
+                if (realmDb.pets.isEmpty) {
                     empty
                 } else {
                     list
@@ -56,38 +56,15 @@ struct DashboardView: View {
                 
                 Spacer()
                 
-                if vm.isAllowedToAddPet {
-                    UIButton(text: String(localized: vm.petsList.isEmpty ? "dashboard_empty_button" : "dashboard_button"), fullWidth: true) {
+                if realmDb.isAllowedToAddPet {
+                    UIButton(text: String(localized: realmDb.pets.isEmpty ? "dashboard_empty_button" : "dashboard_button"), fullWidth: true) {
                         isAddOpen = true
                     }
                     .padding()
                     .sheet(isPresented: $isAddOpen) {
-                        PetForm()
+                        PetForm(onSuccess: { isAddOpen = false })
                     }
                 }
-                
-                #if DEBUG
-                ScrollView(.horizontal) {
-                    HStack {
-                        Button("Add pet") {
-                            vm.devAddPet()
-                        }
-                        .buttonStyle(.bordered)
-                        
-                        Button("Clear pet list") {
-                            vm.devClearPetList()
-                        }
-                        .buttonStyle(.bordered)
-                        
-                        Button("Remove last pet") {
-                            vm.devRemoveLastPet()
-                        }
-                        .buttonStyle(.bordered)
-                        .disabled(vm.petsList.isEmpty)
-                    }
-                    .padding(.horizontal)
-                }
-                #endif
             }
             .navigationDestination(for: DashboardViews.self) { dashboardView in
                 switch (dashboardView) {
@@ -102,7 +79,7 @@ struct DashboardView: View {
                             }
                         }
                         .sheet(isPresented: $isPetEditOpen) {
-                            PetForm(vm: PetForm.ViewModel(pet: selectedPet))
+                            PetForm(onSuccess: { isPetEditOpen = false }, vm: PetForm.ViewModel(pet: selectedPet))
                         }
                 case .weight:
                     DashboardWeightsView(
@@ -165,9 +142,6 @@ struct DashboardView_Previews: PreviewProvider {
     static var previews: some View {
         DashboardView()
         DashboardView()
-            .preferredColorScheme(.dark)
-        DashboardView(vm: DashboardView.ViewModel(petList: [PET_GOLDIE]))
-        DashboardView(vm: DashboardView.ViewModel(petList: [PET_GOLDIE]))
             .preferredColorScheme(.dark)
     }
 }

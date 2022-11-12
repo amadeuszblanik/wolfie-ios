@@ -12,10 +12,17 @@ class RealmManager: ObservableObject {
     private(set) var localRealm: Realm?
     
     @Published var tests: [Test] = []
+    @Published var pets: [PetDB] = [] {
+        didSet {
+            isAllowedToAddPet = self.pets.count <= 3 // @TODO Fetch it from config
+        }
+    }
+    @Published var isAllowedToAddPet: Bool = true
     
     init() {
         openRealm()
         getTests()
+        getPets()
     }
     
     func openRealm() {
@@ -32,6 +39,18 @@ class RealmManager: ObservableObject {
         } catch {
             debugPrint(error)
             sentryLog("Error while trying to open Realm")
+        }
+    }
+    
+//    Test
+    func getTests() {
+        if let localRealm = localRealm {
+            let allTests = localRealm.objects(Test.self)
+            
+            tests = []
+            allTests.forEach { test in
+                tests.append(test)
+            }
         }
     }
     
@@ -56,17 +75,6 @@ class RealmManager: ObservableObject {
         }
     }
     
-    func getTests() {
-        if let localRealm = localRealm {
-            let allTests = localRealm.objects(Test.self)
-            
-            tests = []
-            allTests.forEach { test in
-                tests.append(test)
-            }
-        }
-    }
-    
     func deleteTest(id: Int) {
         if let localRealm = localRealm {
             let allTests = localRealm.objects(Test.self)
@@ -85,5 +93,60 @@ class RealmManager: ObservableObject {
                 }
             }
         }
+    }
+    
+//    Pets
+    
+    func getPets() {
+        if let localRealm = localRealm {
+            let allResults = localRealm.objects(PetDB.self)
+            
+            pets = []
+
+            allResults.forEach { value in
+                pets.append(value)
+            }
+        }
+    }
+    
+    func addPet(_ pet: ApiPetSingle) {
+        if let localRealm = localRealm {
+            do {
+                try localRealm.write {
+                    localRealm.add(PetDB.fromApi(data: pet))
+                    getPets()
+                }
+            } catch {
+                debugPrint(error)
+                logErrorAdd("Pet")
+            }
+        }
+    }
+    
+    func deletPet(_ id: String) {
+        if let localRealm = localRealm {
+            let allResults = localRealm.objects(PetDB.self)
+
+            if let result = allResults.find(predicate: { result in result.id == id }) {
+                do {
+                    try localRealm.write {
+                        localRealm.delete(result)
+                        tests = []
+                        getPets()
+                    }
+                } catch {
+                    debugPrint(error)
+                    logErrorDelete("Pet")
+                }
+            }
+        }
+    }
+    
+    private func logErrorAdd(_ id: String) {
+        sentryLog("Error while trying to add \(id) to Realm")
+    }
+    
+    private func logErrorDelete(_ id: String) {
+        sentryLog("Error while trying to delete \(id) from Realm")
     }
 }
