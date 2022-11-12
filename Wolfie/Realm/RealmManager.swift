@@ -135,6 +135,39 @@ class RealmManager: ObservableObject {
         }
     }
     
+    func updatePet(_ id: String, data: ApiPetSingle) {
+        if let localRealm = localRealm {
+            let allResults = localRealm.objects(PetDB.self)
+
+            if let dataDb = allResults.find(predicate: { result in result.id == id }) {
+                do {
+                    try localRealm.write {
+                        dataDb.id = data.id
+                        dataDb.name = data.name
+                        dataDb.kind = data.kind
+                        dataDb.microchip = data.microchip
+                        dataDb.image = data.image
+                        if let currentWeight = data.currentWeight {
+                            dataDb.currentWeight = WeightValueDB.fromApi(data: currentWeight)
+                        }
+                        dataDb.birthDate = data.birthDate
+                        dataDb.healthLog = data.healthLog
+                        if let breed = data.breed {
+                            dataDb.breed = BreedDB.fromApi(data: breed)
+                        }
+                        dataDb.createdAt = data.createdAt
+                        dataDb.updatedAt = data.updatedAt
+                        
+                        getPets()
+                    }
+                } catch {
+                    debugPrint(error)
+                    logErrorUpdate("Pet")
+                }
+            }
+        }
+    }
+    
     func deletPet(_ id: String) {
         if let localRealm = localRealm {
             let allResults = localRealm.objects(PetDB.self)
@@ -143,7 +176,7 @@ class RealmManager: ObservableObject {
                 do {
                     try localRealm.write {
                         localRealm.delete(result)
-                        tests = []
+
                         getPets()
                     }
                 } catch {
@@ -156,6 +189,10 @@ class RealmManager: ObservableObject {
     
     private func logErrorAdd(_ id: String) {
         sentryLog("Error while trying to add \(id) to Realm")
+    }
+    
+    private func logErrorUpdate(_ id: String) {
+        sentryLog("Error while trying to update \(id) to Realm")
     }
     
     private func logErrorDelete(_ id: String) {

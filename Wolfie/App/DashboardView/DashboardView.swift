@@ -21,19 +21,20 @@ struct DashboardView: View {
     func handleSave() {
         isPetAddOpen = false
         isPetEditOpen = false
+
+        path = []
     }
 
     func handleDelete() {
         isPetAddOpen = false
         isPetEditOpen = false
         
-        path.removeLast()
+        path = []
     }
     
     var list: some View {
         Group {
             VStack {
-                Text("realmDb.pets \(petDb.count)")
                 ScrollView {
                     ForEach(petDb) { petSingle in
                         Button {
@@ -69,7 +70,7 @@ struct DashboardView: View {
                 
                 Spacer()
                 
-                if petDb.count <= 3 { // @TODO Load it from config
+                if petDb.count < 3 { // @TODO Load it from config
                     UIButton(
                         text: String(localized: petDb.isEmpty ? "dashboard_empty_button" : "dashboard_button"),
                         fullWidth: true

@@ -85,7 +85,11 @@ struct PetForm: View {
             .toolbar {
                 ToolbarItem {
                     Button(String(localized: "save")) {
-                        realmDb.addPet(vm.save())
+                        if let id = vm.id {
+                            realmDb.updatePet(id, data: vm.save())
+                        } else {
+                            realmDb.addPet(vm.save())
+                        }
                         onSave()
                     }
                 }
