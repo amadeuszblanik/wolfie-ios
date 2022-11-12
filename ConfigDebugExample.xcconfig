@@ -11,3 +11,4 @@
 #include "Pods/Target Support Files/Pods-Wolfie/Pods-Wolfie.debug.xcconfig"
 
 SENTRY_DSN = // Use https:/$()/ instead of https://
+SentryEnvironment = debug

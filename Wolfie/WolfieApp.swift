@@ -15,9 +15,11 @@ struct WolfieApp: App {
     init() {
         guard let infoDictionary: [String: Any] = Bundle.main.infoDictionary else { print("Cannot read infoDictionary"); return }
         guard let sentryDsn: String = infoDictionary["SentryDsn"] as? String else { print("Cannot read SentryDsn"); return }
+        let sentryEnvironment: String = infoDictionary["SentryEnvironment"] as? String ?? "unknown"
 
         SentrySDK.start { options in
             options.dsn = sentryDsn
+            options.environment = sentryEnvironment
             options.debug = true // Enabled debug when first installing is always helpful
 
             // Set tracesSampleRate to 1.0 to capture 100% of transactions for performance monitoring.
@@ -29,6 +31,7 @@ struct WolfieApp: App {
             options.enableFileIOTracking = true
             options.enableCoreDataTracking = true
             options.enableCaptureFailedRequests = true
+            options.attachScreenshot = true
         }
     }
 
