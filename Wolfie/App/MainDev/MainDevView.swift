@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct MainDevView: View {
     @State private var selectedView: AppDevViews? = nil
-
+    @StateObject var realmDb = RealmManager()
+    
     var body: some View {
         NavigationSplitView {
             VStack {
@@ -32,6 +34,9 @@ struct MainDevView: View {
                 Section("Utils") {
                     Button("Sentry test") {
                         sentryLog("Sentry test")
+                    }
+                    Button("Clear database") {
+                        realmDb.clearAll()
                     }
                 }
             }

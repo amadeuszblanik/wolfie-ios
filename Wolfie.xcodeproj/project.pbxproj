@@ -66,7 +66,7 @@
 		4EFC744E291B0C5F0086A6AB /* WeightValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC744D291B0C5F0086A6AB /* WeightValue.swift */; };
 		4EFC7450291B0CE60086A6AB /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC744F291B0CE60086A6AB /* Breed.swift */; };
 		4EFC7452291B0E370086A6AB /* PetCardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7451291B0E370086A6AB /* PetCardComponent.swift */; };
-		4EFC7455291B0E4E0086A6AB /* ApiPets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7454291B0E4E0086A6AB /* ApiPets.swift */; };
+		4EFC7455291B0E4E0086A6AB /* ApiMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7454291B0E4E0086A6AB /* ApiMocks.swift */; };
 		4EFC7458291B103F0086A6AB /* AvatarComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7457291B103F0086A6AB /* AvatarComponent.swift */; };
 		4EFC745B291B1A370086A6AB /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC745A291B1A370086A6AB /* DateExtensions.swift */; };
 		4EFC745D291B1A630086A6AB /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC745C291B1A630086A6AB /* DateFormatter.swift */; };
@@ -179,7 +179,7 @@
 		4EFC744D291B0C5F0086A6AB /* WeightValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightValue.swift; sourceTree = "<group>"; };
 		4EFC744F291B0CE60086A6AB /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
 		4EFC7451291B0E370086A6AB /* PetCardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetCardComponent.swift; sourceTree = "<group>"; };
-		4EFC7454291B0E4E0086A6AB /* ApiPets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiPets.swift; sourceTree = "<group>"; };
+		4EFC7454291B0E4E0086A6AB /* ApiMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiMocks.swift; sourceTree = "<group>"; };
 		4EFC7456291B0F0A0086A6AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4EFC7457291B103F0086A6AB /* AvatarComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarComponent.swift; sourceTree = "<group>"; };
 		4EFC745A291B1A370086A6AB /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
@@ -515,7 +515,7 @@
 		4EFC7453291B0E430086A6AB /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				4EFC7454291B0E4E0086A6AB /* ApiPets.swift */,
+				4EFC7454291B0E4E0086A6AB /* ApiMocks.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -822,7 +822,7 @@
 				4E51E5A7291F2B0B0007887B /* RefreshToken.swift in Sources */,
 				4E8B68BE292032E300A0BBE1 /* PetDB.swift in Sources */,
 				4E24B6E929147D7700405D06 /* Wolfie.xcdatamodeld in Sources */,
-				4EFC7455291B0E4E0086A6AB /* ApiPets.swift in Sources */,
+				4EFC7455291B0E4E0086A6AB /* ApiMocks.swift in Sources */,
 				4E79464A291AD3FC000C356C /* InputComponent.swift in Sources */,
 				4EFC7468291C403C0086A6AB /* PetFormViewModel.swift in Sources */,
 				4E51E58C291EFDA10007887B /* MedicineValue.swift in Sources */,

@@ -21,7 +21,7 @@ struct PetCardDetailText: View {
 }
 
 struct PetCardComponent: View {
-    var pet: ApiPetSingle = PET_GOLDIE
+    var pet: PetDB!
     
     var details: some View {
         Group {
@@ -79,12 +79,12 @@ struct PetCardComponent: View {
 struct PetCardComponent_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            PetCardComponent()
+            PetCardComponent(pet: PetDB.fromApi(data: PET_GOLDIE))
         }
         .padding()
 
         VStack {
-            PetCardComponent()
+            PetCardComponent(pet: PetDB.fromApi(data: PET_GOLDIE))
         }
         .padding()
         .preferredColorScheme(.dark)

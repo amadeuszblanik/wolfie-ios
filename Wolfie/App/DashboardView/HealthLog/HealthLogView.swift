@@ -22,7 +22,7 @@ struct HealthLogView: View {
                         ForEach(vm.data) { data in
                             Button {
                                 print("Pressed on healthlog \(data.id)")
-                                path.append(.healthLogSingle)
+//                                path.append(.healthLogSingle)
                             } label: {
                                 HStack {
                                     Text(data.kind.localized)
@@ -80,7 +80,7 @@ struct HealthLogView: View {
 }
 
 struct HealthLogView_Previews: PreviewProvider {
-    @State static var path = [DashboardViews.healthLog]
+    @State static var path: [DashboardViews] = [] //[DashboardViews.healthLog]
     @State static var pet = PET_GOLDIE
     
     static var previews: some View {

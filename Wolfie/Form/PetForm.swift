@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct PetForm: View {
-    var onSuccess: () -> ()
+    var onSave: () -> ()
+    var onDelete: () -> ()
     
     @State private var isDeleteOpen = false
     @StateObject var vm = ViewModel()
@@ -71,6 +72,7 @@ struct PetForm: View {
                                 message: Text(String(localized: "action_delete_alert_message")),
                                 primaryButton: .destructive(Text(String(localized: "delete"))) {
                                     realmDb.deletPet(id)
+                                    onDelete()
                                 },
                                 secondaryButton: .cancel()
                             )
@@ -83,7 +85,8 @@ struct PetForm: View {
             .toolbar {
                 ToolbarItem {
                     Button(String(localized: "save")) {
-                        vm.id != nil ? vm.update() : vm.create()
+                        realmDb.addPet(vm.save())
+                        onSave()
                     }
                 }
             }
@@ -99,26 +102,26 @@ struct PetForm_Previews: PreviewProvider {
     
     static var previews: some View {
         VStack {
-            PetForm(onSuccess: onSuccess)
+            PetForm(onSave: onSuccess, onDelete: onSuccess)
         }.sheet(isPresented: $isOpen) {
-            PetForm(onSuccess: onSuccess)
+            PetForm(onSave: onSuccess, onDelete: onSuccess)
         }
         VStack {
-            PetForm(onSuccess: onSuccess)
+            PetForm(onSave: onSuccess, onDelete: onSuccess)
         }.sheet(isPresented: $isOpen) {
-            PetForm(onSuccess: onSuccess)
+            PetForm(onSave: onSuccess, onDelete: onSuccess)
         }
         .preferredColorScheme(.dark)
         
         VStack {
-            PetForm(onSuccess: onSuccess, vm: PetForm.ViewModel(pet: PET_GOLDIE))
+            PetForm(onSave: onSuccess, onDelete: onSuccess, vm: PetForm.ViewModel(pet: PetDB.fromApi(data: PET_GOLDIE)))
         }.sheet(isPresented: $isOpen) {
-            PetForm(onSuccess: onSuccess, vm: PetForm.ViewModel(pet: PET_GOLDIE))
+            PetForm(onSave: onSuccess, onDelete: onSuccess, vm: PetForm.ViewModel(pet: PetDB.fromApi(data: PET_GOLDIE)))
         }
         VStack {
-            PetForm(onSuccess: onSuccess, vm: PetForm.ViewModel(pet: PET_GOLDIE))
+            PetForm(onSave: onSuccess, onDelete: onSuccess, vm: PetForm.ViewModel(pet: PetDB.fromApi(data: PET_GOLDIE)))
         }.sheet(isPresented: $isOpen) {
-            PetForm(onSuccess: onSuccess, vm: PetForm.ViewModel(pet: PET_GOLDIE))
+            PetForm(onSave: onSuccess, onDelete: onSuccess, vm: PetForm.ViewModel(pet: PetDB.fromApi(data: PET_GOLDIE)))
         }
         .preferredColorScheme(.dark)
     }

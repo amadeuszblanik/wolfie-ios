@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DashboardSingleView: View {
-    @Binding var pet: ApiPetSingle
+    var pet: PetDB
     @Binding var path: [DashboardViews]
     
     @State private var isOpenEdit = false
@@ -24,7 +24,7 @@ struct DashboardSingleView: View {
                     
                     HStack {
                         Button {
-                            path.append(.weight)
+                            path.append(.weight(pet: pet))
                         } label: {
                             CardComponent(
                                 label: String(localized: "weight"),
@@ -34,7 +34,7 @@ struct DashboardSingleView: View {
                         }
                         
                         Button {
-                            path.append(.healthLog)
+                            path.append(.healthLog(pet: pet))
                         } label: {
                             CardComponent(
                                 label: String(localized: "health_log"),
@@ -53,12 +53,11 @@ struct DashboardSingleView: View {
 }
 
 struct DashboardSingleView_Previews: PreviewProvider {
-    @State static var pet = PET_GOLDIE
     @State static var path: [DashboardViews] = []
     
     static var previews: some View {
-        DashboardSingleView(pet: $pet, path: $path)
-        DashboardSingleView(pet: $pet, path: $path)
+        DashboardSingleView(pet: PetDB.fromApi(data: PET_GOLDIE), path: $path)
+        DashboardSingleView(pet: PetDB.fromApi(data: PET_GOLDIE), path: $path)
             .preferredColorScheme(.dark)
     }
 }

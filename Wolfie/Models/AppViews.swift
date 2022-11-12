@@ -40,9 +40,9 @@ enum GuestViews: String, CaseIterable {
     }
 }
 
-enum DashboardViews: String, CaseIterable {
-    case details = "details"
-    case weight = "weight"
-    case healthLog = "health_log"
-    case healthLogSingle = "health_log_single"
+enum DashboardViews: Hashable {
+    case details(pet: PetDB)
+    case weight(pet: PetDB)
+    case healthLog(pet: PetDB)
+    case healthLogSingle(pet: PetDB)
 }

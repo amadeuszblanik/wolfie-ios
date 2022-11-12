@@ -21,7 +21,7 @@ extension PetForm {
             breeds.map { SelectItem(label: $0.localizedName, id: String($0.id)) }
         }
         
-        init(pet: ApiPetSingle? = nil) {
+        init(pet: PetDB? = nil) {
             self.id = pet?.id
             self.name = pet?.name ?? ""
             self.kind = pet?.kind ?? PetKind.Dog
@@ -30,12 +30,9 @@ extension PetForm {
             self.birthDate = pet?.birthDate ?? Date()
         }
 
-        func create() -> Void {
-            
-            print("Create \n\(name)\n\(kind)\n\(breed)\n\(microchip)\n\(birthDate)")
-            
-            let pet = ApiPetSingle(
-                id: name,
+        func save() -> ApiPetSingle {
+            ApiPetSingle(
+                id: id ?? name,
                 name: name,
                 kind: kind,
                 image: "",
@@ -46,12 +43,6 @@ extension PetForm {
                 createdAt: Date(),
                 updatedAt: Date()
             )
-            
-            RealmManager().addPet(pet)
-        }
-        
-        func update() -> Void {
-            print("Update \(id)\n\(name)\n\(kind)\n\(breed)\n\(microchip)\n\(birthDate)")
         }
     }
 }
