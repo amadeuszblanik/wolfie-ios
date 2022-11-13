@@ -32,7 +32,7 @@ struct SignUpView: View {
         Group {
             UIInput(label: String(localized: "email"), state: $vm.email, keyboardType: .emailAddress)
                 .padding(.vertical)
-                .textContentType(.emailAddress)
+                .textContentType(.username)
             
             UIInput(label: String(localized: "first_name"), state: $vm.firstName)
                 .padding(.vertical)

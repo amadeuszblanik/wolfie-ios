@@ -24,7 +24,7 @@ struct SignInView: View {
             VStack {
                 UIInput(label: String(localized: "username"), state: $vm.username, keyboardType: .emailAddress)
                     .padding(.vertical)
-                    .textContentType(.emailAddress)
+                    .textContentType(.username)
                 
                 UIInput(label: String(localized: "password"), state: $vm.password, type: .Password)
                     .padding(.vertical)
