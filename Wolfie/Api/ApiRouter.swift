@@ -12,6 +12,7 @@ public enum ApiRouter: ApiConfiguration {
     case postAuthSignIn(_ body: DtoSignIn)
     case postAuthSignUp(_ body: DtoSignUp)
     case getPetsMy
+    case getPetsWeights(_ petId: String)
 
     public var method: HTTPMethod {
         switch self {
@@ -20,6 +21,8 @@ public enum ApiRouter: ApiConfiguration {
         case .postAuthSignUp:
             return .post
         case .getPetsMy:
+            return .get
+        case .getPetsWeights:
             return .get
         }
     }
@@ -36,6 +39,8 @@ public enum ApiRouter: ApiConfiguration {
             return "/auth/sign-up"
         case .getPetsMy:
             return "/pets/my"
+        case .getPetsWeights(let petId):
+            return "/pets/\(petId)/weight"
         }
     }
     

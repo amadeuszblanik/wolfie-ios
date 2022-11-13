@@ -12,12 +12,10 @@ class RealmManager: ObservableObject {
     private(set) var localRealm: Realm?
     
     @Published var tests: [Test] = []
-    @Published var pets: [PetDB] = []
     
     init() {
         openRealm()
         getTests()
-        getPets()
     }
     
     func clearAll() {
@@ -30,11 +28,16 @@ class RealmManager: ObservableObject {
     
     func openRealm() {
         do {
-            let config = Realm.Configuration(schemaVersion: 1, migrationBlock: { migration, oldSchemaVersion in
-                if oldSchemaVersion > 1 {
-                    // Update
-                }
-            })
+            let config = Realm.Configuration(
+                schemaVersion: 3,
+                migrationBlock: { migration, oldSchemaVersion in
+                    if oldSchemaVersion < 3 {
+                        migration.deleteData(forType: PetDB.className())
+                        migration.deleteData(forType: WeightValueDB.className())
+                    }
+                },
+                deleteRealmIfMigrationNeeded: true
+            )
             
             Realm.Configuration.defaultConfiguration = config
             
@@ -99,20 +102,6 @@ class RealmManager: ObservableObject {
     }
     
 //    Pets
-    
-    func getPets() {
-        if let localRealm = localRealm {
-            let allResults = localRealm.objects(PetDB.self)
-            var next: [PetDB] = []
-            
-            allResults.forEach { value in
-                next.append(value)
-            }
-            
-            pets = next
-        }
-    }
-    
     func fetchPets() {
         deletPetAll()
         
@@ -130,10 +119,10 @@ class RealmManager: ObservableObject {
     
     func addPet(_ pet: ApiPetSingle) {
         if let localRealm = localRealm {
+            
             do {
                 try localRealm.write {
-                    localRealm.add(PetDB.fromApi(data: pet))
-                    getPets()
+                    localRealm.add(PetDB.fromApi(data: pet), update: .all)
                 }
             } catch {
                 debugPrint(error)
@@ -155,7 +144,7 @@ class RealmManager: ObservableObject {
                         dataDb.microchip = data.microchip
                         dataDb.image = data.image
                         if let currentWeight = data.currentWeight {
-                            dataDb.currentWeight = WeightValueDB.fromApi(data: currentWeight)
+                            dataDb.currentWeight = WeightValueDB.fromApi(data: currentWeight, petId: data.id)
                         }
                         dataDb.birthDate = data.birthDate
                         dataDb.healthLog = data.healthLog
@@ -164,8 +153,6 @@ class RealmManager: ObservableObject {
                         }
                         dataDb.createdAt = data.createdAt
                         dataDb.updatedAt = data.updatedAt
-                        
-                        getPets()
                     }
                 } catch {
                     debugPrint(error)
@@ -182,8 +169,6 @@ class RealmManager: ObservableObject {
             do {
                 try localRealm.write {
                     localRealm.delete(allResults)
-
-                    getPets()
                 }
             } catch {
                 debugPrint(error)
@@ -200,12 +185,71 @@ class RealmManager: ObservableObject {
                 do {
                     try localRealm.write {
                         localRealm.delete(result)
-
-                        getPets()
                     }
                 } catch {
                     debugPrint(error)
                     logErrorDelete("Pet")
+                }
+            }
+        }
+    }
+    
+//    Weights
+    func fetchWeights(petId: String) {
+        deletWeightAll(petId)
+        
+        WolfieApi().getPetsWeights(petId: petId) { results in
+            switch results {
+            case.success(let weights):
+                weights.forEach { weight in
+                    self.addWeight(weight, petId: petId)
+                }
+            case .failure(let error):
+                self.logErrorFetch("Weights \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func addWeight(_ value: ApiWeightValue, petId: String) {
+        if let localRealm = localRealm {
+            do {
+                try localRealm.write {
+                    localRealm.add(WeightValueDB.fromApi(data: value, petId: petId), update: .all)
+                }
+            } catch {
+                debugPrint(error)
+                logErrorAdd("Weight")
+            }
+        }
+    }
+
+    func deletWeightAll(_ petId: String?) {
+        if let localRealm = localRealm {
+            let allResults = petId != nil ? localRealm.objects(WeightValueDB.self).filter("petId == '\(petId!)'") : localRealm.objects(WeightValueDB.self)
+
+            do {
+                try localRealm.write {
+                    localRealm.delete(allResults)
+                }
+            } catch {
+                debugPrint(error)
+                logErrorDelete("WeightAll")
+            }
+        }
+    }
+    
+    func deleteWeight(_ id: String) {
+        if let localRealm = localRealm {
+            let allResults = localRealm.objects(WeightValueDB.self)
+
+            if let result = allResults.find(predicate: { result in result.id == id }) {
+                do {
+                    try localRealm.write {
+                        localRealm.delete(result)
+                    }
+                } catch {
+                    debugPrint(error)
+                    logErrorDelete("Weight")
                 }
             }
         }

@@ -9,15 +9,16 @@ import Foundation
 import RealmSwift
 
 class WeightValueDB: Object, ObjectKeyIdentifiable {
-    @Persisted var id: String
+    @Persisted(primaryKey: true) var id: String
     @Persisted var raw: Float
     @Persisted var formatted: String
     @Persisted var rawGram: Float
     @Persisted var date: Date
     @Persisted var createdAt: Date
     @Persisted var updatedAt: Date
+    @Persisted var petId: String? = nil
     
-    static func fromApi(data: ApiWeightValue) -> WeightValueDB {
+    static func fromApi(data: ApiWeightValue, petId: String? = nil) -> WeightValueDB {
         let dataDb = WeightValueDB()
         dataDb.id = data.id
         dataDb.raw = data.raw
@@ -26,6 +27,7 @@ class WeightValueDB: Object, ObjectKeyIdentifiable {
         dataDb.date = data.date
         dataDb.createdAt = data.createdAt
         dataDb.updatedAt = data.updatedAt
+        dataDb.petId = petId
         
         return dataDb
     }

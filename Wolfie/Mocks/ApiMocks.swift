@@ -32,7 +32,7 @@ let HEALTHLOG_1 = ApiHealthLogValue(id: "HEALTH-LOG-1", kind: .ExternalParasite,
 let HEALTHLOG_2 = ApiHealthLogValue(id: "HEALTH-LOG-2", kind: .Treatment, date: "2022-03-25", medicine: [], additionalMedicines: [], addedBy: SIMPLE_USER_0, createdAt: Date(), updatedAt: Date())
 
 let PET_GOLDIE = ApiPetSingle(
-    id: "123",
+    id: "0a8dc77c-bde7-4309-aefb-bd8811093fcc",
     name: "Goldie",
     kind: .Dog,
     microchip: "616000000000000",

@@ -39,6 +39,42 @@ struct MainDevView: View {
                         realmDb.clearAll()
                     }
                 }
+                
+                Section("Config") {
+                    HStack(alignment: .firstTextBaseline) {
+                        Text("API URL")
+                        
+                        Spacer()
+                        
+                        Text(Bundle.main.infoDictionary?["ApiUrl"] as? String ?? "https://api.wolfie.app/v1")
+                    }
+                    
+                    HStack(alignment: .firstTextBaseline) {
+                        Text("Web URL")
+                        
+                        Spacer()
+                        
+                        Text(Bundle.main.infoDictionary?["WebUrl"] as? String ?? "https://wolfie.app")
+                    }
+                    
+                    HStack(alignment: .firstTextBaseline) {
+                        Text("Sentry DSN")
+                        
+                        Spacer()
+                        
+                        Text(Bundle.main.infoDictionary?["SentryDsn"] as? String ?? "——")
+                            .multilineTextAlignment(.trailing)
+                            .frame(alignment: .trailing)
+                    }
+                    
+                    HStack(alignment: .firstTextBaseline) {
+                        Text("Sentry Environment")
+                        
+                        Spacer()
+                        
+                        Text(Bundle.main.infoDictionary?["SentryEnvironment"] as? String ?? "——")
+                    }
+                }
             }
             .listStyle(InsetGroupedListStyle())
         } detail: {

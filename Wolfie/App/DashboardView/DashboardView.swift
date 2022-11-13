@@ -63,6 +63,10 @@ struct DashboardView: View {
             
             Text(String(localized: "dashboard_empty"))
                 .fontWeight(.semibold)
+            
+            UIButton(text: String(localized: "refresh")) {
+                realmDb.fetchPets()
+            }
         }
     }
     
@@ -106,10 +110,7 @@ struct DashboardView: View {
                             PetForm(onSave: handleSave, onDelete: handleDelete, vm: PetForm.ViewModel(pet: pet))
                         }
                 case .weight(let pet):
-                    DashboardWeightsView(
-                        pet: pet,
-                        vm: DashboardWeightsView.ViewModel(data: [WEIGHT_142, WEIGHT_140, WEIGHT_138])
-                    )
+                    DashboardWeightsView(pet: pet)
                     .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Button(String(localized: "add")) {

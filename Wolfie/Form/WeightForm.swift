@@ -93,7 +93,7 @@ struct WeightForm: View {
 
 struct WeightForm_Previews: PreviewProvider {
     static var pet = PetDB.fromApi(data: PET_GOLDIE)
-    static var weight = WeightValueDB.fromApi(data: WEIGHT_142)
+    static var weight = WeightValueDB.fromApi(data: WEIGHT_142, petId: PET_GOLDIE.id)
     @State static var isOpen = true
     
     static var previews: some View {

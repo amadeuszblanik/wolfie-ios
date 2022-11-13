@@ -7,6 +7,43 @@
 
 import SwiftUI
 import Charts
+import RealmSwift
+
+struct DashboardWeightsChartView: View {
+    var data: Results<WeightValueDB>
+    
+    var averageValue: Double {
+        let total = data.reduce(0) { $0 + $1.raw }
+        
+        return Double(total) / Double(data.count)
+    }
+    var firstEntryDate: Date {
+        data.map { $0.date }.min()!
+    }
+    
+    var lastEntryDate: Date {
+        data.map { $0.date }.max()!
+    }
+
+    var body: some View {
+        VStack {
+            UISummary(averageValue: self.averageValue, unit: "kg", dateRange: DateInterval(start: firstEntryDate, end: lastEntryDate))
+                .padding(.bottom)
+
+            Chart(data) {
+                LineMark(
+                    x: .value("X", $0.date),
+                    y: .value("Y", $0.raw)
+                )
+                PointMark(
+                    x: .value("X", $0.date),
+                    y: .value("Y", $0.raw)
+                )
+            }
+            .frame(height: UIScreen.main.bounds.height / 4.2)
+        }
+    }
+}
 
 struct DashboardWeightsView: View {
     var pet: PetDB
@@ -14,22 +51,38 @@ struct DashboardWeightsView: View {
     @State private var isEditOpen = false
     @State private var isDeleteOpen = false
     @StateObject var vm = ViewModel()
+    @StateObject var realmDb = RealmManager()
+    @ObservedResults(WeightValueDB.self) var weightDb
+    
+    var petWeightDb: Results<WeightValueDB> { weightDb.filter("petId == '\(pet.id)'").sorted(by: \.date, ascending: false) }
+    
+    init(pet: PetDB) {
+        self.pet = pet
+        
+        RealmManager().fetchWeights(petId: pet.id)
+    }
     
     var empty: some View {
-        Text(String(localized: "weight_empty"))
+        VStack {
+            Text(String(localized: "weight_empty"))
+                .padding(.bottom)
+            UIButton(text: String(localized: "refresh")) {
+                realmDb.fetchWeights(petId: pet.id)
+            }
+        }
     }
     
     var list: some View {
         Group {
             List() {
                 Section {
-                    ForEach(vm.data) { data in
+                    ForEach(petWeightDb) { data in
                         HStack {
                             Text(data.raw.formattedString)
                                 .lineLimit(1)
                             
                             Spacer()
-                            
+
                             Text(data.date.toFormattedWithTime())
                                 .foregroundColor(Color(UIColor.secondaryLabel))
                                 .lineLimit(1)
@@ -53,7 +106,7 @@ struct DashboardWeightsView: View {
                             )
                         }
                         .sheet(isPresented: $isEditOpen) {
-                            WeightForm(pet: pet, weight: WeightValueDB.fromApi(data: data))
+                            WeightForm(pet: pet, weight: data)
                         }
                     }
                 } header: {
@@ -64,33 +117,21 @@ struct DashboardWeightsView: View {
             .listStyle(.insetGrouped)
             .scrollContentBackground(.hidden)
             .cornerRadius(8)
+            .refreshable {
+                realmDb.fetchWeights(petId: pet.id)
+            }
         }
     }
     
     var body: some View {
         VStack {
-            if (vm.data.count >= 3) {
-                VStack {
-                    UISummary(averageValue: 19.80, unit: "kg", dateRange: DateInterval(start: Date(timeIntervalSinceNow: -213769420), end: Date()))
-                        .padding(.bottom)
-                    
-                    Chart(vm.data.reversed()) {
-                        LineMark(
-                            x: .value("X", $0.date),
-                            y: .value("Y", $0.raw)
-                        )
-                        PointMark(
-                            x: .value("X", $0.date),
-                            y: .value("Y", $0.raw)
-                        )
-                    }
-                    .frame(height: UIScreen.main.bounds.height / 4.2)
-                }
+            if (petWeightDb.count >= 3) {
+                DashboardWeightsChartView(data: petWeightDb)
                 .padding(.top)
                 .padding(.horizontal)
             }
             
-            if (vm.data.isEmpty) {
+            if (petWeightDb.isEmpty) {
                 empty
             } else {
                 list
@@ -101,18 +142,15 @@ struct DashboardWeightsView: View {
 
 struct DashboardWeightsView_Previews: PreviewProvider {
     static var pet = PetDB.fromApi(data: PET_GOLDIE)
+    static var pet2 = PetDB.fromApi(data: PET_TESTIE)
     
     static var previews: some View {
         DashboardWeightsView(pet: pet)
         DashboardWeightsView(pet: pet)
             .preferredColorScheme(.dark)
         
-        DashboardWeightsView(pet: pet, vm: DashboardWeightsView.ViewModel(data: [WEIGHT_142]))
-        DashboardWeightsView(pet: pet, vm: DashboardWeightsView.ViewModel(data: [WEIGHT_142]))
-            .preferredColorScheme(.dark)
-        
-        DashboardWeightsView(pet: pet, vm: DashboardWeightsView.ViewModel(data: [WEIGHT_142, WEIGHT_140, WEIGHT_138]))
-        DashboardWeightsView(pet: pet, vm: DashboardWeightsView.ViewModel(data: [WEIGHT_142, WEIGHT_140, WEIGHT_138]))
+        DashboardWeightsView(pet: pet2)
+        DashboardWeightsView(pet: pet2)
             .preferredColorScheme(.dark)
     }
 }

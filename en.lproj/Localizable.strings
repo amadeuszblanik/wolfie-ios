@@ -24,6 +24,7 @@
 "add" = "Add";
 "save" = "Save";
 "delete" = "Delete";
+"refresh" = "Refresh";
 
 "read_gdpr" = "Policy privacy (GDPR)";
 

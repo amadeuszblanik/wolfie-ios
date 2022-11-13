@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 class PetDB: Object, ObjectKeyIdentifiable {
-    @Persisted var id: String
+    @Persisted(primaryKey: true) var id: String
     @Persisted var name: String
     @Persisted var kind: PetKind
     @Persisted var microchip: String?
@@ -29,7 +29,7 @@ class PetDB: Object, ObjectKeyIdentifiable {
         dataDb.microchip = data.microchip
         dataDb.image = data.image
         if let currentWeight = data.currentWeight {
-            dataDb.currentWeight = WeightValueDB.fromApi(data: currentWeight)
+            dataDb.currentWeight = WeightValueDB.fromApi(data: currentWeight, petId: data.id)
         }
         dataDb.birthDate = data.birthDate
         dataDb.healthLog = data.healthLog

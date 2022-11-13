@@ -12,6 +12,7 @@ protocol WolfieApiProtocol {
     func postSignIn(body: DtoSignIn, completion: @escaping (Result<ApiSignIn, ApiError>) -> Void)
     func postSignUp(body: DtoSignUp, completion: @escaping (Result<ApiMessage, ApiError>) -> Void)
     func getPetsMy(completion: @escaping (Result<[ApiPetSingle], ApiError>) -> Void)
+    func getPetsWeights(petId: String, completion: @escaping (Result<[ApiWeightValue], ApiError>) -> Void)
 }
 
 public final class WolfieApi {
@@ -82,5 +83,9 @@ extension WolfieApi: WolfieApiProtocol {
     
     func getPetsMy(completion: @escaping (Result<[ApiPetSingle], ApiError>) -> Void) {
         performRequest(route: .getPetsMy, completion: completion)
+    }
+    
+    func getPetsWeights(petId: String, completion: @escaping (Result<[ApiWeightValue], ApiError>) -> Void) {
+        performRequest(route: .getPetsWeights(petId), completion: completion)
     }
 }
