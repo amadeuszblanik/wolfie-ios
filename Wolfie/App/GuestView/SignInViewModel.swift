@@ -23,7 +23,12 @@ extension SignInView {
         @Published var isLoading: Bool = false
         @Published var isInvalid: Bool = false
         
-        var errorMessage: String = "Lorem ipsum dolor sit amet"
+        
+        var isFilled: Bool {
+            !username.isEmpty && !password.isEmpty
+        }
+
+        var errorMessage: String = ""
         
         var device: String = UIDevice().name
         
@@ -36,26 +41,40 @@ extension SignInView {
         }
         
         func signIn() -> Void {
-            isInvalid = false
             isActive = false
             isLoading = true
-            print("Tried to sign in as \(username)/\(password) and \(keepSignIn ? "Keep session" : "Do not keep session") with device \(device)")
+            
+            let payload: DtoSignIn = DtoSignIn(
+                username: self.username,
+                password: self.password,
+                keepSignIn: self.keepSignIn,
+                device: UIDevice().name
+            )
+            
+            WolfieApi().postSignIn(body: payload) { result in
+                switch result {
+                case .success(let response):
+                    print("Response")
+                    debugPrint(response)
+                    
+                    self.accessToken = response.accessToken
+                    KeychainService.standard.save(Data(response.accessToken.utf8), service: "access-token", account: "wolfie")
 
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
-                self.isLoading = false
-                self.isActive = true
-                
-                guard self.username.lowercased() == MOCKED_USERNAME else {
+                    if let refreshToken = response.refreshToken {
+                        KeychainService.standard.save(Data(refreshToken.utf8), service: "refresg-token", account: "wolfie")
+                    }
+                case .failure(let error):
                     self.isInvalid = true
-                    return
+                    self.isActive = true
+                    self.isLoading = false
+                    
+                    switch error {
+                    case .server(let message):
+                        self.errorMessage = message
+                    default:
+                        self.errorMessage = "Something went wrong"
+                    }
                 }
-                
-                guard self.password == MOCKED_PASSWORD else {
-                    self.isInvalid = true
-                    return
-                }
-                
-                self.setAccessToken("ACCESS_TOKEN")
             }
         }
     }

@@ -71,7 +71,7 @@ struct ProfileView: View {
                         ProfileItemView(label: String(localized: "update_profile"))
                     }
                     .sheet(isPresented: $isUpdateProfilOpen) {
-                        WebView(url: "https://next.wolfie.app/settings/profile")
+                        UIWebView(url: vm.updateProfileUrl, title: String(localized: "update_profile"))
                     }
                     
                     Button {
@@ -80,7 +80,7 @@ struct ProfileView: View {
                         ProfileItemView(label: String(localized: "change_password"))
                     }
                     .sheet(isPresented: $isChangePasswordOpen) {
-                        WebView(url: "https://next.wolfie.app/settings/change-password")
+                        UIWebView(url: vm.changePasswordUrl, title: String(localized: "change_password"))
                     }
                     
                     Button {
@@ -89,7 +89,7 @@ struct ProfileView: View {
                         ProfileItemView(label: String(localized: "authorized_devices"))
                     }
                     .sheet(isPresented: $isAuthorizedDevicesOpen) {
-                        WebView(url: "https://next.wolfie.app/settings/authorized-devices")
+                        UIWebView(url: vm.authorizedDevicesUrl, title: String(localized: "authorized_devices"))
                     }
                     
                     Button {
@@ -98,7 +98,7 @@ struct ProfileView: View {
                         ProfileItemView(label: String(localized: "read_gdpr"))
                     }
                     .sheet(isPresented: $isGdprOpen) {
-                        WebView(url: "https://next.wolfie.app/privacy-policy")
+                        UIWebView(url: vm.gdprUrl, title: String(localized: "read_gdpr"))
                     }
                     
                     Button {

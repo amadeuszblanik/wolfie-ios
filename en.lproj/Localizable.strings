@@ -109,3 +109,7 @@
 
 "action_delete_alert_title" = "Confirm deletion";
 "action_delete_alert_message" = "Are you sure to delete this entry?";
+
+"action_sign_in_alert_title" = "Error has occured";
+
+"web_view_title" = "Browser";

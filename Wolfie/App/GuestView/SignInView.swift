@@ -43,19 +43,18 @@ struct SignInView: View {
                     .padding(.bottom)
                 }
                 
-                if (vm.isInvalid) {
-                    Text(vm.errorMessage)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.red)
-                        .padding(.bottom)
-                }
-                
                 UIButton(text: String(localized: "sign_in"), fullWidth: true) {
                     vm.signIn()
                 }
-                .disabled(!vm.isActive)
+                .disabled(!vm.isActive || !vm.isFilled)
             }
             .padding()
+            .alert(isPresented: $vm.isInvalid) {
+                Alert(
+                    title: Text(String(localized: "action_sign_in_alert_title")),
+                    message: Text(vm.errorMessage)
+                )
+            }
         }
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)

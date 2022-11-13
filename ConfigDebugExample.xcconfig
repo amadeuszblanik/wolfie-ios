@@ -12,3 +12,5 @@
 
 SENTRY_DSN = // Use https:/$()/ instead of https://
 SENTRY_ENVIRONMENT = debug
+API_URL = // Use https:/$()/ instead of https://
+WEB_URL = // Use https:/$()/ instead of https://

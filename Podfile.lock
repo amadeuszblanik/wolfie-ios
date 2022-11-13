@@ -10,7 +10,7 @@ PODS:
   - Sentry/Core (7.30.2)
 
 DEPENDENCIES:
-  - Alamofire
+  - Alamofire (~> 5)
   - RealmSwift (~> 10)
   - Sentry (from `https://github.com/getsentry/sentry-cocoa.git`, tag `7.30.2`)
 
@@ -36,6 +36,6 @@ SPEC CHECKSUMS:
   RealmSwift: 7c181da8fa1c2fe613656a77c198d6a3dc3879a1
   Sentry: 9be48e341494bc976c963b05aa4a8ca48308c684
 
-PODFILE CHECKSUM: 8c5046c709c35c39a15d258a8761404765ec013c
+PODFILE CHECKSUM: 528f1e3b2a75732061f9a46c21547ea2b0d0f8c6
 
 COCOAPODS: 1.11.3
