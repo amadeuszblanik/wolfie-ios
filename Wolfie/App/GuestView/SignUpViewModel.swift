@@ -19,27 +19,47 @@ extension SignUpView {
         @Published var isActive: Bool = true
         @Published var isLoading: Bool = false
         @Published var isInvalid: Bool = false
-        var isSuccess: Bool = false
+        @Published var isSuccess: Bool = false
+
+        var isFilled: Bool {
+            !firstName.isEmpty && !lastName.isEmpty && !password.isEmpty && !passwordConfirm.isEmpty && !weightUnit.isEmpty && gdprConsent
+        }
         
         var sucessMessage: String = "Lorem ipsum dolor sit amet"
         var errorMessage: String = "Lorem ipsum dolor sit amet"
 
-        func signUp() -> Void {
-            isInvalid = false
+        func signUp() {
             isActive = false
             isLoading = true
-            print("Tried to sign up as \(firstName)\n\(lastName)\n\(password)\n\(passwordConfirm)\n\(weightUnit)\n\(gdprConsent ? "gdprConsent – true" : "gdprConsent – false")")
-
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
-                self.isLoading = false
-                self.isActive = true
-
-                guard self.password == MOCKED_PASSWORD else {
+            
+            let payload: DtoSignUp = DtoSignUp(
+                email: self.email,
+                firstName: self.firstName,
+                lastName: self.lastName,
+                password: self.password,
+                passwordConfirm: self.passwordConfirm,
+                weightUnit: self.weightUnit,
+                gdprConsent: self.gdprConsent
+            )
+            
+            WolfieApi().postSignUp(body: payload) { result in
+                switch result {
+                case .success(let response):
+                    self.isSuccess = true
+                    self.sucessMessage = response.message
+                case .failure(let error):
                     self.isInvalid = true
-                    return
+                    self.isActive = true
+                    self.isLoading = false
+                    
+                    switch error {
+                    case .server(let message):
+                        self.errorMessage = message
+                        self.isSuccess = false
+                    default:
+                        self.errorMessage = String(localized: "error_generic_message")
+                    }
                 }
-
-                self.isSuccess = true
             }
         }
     }

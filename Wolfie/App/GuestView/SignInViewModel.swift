@@ -54,9 +54,6 @@ extension SignInView {
             WolfieApi().postSignIn(body: payload) { result in
                 switch result {
                 case .success(let response):
-                    print("Response")
-                    debugPrint(response)
-                    
                     self.accessToken = response.accessToken
                     KeychainService.standard.save(Data(response.accessToken.utf8), service: "access-token", account: "wolfie")
 
@@ -72,7 +69,7 @@ extension SignInView {
                     case .server(let message):
                         self.errorMessage = message
                     default:
-                        self.errorMessage = "Something went wrong"
+                        self.errorMessage = String(localized: "error_generic_message")
                     }
                 }
             }

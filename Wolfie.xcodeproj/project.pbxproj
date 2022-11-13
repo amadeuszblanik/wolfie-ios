@@ -67,6 +67,8 @@
 		4EF572BE2921511D00F11E4A /* JsonDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF572BD2921511D00F11E4A /* JsonDateFormatter.swift */; };
 		4EF572C0292154BF00F11E4A /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF572BF292154BF00F11E4A /* ErrorMessage.swift */; };
 		4EF572C229215D5300F11E4A /* WebViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF572C129215D5300F11E4A /* WebViewComponent.swift */; };
+		4EF572C42921620200F11E4A /* SignUpDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF572C32921620200F11E4A /* SignUpDto.swift */; };
+		4EF572C6292168B400F11E4A /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF572C5292168B400F11E4A /* Message.swift */; };
 		4EFC7435291AE32D0086A6AB /* JumbotronComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7434291AE32D0086A6AB /* JumbotronComponent.swift */; };
 		4EFC7437291AE6C00086A6AB /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7436291AE6C00086A6AB /* MainViewModel.swift */; };
 		4EFC743A291AEA6F0086A6AB /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7439291AEA6F0086A6AB /* SignUpViewModel.swift */; };
@@ -193,6 +195,8 @@
 		4EF572BD2921511D00F11E4A /* JsonDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDateFormatter.swift; sourceTree = "<group>"; };
 		4EF572BF292154BF00F11E4A /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		4EF572C129215D5300F11E4A /* WebViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewComponent.swift; sourceTree = "<group>"; };
+		4EF572C32921620200F11E4A /* SignUpDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpDto.swift; sourceTree = "<group>"; };
+		4EF572C5292168B400F11E4A /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		4EFC7434291AE32D0086A6AB /* JumbotronComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JumbotronComponent.swift; sourceTree = "<group>"; };
 		4EFC7436291AE6C00086A6AB /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		4EFC7439291AEA6F0086A6AB /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
@@ -558,6 +562,7 @@
 				4E51E5A8291F2DB20007887B /* Config.swift */,
 				4EF572AC29214BBC00F11E4A /* SignIn.swift */,
 				4EF572BF292154BF00F11E4A /* ErrorMessage.swift */,
+				4EF572C5292168B400F11E4A /* Message.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -610,6 +615,7 @@
 				4EFC7472291C83B10086A6AB /* PetDto.swift */,
 				4EFC7488291DA75C0086A6AB /* WeightDto.swift */,
 				4EF572AA29214B7500F11E4A /* SignInDto.swift */,
+				4EF572C32921620200F11E4A /* SignUpDto.swift */,
 			);
 			path = Dto;
 			sourceTree = "<group>";
@@ -922,8 +928,10 @@
 				4EF572BA29214E2900F11E4A /* isoDateFormatter.swift in Sources */,
 				4E51E5AB291F2DE00007887B /* UserRoles.swift in Sources */,
 				4EF572B429214D4400F11E4A /* KeychainService.swift in Sources */,
+				4EF572C6292168B400F11E4A /* Message.swift in Sources */,
 				4EFC747F291D9B100086A6AB /* NumberExtensions.swift in Sources */,
 				4EFC7461291B1AE60086A6AB /* TimeInvervalFormatter.swift in Sources */,
+				4EF572C42921620200F11E4A /* SignUpDto.swift in Sources */,
 				4EFC746E291C76660086A6AB /* DashboardSingleView.swift in Sources */,
 				4EFC744E291B0C5F0086A6AB /* WeightValue.swift in Sources */,
 				4EFC7437291AE6C00086A6AB /* MainViewModel.swift in Sources */,

@@ -10,10 +10,13 @@ import Alamofire
 
 public enum ApiRouter: ApiConfiguration {
     case postAuthSignIn(_ body: DtoSignIn)
+    case postAuthSignUp(_ body: DtoSignUp)
 
     public var method: HTTPMethod {
         switch self {
         case .postAuthSignIn:
+            return .post
+        case .postAuthSignUp:
             return .post
         }
     }
@@ -26,12 +29,18 @@ public enum ApiRouter: ApiConfiguration {
         switch self {
         case .postAuthSignIn:
             return "/auth/sign-in"
+        case .postAuthSignUp:
+            return "/auth/sign-up"
         }
     }
     
     public var body: Data? {
         switch self {
         case .postAuthSignIn(let body):
+            let json = try? body.toData()
+
+            return json
+        case .postAuthSignUp(let body):
             let json = try? body.toData()
 
             return json
