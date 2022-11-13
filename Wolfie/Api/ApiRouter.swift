@@ -11,6 +11,7 @@ import Alamofire
 public enum ApiRouter: ApiConfiguration {
     case postAuthSignIn(_ body: DtoSignIn)
     case postAuthSignUp(_ body: DtoSignUp)
+    case getPetsMy
 
     public var method: HTTPMethod {
         switch self {
@@ -18,6 +19,8 @@ public enum ApiRouter: ApiConfiguration {
             return .post
         case .postAuthSignUp:
             return .post
+        case .getPetsMy:
+            return .get
         }
     }
     
@@ -31,6 +34,8 @@ public enum ApiRouter: ApiConfiguration {
             return "/auth/sign-in"
         case .postAuthSignUp:
             return "/auth/sign-up"
+        case .getPetsMy:
+            return "/pets/my"
         }
     }
     

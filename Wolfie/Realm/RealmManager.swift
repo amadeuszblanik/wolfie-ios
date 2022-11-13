@@ -113,6 +113,21 @@ class RealmManager: ObservableObject {
         }
     }
     
+    func fetchPets() {
+        deletPetAll()
+        
+        WolfieApi().getPetsMy { results in
+            switch results {
+            case.success(let pets):
+                pets.forEach { pet in
+                    self.addPet(pet)
+                }
+            case .failure(let error):
+                self.logErrorFetch("Pets \(error.localizedDescription)")
+            }
+        }
+    }
+    
     func addPet(_ pet: ApiPetSingle) {
         if let localRealm = localRealm {
             do {
@@ -160,6 +175,23 @@ class RealmManager: ObservableObject {
         }
     }
     
+    func deletPetAll() {
+        if let localRealm = localRealm {
+            let allResults = localRealm.objects(PetDB.self)
+
+            do {
+                try localRealm.write {
+                    localRealm.delete(allResults)
+
+                    getPets()
+                }
+            } catch {
+                debugPrint(error)
+                logErrorDelete("PetAll")
+            }
+        }
+    }
+    
     func deletPet(_ id: String) {
         if let localRealm = localRealm {
             let allResults = localRealm.objects(PetDB.self)
@@ -177,6 +209,10 @@ class RealmManager: ObservableObject {
                 }
             }
         }
+    }
+    
+    private func logErrorFetch(_ id: String) {
+        sentryLog("Error while trying to fetch \(id) to Realm")
     }
     
     private func logErrorAdd(_ id: String) {

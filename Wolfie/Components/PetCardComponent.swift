@@ -12,9 +12,11 @@ struct PetCardDetailText: View {
     var value: String!
     
     var body: some View {
-        HStack {
+        HStack(alignment: .firstTextBaseline) {
             Text(label)
             Text(value)
+                .multilineTextAlignment(.leading)
+                .frame(maxWidth: .infinity, alignment: .leading)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }
@@ -85,6 +87,17 @@ struct PetCardComponent_Previews: PreviewProvider {
 
         VStack {
             PetCardComponent(pet: PetDB.fromApi(data: PET_GOLDIE))
+        }
+        .padding()
+        .preferredColorScheme(.dark)
+
+        VStack {
+            PetCardComponent(pet: PetDB.fromApi(data: PET_TESTIE))
+        }
+        .padding()
+
+        VStack {
+            PetCardComponent(pet: PetDB.fromApi(data: PET_TESTIE))
         }
         .padding()
         .preferredColorScheme(.dark)

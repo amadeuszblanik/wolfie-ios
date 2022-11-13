@@ -11,6 +11,7 @@ import Alamofire
 protocol WolfieApiProtocol {
     func postSignIn(body: DtoSignIn, completion: @escaping (Result<ApiSignIn, ApiError>) -> Void)
     func postSignUp(body: DtoSignUp, completion: @escaping (Result<ApiMessage, ApiError>) -> Void)
+    func getPetsMy(completion: @escaping (Result<[ApiPetSingle], ApiError>) -> Void)
 }
 
 public final class WolfieApi {
@@ -71,11 +72,15 @@ public final class WolfieApi {
 }
 
 extension WolfieApi: WolfieApiProtocol {
-    public func postSignIn(body: DtoSignIn, completion: @escaping (Result<ApiSignIn, ApiError>) -> Void) {
+    func postSignIn(body: DtoSignIn, completion: @escaping (Result<ApiSignIn, ApiError>) -> Void) {
         performRequest(route: .postAuthSignIn(body), completion: completion)
     }
     
     func postSignUp(body: DtoSignUp, completion: @escaping (Result<ApiMessage, ApiError>) -> Void) {
         performRequest(route: .postAuthSignUp(body), completion: completion)
+    }
+    
+    func getPetsMy(completion: @escaping (Result<[ApiPetSingle], ApiError>) -> Void) {
+        performRequest(route: .getPetsMy, completion: completion)
     }
 }

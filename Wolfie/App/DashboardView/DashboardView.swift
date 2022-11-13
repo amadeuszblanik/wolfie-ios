@@ -18,6 +18,10 @@ struct DashboardView: View {
     @StateObject var realmDb = RealmManager()
     @ObservedResults(PetDB.self) var petDb
     
+    init() {
+        RealmManager().fetchPets()
+    }
+    
     func handleSave() {
         isPetAddOpen = false
         isPetEditOpen = false
@@ -45,6 +49,9 @@ struct DashboardView: View {
                                 .padding(.bottom)
                         }
                     }
+                }
+                .refreshable {
+                    realmDb.fetchPets()
                 }
             }
         }

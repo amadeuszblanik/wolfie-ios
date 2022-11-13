@@ -12,6 +12,7 @@ let BREED_ENGLISH_SETTER = ApiBreed(id: 2, name: "english_setter", group: "Engli
 let BREED_GIANT_SCHNAUZER = ApiBreed(id: 181, name: "giant_schnauzer", group: "Schnauzer", createdAt: Date(), updatedAt: Date())
 let BREED_SCHNAUZER = ApiBreed(id: 182, name: "schnauzer", group: "Schnauzer", createdAt: Date(), updatedAt: Date())
 let BREED_MINIATURE_SCHNAUZER = ApiBreed(id: 183, name: "miniature_schnauzer", group: "Schnauzer", createdAt: Date(), updatedAt: Date())
+let BREED_LONG = ApiBreed(id: 666, name: "portuguese_warren_hound_portuguese_podengo", group: "portuguese_warren_hound_portuguese_podengo", createdAt: Date(), updatedAt: Date())
 
 let WEIGHT_142 = ApiWeightValue(id: "ABC-142", raw: 14.2, formatted: "14.2 KG", rawGram: 14200, date: Date(), createdAt: Date(), updatedAt: Date())
 let WEIGHT_140 = ApiWeightValue(id: "ABC-140", raw: 14, formatted: "14 KG", rawGram: 14000, date: Date(timeIntervalSinceNow: -86400), createdAt: Date(), updatedAt: Date())
@@ -51,7 +52,7 @@ let PET_TESTIE = ApiPetSingle(
     image: "",
     birthDate: Date(timeIntervalSince1970: 1656324000),
     healthLog: 0,
-    breed: BREED_ENGLISH_SETTER,
+    breed: BREED_LONG,
     createdAt: Date(),
     updatedAt: Date()
 )
