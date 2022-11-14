@@ -12,12 +12,39 @@ extension DashboardWeightsView {
         var data: [ApiWeightValue]
         var units: WeightUnits = .Kilogram
         
+        @Published var selectedEditWeight: WeightValueDB? = nil
+        @Published var selectedDeleteWeight: WeightValueDB? = nil
+        @Published var isLoading = false
+        @Published var isError = false
+        
+        var errorMessage = ""
+        
         init (data: [ApiWeightValue] = []) {
             self.data = data
         }
         
-        func delete(_ id: String) -> Void {
-            print("Delete \(id)")
+        func delete(petId: String, weight: WeightValueDB) -> Void {
+            self.isLoading = true
+            
+            WolfieApi().deletePetsWeights(petId: petId, weightId: weight.id) { result in
+                switch result {
+                case .success:
+                    RealmManager().fetchWeights(petId: petId)
+                    
+                    self.selectedDeleteWeight = nil
+                case .failure(let error):
+                    self.isError = true
+                    
+                    switch error {
+                    case .server(let message):
+                        self.errorMessage = message
+                    default:
+                        self.errorMessage = String(localized: "error_generic_message")
+                    }
+                }
+                
+                self.isLoading = false
+            }
         }
     }
 }

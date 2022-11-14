@@ -48,10 +48,6 @@ struct DashboardWeightsChartView: View {
 struct DashboardWeightsView: View {
     var pet: PetDB
 
-    @State private var isEditOpen = false
-    @State private var isDeleteOpen = false
-    @State private var selectedEditWeight: WeightValueDB? = nil
-    
     @StateObject var vm = ViewModel()
     @StateObject var realmDb = RealmManager()
     @ObservedResults(WeightValueDB.self) var weightDb
@@ -91,45 +87,45 @@ struct DashboardWeightsView: View {
                         }
                         .swipeActions() {
                             Button(String(localized: "delete")) {
-                                isDeleteOpen = true
+                                vm.selectedDeleteWeight = weight
                             }.tint(.red)
 
                             Button(String(localized: "edit")) {
-                                selectedEditWeight = weight
+                                vm.selectedEditWeight = weight
                             }.tint(.accentColor)
-                        }
-                        .alert(isPresented: $isDeleteOpen) {
-                            Alert(
-                                title: Text(String(localized: "action_delete_alert_title")),
-                                message: Text(String(localized: "action_delete_alert_message")),
-                                primaryButton: .destructive(Text(String(localized: "delete"))) {
-                                    vm.delete(weight.id)
-                                },
-                                secondaryButton: .cancel()
-                            )
                         }
                     }
                 } header: {
                     Text(vm.units.rawValue.uppercased())
                 }
                 .listRowBackground(Color(UIColor.secondarySystemBackground))
+                .alert(item: $vm.selectedDeleteWeight) { selectedWeight in
+                    Alert(
+                        title: Text(String(localized: "action_delete_alert_title")),
+                        message: Text(String(localized: "action_delete_alert_message")),
+                        primaryButton: .destructive(Text(String(localized: "delete"))) {
+                            vm.delete(petId: pet.id, weight: selectedWeight)
+                        },
+                        secondaryButton: .cancel()
+                    )
+                }
+                .sheet(item: $vm.selectedEditWeight) { selectedWeight in
+                    VStack {
+                        WeightForm(vm: WeightForm.ViewModel(
+                            pet: pet,
+                            weight: selectedWeight,
+                            onSuccess: {
+                                vm.selectedEditWeight = nil
+                            }
+                        ))
+                    }
+                }
             }
             .listStyle(.insetGrouped)
             .scrollContentBackground(.hidden)
             .cornerRadius(8)
             .refreshable {
                 realmDb.fetchWeights(petId: pet.id)
-            }
-            .sheet(item: $selectedEditWeight) { selectedWeight in
-                VStack {
-                    WeightForm(vm: WeightForm.ViewModel(
-                        pet: pet,
-                        weight: selectedWeight,
-                        onSuccess: {
-                            isEditOpen = false
-                        }
-                    ))
-                }
             }
         }
     }
@@ -147,6 +143,17 @@ struct DashboardWeightsView: View {
             } else {
                 list
             }
+        }
+        .overlay {
+            if vm.isLoading {
+                UILoaderFullScreen()
+            }
+        }
+        .alert(isPresented: $vm.isError) {
+            Alert(
+                title: Text(String(localized: "error_generic_title")),
+                message: Text(vm.errorMessage)
+            )
         }
     }
 }

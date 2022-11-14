@@ -70,6 +70,7 @@
 		4EF572C42921620200F11E4A /* SignUpDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF572C32921620200F11E4A /* SignUpDto.swift */; };
 		4EF572C6292168B400F11E4A /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF572C5292168B400F11E4A /* Message.swift */; };
 		4EF572C82922DF0C00F11E4A /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF572C72922DF0C00F11E4A /* NumberFormatter.swift */; };
+		4EF572CA2922FA1900F11E4A /* LoaderFullScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF572C92922FA1900F11E4A /* LoaderFullScreen.swift */; };
 		4EFC7435291AE32D0086A6AB /* JumbotronComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7434291AE32D0086A6AB /* JumbotronComponent.swift */; };
 		4EFC7437291AE6C00086A6AB /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7436291AE6C00086A6AB /* MainViewModel.swift */; };
 		4EFC743A291AEA6F0086A6AB /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7439291AEA6F0086A6AB /* SignUpViewModel.swift */; };
@@ -199,6 +200,7 @@
 		4EF572C32921620200F11E4A /* SignUpDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpDto.swift; sourceTree = "<group>"; };
 		4EF572C5292168B400F11E4A /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		4EF572C72922DF0C00F11E4A /* NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
+		4EF572C92922FA1900F11E4A /* LoaderFullScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderFullScreen.swift; sourceTree = "<group>"; };
 		4EFC7434291AE32D0086A6AB /* JumbotronComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JumbotronComponent.swift; sourceTree = "<group>"; };
 		4EFC7436291AE6C00086A6AB /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		4EFC7439291AEA6F0086A6AB /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
@@ -475,6 +477,7 @@
 				4EFC747C291D9AE50086A6AB /* SummaryComponent.swift */,
 				4E51E59B291F22480007887B /* MultiSelectSearch.swift */,
 				4EF572C129215D5300F11E4A /* WebViewComponent.swift */,
+				4EF572C92922FA1900F11E4A /* LoaderFullScreen.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -945,6 +948,7 @@
 				4EE651C52919BF8A007F115A /* SignUpView.swift in Sources */,
 				4EFC745D291B1A630086A6AB /* DateFormatter.swift in Sources */,
 				4E79464C291AD58F000C356C /* SignInViewModel.swift in Sources */,
+				4EF572CA2922FA1900F11E4A /* LoaderFullScreen.swift in Sources */,
 				4EE651B0291971EA007F115A /* MainView.swift in Sources */,
 				4E51E598291F122C0007887B /* HealthLogForm.swift in Sources */,
 				4EFC7487291DA5040086A6AB /* WeightFormViewModel.swift in Sources */,

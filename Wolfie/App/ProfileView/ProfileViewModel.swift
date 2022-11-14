@@ -18,19 +18,19 @@ extension ProfileView {
         private let webUrl: String = Bundle.main.infoDictionary?["WebUrl"] as? String ?? "https://wolfie.app"
         
         var updateProfileUrl: String {
-            return "\(webUrl)/settings/profile"
+            return "\(webUrl)/headless/profile"
         }
         
         var changePasswordUrl: String {
-            return "\(webUrl)/settings/change-password"
+            return "\(webUrl)/headless/change-password"
         }
         
         var authorizedDevicesUrl: String {
-            return "\(webUrl)/settings/authorized-devices"
+            return "\(webUrl)/headless/authorized-devices"
         }
         
         var gdprUrl: String {
-            return "\(webUrl)/privacy-policy"
+            return "\(webUrl)/headless/privacy-policy"
         }
         
         init(config: ApiConfig = CONFIG_0, user: ApiUser = USER_0) {

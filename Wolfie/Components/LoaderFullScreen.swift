@@ -7,14 +7,23 @@
 
 import SwiftUI
 
-struct LoaderFullScreen: View {
+struct UILoaderFullScreen: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Color(white: 0, opacity: 0.75)
+        ProgressView()
+            .tint(.white)
     }
 }
 
-struct LoaderFullScreen_Previews: PreviewProvider {
+struct UILoaderFullScreen_Previews: PreviewProvider {
     static var previews: some View {
-        LoaderFullScreen()
+        VStack {
+            Text("Lorem ipsum dolor sit amet")
+                .font(.headline)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .overlay {
+            UILoaderFullScreen()
+        }
     }
 }
