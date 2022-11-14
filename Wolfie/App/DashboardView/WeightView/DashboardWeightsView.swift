@@ -50,6 +50,8 @@ struct DashboardWeightsView: View {
 
     @State private var isEditOpen = false
     @State private var isDeleteOpen = false
+    @State private var selectedEditWeight: WeightValueDB? = nil
+    
     @StateObject var vm = ViewModel()
     @StateObject var realmDb = RealmManager()
     @ObservedResults(WeightValueDB.self) var weightDb
@@ -91,8 +93,9 @@ struct DashboardWeightsView: View {
                             Button(String(localized: "delete")) {
                                 isDeleteOpen = true
                             }.tint(.red)
+
                             Button(String(localized: "edit")) {
-                                isEditOpen = true
+                                selectedEditWeight = weight
                             }.tint(.accentColor)
                         }
                         .alert(isPresented: $isDeleteOpen) {
@@ -105,15 +108,6 @@ struct DashboardWeightsView: View {
                                 secondaryButton: .cancel()
                             )
                         }
-                        .sheet(isPresented: $isEditOpen) {
-                            WeightForm(vm: WeightForm.ViewModel(
-                                pet: pet,
-                                weight: weight,
-                                onSuccess: {
-                                    isEditOpen = false
-                                }
-                            ))
-                        }
                     }
                 } header: {
                     Text(vm.units.rawValue.uppercased())
@@ -125,6 +119,17 @@ struct DashboardWeightsView: View {
             .cornerRadius(8)
             .refreshable {
                 realmDb.fetchWeights(petId: pet.id)
+            }
+            .sheet(item: $selectedEditWeight) { selectedWeight in
+                VStack {
+                    WeightForm(vm: WeightForm.ViewModel(
+                        pet: pet,
+                        weight: selectedWeight,
+                        onSuccess: {
+                            isEditOpen = false
+                        }
+                    ))
+                }
             }
         }
     }

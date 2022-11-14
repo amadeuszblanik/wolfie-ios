@@ -36,6 +36,7 @@ extension WeightForm {
         init(pet: PetDB, weight: WeightValueDB? = nil, onSuccess: @escaping () -> Void) {
             self.onSuccess = onSuccess
             self.pet = pet
+            self.id = weight?.id
             self.state.weight = weight?.raw ?? .zero
             self.state.date = weight?.date ?? Date()
         }
@@ -51,7 +52,6 @@ extension WeightForm {
                     
                     self.onSuccess()
                 case .failure(let error):
-                    self.isLoading = false
                     self.isError = true
 
                     switch error {
@@ -61,11 +61,34 @@ extension WeightForm {
                         self.errorMessage = String(localized: "error_generic_message")
                     }
                 }
+
+                self.isLoading = false
             }
         }
         
         func update() {
-            print("Update \(self.id)\n\(self.state.weight)\n\(self.state.date)")
+            self.isLoading = true
+            let payload = DtoWeight(weight: self.state.weight, date: self.state.date)
+            
+            WolfieApi().patchPetsWeights(petId: pet?.id ?? "", weightId: self.id!, body: payload) { result in
+                switch result {
+                case .success:
+                    RealmManager().fetchWeights(petId: self.pet?.id ?? "")
+                    
+                    self.onSuccess()
+                case .failure(let error):
+                    self.isError = true
+
+                    switch error {
+                    case .server(let message):
+                        self.errorMessage = message
+                    default:
+                        self.errorMessage = String(localized: "error_generic_message")
+                    }
+                }
+
+                self.isLoading = false
+            }
         }
     }
 }

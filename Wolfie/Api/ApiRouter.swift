@@ -14,6 +14,7 @@ public enum ApiRouter: ApiConfiguration {
     case getPetsMy
     case getPetsWeights(_ petId: String)
     case postPetsWeights(_ petId: String, body: DtoWeight)
+    case patchPetsWeights(_ petId: String, weightId: String, body: DtoWeight)
 
     public var method: HTTPMethod {
         switch self {
@@ -27,6 +28,8 @@ public enum ApiRouter: ApiConfiguration {
             return .get
         case .postPetsWeights:
             return .post
+        case .patchPetsWeights:
+            return .patch
         }
     }
     
@@ -46,6 +49,8 @@ public enum ApiRouter: ApiConfiguration {
             return "/pets/\(petId)/weight"
         case .postPetsWeights(let petId, _):
             return "/pets/\(petId)/weight"
+        case .patchPetsWeights(let petId, let weightId, _):
+            return "/pets/\(petId)/weight/\(weightId)"
         }
     }
     
@@ -60,6 +65,10 @@ public enum ApiRouter: ApiConfiguration {
 
             return json
         case .postPetsWeights(_, let body):
+            let json = try? body.toData()
+
+            return json
+        case .patchPetsWeights(_, _, let body):
             let json = try? body.toData()
 
             return json

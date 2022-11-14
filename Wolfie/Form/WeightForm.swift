@@ -22,6 +22,18 @@ struct WeightForm: View {
         NavigationView {
             VStack {
                 List {
+                    #if DEBUG
+                    HStack(alignment: .firstTextBaseline) {
+                        Text("Id")
+                            .foregroundColor(Color(UIColor.secondaryLabel))
+                        
+                        Spacer()
+                        
+                        Text(vm.id ?? "—")
+                    }
+                    .listRowBackground(Color(UIColor.secondarySystemBackground))
+                    #endif
+                    
                     HStack {
                         DatePicker(String(localized: "date"), selection: $vm.state.date, in: vm.dateRange, displayedComponents: [.date])
                             .focused($focusedField, equals: .date)
