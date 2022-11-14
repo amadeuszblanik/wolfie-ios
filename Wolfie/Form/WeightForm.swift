@@ -13,34 +13,17 @@ struct WeightForm: View {
         case time
         case weight
     }
-
-    var pet: PetDB
-    @StateObject var vm = ViewModel()
+    
+    @StateObject var vm: ViewModel
     @FocusState private var focusedField: FocusField?
-    
-    init(pet: PetDB, weight: WeightValueDB? = nil) {
-        self.pet = pet
-        vm.pet = pet
 
-        vm.id = weight?.id ?? nil
-        vm.date = weight?.date ?? Date()
-        vm.weight = weight?.raw ?? nil
-    }
-    
-    var dateRange: ClosedRange<Date> {
-        let calendar = Calendar.current
-        let startComponents = calendar.dateComponents([.day, .month, .year, .hour, .minute], from: pet.birthDate)
-        let endComponents = calendar.dateComponents([.day, .month, .year, .hour, .minute], from: Date())
-        
-        return calendar.date(from: startComponents)!...calendar.date(from: endComponents)!
-    }
     
     var body: some View {
         NavigationView {
             VStack {
-                Form {
+                List {
                     HStack {
-                        DatePicker(String(localized: "date"), selection: $vm.date, in: dateRange, displayedComponents: [.date])
+                        DatePicker(String(localized: "date"), selection: $vm.state.date, in: vm.dateRange, displayedComponents: [.date])
                             .focused($focusedField, equals: .date)
                             .foregroundColor(Color(UIColor.secondaryLabel))
                     }
@@ -49,8 +32,8 @@ struct WeightForm: View {
                     HStack {
                         DatePicker(
                             String(localized: "time"),
-                            selection: $vm.date,
-                            in: dateRange,
+                            selection: $vm.state.date,
+                            in: vm.dateRange,
                             displayedComponents: [.hourAndMinute]
                         )
                             .focused($focusedField, equals: .time)
@@ -59,10 +42,10 @@ struct WeightForm: View {
                     .listRowBackground(Color(UIColor.secondarySystemBackground))
 
                     HStack {
-                        Text(vm.weightUnits.rawValue.lowercased())
+                        Text(vm.weightUnit.rawValue.lowercased())
                             .foregroundColor(Color(UIColor.secondaryLabel))
 
-                        TextField("", value: $vm.weight, formatter: NumberFormatter())
+                        TextField("", value: $vm.state.weight, formatter: numberFormatter(.decimal, zeroSymbol: ""))
                             .textFieldStyle(PlainTextFieldStyle())
                             .keyboardType(.decimalPad)
                             .focused($focusedField, equals: .weight)
@@ -70,12 +53,21 @@ struct WeightForm: View {
                             .onAppear {
                                 self.focusedField = .weight
                             }
+                        
                     }
                     .listRowBackground(Color(UIColor.secondarySystemBackground))
             }
             .scrollContentBackground(.hidden)
             .cornerRadius(8)
-
+            .disabled(vm.isLoading)
+            .overlay {
+                if vm.isLoading {
+                    Color(white: 0, opacity: 0.75)
+                    ProgressView()
+                        .tint(.white)
+                }
+            }
+                
                 Spacer()
             }
             .navigationTitle(String(localized: vm.id != nil ? "weight_form_header_edit" : "weight_form_header_add"))
@@ -85,39 +77,49 @@ struct WeightForm: View {
                     Button(String(localized: "save")) {
                         vm.id != nil ? vm.update() : vm.create()
                     }
+                    .disabled(vm.isInvalid || vm.isLoading)
                 }
+            }
+            .alert(isPresented: $vm.isError) {
+                Alert(
+                    title: Text(String(localized: "error_generic_title")),
+                    message: Text(vm.errorMessage)
+                )
             }
         }
     }
 }
 
 struct WeightForm_Previews: PreviewProvider {
+    static func onSuccess() {
+        print("Success")
+    }
     static var pet = PetDB.fromApi(data: PET_GOLDIE)
     static var weight = WeightValueDB.fromApi(data: WEIGHT_142, petId: PET_GOLDIE.id)
     @State static var isOpen = true
     
     static var previews: some View {
         VStack {
-            WeightForm(pet: pet)
+            WeightForm(vm: WeightForm.ViewModel(pet: pet, onSuccess: onSuccess))
         }.sheet(isPresented: $isOpen) {
-            WeightForm(pet: pet)
+            WeightForm(vm: WeightForm.ViewModel(pet: pet, onSuccess: onSuccess))
         }
         VStack {
-            WeightForm(pet: pet)
+            WeightForm(vm: WeightForm.ViewModel(pet: pet, onSuccess: onSuccess))
         }.sheet(isPresented: $isOpen) {
-            WeightForm(pet: pet)
+            WeightForm(vm: WeightForm.ViewModel(pet: pet, onSuccess: onSuccess))
         }
         .preferredColorScheme(.dark)
 
         VStack {
-            WeightForm(pet: pet, weight: weight)
+            WeightForm(vm: WeightForm.ViewModel(pet: pet, weight: weight, onSuccess: onSuccess))
         }.sheet(isPresented: $isOpen) {
-            WeightForm(pet: pet)
+            WeightForm(vm: WeightForm.ViewModel(pet: pet, weight: weight, onSuccess: onSuccess))
         }
         VStack {
-            WeightForm(pet: pet, weight: weight)
+            WeightForm(vm: WeightForm.ViewModel(pet: pet, weight: weight, onSuccess: onSuccess))
         }.sheet(isPresented: $isOpen) {
-            WeightForm(pet: pet)
+            WeightForm(vm: WeightForm.ViewModel(pet: pet, weight: weight, onSuccess: onSuccess))
         }
         .preferredColorScheme(.dark)
     }

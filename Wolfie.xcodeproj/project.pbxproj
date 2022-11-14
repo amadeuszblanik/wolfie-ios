@@ -69,6 +69,7 @@
 		4EF572C229215D5300F11E4A /* WebViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF572C129215D5300F11E4A /* WebViewComponent.swift */; };
 		4EF572C42921620200F11E4A /* SignUpDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF572C32921620200F11E4A /* SignUpDto.swift */; };
 		4EF572C6292168B400F11E4A /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF572C5292168B400F11E4A /* Message.swift */; };
+		4EF572C82922DF0C00F11E4A /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF572C72922DF0C00F11E4A /* NumberFormatter.swift */; };
 		4EFC7435291AE32D0086A6AB /* JumbotronComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7434291AE32D0086A6AB /* JumbotronComponent.swift */; };
 		4EFC7437291AE6C00086A6AB /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7436291AE6C00086A6AB /* MainViewModel.swift */; };
 		4EFC743A291AEA6F0086A6AB /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7439291AEA6F0086A6AB /* SignUpViewModel.swift */; };
@@ -197,6 +198,7 @@
 		4EF572C129215D5300F11E4A /* WebViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewComponent.swift; sourceTree = "<group>"; };
 		4EF572C32921620200F11E4A /* SignUpDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpDto.swift; sourceTree = "<group>"; };
 		4EF572C5292168B400F11E4A /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		4EF572C72922DF0C00F11E4A /* NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
 		4EFC7434291AE32D0086A6AB /* JumbotronComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JumbotronComponent.swift; sourceTree = "<group>"; };
 		4EFC7436291AE6C00086A6AB /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		4EFC7439291AEA6F0086A6AB /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
@@ -592,6 +594,7 @@
 				4EF572B729214E0C00F11E4A /* JsonEncoder.swift */,
 				4EF572B929214E2900F11E4A /* isoDateFormatter.swift */,
 				4EF572BD2921511D00F11E4A /* JsonDateFormatter.swift */,
+				4EF572C72922DF0C00F11E4A /* NumberFormatter.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -946,6 +949,7 @@
 				4E51E598291F122C0007887B /* HealthLogForm.swift in Sources */,
 				4EFC7487291DA5040086A6AB /* WeightFormViewModel.swift in Sources */,
 				4EFC743E291AF6920086A6AB /* WeightUnits.swift in Sources */,
+				4EF572C82922DF0C00F11E4A /* NumberFormatter.swift in Sources */,
 				4EFC7481291D9B3C0086A6AB /* DateIntervalExtensions.swift in Sources */,
 				4E8B68C02920349100A0BBE1 /* WeightValueDB.swift in Sources */,
 				4EE651B62919734F007F115A /* ButtonComponent.swift in Sources */,

@@ -13,6 +13,7 @@ protocol WolfieApiProtocol {
     func postSignUp(body: DtoSignUp, completion: @escaping (Result<ApiMessage, ApiError>) -> Void)
     func getPetsMy(completion: @escaping (Result<[ApiPetSingle], ApiError>) -> Void)
     func getPetsWeights(petId: String, completion: @escaping (Result<[ApiWeightValue], ApiError>) -> Void)
+    func postPetsWeights(petId: String, body: DtoWeight, completion: @escaping (Result<ApiWeightValue, ApiError>) -> Void)
 }
 
 public final class WolfieApi {
@@ -50,6 +51,7 @@ public final class WolfieApi {
                         completion(.success(data))
                     } catch {
                         completion(.failure(.decoding))
+                        debugPrint(error)
                         sentryLog("Cannot decode data from request \(route.path)")
                     }
                 case .failure(let error):
@@ -87,5 +89,9 @@ extension WolfieApi: WolfieApiProtocol {
     
     func getPetsWeights(petId: String, completion: @escaping (Result<[ApiWeightValue], ApiError>) -> Void) {
         performRequest(route: .getPetsWeights(petId), completion: completion)
+    }
+    
+    func postPetsWeights(petId: String, body: DtoWeight, completion: @escaping (Result<ApiWeightValue, ApiError>) -> Void) {
+        performRequest(route: .postPetsWeights(petId, body: body), completion: completion)
     }
 }

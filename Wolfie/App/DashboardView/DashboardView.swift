@@ -119,7 +119,12 @@ struct DashboardView: View {
                         }
                     }
                     .sheet(isPresented: $isAddWeightOpen) {
-                        WeightForm(pet: pet)
+                        WeightForm(vm: WeightForm.ViewModel(
+                            pet: pet,
+                            onSuccess: {
+                                isAddWeightOpen = false
+                            }
+                        ))
                     }
                     .navigationTitle(String(localized: "weights"))
 //                case .healthLog:

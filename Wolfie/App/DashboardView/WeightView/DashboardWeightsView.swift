@@ -76,14 +76,14 @@ struct DashboardWeightsView: View {
         Group {
             List() {
                 Section {
-                    ForEach(petWeightDb) { data in
+                    ForEach(petWeightDb) { weight in
                         HStack {
-                            Text(data.raw.formattedString)
+                            Text(weight.raw.formattedString)
                                 .lineLimit(1)
                             
                             Spacer()
 
-                            Text(data.date.toFormattedWithTime())
+                            Text(weight.date.toFormattedWithTime())
                                 .foregroundColor(Color(UIColor.secondaryLabel))
                                 .lineLimit(1)
                         }
@@ -100,13 +100,19 @@ struct DashboardWeightsView: View {
                                 title: Text(String(localized: "action_delete_alert_title")),
                                 message: Text(String(localized: "action_delete_alert_message")),
                                 primaryButton: .destructive(Text(String(localized: "delete"))) {
-                                    vm.delete(data.id)
+                                    vm.delete(weight.id)
                                 },
                                 secondaryButton: .cancel()
                             )
                         }
                         .sheet(isPresented: $isEditOpen) {
-                            WeightForm(pet: pet, weight: data)
+                            WeightForm(vm: WeightForm.ViewModel(
+                                pet: pet,
+                                weight: weight,
+                                onSuccess: {
+                                    isEditOpen = false
+                                }
+                            ))
                         }
                     }
                 } header: {
