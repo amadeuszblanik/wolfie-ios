@@ -58,6 +58,7 @@ struct HealthLogView: View {
                         }
                     } header: {
                         Text(String(localized: "health_log"))
+                            .foregroundColor(Color(UIColor.secondaryLabel))
                     }
                     .listRowBackground(Color(UIColor.secondarySystemBackground))
                 }
