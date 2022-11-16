@@ -21,50 +21,50 @@ struct HealthLogSingleItemView: View {
 }
 
 struct HealthLogSingleView: View {
-    @StateObject var vm = ViewModel()
+    var data: HealthLogDB
     
     var body: some View {
         List {
             Section {
                 HealthLogSingleItemView(
                     label: String(localized: "kind"),
-                    value: vm.data.kind.localized
+                    value: data.kind.localized
                 )
 
                 HealthLogSingleItemView(
                     label: String(localized: "date"),
-                    value: vm.data.date.asDate.asFormattedMedium
+                    value: data.date.asFormattedMedium
                 )
 
                 HealthLogSingleItemView(
                     label: String(localized: "medicines"),
-                    value: vm.data.medicinesAsString.isEmpty ? "—" : vm.data.medicinesAsString
+                    value: data.medicinesAsString.isEmpty ? "—" : data.medicinesAsString
                 )
 
                 HealthLogSingleItemView(
                     label: String(localized: "veterinary"),
-                    value: vm.data.veterinary ?? "—"
+                    value: data.veterinary ?? "—"
                 )
 
                 HealthLogSingleItemView(
                     label: String(localized: "diagnosis"),
-                    value: vm.data.diagnosis ?? "—"
+                    value: data.diagnosis ?? "—"
                 )
 
                 HealthLogSingleItemView(
                     label: String(localized: "next_visit"),
-                    value: vm.data.nextVisit?.asFormattedWithTime ?? "—"
+                    value: data.nextVisit?.asFormattedWithTime ?? "—"
                 )
 
                 HealthLogSingleItemView(
                     label: String(localized: "description"),
-                    value: vm.data.description ?? "—"
+                    value: data.descriptionValue ?? "—"
                 )
 
-                HealthLogSingleItemView(
-                    label: String(localized: "added_by"),
-                    value: vm.data.addedBy.fullName
-                )
+//                HealthLogSingleItemView(
+//                    label: String(localized: "added_by"),
+//                    value: data.addedBy.fullName
+//                )
             } header: {
                 Text(String(localized: "sample_data"))
             }
@@ -74,24 +74,29 @@ struct HealthLogSingleView: View {
 }
 
 struct HealthLogSingleView_Previews: PreviewProvider {
+    static var pet = PetDB.fromApi(data: PET_GOLDIE)
+    static var healthLog0 = HealthLogDB.fromApi(data: HEALTHLOG_0, petId: pet.id)
+    static var healthLog1 = HealthLogDB.fromApi(data: HEALTHLOG_1, petId: pet.id)
+    static var healthLog2 = HealthLogDB.fromApi(data: HEALTHLOG_2, petId: pet.id)
+    
     static var previews: some View {
-        HealthLogSingleView(vm: HealthLogSingleView.ViewModel(data: HEALTHLOG_0))
-        HealthLogSingleView(vm: HealthLogSingleView.ViewModel(data: HEALTHLOG_0))
+        HealthLogSingleView(data: healthLog0)
+        HealthLogSingleView(data: healthLog0)
             .preferredColorScheme(.dark)
 
-        HealthLogSingleView(vm: HealthLogSingleView.ViewModel(data: HEALTHLOG_1))
-        HealthLogSingleView(vm: HealthLogSingleView.ViewModel(data: HEALTHLOG_1))
+        HealthLogSingleView(data: healthLog1)
+        HealthLogSingleView(data: healthLog1)
             .preferredColorScheme(.dark)
 
-        HealthLogSingleView(vm: HealthLogSingleView.ViewModel(data: HEALTHLOG_2))
-        HealthLogSingleView(vm: HealthLogSingleView.ViewModel(data: HEALTHLOG_2))
+        HealthLogSingleView(data: healthLog2)
+        HealthLogSingleView(data: healthLog2)
             .preferredColorScheme(.dark)
         
         NavigationView {
-            HealthLogSingleView(vm: HealthLogSingleView.ViewModel(data: HEALTHLOG_0))
+            HealthLogSingleView(data: healthLog0)
         }
         NavigationView {
-            HealthLogSingleView(vm: HealthLogSingleView.ViewModel(data: HEALTHLOG_0))
+            HealthLogSingleView(data: healthLog0)
         }
             .preferredColorScheme(.dark)
     }

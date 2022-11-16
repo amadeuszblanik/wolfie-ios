@@ -25,8 +25,7 @@ struct HealthLogView: View {
                     Section {
                         ForEach(petHealthLogDb) { data in
                             Button {
-                                print("Pressed on healthlog \(data.id)")
-                                //                                path.append(.healthLogSingle)
+                                path.append(.healthLogSingle(pet: pet, healthLog: data))
                             } label: {
                                 HStack {
                                     Text(data.kind.localized)
@@ -98,7 +97,9 @@ struct HealthLogView: View {
 
 struct HealthLogView_Previews: PreviewProvider {
     static var pet = PetDB.fromApi(data: PET_GOLDIE)
-    @State static var path: [DashboardViews] = [DashboardViews.healthLogSingle(pet: pet)]
+    static var healthLog = HealthLogDB.fromApi(data: HEALTHLOG_0, petId: pet.id)
+
+    @State static var path: [DashboardViews] = [DashboardViews.healthLogSingle(pet: pet, healthLog: healthLog)]
     
     static var previews: some View {
         HealthLogView(pet: pet, path: $path)

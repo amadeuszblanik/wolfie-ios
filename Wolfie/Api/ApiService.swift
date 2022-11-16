@@ -51,6 +51,8 @@ public final class WolfieApi {
                     
                     do {
                         let data = try decoder.decode(T.self, from: success)
+                        print("💻 Request \(route.path) successfully decoded")
+                        debugPrint(data)
                         completion(.success(data))
                     } catch {
                         completion(.failure(.decoding))

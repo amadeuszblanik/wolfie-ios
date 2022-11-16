@@ -143,21 +143,21 @@ struct DashboardView: View {
                         HealthLogForm(vm: HealthLogForm.ViewModel(pet: PET_GOLDIE))
                     }
                     .navigationTitle(String(localized: "health_log"))
-//                case .healthLogSingle:
-//                    HealthLogSingleView(
-//                        vm: HealthLogSingleView.ViewModel(data: HEALTHLOG_0)
-//                    )
-//                    .toolbar {
-//                        ToolbarItem(placement: .navigationBarTrailing) {
-//                            Button(String(localized: "edit")) {
-//                                isEditHealthLogOpen = true
-//                            }
-//                        }
-//                    }
-//                    .sheet(isPresented: $isEditHealthLogOpen) {
-//                        HealthLogForm(vm: HealthLogForm.ViewModel(pet: PET_GOLDIE, healthLog: HEALTHLOG_0))
-//                    }
-//                    .navigationTitle(String(localized: "health_log"))
+                case .healthLogSingle(_, let healthLog):
+                    HealthLogSingleView(
+                        data: healthLog
+                    )
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button(String(localized: "edit")) {
+                                isEditHealthLogOpen = true
+                            }
+                        }
+                    }
+                    .sheet(isPresented: $isEditHealthLogOpen) {
+                        HealthLogForm(vm: HealthLogForm.ViewModel(pet: PET_GOLDIE, healthLog: HEALTHLOG_0))
+                    }
+                    .navigationTitle(String(localized: "health_log"))
                 default:
                     Text("Not implemented yet")
                 }

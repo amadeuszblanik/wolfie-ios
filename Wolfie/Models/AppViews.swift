@@ -44,5 +44,5 @@ enum DashboardViews: Hashable {
     case details(pet: PetDB)
     case weight(pet: PetDB)
     case healthLog(pet: PetDB)
-    case healthLogSingle(pet: PetDB)
+    case healthLogSingle(pet: PetDB, healthLog: HealthLogDB)
 }

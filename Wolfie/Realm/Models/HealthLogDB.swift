@@ -22,6 +22,12 @@ class HealthLogDB: Object, ObjectKeyIdentifiable {
     @Persisted var updatedAt: Date?
     @Persisted var petId: String? = nil
     
+    var medicinesAsString: String {
+        var medicines =  self.medicines.map { $0.name } + self.additionalMedicines
+        
+        return medicines.joined(separator: ", ")
+    }
+    
     static func fromApi(data: ApiHealthLogValue, petId: String) -> HealthLogDB {
         let medicineList = RealmSwift.List<MedicineValueDB>()
         let additionalMedicineList = RealmSwift.List<String>()
@@ -37,6 +43,7 @@ class HealthLogDB: Object, ObjectKeyIdentifiable {
         let dataDb = HealthLogDB()
         dataDb.id = data.id
         dataDb.kind = data.kind
+        dataDb.date = data.date.asShortDate
         dataDb.medicines = medicineList
         dataDb.additionalMedicines = additionalMedicineList
         dataDb.diagnosis = data.diagnosis
