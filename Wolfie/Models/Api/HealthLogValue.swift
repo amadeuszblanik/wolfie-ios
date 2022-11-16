@@ -11,7 +11,7 @@ struct ApiHealthLogValue: Identifiable, Codable {
     public var id: String
     var kind: HealthLogKind
     var date: String
-    var medicine: [ApiShortMedicineValue]
+    var medicines: [ApiShortMedicineValue]
     var additionalMedicines: [String]
     var veterinary: String?
     var diagnosis: String?
@@ -21,8 +21,8 @@ struct ApiHealthLogValue: Identifiable, Codable {
     var createdAt: Date
     var updatedAt: Date
     
-    var medicineAsString: String {
-        var medicines =  self.medicine.map { $0.name } + self.additionalMedicines
+    var medicinesAsString: String {
+        var medicines =  self.medicines.map { $0.name } + self.additionalMedicines
         
         return medicines.joined(separator: ", ")
     }

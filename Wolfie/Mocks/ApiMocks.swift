@@ -27,9 +27,9 @@ let SIMPLE_USER_0 = ApiUserSimple(email: "amadeusz@blanik.me", fullName: "Amadeu
 
 let SIMPLE_MEDICINE_0 = ApiShortMedicineValue(productNumber: "MEDICINE-0", name: "Medicine from database")
 
-let HEALTHLOG_0 = ApiHealthLogValue(id: "HEALTH-LOG-0", kind: .Deworming, date: "2022-03-23", medicine: [SIMPLE_MEDICINE_0], additionalMedicines: ["Medicine added by user"], veterinary: "London, Common Str 1024", diagnosis: "Everything is good", nextVisit: Date(), description: "Lorem ipsum dolor sit amet",  addedBy: SIMPLE_USER_0, createdAt: Date(), updatedAt: Date())
-let HEALTHLOG_1 = ApiHealthLogValue(id: "HEALTH-LOG-1", kind: .ExternalParasite, date: "2022-03-24", medicine: [], additionalMedicines: ["Medicine added by user"], addedBy: SIMPLE_USER_0, createdAt: Date(), updatedAt: Date())
-let HEALTHLOG_2 = ApiHealthLogValue(id: "HEALTH-LOG-2", kind: .Treatment, date: "2022-03-25", medicine: [], additionalMedicines: [], addedBy: SIMPLE_USER_0, createdAt: Date(), updatedAt: Date())
+let HEALTHLOG_0 = ApiHealthLogValue(id: "HEALTH-LOG-0", kind: .Deworming, date: "2022-03-23", medicines: [SIMPLE_MEDICINE_0], additionalMedicines: ["Medicine added by user"], veterinary: "London, Common Str 1024", diagnosis: "Everything is good", nextVisit: Date(timeIntervalSince1970: 1711052046), description: "Lorem ipsum dolor sit amet",  addedBy: SIMPLE_USER_0, createdAt: Date(), updatedAt: Date())
+let HEALTHLOG_1 = ApiHealthLogValue(id: "HEALTH-LOG-1", kind: .ExternalParasite, date: "2022-03-24", medicines: [], additionalMedicines: ["Medicine added by user"], addedBy: SIMPLE_USER_0, createdAt: Date(), updatedAt: Date())
+let HEALTHLOG_2 = ApiHealthLogValue(id: "HEALTH-LOG-2", kind: .Treatment, date: "2022-03-25", medicines: [], additionalMedicines: [], addedBy: SIMPLE_USER_0, createdAt: Date(), updatedAt: Date())
 
 let PET_GOLDIE = ApiPetSingle(
     id: "0a8dc77c-bde7-4309-aefb-bd8811093fcc",

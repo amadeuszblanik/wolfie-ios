@@ -38,7 +38,7 @@ struct HealthLogSingleView: View {
 
                 HealthLogSingleItemView(
                     label: String(localized: "medicines"),
-                    value: vm.data.medicineAsString.isEmpty ? "—" : vm.data.medicineAsString
+                    value: vm.data.medicinesAsString.isEmpty ? "—" : vm.data.medicinesAsString
                 )
 
                 HealthLogSingleItemView(

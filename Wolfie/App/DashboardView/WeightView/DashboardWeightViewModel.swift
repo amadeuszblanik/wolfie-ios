@@ -9,7 +9,6 @@ import Foundation
 
 extension DashboardWeightsView {
     @MainActor class ViewModel: ObservableObject {
-        var data: [ApiWeightValue]
         var units: WeightUnits = .Kilogram
         
         @Published var selectedEditWeight: WeightValueDB? = nil
@@ -18,11 +17,7 @@ extension DashboardWeightsView {
         @Published var isError = false
         
         var errorMessage = ""
-        
-        init (data: [ApiWeightValue] = []) {
-            self.data = data
-        }
-        
+
         func delete(petId: String, weight: WeightValueDB) -> Void {
             self.isLoading = true
             

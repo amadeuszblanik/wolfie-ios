@@ -27,7 +27,7 @@ struct WolfieApp: SwiftUI.App {
         SentrySDK.start { options in
             options.dsn = sentryDsn
             options.environment = sentryEnvironment
-            options.debug = true // Enabled debug when first installing is always helpful
+            options.debug = false
 
             // Set tracesSampleRate to 1.0 to capture 100% of transactions for performance monitoring.
             // We recommend adjusting this value in production.

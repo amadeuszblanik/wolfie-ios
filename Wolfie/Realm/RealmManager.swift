@@ -205,7 +205,7 @@ class RealmManager: ObservableObject {
                     self.addWeight(weight, petId: petId)
                 }
             case .failure(let error):
-                self.logErrorFetch("Weights \(error.localizedDescription)")
+                self.logErrorFetch("Weights")
             }
         }
     }
@@ -251,6 +251,51 @@ class RealmManager: ObservableObject {
                     debugPrint(error)
                     logErrorDelete("Weight")
                 }
+            }
+        }
+    }
+    
+    //    Weights
+    func fetchHealthLog(petId: String) {
+        deletWeightAll(petId)
+        
+        WolfieApi().getPetsHealthLog(petId: petId) { results in
+            switch results {
+            case.success(let healthLogs):
+                healthLogs.forEach { healthLog in
+                    self.addHealthLog(healthLog, petId: petId)
+                }
+            case .failure(let error):
+                debugPrint(error)
+                self.logErrorFetch("HealthLog")
+            }
+        }
+    }
+    
+    func addHealthLog(_ value: ApiHealthLogValue, petId: String) {
+        if let localRealm = localRealm {
+            do {
+                try localRealm.write {
+                    localRealm.add(HealthLogDB.fromApi(data: value, petId: petId), update: .all)
+                }
+            } catch {
+                debugPrint(error)
+                logErrorAdd("HealthLog")
+            }
+        }
+    }
+
+    func deletHealthLogAll(_ petId: String?) {
+        if let localRealm = localRealm {
+            let allResults = petId != nil ? localRealm.objects(HealthLogDB.self).filter("petId == '\(petId!)'") : localRealm.objects(HealthLogDB.self)
+
+            do {
+                try localRealm.write {
+                    localRealm.delete(allResults)
+                }
+            } catch {
+                debugPrint(error)
+                logErrorDelete("WeightAll")
             }
         }
     }

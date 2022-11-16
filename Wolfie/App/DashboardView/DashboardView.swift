@@ -127,23 +127,22 @@ struct DashboardView: View {
                         ))
                     }
                     .navigationTitle(String(localized: "weights"))
-//                case .healthLog:
-//                    HealthLogView(
-//                        path: $path,
-//                        pet: PET_GOLDIE,
-//                        vm: HealthLogView.ViewModel(data: [HEALTHLOG_0, HEALTHLOG_1, HEALTHLOG_2])
-//                    )
-//                    .toolbar {
-//                        ToolbarItem(placement: .navigationBarTrailing) {
-//                            Button(String(localized: "add")) {
-//                                isAddHealthLogOpen = true
-//                            }
-//                        }
-//                    }
-//                    .sheet(isPresented: $isAddHealthLogOpen) {
-//                        HealthLogForm(vm: HealthLogForm.ViewModel(pet: PET_GOLDIE))
-//                    }
-//                    .navigationTitle(String(localized: "health_log"))
+                case .healthLog(let pet):
+                    HealthLogView(
+                        pet: pet,
+                        path: $path
+                    )
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button(String(localized: "add")) {
+                                isAddHealthLogOpen = true
+                            }
+                        }
+                    }
+                    .sheet(isPresented: $isAddHealthLogOpen) {
+                        HealthLogForm(vm: HealthLogForm.ViewModel(pet: PET_GOLDIE))
+                    }
+                    .navigationTitle(String(localized: "health_log"))
 //                case .healthLogSingle:
 //                    HealthLogSingleView(
 //                        vm: HealthLogSingleView.ViewModel(data: HEALTHLOG_0)

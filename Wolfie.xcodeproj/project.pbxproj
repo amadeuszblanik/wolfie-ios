@@ -54,6 +54,10 @@
 		4EE651C32919BF82007F115A /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651C22919BF82007F115A /* SignInView.swift */; };
 		4EE651C52919BF8A007F115A /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651C42919BF8A007F115A /* SignUpView.swift */; };
 		4EE651CA2919D310007F115A /* ShakeGestureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651C92919D310007F115A /* ShakeGestureManager.swift */; };
+		4EE9EA9629256D0200DDD08A /* HealthLogDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE9EA9529256D0200DDD08A /* HealthLogDB.swift */; };
+		4EE9EA9829256D9B00DDD08A /* MedicineValueDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE9EA9729256D9B00DDD08A /* MedicineValueDB.swift */; };
+		4EE9EA9A29256E4000DDD08A /* MedicineAuthorizationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE9EA9929256E4000DDD08A /* MedicineAuthorizationStatus.swift */; };
+		4EE9EA9C2925881400DDD08A /* ShortDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE9EA9B2925881400DDD08A /* ShortDateFormatter.swift */; };
 		4EF572A929214AA500F11E4A /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF572A829214AA500F11E4A /* ApiService.swift */; };
 		4EF572AB29214B7500F11E4A /* SignInDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF572AA29214B7500F11E4A /* SignInDto.swift */; };
 		4EF572AD29214BBC00F11E4A /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF572AC29214BBC00F11E4A /* SignIn.swift */; };
@@ -184,6 +188,10 @@
 		4EE651C22919BF82007F115A /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		4EE651C42919BF8A007F115A /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		4EE651C92919D310007F115A /* ShakeGestureManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeGestureManager.swift; sourceTree = "<group>"; };
+		4EE9EA9529256D0200DDD08A /* HealthLogDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthLogDB.swift; sourceTree = "<group>"; };
+		4EE9EA9729256D9B00DDD08A /* MedicineValueDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineValueDB.swift; sourceTree = "<group>"; };
+		4EE9EA9929256E4000DDD08A /* MedicineAuthorizationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineAuthorizationStatus.swift; sourceTree = "<group>"; };
+		4EE9EA9B2925881400DDD08A /* ShortDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortDateFormatter.swift; sourceTree = "<group>"; };
 		4EF572A829214AA500F11E4A /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		4EF572AA29214B7500F11E4A /* SignInDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInDto.swift; sourceTree = "<group>"; };
 		4EF572AC29214BBC00F11E4A /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
@@ -420,6 +428,8 @@
 				4E8B68BD292032E300A0BBE1 /* PetDB.swift */,
 				4E8B68BF2920349100A0BBE1 /* WeightValueDB.swift */,
 				4E8B68C1292034EA00A0BBE1 /* BreedDB.swift */,
+				4EE9EA9529256D0200DDD08A /* HealthLogDB.swift */,
+				4EE9EA9729256D9B00DDD08A /* MedicineValueDB.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -531,6 +541,7 @@
 				4EFC744B291B0C310086A6AB /* PetKind.swift */,
 				4E51E589291EFD180007887B /* HealthLogKind.swift */,
 				4E51E5AA291F2DE00007887B /* UserRoles.swift */,
+				4EE9EA9929256E4000DDD08A /* MedicineAuthorizationStatus.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -598,6 +609,7 @@
 				4EF572B929214E2900F11E4A /* isoDateFormatter.swift */,
 				4EF572BD2921511D00F11E4A /* JsonDateFormatter.swift */,
 				4EF572C72922DF0C00F11E4A /* NumberFormatter.swift */,
+				4EE9EA9B2925881400DDD08A /* ShortDateFormatter.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -882,6 +894,7 @@
 				4EF572AD29214BBC00F11E4A /* SignIn.swift in Sources */,
 				4EF572B129214C4B00F11E4A /* ApiConfiguration.swift in Sources */,
 				4EFC745F291B1ACD0086A6AB /* TimeInterval.swift in Sources */,
+				4EE9EA9629256D0200DDD08A /* HealthLogDB.swift in Sources */,
 				4EFC747D291D9AE50086A6AB /* SummaryComponent.swift in Sources */,
 				4E51E596291F089D0007887B /* HealthLogSingleViewModel.swift in Sources */,
 				4E8B68C2292034EA00A0BBE1 /* BreedDB.swift in Sources */,
@@ -917,7 +930,9 @@
 				4EFC7477291D8CC60086A6AB /* DashboardWeightsView.swift in Sources */,
 				4E8B68BA29202ADC00A0BBE1 /* SentryLog.swift in Sources */,
 				4EFC7466291C3F990086A6AB /* PetForm.swift in Sources */,
+				4EE9EA9829256D9B00DDD08A /* MedicineValueDB.swift in Sources */,
 				4E24B6DF29147D7600405D06 /* ContentView.swift in Sources */,
+				4EE9EA9A29256E4000DDD08A /* MedicineAuthorizationStatus.swift in Sources */,
 				4EFC7452291B0E370086A6AB /* PetCardComponent.swift in Sources */,
 				4E51E5A3291F29D60007887B /* ProfileView.swift in Sources */,
 				4EF572BE2921511D00F11E4A /* JsonDateFormatter.swift in Sources */,
@@ -927,6 +942,7 @@
 				4EFC744C291B0C310086A6AB /* PetKind.swift in Sources */,
 				4EFC745B291B1A370086A6AB /* DateExtensions.swift in Sources */,
 				4EE651C129197D2E007F115A /* AppViews.swift in Sources */,
+				4EE9EA9C2925881400DDD08A /* ShortDateFormatter.swift in Sources */,
 				4EFC7435291AE32D0086A6AB /* JumbotronComponent.swift in Sources */,
 				4E794651291AE000000C356C /* CheckboxComponent.swift in Sources */,
 				4EFC7485291DA4F90086A6AB /* WeightForm.swift in Sources */,

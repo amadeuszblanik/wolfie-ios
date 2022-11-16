@@ -11,6 +11,7 @@ import RealmSwift
 struct MainDevView: View {
     @State private var selectedView: AppDevViews? = nil
     @StateObject var realmDb = RealmManager()
+    @AppStorage("AUTH_ACCESS_TOKEN") var accessToken: String?
     
     var body: some View {
         NavigationSplitView {
@@ -37,6 +38,13 @@ struct MainDevView: View {
                     }
                     Button("Clear database") {
                         realmDb.clearAll()
+                    }
+                    Button("Clear access-token") {
+                        accessToken = ""
+                        KeychainService.standard.delete(service: "access-token", account: "wolfie")
+                    }
+                    Button("Clear refresh-token") {
+                        KeychainService.standard.delete(service: "refresh-token", account: "wolfie")
                     }
                 }
                 
