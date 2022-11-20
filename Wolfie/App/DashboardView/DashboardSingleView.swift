@@ -46,6 +46,9 @@ struct DashboardSingleView: View {
                     }
                     .padding(.horizontal)
                 }
+                .refreshable {
+                    RealmManager().fetchPets()
+                }
             }
         }
         .navigationBarTitleDisplayMode(.inline)
