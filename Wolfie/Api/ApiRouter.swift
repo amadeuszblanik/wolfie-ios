@@ -14,9 +14,12 @@ public enum ApiRouter: ApiConfiguration {
     case getPetsMy
     case getPetsWeights(_ petId: String)
     case postPetsWeights(_ petId: String, body: DtoWeight)
-    case getPetsHealthLog(_ petId: String)
     case patchPetsWeights(_ petId: String, weightId: String, body: DtoWeight)
     case deletePetsWeights(_ petId: String, weightId: String)
+    case getPetsHealthLog(_ petId: String)
+    case postPetsHealthLog(_ petId: String, body: DtoHealthLog)
+    case patchPetsHealthLog(_ petId: String, healthLogId: String, body: DtoHealthLog)
+    case deletePetsHealthLog(_ petId: String, healthLogId: String)
 
     public var method: HTTPMethod {
         switch self {
@@ -32,9 +35,15 @@ public enum ApiRouter: ApiConfiguration {
             return .post
         case .patchPetsWeights:
             return .patch
+        case .deletePetsWeights:
+            return .delete
         case .getPetsHealthLog:
             return .get
-        case .deletePetsWeights:
+        case .postPetsHealthLog:
+            return .post
+        case .patchPetsHealthLog:
+            return .patch
+        case .deletePetsHealthLog:
             return .delete
         }
     }
@@ -55,10 +64,16 @@ public enum ApiRouter: ApiConfiguration {
             return "/pets/\(petId)/weight"
         case .postPetsWeights(let petId, _):
             return "/pets/\(petId)/weight"
-        case .getPetsHealthLog(let petId):
-            return "/pets/\(petId)/health-log"
         case .patchPetsWeights(let petId, let weightId, _), .deletePetsWeights(let petId, let weightId):
             return "/pets/\(petId)/weight/\(weightId)"
+        case .getPetsHealthLog(let petId):
+            return "/pets/\(petId)/health-log"
+        case .postPetsHealthLog(let petId, _):
+            return "/pets/\(petId)/health-log"
+        case .patchPetsHealthLog(let petId, let healthLogId, _):
+            return "/pets/\(petId)/health-log/\(healthLogId)"
+        case .deletePetsHealthLog(let petId, let healthLogId):
+            return "/pets/\(petId)/health-log/\(healthLogId)"
         }
     }
     
@@ -77,6 +92,14 @@ public enum ApiRouter: ApiConfiguration {
 
             return json
         case .patchPetsWeights(_, _, let body):
+            let json = try? body.toData()
+
+            return json
+        case .postPetsHealthLog(_, let body):
+            let json = try? body.toData()
+
+            return json
+        case .patchPetsHealthLog(_, _, let body):
             let json = try? body.toData()
 
             return json

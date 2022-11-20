@@ -140,12 +140,17 @@ struct DashboardView: View {
                         }
                     }
                     .sheet(isPresented: $isAddHealthLogOpen) {
-                        HealthLogForm(vm: HealthLogForm.ViewModel(pet: PET_GOLDIE))
+                        HealthLogForm(vm: HealthLogForm.ViewModel(
+                            pet: pet,
+                            onSuccess: {
+                                isAddHealthLogOpen = false
+                            }
+                        ))
                     }
                     .navigationTitle(String(localized: "health_log"))
-                case .healthLogSingle(_, let healthLog):
+                case .healthLogSingle(let pet, let healthLog):
                     HealthLogSingleView(
-                        data: healthLog
+                        id: healthLog.id
                     )
                     .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {
@@ -155,7 +160,13 @@ struct DashboardView: View {
                         }
                     }
                     .sheet(isPresented: $isEditHealthLogOpen) {
-                        HealthLogForm(vm: HealthLogForm.ViewModel(pet: PET_GOLDIE, healthLog: HEALTHLOG_0))
+                        HealthLogForm(vm: HealthLogForm.ViewModel(
+                            pet: pet,
+                            data: healthLog,
+                            onSuccess: {
+                                isEditHealthLogOpen = false
+                            }
+                        ))
                     }
                     .navigationTitle(String(localized: "health_log"))
                 default:

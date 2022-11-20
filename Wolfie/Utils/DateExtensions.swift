@@ -47,4 +47,8 @@ extension Date {
     var asFormattedChart: String {
         return dateFormatter(dateStyle: nil, dateFormat: "dd MMM").string(from: self)
     }
+    
+    var asDtoDateFormatted: String {
+        return dtoDateFormatter().string(from: self)
+    }
 }

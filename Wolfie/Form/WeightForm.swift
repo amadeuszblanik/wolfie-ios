@@ -32,6 +32,16 @@ struct WeightForm: View {
                         Text(vm.id ?? "—")
                     }
                     .listRowBackground(Color(UIColor.secondarySystemBackground))
+                    
+                    HStack(alignment: .firstTextBaseline) {
+                        Text("PetId")
+                            .foregroundColor(Color(UIColor.secondaryLabel))
+                        
+                        Spacer()
+                        
+                        Text(vm.pet.id)
+                    }
+                    .listRowBackground(Color(UIColor.secondarySystemBackground))
                     #endif
                     
                     HStack {
@@ -68,17 +78,17 @@ struct WeightForm: View {
                         
                     }
                     .listRowBackground(Color(UIColor.secondarySystemBackground))
-            }
-            .scrollContentBackground(.hidden)
-            .cornerRadius(8)
-            .disabled(vm.isLoading)
-            .overlay {
-                if vm.isLoading {
-                    Color(white: 0, opacity: 0.75)
-                    ProgressView()
-                        .tint(.white)
                 }
-            }
+                .scrollContentBackground(.hidden)
+                .cornerRadius(8)
+                .disabled(vm.isLoading)
+                .overlay {
+                    if vm.isLoading {
+                        Color(white: 0, opacity: 0.75)
+                        ProgressView()
+                            .tint(.white)
+                    }
+                }
                 
                 Spacer()
             }

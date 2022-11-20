@@ -15,14 +15,14 @@ extension WeightForm {
     
     @MainActor class ViewModel: ObservableObject {
         var id: String? = nil
-        var pet: PetDB? = nil
+        var pet: PetDB
         @Published var state = FormState()
         @Published var isLoading = false
         @Published var isError = false
         var weightUnit: WeightUnits = .Kilogram
         var dateRange: ClosedRange<Date> {
             let calendar = Calendar.current
-            let startComponents = calendar.dateComponents([.day, .month, .year, .hour, .minute], from: pet?.birthDate ?? .distantPast)
+            let startComponents = calendar.dateComponents([.day, .month, .year, .hour, .minute], from: pet.birthDate)
             let endComponents = calendar.dateComponents([.day, .month, .year, .hour, .minute], from: Date())
     
             return calendar.date(from: startComponents)!...calendar.date(from: endComponents)!
@@ -45,10 +45,10 @@ extension WeightForm {
             self.isLoading = true
             let payload = DtoWeight(weight: self.state.weight, date: self.state.date)
             
-            WolfieApi().postPetsWeights(petId: pet?.id ?? "", body: payload) { result in
+            WolfieApi().postPetsWeights(petId: pet.id, body: payload) { result in
                 switch result {
                 case .success:
-                    RealmManager().fetchWeights(petId: self.pet?.id ?? "")
+                    RealmManager().fetchWeights(petId: self.pet.id)
                     
                     self.onSuccess()
                 case .failure(let error):
@@ -70,10 +70,10 @@ extension WeightForm {
             self.isLoading = true
             let payload = DtoWeight(weight: self.state.weight, date: self.state.date)
             
-            WolfieApi().patchPetsWeights(petId: pet?.id ?? "", weightId: self.id!, body: payload) { result in
+            WolfieApi().patchPetsWeights(petId: pet.id, weightId: self.id!, body: payload) { result in
                 switch result {
                 case .success:
-                    RealmManager().fetchWeights(petId: self.pet?.id ?? "")
+                    RealmManager().fetchWeights(petId: self.pet.id)
                     
                     self.onSuccess()
                 case .failure(let error):

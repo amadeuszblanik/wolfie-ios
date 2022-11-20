@@ -45,6 +45,8 @@
 		4E8B68BE292032E300A0BBE1 /* PetDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68BD292032E300A0BBE1 /* PetDB.swift */; };
 		4E8B68C02920349100A0BBE1 /* WeightValueDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68BF2920349100A0BBE1 /* WeightValueDB.swift */; };
 		4E8B68C2292034EA00A0BBE1 /* BreedDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68C1292034EA00A0BBE1 /* BreedDB.swift */; };
+		4EB4CE71292AE7F6004C1281 /* HealthLogDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4CE70292AE7F6004C1281 /* HealthLogDto.swift */; };
+		4EB4CE73292AF059004C1281 /* DtoDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4CE72292AF059004C1281 /* DtoDateFormatter.swift */; };
 		4EE651B0291971EA007F115A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651AF291971EA007F115A /* MainView.swift */; };
 		4EE651B32919724A007F115A /* MainDevView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651B22919724A007F115A /* MainDevView.swift */; };
 		4EE651B62919734F007F115A /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651B52919734F007F115A /* ButtonComponent.swift */; };
@@ -178,6 +180,8 @@
 		4E8B68BD292032E300A0BBE1 /* PetDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDB.swift; sourceTree = "<group>"; };
 		4E8B68BF2920349100A0BBE1 /* WeightValueDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightValueDB.swift; sourceTree = "<group>"; };
 		4E8B68C1292034EA00A0BBE1 /* BreedDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDB.swift; sourceTree = "<group>"; };
+		4EB4CE70292AE7F6004C1281 /* HealthLogDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthLogDto.swift; sourceTree = "<group>"; };
+		4EB4CE72292AF059004C1281 /* DtoDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DtoDateFormatter.swift; sourceTree = "<group>"; };
 		4EE651AF291971EA007F115A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		4EE651B22919724A007F115A /* MainDevView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDevView.swift; sourceTree = "<group>"; };
 		4EE651B52919734F007F115A /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
@@ -610,6 +614,7 @@
 				4EF572BD2921511D00F11E4A /* JsonDateFormatter.swift */,
 				4EF572C72922DF0C00F11E4A /* NumberFormatter.swift */,
 				4EE9EA9B2925881400DDD08A /* ShortDateFormatter.swift */,
+				4EB4CE72292AF059004C1281 /* DtoDateFormatter.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -634,6 +639,7 @@
 				4EFC7488291DA75C0086A6AB /* WeightDto.swift */,
 				4EF572AA29214B7500F11E4A /* SignInDto.swift */,
 				4EF572C32921620200F11E4A /* SignUpDto.swift */,
+				4EB4CE70292AE7F6004C1281 /* HealthLogDto.swift */,
 			);
 			path = Dto;
 			sourceTree = "<group>";
@@ -922,6 +928,7 @@
 				4E51E5A5291F29E20007887B /* ProfileViewModel.swift in Sources */,
 				4EFC743C291AF64C0086A6AB /* SelectComponent.swift in Sources */,
 				4E8B68B429201F7100A0BBE1 /* RealmPlayground.swift in Sources */,
+				4EB4CE71292AE7F6004C1281 /* HealthLogDto.swift in Sources */,
 				4E51E5A9291F2DB20007887B /* Config.swift in Sources */,
 				4EFC7483291D9B5A0086A6AB /* DateIntervalFormatter.swift in Sources */,
 				4EE651CA2919D310007F115A /* ShakeGestureManager.swift in Sources */,
@@ -976,6 +983,7 @@
 				4EFC7475291C85AB0086A6AB /* InputDateComponent.swift in Sources */,
 				4EE651B92919769D007F115A /* GuestView.swift in Sources */,
 				4E51E58A291EFD180007887B /* HealthLogKind.swift in Sources */,
+				4EB4CE73292AF059004C1281 /* DtoDateFormatter.swift in Sources */,
 				4EFC7447291B0B990086A6AB /* MyPets.swift in Sources */,
 				4E24B6DD29147D7600405D06 /* WolfieApp.swift in Sources */,
 				4EE651B32919724A007F115A /* MainDevView.swift in Sources */,

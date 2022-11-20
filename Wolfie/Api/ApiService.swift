@@ -17,6 +17,9 @@ protocol WolfieApiProtocol {
     func patchPetsWeights(petId: String, weightId: String, body: DtoWeight, completion: @escaping (Result<ApiWeightValue, ApiError>) -> Void)
     func deletePetsWeights(petId: String, weightId: String, completion: @escaping (Result<ApiMessage, ApiError>) -> Void)
     func getPetsHealthLog(petId: String, completion: @escaping (Result<[ApiHealthLogValue], ApiError>) -> Void)
+    func postPetsHealthLog(petId: String, body: DtoHealthLog, completion: @escaping (Result<ApiHealthLogValue, ApiError>) -> Void)
+    func patchPetsHealthLog(petId: String, healthLogId: String, body: DtoHealthLog, completion: @escaping (Result<ApiHealthLogValue, ApiError>) -> Void)
+    func deletePetsHealthLog(petId: String, healthLogId: String, completion: @escaping (Result<ApiMessage, ApiError>) -> Void)
 }
 
 public final class WolfieApi {
@@ -111,5 +114,17 @@ extension WolfieApi: WolfieApiProtocol {
     
     func getPetsHealthLog(petId: String, completion: @escaping (Result<[ApiHealthLogValue], ApiError>) -> Void) {
         performRequest(route: .getPetsHealthLog(petId), completion: completion)
+    }
+    
+    func postPetsHealthLog(petId: String, body: DtoHealthLog, completion: @escaping (Result<ApiHealthLogValue, ApiError>) -> Void) {
+        performRequest(route: .postPetsHealthLog(petId, body: body), completion: completion)
+    }
+    
+    func patchPetsHealthLog(petId: String, healthLogId: String, body: DtoHealthLog, completion: @escaping (Result<ApiHealthLogValue, ApiError>) -> Void) {
+        performRequest(route: .patchPetsHealthLog(petId, healthLogId: healthLogId, body: body), completion: completion)
+    }
+    
+    func deletePetsHealthLog(petId: String, healthLogId: String, completion: @escaping (Result<ApiMessage, ApiError>) -> Void) {
+        performRequest(route: .deletePetsHealthLog(petId, healthLogId: healthLogId), completion: completion)
     }
 }
