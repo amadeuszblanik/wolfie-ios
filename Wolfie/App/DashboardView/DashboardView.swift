@@ -97,7 +97,7 @@ struct DashboardView: View {
             .navigationDestination(for: DashboardViews.self) { dashboardView in
                 switch (dashboardView) {
                 case .details(let pet):
-                    DashboardSingleView(pet: pet, path: $path)
+                    DashboardSingleView(id: pet.id, path: $path)
                         .navigationTitle(pet.name)
                         .toolbar {
                             ToolbarItem(placement: .navigationBarTrailing) {

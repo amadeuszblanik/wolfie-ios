@@ -6,52 +6,61 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct DashboardSingleView: View {
-    var pet: PetDB
+    var id: String
+    
     @Binding var path: [DashboardViews]
+    @ObservedResults(PetDB.self) var petDb
+    
+    var petSingleDb: PetDB? { petDb.find { $0.id == id } }
     
     @State private var isOpenEdit = false
     
     var body: some View {
-        NavigationView {
-            VStack {
-                ScrollView {
-                    PetCardComponent(pet: pet)
-                        .padding()
-                    
-                    Spacer()
-                    
-                    HStack {
-                        Button {
-                            path.append(.weight(pet: pet))
-                        } label: {
-                            CardComponent(
-                                label: String(localized: "weight"),
-                                icon: "barbell-outline",
-                                value: pet.currentWeight?.formatted
-                            )
-                        }
+        if let pet = petSingleDb {
+            NavigationView {
+                VStack {
+                    ScrollView {
+                        PetCardComponent(pet: pet)
+                            .padding()
                         
-                        Button {
-                            path.append(.healthLog(pet: pet))
-                        } label: {
-                            CardComponent(
-                                label: String(localized: "health_log"),
-                                icon: "heart-outline",
-                                value: String(pet.healthLog),
-                                background: .red
-                            )
+                        Spacer()
+                        
+                        HStack {
+                            Button {
+                                path.append(.weight(pet: pet))
+                            } label: {
+                                CardComponent(
+                                    label: String(localized: "weight"),
+                                    icon: "barbell-outline",
+                                    value: pet.currentWeight?.formatted
+                                )
+                            }
+                            
+                            Button {
+                                path.append(.healthLog(pet: pet))
+                            } label: {
+                                CardComponent(
+                                    label: String(localized: "health_log"),
+                                    icon: "heart-outline",
+                                    value: String(pet.healthLog),
+                                    background: .red
+                                )
+                            }
                         }
+                        .padding(.horizontal)
                     }
-                    .padding(.horizontal)
-                }
-                .refreshable {
-                    RealmManager().fetchPets()
+                    .refreshable {
+                        RealmManager().fetchPets()
+                    }
                 }
             }
+            .navigationBarTitleDisplayMode(.inline)
+        } else {
+            Text(String(localized: "error_generic_message"))
         }
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
@@ -59,8 +68,8 @@ struct DashboardSingleView_Previews: PreviewProvider {
     @State static var path: [DashboardViews] = []
     
     static var previews: some View {
-        DashboardSingleView(pet: PetDB.fromApi(data: PET_GOLDIE), path: $path)
-        DashboardSingleView(pet: PetDB.fromApi(data: PET_GOLDIE), path: $path)
+        DashboardSingleView(id: PET_GOLDIE.id, path: $path)
+        DashboardSingleView(id: PET_GOLDIE.id, path: $path)
             .preferredColorScheme(.dark)
     }
 }
