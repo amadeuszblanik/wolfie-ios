@@ -9,8 +9,17 @@ import Foundation
 
 extension HealthLogView {
     @MainActor class ViewModel: ObservableObject {
-        func delete(_ id: String) -> Void {
-            print("Delete \(id)")
+        @Published var isLoading = false
+        @Published var selectedDeleteHealthLog: HealthLogDB? = nil
+        
+        func delete(petId: String, healthLogId: String) -> Void {
+            self.isLoading = true
+
+            WolfieApi().deletePetsHealthLog(petId: petId, healthLogId: healthLogId) { result in
+                RealmManager().fetchHealthLog(petId: petId)
+                
+                self.isLoading = false
+            }
         }
     }
 }

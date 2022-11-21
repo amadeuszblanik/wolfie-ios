@@ -196,7 +196,7 @@ class RealmManager: ObservableObject {
     
 //    Weights
     func fetchWeights(petId: String) {
-        deletWeightAll(petId)
+        deleteWeightAll(petId)
         
         WolfieApi().getPetsWeights(petId: petId) { results in
             switch results {
@@ -223,7 +223,7 @@ class RealmManager: ObservableObject {
         }
     }
 
-    func deletWeightAll(_ petId: String?) {
+    func deleteWeightAll(_ petId: String?) {
         if let localRealm = localRealm {
             let allResults = petId != nil ? localRealm.objects(WeightValueDB.self).filter("petId == '\(petId!)'") : localRealm.objects(WeightValueDB.self)
 
@@ -257,7 +257,7 @@ class RealmManager: ObservableObject {
     
     //    Weights
     func fetchHealthLog(petId: String) {
-        deletWeightAll(petId)
+        deleteHealthLogAll(petId)
         
         WolfieApi().getPetsHealthLog(petId: petId) { results in
             switch results {
@@ -285,7 +285,7 @@ class RealmManager: ObservableObject {
         }
     }
 
-    func deletHealthLogAll(_ petId: String?) {
+    func deleteHealthLogAll(_ petId: String?) {
         if let localRealm = localRealm {
             let allResults = petId != nil ? localRealm.objects(HealthLogDB.self).filter("petId == '\(petId!)'") : localRealm.objects(HealthLogDB.self)
 

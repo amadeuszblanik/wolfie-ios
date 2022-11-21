@@ -11,8 +11,7 @@ import RealmSwift
 struct HealthLogView: View {
     var pet: PetDB
     @Binding var path: [DashboardViews]
-    
-    @State private var isDeleteOpen = false
+
     @StateObject var vm = ViewModel()
     @ObservedResults(HealthLogDB.self) var healthLogDb
     
@@ -41,18 +40,8 @@ struct HealthLogView: View {
                             }
                             .swipeActions() {
                                 Button(String(localized: "delete")) {
-                                    isDeleteOpen = true
+                                    vm.selectedDeleteHealthLog = data
                                 }.tint(.red)
-                            }
-                            .alert(isPresented: $isDeleteOpen) {
-                                Alert(
-                                    title: Text(String(localized: "action_delete_alert_title")),
-                                    message: Text(String(localized: "action_delete_alert_message")),
-                                    primaryButton: .destructive(Text(String(localized: "delete"))) {
-                                        vm.delete(data.id)
-                                    },
-                                    secondaryButton: .cancel()
-                                )
                             }
                         }
                     } header: {
@@ -60,6 +49,16 @@ struct HealthLogView: View {
                             .foregroundColor(Color(UIColor.secondaryLabel))
                     }
                     .listRowBackground(Color(UIColor.secondarySystemBackground))
+                }
+                .alert(item: $vm.selectedDeleteHealthLog) { selectedDeleteHealthLog in
+                    Alert(
+                        title: Text(String(localized: "action_delete_alert_title")),
+                        message: Text(String(localized: "action_delete_alert_message")),
+                        primaryButton: .destructive(Text(String(localized: "delete"))) {
+                            vm.delete(petId: pet.id, healthLogId: selectedDeleteHealthLog.id)
+                        },
+                        secondaryButton: .cancel()
+                    )
                 }
             }
             .refreshable {
