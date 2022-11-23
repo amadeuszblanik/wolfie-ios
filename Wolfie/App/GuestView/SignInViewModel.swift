@@ -12,7 +12,7 @@ let MOCKED_PASSWORD = "Passw0rd!1"
 
 extension SignInView {
     @MainActor class ViewModel: ObservableObject {
-        @AppStorage("AUTH_ACCESS_TOKEN") var accessToken: String? {
+        @AppStorage("AUTH_SIGNED") var isSigned: Bool? {
             willSet { objectWillChange.send() }
         }
         
@@ -32,11 +32,11 @@ extension SignInView {
         
         var device: String = UIDevice().name
         
-        func setAccessToken(_ next: String? = nil) {
+        func setIsSigned(_ next: Bool? = nil) {
             self.password = ""
             
             withAnimation {
-                accessToken = next
+                isSigned = next
             }
         }
         
@@ -54,11 +54,17 @@ extension SignInView {
             WolfieApi().postSignIn(body: payload) { result in
                 switch result {
                 case .success(let response):
-                    self.accessToken = response.accessToken
-                    KeychainService.standard.save(Data(response.accessToken.utf8), service: "access-token", account: "wolfie")
-
-                    if let refreshToken = response.refreshToken {
-                        KeychainService.standard.save(Data(refreshToken.utf8), service: "refresg-token", account: "wolfie")
+                    do {
+                        try KeychainService.standard.save(Data(response.accessToken.utf8), service: "access-token", account: "wolfie")
+                        
+                        if let refreshToken = response.refreshToken {
+                            try KeychainService.standard.save(Data(refreshToken.utf8), service: "refresh-token", account: "wolfie")
+                        }
+                        
+                        self.setIsSigned(true)
+                    } catch {
+                        self.isInvalid = true
+                        self.errorMessage = String(localized: "error_keychain_generic_message")
                     }
                 case .failure(let error):
                     self.isInvalid = true

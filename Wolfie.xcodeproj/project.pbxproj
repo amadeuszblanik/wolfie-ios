@@ -47,6 +47,10 @@
 		4E8B68C2292034EA00A0BBE1 /* BreedDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68C1292034EA00A0BBE1 /* BreedDB.swift */; };
 		4EB4CE71292AE7F6004C1281 /* HealthLogDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4CE70292AE7F6004C1281 /* HealthLogDto.swift */; };
 		4EB4CE73292AF059004C1281 /* DtoDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4CE72292AF059004C1281 /* DtoDateFormatter.swift */; };
+		4EB4CE77292EA2D6004C1281 /* RefreshTokenDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4CE76292EA2D6004C1281 /* RefreshTokenDto.swift */; };
+		4EB4CE79292EA48B004C1281 /* MainDevViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4CE78292EA48B004C1281 /* MainDevViewModel.swift */; };
+		4EB4CE7B292EA652004C1281 /* ApiInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4CE7A292EA652004C1281 /* ApiInterceptor.swift */; };
+		4EB4CE7D292EAFB2004C1281 /* ApiSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4CE7C292EAFB2004C1281 /* ApiSession.swift */; };
 		4EE651B0291971EA007F115A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651AF291971EA007F115A /* MainView.swift */; };
 		4EE651B32919724A007F115A /* MainDevView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651B22919724A007F115A /* MainDevView.swift */; };
 		4EE651B62919734F007F115A /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651B52919734F007F115A /* ButtonComponent.swift */; };
@@ -182,6 +186,10 @@
 		4E8B68C1292034EA00A0BBE1 /* BreedDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDB.swift; sourceTree = "<group>"; };
 		4EB4CE70292AE7F6004C1281 /* HealthLogDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthLogDto.swift; sourceTree = "<group>"; };
 		4EB4CE72292AF059004C1281 /* DtoDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DtoDateFormatter.swift; sourceTree = "<group>"; };
+		4EB4CE76292EA2D6004C1281 /* RefreshTokenDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenDto.swift; sourceTree = "<group>"; };
+		4EB4CE78292EA48B004C1281 /* MainDevViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDevViewModel.swift; sourceTree = "<group>"; };
+		4EB4CE7A292EA652004C1281 /* ApiInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiInterceptor.swift; sourceTree = "<group>"; };
+		4EB4CE7C292EAFB2004C1281 /* ApiSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiSession.swift; sourceTree = "<group>"; };
 		4EE651AF291971EA007F115A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		4EE651B22919724A007F115A /* MainDevView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDevView.swift; sourceTree = "<group>"; };
 		4EE651B52919734F007F115A /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
@@ -471,6 +479,7 @@
 			isa = PBXGroup;
 			children = (
 				4EE651B22919724A007F115A /* MainDevView.swift */,
+				4EB4CE78292EA48B004C1281 /* MainDevViewModel.swift */,
 			);
 			path = MainDev;
 			sourceTree = "<group>";
@@ -523,6 +532,8 @@
 				4EF572AE29214C3E00F11E4A /* ApiRouter.swift */,
 				4EF572B029214C4B00F11E4A /* ApiConfiguration.swift */,
 				4EF572BB29214E8D00F11E4A /* ApiError.swift */,
+				4EB4CE7A292EA652004C1281 /* ApiInterceptor.swift */,
+				4EB4CE7C292EAFB2004C1281 /* ApiSession.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -640,6 +651,7 @@
 				4EF572AA29214B7500F11E4A /* SignInDto.swift */,
 				4EF572C32921620200F11E4A /* SignUpDto.swift */,
 				4EB4CE70292AE7F6004C1281 /* HealthLogDto.swift */,
+				4EB4CE76292EA2D6004C1281 /* RefreshTokenDto.swift */,
 			);
 			path = Dto;
 			sourceTree = "<group>";
@@ -898,6 +910,7 @@
 				4E24B6E629147D7700405D06 /* Persistence.swift in Sources */,
 				4EF572AF29214C3E00F11E4A /* ApiRouter.swift in Sources */,
 				4EF572AD29214BBC00F11E4A /* SignIn.swift in Sources */,
+				4EB4CE7D292EAFB2004C1281 /* ApiSession.swift in Sources */,
 				4EF572B129214C4B00F11E4A /* ApiConfiguration.swift in Sources */,
 				4EFC745F291B1ACD0086A6AB /* TimeInterval.swift in Sources */,
 				4EE9EA9629256D0200DDD08A /* HealthLogDB.swift in Sources */,
@@ -926,12 +939,14 @@
 				4E51E590291F01F80007887B /* StringExtensions.swift in Sources */,
 				4E8B68B129201E5F00A0BBE1 /* Test.swift in Sources */,
 				4E51E5A5291F29E20007887B /* ProfileViewModel.swift in Sources */,
+				4EB4CE7B292EA652004C1281 /* ApiInterceptor.swift in Sources */,
 				4EFC743C291AF64C0086A6AB /* SelectComponent.swift in Sources */,
 				4E8B68B429201F7100A0BBE1 /* RealmPlayground.swift in Sources */,
 				4EB4CE71292AE7F6004C1281 /* HealthLogDto.swift in Sources */,
 				4E51E5A9291F2DB20007887B /* Config.swift in Sources */,
 				4EFC7483291D9B5A0086A6AB /* DateIntervalFormatter.swift in Sources */,
 				4EE651CA2919D310007F115A /* ShakeGestureManager.swift in Sources */,
+				4EB4CE79292EA48B004C1281 /* MainDevViewModel.swift in Sources */,
 				4EFC746C291C53E70086A6AB /* SequenceTypeExtensions.swift in Sources */,
 				4EFC743A291AEA6F0086A6AB /* SignUpViewModel.swift in Sources */,
 				4EFC7477291D8CC60086A6AB /* DashboardWeightsView.swift in Sources */,
@@ -953,6 +968,7 @@
 				4EFC7435291AE32D0086A6AB /* JumbotronComponent.swift in Sources */,
 				4E794651291AE000000C356C /* CheckboxComponent.swift in Sources */,
 				4EFC7485291DA4F90086A6AB /* WeightForm.swift in Sources */,
+				4EB4CE77292EA2D6004C1281 /* RefreshTokenDto.swift in Sources */,
 				4EFC7441291B06920086A6AB /* DashboardView.swift in Sources */,
 				4EF572BA29214E2900F11E4A /* isoDateFormatter.swift in Sources */,
 				4E51E5AB291F2DE00007887B /* UserRoles.swift in Sources */,

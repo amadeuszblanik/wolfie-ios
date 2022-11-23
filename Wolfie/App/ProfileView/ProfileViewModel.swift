@@ -11,7 +11,7 @@ extension ProfileView {
     @MainActor class ViewModel: ObservableObject {
         @Published var config: ApiConfig
         @Published var user: ApiUser
-        @AppStorage("AUTH_ACCESS_TOKEN") var accessToken: String? {
+        @AppStorage("AUTH_SIGNED") var isSigned: Bool? {
             willSet { objectWillChange.send() }
         }
         
@@ -43,7 +43,7 @@ extension ProfileView {
             KeychainService.standard.delete(service: "refresh-token", account: "wolfie")
             
             withAnimation {
-                accessToken = nil
+                isSigned = false
             }
         }
     }

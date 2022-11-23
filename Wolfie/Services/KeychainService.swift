@@ -7,12 +7,18 @@
 
 import Foundation
 
+enum KeychainError: Error {
+    case cannotSave(OSStatus)
+}
+
 final class KeychainService {
     static let standard = KeychainService()
 
     private init() {}
     
-    func save(_ data: Data, service: String, account: String) {
+    func save(_ data: Data, service: String, account: String) throws {
+        let isExists = self.read(service: service, account: account)
+        
         let query = [
             kSecValueData: data,
             kSecClass: kSecClassGenericPassword,
@@ -20,11 +26,21 @@ final class KeychainService {
             kSecAttrAccount: account,
         ] as CFDictionary
         
-        let status = SecItemAdd(query, nil)
+        let queryUpdate = [
+            kSecAttrService: service,
+            kSecAttrAccount: account,
+            kSecClass: kSecClassGenericPassword,
+        ] as CFDictionary
+        
+        let attributesToUpdate = [kSecValueData: data] as CFDictionary
+
+        let status = isExists == nil ? SecItemAdd(query, nil) : SecItemUpdate(queryUpdate as CFDictionary, attributesToUpdate)
         
         if status != errSecSuccess {
-            print("🔑 Error: \(status)")
+            print("🔑 Error saving: \(status)")
             sentryLog("Cannot save data to Keychain \(status)")
+            
+            throw KeychainError.cannotSave(status)
         }
     }
     

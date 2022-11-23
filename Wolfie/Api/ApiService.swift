@@ -11,6 +11,7 @@ import Alamofire
 protocol WolfieApiProtocol {
     func postSignIn(body: DtoSignIn, completion: @escaping (Result<ApiSignIn, ApiError>) -> Void)
     func postSignUp(body: DtoSignUp, completion: @escaping (Result<ApiMessage, ApiError>) -> Void)
+    func postRefreshToken(body: DtoRefreshToken, completion: @escaping (Result<ApiSignIn, ApiError>) -> Void)
     func getPetsMy(completion: @escaping (Result<[ApiPetSingle], ApiError>) -> Void)
     func getPetsWeights(petId: String, completion: @escaping (Result<[ApiWeightValue], ApiError>) -> Void)
     func postPetsWeights(petId: String, body: DtoWeight, completion: @escaping (Result<ApiWeightValue, ApiError>) -> Void)
@@ -27,7 +28,7 @@ public final class WolfieApi {
     private func performRequest<T: Decodable>(route: ApiRouter, decoder: JSONDecoder = WolfieApi.jsonDecoder, completion: @escaping (Result<T, ApiError>) -> Void) -> DataRequest {
         print("💻 Request \(route.path)")
         
-        return AF.request(route).responseData() { results in
+        return API_SESSION.request(route).validate().responseData() { results in
             let result = results.result
 
             if let response = results.response {
@@ -90,6 +91,10 @@ extension WolfieApi: WolfieApiProtocol {
     
     func postSignUp(body: DtoSignUp, completion: @escaping (Result<ApiMessage, ApiError>) -> Void) {
         performRequest(route: .postAuthSignUp(body), completion: completion)
+    }
+    
+    func postRefreshToken(body: DtoRefreshToken, completion: @escaping (Result<ApiSignIn, ApiError>) -> Void) {
+        performRequest(route: .postRefreshToken(body), completion: completion)
     }
     
     func getPetsMy(completion: @escaping (Result<[ApiPetSingle], ApiError>) -> Void) {

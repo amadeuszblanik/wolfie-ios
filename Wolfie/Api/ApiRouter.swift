@@ -11,6 +11,7 @@ import Alamofire
 public enum ApiRouter: ApiConfiguration {
     case postAuthSignIn(_ body: DtoSignIn)
     case postAuthSignUp(_ body: DtoSignUp)
+    case postRefreshToken(_ body: DtoRefreshToken)
     case getPetsMy
     case getPetsWeights(_ petId: String)
     case postPetsWeights(_ petId: String, body: DtoWeight)
@@ -26,6 +27,8 @@ public enum ApiRouter: ApiConfiguration {
         case .postAuthSignIn:
             return .post
         case .postAuthSignUp:
+            return .post
+        case .postRefreshToken:
             return .post
         case .getPetsMy:
             return .get
@@ -58,6 +61,8 @@ public enum ApiRouter: ApiConfiguration {
             return "/auth/sign-in"
         case .postAuthSignUp:
             return "/auth/sign-up"
+        case .postRefreshToken:
+            return "/auth/refresh-token"
         case .getPetsMy:
             return "/pets/my"
         case .getPetsWeights(let petId):
@@ -84,6 +89,10 @@ public enum ApiRouter: ApiConfiguration {
 
             return json
         case .postAuthSignUp(let body):
+            let json = try? body.toData()
+
+            return json
+        case .postRefreshToken(let body):
             let json = try? body.toData()
 
             return json
@@ -134,13 +143,6 @@ public enum ApiRouter: ApiConfiguration {
         
         let locale = Locale.preferredLanguages[0]
         urlRequest.addValue(locale, forHTTPHeaderField: "Accept-Language")
-        
-        let data = KeychainService.standard.read(service: "access-token", account: "wolfie")
-        let accessToken = (data != nil) ? String(data: data!, encoding: .utf8) : nil
-        
-        if ((accessToken) != nil) {
-            urlRequest.addValue("Bearer \(accessToken!)", forHTTPHeaderField: "Authorization")
-        }
         
         if let parameters = parameters {
             var urlComponents = URLComponents(string: urlWithPath)!
