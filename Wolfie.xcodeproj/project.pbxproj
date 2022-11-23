@@ -681,6 +681,7 @@
 				4E24B6D629147D7600405D06 /* Frameworks */,
 				4E24B6D729147D7600405D06 /* Resources */,
 				19D71AB7483872ECFDD632C7 /* [CP] Embed Pods Frameworks */,
+				4EB4CE82292ECFF7004C1281 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -836,6 +837,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Wolfie-WolfieUITests/Pods-Wolfie-WolfieUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		4EB4CE82292ECFF7004C1281 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint --lenient\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		932A5DB46480F87832693DBB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

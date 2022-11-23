@@ -10,6 +10,7 @@ target 'Wolfie' do
   pod 'RealmSwift', '~>10'
   pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', 
 :tag => '7.30.2'
+  pod 'SwiftLint'
 
   target 'WolfieTests' do
     inherit! :search_paths
