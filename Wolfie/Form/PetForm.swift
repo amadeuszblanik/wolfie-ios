@@ -36,9 +36,13 @@ struct PetForm: View {
                     }
                     
                     HStack {
-                        UISelectSearch(
+//                        UIBreedSelect(
+//                            label: String(localized: "breed"),
+//                            plain: true,
+//                            state: $vm.breed
+//                        )
+                        UIBreedSelect(
                             label: String(localized: "breed"),
-                            values: vm.breedsSelectedItem,
                             plain: true,
                             state: $vm.breed
                         )

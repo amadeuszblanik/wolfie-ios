@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 class BreedDB: Object, ObjectKeyIdentifiable {
-    @Persisted var id: Int
+    @Persisted(primaryKey: true) var id: Int
     @Persisted var name: String
     @Persisted var group: String
     @Persisted var section: String?

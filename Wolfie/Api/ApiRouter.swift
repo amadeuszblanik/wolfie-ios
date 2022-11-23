@@ -21,6 +21,7 @@ public enum ApiRouter: ApiConfiguration {
     case postPetsHealthLog(_ petId: String, body: DtoHealthLog)
     case patchPetsHealthLog(_ petId: String, healthLogId: String, body: DtoHealthLog)
     case deletePetsHealthLog(_ petId: String, healthLogId: String)
+    case getBreeds
 
     public var method: HTTPMethod {
         switch self {
@@ -48,6 +49,8 @@ public enum ApiRouter: ApiConfiguration {
             return .patch
         case .deletePetsHealthLog:
             return .delete
+        case .getBreeds:
+            return .get
         }
     }
     
@@ -79,6 +82,8 @@ public enum ApiRouter: ApiConfiguration {
             return "/pets/\(petId)/health-log/\(healthLogId)"
         case .deletePetsHealthLog(let petId, let healthLogId):
             return "/pets/\(petId)/health-log/\(healthLogId)"
+        case .getBreeds:
+            return "/breed"
         }
     }
     

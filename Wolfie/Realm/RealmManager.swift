@@ -29,11 +29,12 @@ class RealmManager: ObservableObject {
     func openRealm() {
         do {
             let config = Realm.Configuration(
-                schemaVersion: 3,
+                schemaVersion: 4,
                 migrationBlock: { migration, oldSchemaVersion in
-                    if oldSchemaVersion < 3 {
+                    if oldSchemaVersion < 1 {
                         migration.deleteData(forType: PetDB.className())
                         migration.deleteData(forType: WeightValueDB.className())
+                        migration.deleteData(forType: BreedDB.className())
                     }
                 },
                 deleteRealmIfMigrationNeeded: true
@@ -296,6 +297,51 @@ class RealmManager: ObservableObject {
             } catch {
                 debugPrint(error)
                 logErrorDelete("WeightAll")
+            }
+        }
+    }
+    
+    //    Breeds
+    func fetchBreed() {
+        deleteBreedAll()
+        
+        WolfieApi().getBreeds() { results in
+            switch results {
+            case.success(let values):
+                values.forEach { value in
+                    self.addBreed(value)
+                }
+            case .failure(let error):
+                debugPrint(error)
+                self.logErrorFetch("Breed")
+            }
+        }
+    }
+    
+    func addBreed(_ value: ApiBreed) {
+        if let localRealm = localRealm {
+            do {
+                try localRealm.write {
+                    localRealm.add(BreedDB.fromApi(data: value), update: .all)
+                }
+            } catch {
+                debugPrint(error)
+                logErrorAdd("Breed")
+            }
+        }
+    }
+
+    func deleteBreedAll() {
+        if let localRealm = localRealm {
+            let allResults = localRealm.objects(BreedDB.self)
+
+            do {
+                try localRealm.write {
+                    localRealm.delete(allResults)
+                }
+            } catch {
+                debugPrint(error)
+                logErrorDelete("BreedAll")
             }
         }
     }

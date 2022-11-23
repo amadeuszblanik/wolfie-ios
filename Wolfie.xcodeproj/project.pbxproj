@@ -51,6 +51,7 @@
 		4EB4CE79292EA48B004C1281 /* MainDevViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4CE78292EA48B004C1281 /* MainDevViewModel.swift */; };
 		4EB4CE7B292EA652004C1281 /* ApiInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4CE7A292EA652004C1281 /* ApiInterceptor.swift */; };
 		4EB4CE7D292EAFB2004C1281 /* ApiSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4CE7C292EAFB2004C1281 /* ApiSession.swift */; };
+		4EB4CE81292EC8B6004C1281 /* BreedSelectComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4CE80292EC8B6004C1281 /* BreedSelectComponent.swift */; };
 		4EE651B0291971EA007F115A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651AF291971EA007F115A /* MainView.swift */; };
 		4EE651B32919724A007F115A /* MainDevView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651B22919724A007F115A /* MainDevView.swift */; };
 		4EE651B62919734F007F115A /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651B52919734F007F115A /* ButtonComponent.swift */; };
@@ -190,6 +191,7 @@
 		4EB4CE78292EA48B004C1281 /* MainDevViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDevViewModel.swift; sourceTree = "<group>"; };
 		4EB4CE7A292EA652004C1281 /* ApiInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiInterceptor.swift; sourceTree = "<group>"; };
 		4EB4CE7C292EAFB2004C1281 /* ApiSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiSession.swift; sourceTree = "<group>"; };
+		4EB4CE80292EC8B6004C1281 /* BreedSelectComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedSelectComponent.swift; sourceTree = "<group>"; };
 		4EE651AF291971EA007F115A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		4EE651B22919724A007F115A /* MainDevView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDevView.swift; sourceTree = "<group>"; };
 		4EE651B52919734F007F115A /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
@@ -501,6 +503,7 @@
 				4E51E59B291F22480007887B /* MultiSelectSearch.swift */,
 				4EF572C129215D5300F11E4A /* WebViewComponent.swift */,
 				4EF572C92922FA1900F11E4A /* LoaderFullScreen.swift */,
+				4EB4CE80292EC8B6004C1281 /* BreedSelectComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -926,6 +929,7 @@
 				4E24B6E929147D7700405D06 /* Wolfie.xcdatamodeld in Sources */,
 				4EFC7455291B0E4E0086A6AB /* ApiMocks.swift in Sources */,
 				4E79464A291AD3FC000C356C /* InputComponent.swift in Sources */,
+				4EB4CE81292EC8B6004C1281 /* BreedSelectComponent.swift in Sources */,
 				4EF572A929214AA500F11E4A /* ApiService.swift in Sources */,
 				4EF572BC29214E8D00F11E4A /* ApiError.swift in Sources */,
 				4EF572B829214E0C00F11E4A /* JsonEncoder.swift in Sources */,

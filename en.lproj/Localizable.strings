@@ -460,3 +460,5 @@
 "web_view_title" = "Browser";
 "error_generic_title" = "Something went wrong";
 "error_generic_message" = "Something went wrong… Please try again later.";
+
+"breed_select_label" = "Selected breed";
