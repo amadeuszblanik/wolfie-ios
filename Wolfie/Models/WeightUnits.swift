@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import RealmSwift
 
-enum WeightUnits: String, CaseIterable, Codable {
+enum WeightUnits: String, CaseIterable, Codable, PersistableEnum {
     case Kilogram = "KG"
     case Gram = "G"
     case Pound = "LB"

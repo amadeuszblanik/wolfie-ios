@@ -10,6 +10,7 @@ import SwiftUI
 struct MainView: View {
     @State private var selectedView: AppViews = AppViews.dashboard
     @StateObject private var vm = ViewModel()
+    @StateObject var realmDb = RealmManager()
     
     var signed: some View {
         Group {
@@ -40,6 +41,8 @@ struct MainView: View {
                         }
                     }
             }
+        }.onAppear {
+            realmDb.fetchUser()
         }
     }
     

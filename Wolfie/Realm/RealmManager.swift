@@ -10,14 +10,14 @@ import RealmSwift
 
 class RealmManager: ObservableObject {
     private(set) var localRealm: Realm?
-    
+
     @Published var tests: [Test] = []
-    
+
     init() {
         openRealm()
         getTests()
     }
-    
+
     func clearAll() {
         if let localRealm = localRealm {
             try! localRealm.write {
@@ -25,7 +25,7 @@ class RealmManager: ObservableObject {
             }
         }
     }
-    
+
     func openRealm() {
         do {
             let config = Realm.Configuration(
@@ -39,28 +39,28 @@ class RealmManager: ObservableObject {
                 },
                 deleteRealmIfMigrationNeeded: true
             )
-            
+
             Realm.Configuration.defaultConfiguration = config
-            
+
             localRealm = try Realm()
         } catch {
             debugPrint(error)
             sentryLog("Error while trying to open Realm")
         }
     }
-    
+
 //    Test
     func getTests() {
         if let localRealm = localRealm {
             let allTests = localRealm.objects(Test.self)
-            
+
             tests = []
             allTests.forEach { test in
                 tests.append(test)
             }
         }
     }
-    
+
     func addTest() {
         if let localRealm = localRealm {
             do {
@@ -70,7 +70,7 @@ class RealmManager: ObservableObject {
                     newTest.title = "Lorem ipsum"
                     newTest.subTitle = "Lorem ipsum dolor sit amet"
                     newTest.numberOfSections = 20
-                    
+
                     localRealm.add(newTest)
                     getTests()
                     print("Added to realm")
@@ -81,7 +81,7 @@ class RealmManager: ObservableObject {
             }
         }
     }
-    
+
     func deleteTest(id: Int) {
         if let localRealm = localRealm {
             let allTests = localRealm.objects(Test.self)
@@ -101,11 +101,11 @@ class RealmManager: ObservableObject {
             }
         }
     }
-    
+
 //    Pets
     func fetchPets() {
         deletPetAll()
-        
+
         WolfieApi().getPetsMy { results in
             switch results {
             case.success(let pets):
@@ -117,10 +117,10 @@ class RealmManager: ObservableObject {
             }
         }
     }
-    
+
     func addPet(_ pet: ApiPetSingle) {
         if let localRealm = localRealm {
-            
+
             do {
                 try localRealm.write {
                     localRealm.add(PetDB.fromApi(data: pet), update: .all)
@@ -131,7 +131,7 @@ class RealmManager: ObservableObject {
             }
         }
     }
-    
+
     func updatePet(_ id: String, data: ApiPetSingle) {
         if let localRealm = localRealm {
             let allResults = localRealm.objects(PetDB.self)
@@ -162,7 +162,7 @@ class RealmManager: ObservableObject {
             }
         }
     }
-    
+
     func deletPetAll() {
         if let localRealm = localRealm {
             let allResults = localRealm.objects(PetDB.self)
@@ -177,7 +177,7 @@ class RealmManager: ObservableObject {
             }
         }
     }
-    
+
     func deletPet(_ id: String) {
         if let localRealm = localRealm {
             let allResults = localRealm.objects(PetDB.self)
@@ -194,11 +194,11 @@ class RealmManager: ObservableObject {
             }
         }
     }
-    
+
 //    Weights
     func fetchWeights(petId: String) {
         deleteWeightAll(petId)
-        
+
         WolfieApi().getPetsWeights(petId: petId) { results in
             switch results {
             case.success(let weights):
@@ -210,7 +210,7 @@ class RealmManager: ObservableObject {
             }
         }
     }
-    
+
     func addWeight(_ value: ApiWeightValue, petId: String) {
         if let localRealm = localRealm {
             do {
@@ -238,7 +238,7 @@ class RealmManager: ObservableObject {
             }
         }
     }
-    
+
     func deleteWeight(_ id: String) {
         if let localRealm = localRealm {
             let allResults = localRealm.objects(WeightValueDB.self)
@@ -255,11 +255,11 @@ class RealmManager: ObservableObject {
             }
         }
     }
-    
+
     //    Weights
     func fetchHealthLog(petId: String) {
         deleteHealthLogAll(petId)
-        
+
         WolfieApi().getPetsHealthLog(petId: petId) { results in
             switch results {
             case.success(let healthLogs):
@@ -272,7 +272,7 @@ class RealmManager: ObservableObject {
             }
         }
     }
-    
+
     func addHealthLog(_ value: ApiHealthLogValue, petId: String) {
         if let localRealm = localRealm {
             do {
@@ -300,11 +300,11 @@ class RealmManager: ObservableObject {
             }
         }
     }
-    
+
     //    Breeds
     func fetchBreed() {
         deleteBreedAll()
-        
+
         WolfieApi().getBreeds() { results in
             switch results {
             case.success(let values):
@@ -317,7 +317,7 @@ class RealmManager: ObservableObject {
             }
         }
     }
-    
+
     func addBreed(_ value: ApiBreed) {
         if let localRealm = localRealm {
             do {
@@ -345,19 +345,107 @@ class RealmManager: ObservableObject {
             }
         }
     }
-    
+
+    //    Config
+    func fetchConfig(userEmail: String) {
+        deleteConfigAll()
+
+        WolfieApi().getConfig { results in
+            switch results {
+            case.success(let value):
+                self.addConfig(value, userEmail: userEmail)
+            case .failure(let error):
+                debugPrint(error)
+                self.logErrorFetch("Config")
+            }
+        }
+    }
+
+    func addConfig(_ value: ApiConfig, userEmail: String) {
+        if let localRealm = localRealm {
+            do {
+                try localRealm.write {
+                    localRealm.add(ConfigDB.fromApi(data: value, userEmail: userEmail), update: .all)
+                }
+            } catch {
+                debugPrint(error)
+                logErrorAdd("Config")
+            }
+        }
+    }
+
+    func deleteConfigAll() {
+        if let localRealm = localRealm {
+            let allResults = localRealm.objects(ConfigDB.self)
+
+            do {
+                try localRealm.write {
+                    localRealm.delete(allResults)
+                }
+            } catch {
+                debugPrint(error)
+                logErrorDelete("ConfigAll")
+            }
+        }
+    }
+
+    //    User
+    func fetchUser() {
+        deleteUserAll()
+
+        WolfieApi().getProfile { results in
+            switch results {
+            case.success(let value):
+                self.addUser(value)
+            case .failure(let error):
+                debugPrint(error)
+                self.logErrorFetch("Profile")
+            }
+        }
+    }
+
+    func addUser(_ value: ApiUser) {
+        if let localRealm = localRealm {
+            do {
+                try localRealm.write {
+                    localRealm.add(UserDB.fromApi(data: value), update: .all)
+                }
+            } catch {
+                debugPrint(error)
+                logErrorAdd("Profile")
+            }
+        }
+
+        fetchConfig(userEmail: value.email)
+    }
+
+    func deleteUserAll() {
+        if let localRealm = localRealm {
+            let allResults = localRealm.objects(UserDB.self)
+
+            do {
+                try localRealm.write {
+                    localRealm.delete(allResults)
+                }
+            } catch {
+                debugPrint(error)
+                logErrorDelete("UserAll")
+            }
+        }
+    }
+
     private func logErrorFetch(_ id: String) {
         sentryLog("Error while trying to fetch \(id) to Realm")
     }
-    
+
     private func logErrorAdd(_ id: String) {
         sentryLog("Error while trying to add \(id) to Realm")
     }
-    
+
     private func logErrorUpdate(_ id: String) {
         sentryLog("Error while trying to update \(id) to Realm")
     }
-    
+
     private func logErrorDelete(_ id: String) {
         sentryLog("Error while trying to delete \(id) from Realm")
     }

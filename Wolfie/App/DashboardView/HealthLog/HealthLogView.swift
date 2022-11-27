@@ -13,6 +13,7 @@ struct HealthLogView: View {
     @Binding var path: [DashboardViews]
 
     @StateObject var vm = ViewModel()
+    @StateObject var realmDb = RealmManager()
     @ObservedResults(HealthLogDB.self) var healthLogDb
     
     var petHealthLogDb: Results<HealthLogDB> { healthLogDb.filter("petId == '\(pet.id)'").sorted(by: \.date, ascending: false) }

@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import RealmSwift
 
-enum UserRoles: String, CaseIterable, Codable {
+enum UserRoles: String, CaseIterable, Codable, PersistableEnum {
     case Banned = "BANNED"
     case User = "USER"
     case SuperUser = "SUPERUSER"

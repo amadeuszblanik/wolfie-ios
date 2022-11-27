@@ -12,6 +12,8 @@ public enum ApiRouter: ApiConfiguration {
     case postAuthSignIn(_ body: DtoSignIn)
     case postAuthSignUp(_ body: DtoSignUp)
     case postRefreshToken(_ body: DtoRefreshToken)
+    case getProfile
+    case getConfig
     case getPetsMy
     case getPetsWeights(_ petId: String)
     case postPetsWeights(_ petId: String, body: DtoWeight)
@@ -31,6 +33,10 @@ public enum ApiRouter: ApiConfiguration {
             return .post
         case .postRefreshToken:
             return .post
+        case .getProfile:
+            return .get
+        case .getConfig:
+            return .get
         case .getPetsMy:
             return .get
         case .getPetsWeights:
@@ -53,11 +59,11 @@ public enum ApiRouter: ApiConfiguration {
             return .get
         }
     }
-    
+
     public var baseUrl: String {
         return Bundle.main.infoDictionary?["ApiUrl"] as? String ?? "https://api.wolfie.app/v1"
     }
-    
+
     public var path: String {
         switch self {
         case .postAuthSignIn:
@@ -66,6 +72,10 @@ public enum ApiRouter: ApiConfiguration {
             return "/auth/sign-up"
         case .postRefreshToken:
             return "/auth/refresh-token"
+        case .getProfile:
+            return "/auth/profile"
+        case .getConfig:
+            return "/config"
         case .getPetsMy:
             return "/pets/my"
         case .getPetsWeights(let petId):
@@ -86,7 +96,7 @@ public enum ApiRouter: ApiConfiguration {
             return "/breed"
         }
     }
-    
+
     public var body: Data? {
         switch self {
         case .postAuthSignIn(let body):
@@ -121,7 +131,7 @@ public enum ApiRouter: ApiConfiguration {
             return nil
         }
     }
-    
+
     public var parameters: Parameters? {
         switch self {
 //        case .getPetWeights(let last):
@@ -137,22 +147,22 @@ public enum ApiRouter: ApiConfiguration {
             return nil
         }
     }
-    
+
     public func asURLRequest() throws -> URLRequest {
         let urlWithPath = baseUrl + path
-        
+
         let url = try urlWithPath.asURL()
         var urlRequest = URLRequest(url: url)
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.httpMethod = method.rawValue
-        
+
         let locale = Locale.preferredLanguages[0]
         urlRequest.addValue(locale, forHTTPHeaderField: "Accept-Language")
-        
+
         if let parameters = parameters {
             var urlComponents = URLComponents(string: urlWithPath)!
             urlComponents.queryItems = []
-            
+
             _ = parameters.map() { (key, value) in
                 let item = URLQueryItem(name: key, value: value as? String)
                 urlComponents.queryItems?.append(item)
@@ -160,11 +170,11 @@ public enum ApiRouter: ApiConfiguration {
 
             urlRequest.url = urlComponents.url
         }
-        
+
         if let body = body {
             urlRequest.httpBody = body
         }
-        
+
         return urlRequest
     }
 }
