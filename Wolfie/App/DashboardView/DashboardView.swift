@@ -18,9 +18,13 @@ struct DashboardView: View {
     @StateObject var realmDb = RealmManager()
     @ObservedResults(PetDB.self) var petDb
     @ObservedResults(ConfigDB.self) var configDb
-    
+
     var canAddNewPets: Bool {
-        configDb.first?.canAddNewPet ?? false
+        if let userPetsAllowed = configDb.first?.userPetsAllowed {
+            return petDb.count < userPetsAllowed
+        }
+
+        return false
     }
 
     init() {
