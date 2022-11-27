@@ -64,6 +64,8 @@ extension SignInView {
                         self.setIsSigned(true)
                     } catch {
                         self.isInvalid = true
+                        self.isActive = true
+                        self.isLoading = false
                         self.errorMessage = String(localized: "error_keychain_generic_message")
                     }
                 case .failure(let error):
