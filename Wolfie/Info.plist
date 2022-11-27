@@ -2,12 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>WebUrl</key>
-	<string>${WEB_URL}</string>
-	<key>SentryEnvironment</key>
-	<string>${SENTRY_ENVIRONMENT}</string>
-	<key>SentryDsn</key>
-	<string>${SENTRY_DSN}</string>
 	<key>ApiUrl</key>
 	<string>${API_URL}</string>
 	<key>CFBundleURLTypes</key>
@@ -19,5 +13,11 @@
 			<string>Editor</string>
 		</dict>
 	</array>
+	<key>SentryDsn</key>
+	<string>${SENTRY_DSN}</string>
+	<key>SentryEnvironment</key>
+	<string>${SENTRY_ENVIRONMENT}</string>
+	<key>WebUrl</key>
+	<string>${WEB_URL}</string>
 </dict>
 </plist>
