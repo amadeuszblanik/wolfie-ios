@@ -16,33 +16,86 @@ extension PetForm {
         @Published var breed: SelectItem?
         @Published var microchip: String
         @Published var birthDate: Date
-        var breeds = [BREED_ENGLISH_POINTER, BREED_ENGLISH_SETTER, BREED_GIANT_SCHNAUZER, BREED_SCHNAUZER, BREED_MINIATURE_SCHNAUZER]
-        var breedsSelectedItem: [SelectItem] {
-            breeds.map { SelectItem(label: $0.localizedName, id: String($0.id)) }
+
+        @Published var isLoading = false
+        @Published var isError = false
+        var isInvalid: Bool {
+            self.name == ""
         }
-        
-        init(pet: PetDB? = nil) {
+        var errorMessage = ""
+
+        var onSave: () -> Void
+        var onDelete: () -> Void
+
+        var breedId: Int? {
+            if let id = breed?.id {
+                return Int(id)
+            }
+
+            return nil
+        }
+
+        init(pet: PetDB? = nil, onSave: @escaping () -> Void, onDelete: @escaping () -> Void) {
             self.id = pet?.id
             self.name = pet?.name ?? ""
             self.kind = pet?.kind ?? PetKind.Dog
-            self.breed = pet?.breed != nil ? SelectItem(label: pet!.breed!.localizedName, id: String(pet!.breed!.id)) : nil
+            if let petBreed = pet?.breed {
+                self.breed = SelectItem(label: petBreed.localizedName, id: String(petBreed.id))
+            }
             self.microchip = pet?.microchip ?? ""
             self.birthDate = pet?.birthDate ?? Date()
+
+            self.onSave = onSave
+            self.onDelete = onDelete
         }
 
-        func save() -> ApiPetSingle {
-            ApiPetSingle(
-                id: id ?? name,
-                name: name,
-                kind: kind,
-                image: "",
-                currentWeight: nil,
-                birthDate: birthDate,
-                healthLog: 0,
-                breed: breeds.find(predicate: { data in String(data.id) == breed?.id }),
-                createdAt: Date(),
-                updatedAt: Date()
-            )
+        func create() {
+            var breedId: Int? = nil
+            var payload =  DtoPet(name: self.name, kind: self.kind, microchip: self.microchip, birthDate: self.birthDate, breed: self.breedId)
+            print("Create pet \(payload)")
+
+            WolfieApi().postPets(body: payload) { results in
+                switch results {
+                case .success:
+                    RealmManager().fetchPets()
+                    
+                    self.onSave()
+                case .failure(let error):
+                    self.isError = true
+
+                    switch error {
+                    case .server(let message):
+                        self.errorMessage = message
+                    default:
+                        self.errorMessage = String(localized: "error_generic_message")
+                    }
+                }
+            }
+        }
+        
+        func update() {
+            var payload =  DtoPetUpdate(id: self.id!, name: self.name, kind: self.kind, microchip: self.microchip, birthDate: self.birthDate, breed: self.breedId)
+            print("Update pet \(payload)")
+
+            WolfieApi().putPets(petId: self.id!, body: payload) { results in
+                print("Update results \(results)")
+                switch results {
+                case .success:
+                    RealmManager().fetchPets()
+                    
+                    self.onSave()
+                case .failure(let error):
+                    self.isError = true
+                    print("Error catched \(error)")
+
+                    switch error {
+                    case .server(let message):
+                        self.errorMessage = message
+                    default:
+                        self.errorMessage = String(localized: "error_generic_message")
+                    }
+                }
+            }
         }
     }
 }

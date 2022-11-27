@@ -54,6 +54,7 @@
 		4EB4CE81292EC8B6004C1281 /* BreedSelectComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4CE80292EC8B6004C1281 /* BreedSelectComponent.swift */; };
 		4ED954772933B029009B4A81 /* ConfigDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED954762933B029009B4A81 /* ConfigDb.swift */; };
 		4ED954792933B3AA009B4A81 /* UserDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED954782933B3AA009B4A81 /* UserDb.swift */; };
+		4ED9547B2933C4E1009B4A81 /* ApiLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9547A2933C4E1009B4A81 /* ApiLogger.swift */; };
 		4EE651B0291971EA007F115A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651AF291971EA007F115A /* MainView.swift */; };
 		4EE651B32919724A007F115A /* MainDevView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651B22919724A007F115A /* MainDevView.swift */; };
 		4EE651B62919734F007F115A /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651B52919734F007F115A /* ButtonComponent.swift */; };
@@ -196,6 +197,7 @@
 		4EB4CE80292EC8B6004C1281 /* BreedSelectComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedSelectComponent.swift; sourceTree = "<group>"; };
 		4ED954762933B029009B4A81 /* ConfigDb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigDb.swift; sourceTree = "<group>"; };
 		4ED954782933B3AA009B4A81 /* UserDb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDb.swift; sourceTree = "<group>"; };
+		4ED9547A2933C4E1009B4A81 /* ApiLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiLogger.swift; sourceTree = "<group>"; };
 		4EE651AF291971EA007F115A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		4EE651B22919724A007F115A /* MainDevView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDevView.swift; sourceTree = "<group>"; };
 		4EE651B52919734F007F115A /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
@@ -543,6 +545,7 @@
 				4EF572BB29214E8D00F11E4A /* ApiError.swift */,
 				4EB4CE7A292EA652004C1281 /* ApiInterceptor.swift */,
 				4EB4CE7C292EAFB2004C1281 /* ApiSession.swift */,
+				4ED9547A2933C4E1009B4A81 /* ApiLogger.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -968,6 +971,7 @@
 				4E51E590291F01F80007887B /* StringExtensions.swift in Sources */,
 				4E8B68B129201E5F00A0BBE1 /* Test.swift in Sources */,
 				4E51E5A5291F29E20007887B /* ProfileViewModel.swift in Sources */,
+				4ED9547B2933C4E1009B4A81 /* ApiLogger.swift in Sources */,
 				4EB4CE7B292EA652004C1281 /* ApiInterceptor.swift in Sources */,
 				4EFC743C291AF64C0086A6AB /* SelectComponent.swift in Sources */,
 				4E8B68B429201F7100A0BBE1 /* RealmPlayground.swift in Sources */,

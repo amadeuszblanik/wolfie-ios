@@ -17,11 +17,16 @@ struct DashboardView: View {
     @State private var path: [DashboardViews] = []
     @StateObject var realmDb = RealmManager()
     @ObservedResults(PetDB.self) var petDb
+    @ObservedResults(ConfigDB.self) var configDb
     
+    var canAddNewPets: Bool {
+        configDb.first?.canAddNewPet ?? false
+    }
+
     init() {
         RealmManager().fetchPets()
     }
-    
+
     func handleSave() {
         isPetAddOpen = false
         isPetEditOpen = false
@@ -32,10 +37,10 @@ struct DashboardView: View {
     func handleDelete() {
         isPetAddOpen = false
         isPetEditOpen = false
-        
+
         path = []
     }
-    
+
     var list: some View {
         Group {
             VStack {
@@ -50,26 +55,26 @@ struct DashboardView: View {
                         }
                     }
                 }
-                .refreshable {
+                    .refreshable {
                     realmDb.fetchPets()
                 }
             }
         }
     }
-    
+
     var empty: some View {
         Group {
             Spacer()
-            
+
             Text(String(localized: "dashboard_empty"))
                 .fontWeight(.semibold)
-            
+
             UIButton(text: String(localized: "refresh")) {
                 realmDb.fetchPets()
             }
         }
     }
-    
+
     var body: some View {
         NavigationStack(path: $path) {
             VStack {
@@ -78,102 +83,102 @@ struct DashboardView: View {
                 } else {
                     list
                 }
-                
+
                 Spacer()
-                
-                if petDb.count < 3 { // @TODO Load it from config
+
+                if canAddNewPets {
                     UIButton(
                         text: String(localized: petDb.isEmpty ? "dashboard_empty_button" : "dashboard_button"),
                         fullWidth: true
                     ) {
                         isPetAddOpen = true
                     }
-                    .padding()
-                    .sheet(isPresented: $isPetAddOpen) {
-                        PetForm(onSave: handleSave, onDelete: handleDelete)
+                        .padding()
+                        .sheet(isPresented: $isPetAddOpen) {
+                            PetForm(vm: PetForm.ViewModel(onSave: handleSave, onDelete: handleDelete))
                     }
                 }
             }
-            .navigationDestination(for: DashboardViews.self) { dashboardView in
+                .navigationDestination(for: DashboardViews.self) { dashboardView in
                 switch (dashboardView) {
                 case .details(let pet):
                     DashboardSingleView(id: pet.id, path: $path)
                         .navigationTitle(pet.name)
                         .toolbar {
-                            ToolbarItem(placement: .navigationBarTrailing) {
-                                Button(String(localized: "edit")) {
-                                    isPetEditOpen = true
-                                }
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button(String(localized: "edit")) {
+                                isPetEditOpen = true
                             }
                         }
+                    }
                         .sheet(isPresented: $isPetEditOpen) {
-                            PetForm(onSave: handleSave, onDelete: handleDelete, vm: PetForm.ViewModel(pet: pet))
-                        }
+                            PetForm(vm: PetForm.ViewModel(pet: pet, onSave: handleSave, onDelete: handleDelete))
+                    }
                 case .weight(let pet):
                     DashboardWeightsView(pet: pet)
-                    .toolbar {
+                        .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Button(String(localized: "add")) {
                                 isAddWeightOpen = true
                             }
                         }
                     }
-                    .sheet(isPresented: $isAddWeightOpen) {
+                        .sheet(isPresented: $isAddWeightOpen) {
                         WeightForm(vm: WeightForm.ViewModel(
                             pet: pet,
                             onSuccess: {
                                 isAddWeightOpen = false
                             }
-                        ))
+                            ))
                     }
-                    .navigationTitle(String(localized: "weights"))
+                        .navigationTitle(String(localized: "weights"))
                 case .healthLog(let pet):
                     HealthLogView(
                         pet: pet,
                         path: $path
                     )
-                    .toolbar {
+                        .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Button(String(localized: "add")) {
                                 isAddHealthLogOpen = true
                             }
                         }
                     }
-                    .sheet(isPresented: $isAddHealthLogOpen) {
+                        .sheet(isPresented: $isAddHealthLogOpen) {
                         HealthLogForm(vm: HealthLogForm.ViewModel(
                             pet: pet,
                             onSuccess: {
                                 isAddHealthLogOpen = false
                             }
-                        ))
+                            ))
                     }
-                    .navigationTitle(String(localized: "health_log"))
+                        .navigationTitle(String(localized: "health_log"))
                 case .healthLogSingle(let pet, let healthLog):
                     HealthLogSingleView(
                         id: healthLog.id
                     )
-                    .toolbar {
+                        .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Button(String(localized: "edit")) {
                                 isEditHealthLogOpen = true
                             }
                         }
                     }
-                    .sheet(isPresented: $isEditHealthLogOpen) {
+                        .sheet(isPresented: $isEditHealthLogOpen) {
                         HealthLogForm(vm: HealthLogForm.ViewModel(
                             pet: pet,
                             data: healthLog,
                             onSuccess: {
                                 isEditHealthLogOpen = false
                             }
-                        ))
+                            ))
                     }
-                    .navigationTitle(String(localized: "health_log"))
+                        .navigationTitle(String(localized: "health_log"))
                 default:
                     Text("Not implemented yet")
                 }
             }
-            .navigationTitle(String(localized: "dashboard"))
+                .navigationTitle(String(localized: "dashboard"))
         }
     }
 }

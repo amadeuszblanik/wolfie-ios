@@ -15,6 +15,8 @@ public enum ApiRouter: ApiConfiguration {
     case getProfile
     case getConfig
     case getPetsMy
+    case postPets(_ body: DtoPet)
+    case putPets(_ petId: String, body: DtoPetUpdate)
     case getPetsWeights(_ petId: String)
     case postPetsWeights(_ petId: String, body: DtoWeight)
     case patchPetsWeights(_ petId: String, weightId: String, body: DtoWeight)
@@ -39,6 +41,10 @@ public enum ApiRouter: ApiConfiguration {
             return .get
         case .getPetsMy:
             return .get
+        case .postPets:
+            return .post
+        case .putPets:
+            return .put
         case .getPetsWeights:
             return .get
         case .postPetsWeights:
@@ -78,6 +84,10 @@ public enum ApiRouter: ApiConfiguration {
             return "/config"
         case .getPetsMy:
             return "/pets/my"
+        case .postPets:
+            return "/pets/add"
+        case .putPets(let petId, _):
+            return "/pets/\(petId)"
         case .getPetsWeights(let petId):
             return "/pets/\(petId)/weight"
         case .postPetsWeights(let petId, _):
@@ -108,6 +118,14 @@ public enum ApiRouter: ApiConfiguration {
 
             return json
         case .postRefreshToken(let body):
+            let json = try? body.toData()
+
+            return json
+        case .postPets(let body):
+            let json = try? body.toData()
+
+            return json
+        case .putPets(_, let body):
             let json = try? body.toData()
 
             return json

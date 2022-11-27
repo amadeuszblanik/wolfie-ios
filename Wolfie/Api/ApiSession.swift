@@ -8,4 +8,4 @@
 import Foundation
 import Alamofire
 
-let API_SESSION = Session(interceptor: ApiRefreshTokenInterceptor())
+let API_SESSION = Session(interceptor: ApiRefreshTokenInterceptor(), eventMonitors: [ APILogger() ])
