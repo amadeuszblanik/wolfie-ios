@@ -17,6 +17,7 @@ protocol WolfieApiProtocol {
     func getPetsMy(completion: @escaping (Result<[ApiPetSingle], ApiError>) -> Void)
     func postPets(body: DtoPet, completion: @escaping (Result<ApiPetSingle, ApiError>) -> Void)
     func putPets(petId: String, body: DtoPetUpdate, completion: @escaping (Result<ApiPetSingle, ApiError>) -> Void)
+    func deletePets(petId: String, completion: @escaping (Result<ApiMessage, ApiError>) -> Void)
     func getPetsWeights(petId: String, completion: @escaping (Result<[ApiWeightValue], ApiError>) -> Void)
     func postPetsWeights(petId: String, body: DtoWeight, completion: @escaping (Result<ApiWeightValue, ApiError>) -> Void)
     func patchPetsWeights(petId: String, weightId: String, body: DtoWeight, completion: @escaping (Result<ApiWeightValue, ApiError>) -> Void)
@@ -67,10 +68,7 @@ public final class WolfieApi {
                 case .failure(let error):
                     print("💻 Request \(route.path) failure")
                     debugPrint(error)
-                    print("--")
-                    debugPrint(results.response)
-                    print("Error message \(results.data)")
-                    
+
                     do {
                         let errorMessage = try decoder.decode(ApiErrorMessage.self, from: results.data!)
                         completion(.failure(.server(message: errorMessage.message)))
@@ -127,6 +125,10 @@ extension WolfieApi: WolfieApiProtocol {
     
     func putPets(petId: String, body: DtoPetUpdate, completion: @escaping (Result<ApiPetSingle, ApiError>) -> Void) {
         performRequest(route: .putPets(petId, body: body), completion: completion)
+    }
+    
+    func deletePets(petId: String, completion: @escaping (Result<ApiMessage, ApiError>) -> Void) {
+        performRequest(route: .deletePets(petId), completion: completion)
     }
     
     func getPetsWeights(petId: String, completion: @escaping (Result<[ApiWeightValue], ApiError>) -> Void) {

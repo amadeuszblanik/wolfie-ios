@@ -17,6 +17,7 @@ public enum ApiRouter: ApiConfiguration {
     case getPetsMy
     case postPets(_ body: DtoPet)
     case putPets(_ petId: String, body: DtoPetUpdate)
+    case deletePets(_ petId: String)
     case getPetsWeights(_ petId: String)
     case postPetsWeights(_ petId: String, body: DtoWeight)
     case patchPetsWeights(_ petId: String, weightId: String, body: DtoWeight)
@@ -45,6 +46,8 @@ public enum ApiRouter: ApiConfiguration {
             return .post
         case .putPets:
             return .put
+        case .deletePets:
+            return .delete
         case .getPetsWeights:
             return .get
         case .postPetsWeights:
@@ -87,6 +90,8 @@ public enum ApiRouter: ApiConfiguration {
         case .postPets:
             return "/pets/add"
         case .putPets(let petId, _):
+            return "/pets/\(petId)"
+        case .deletePets(let petId):
             return "/pets/\(petId)"
         case .getPetsWeights(let petId):
             return "/pets/\(petId)/weight"

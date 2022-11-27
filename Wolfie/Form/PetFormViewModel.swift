@@ -50,15 +50,13 @@ extension PetForm {
         }
 
         func create() {
-            var breedId: Int? = nil
             var payload =  DtoPet(name: self.name, kind: self.kind, microchip: self.microchip, birthDate: self.birthDate, breed: self.breedId)
-            print("Create pet \(payload)")
 
             WolfieApi().postPets(body: payload) { results in
                 switch results {
                 case .success:
                     RealmManager().fetchPets()
-                    
+
                     self.onSave()
                 case .failure(let error):
                     self.isError = true
@@ -72,21 +70,45 @@ extension PetForm {
                 }
             }
         }
-        
+
         func update() {
-            var payload =  DtoPetUpdate(id: self.id!, name: self.name, kind: self.kind, microchip: self.microchip, birthDate: self.birthDate, breed: self.breedId)
-            print("Update pet \(payload)")
+            var payload =  DtoPetUpdate(
+                id: self.id!,
+                name: self.name,
+                kind: self.kind,
+                microchip: self.microchip,
+                birthDate: self.birthDate,
+                breed: self.breedId
+            )
 
             WolfieApi().putPets(petId: self.id!, body: payload) { results in
-                print("Update results \(results)")
                 switch results {
                 case .success:
                     RealmManager().fetchPets()
-                    
+
                     self.onSave()
                 case .failure(let error):
                     self.isError = true
-                    print("Error catched \(error)")
+
+                    switch error {
+                    case .server(let message):
+                        self.errorMessage = message
+                    default:
+                        self.errorMessage = String(localized: "error_generic_message")
+                    }
+                }
+            }
+        }
+
+        func delete() {
+            WolfieApi().deletePets(petId: self.id!) { results in
+                switch results {
+                case .success:
+                    RealmManager().fetchPets()
+
+                    self.onSave()
+                case .failure(let error):
+                    self.isError = true
 
                     switch error {
                     case .server(let message):

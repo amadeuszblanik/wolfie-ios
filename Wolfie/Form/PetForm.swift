@@ -57,12 +57,6 @@ struct PetForm: View {
                         )
                             .foregroundColor(Color(UIColor.secondaryLabel))
                     }
-
-                    if vm.id != nil {
-                        UIButton(text: String(localized: "delete"), color: .red, fullWidth: true) {
-                            isDeleteOpen = true
-                        }
-                    }
                 }
             }
             .navigationTitle(String(localized: vm.id != nil ? "pet_form_header_edit" : "pet_form_header_add"))
@@ -73,6 +67,14 @@ struct PetForm: View {
                         vm.id != nil ? vm.update() : vm.create()
                     }
                     .disabled(vm.isInvalid || vm.isLoading)
+                }
+                if vm.id != nil {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button(String(localized: "delete")) {
+                            vm.delete()
+                        }
+                        .foregroundColor(.red)
+                    }
                 }
             }
             .alert(isPresented: $vm.isError) {
