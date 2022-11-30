@@ -12,6 +12,7 @@
 		4E235E0A2936F39B00A2B0A7 /* FeedbackForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E235E092936F39B00A2B0A7 /* FeedbackForm.swift */; };
 		4E235E0C2936F7DA00A2B0A7 /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E235E0B2936F7DA00A2B0A7 /* SuccessView.swift */; };
 		4E235E0E29370A4A00A2B0A7 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E235E0D29370A4A00A2B0A7 /* NetworkService.swift */; };
+		4E235E1029370D3E00A2B0A7 /* MedicineSelectComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E235E0F29370D3E00A2B0A7 /* MedicineSelectComponent.swift */; };
 		4E24B6DD29147D7600405D06 /* WolfieApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E24B6DC29147D7600405D06 /* WolfieApp.swift */; };
 		4E24B6DF29147D7600405D06 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E24B6DE29147D7600405D06 /* ContentView.swift */; };
 		4E24B6E129147D7700405D06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E24B6E029147D7700405D06 /* Assets.xcassets */; };
@@ -154,6 +155,7 @@
 		4E235E092936F39B00A2B0A7 /* FeedbackForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackForm.swift; sourceTree = "<group>"; };
 		4E235E0B2936F7DA00A2B0A7 /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
 		4E235E0D29370A4A00A2B0A7 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		4E235E0F29370D3E00A2B0A7 /* MedicineSelectComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineSelectComponent.swift; sourceTree = "<group>"; };
 		4E24B6D929147D7600405D06 /* Wolfie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wolfie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E24B6DC29147D7600405D06 /* WolfieApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WolfieApp.swift; sourceTree = "<group>"; };
 		4E24B6DE29147D7600405D06 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -535,6 +537,7 @@
 				4EF572C92922FA1900F11E4A /* LoaderFullScreen.swift */,
 				4EB4CE80292EC8B6004C1281 /* BreedSelectComponent.swift */,
 				4E235E0B2936F7DA00A2B0A7 /* SuccessView.swift */,
+				4E235E0F29370D3E00A2B0A7 /* MedicineSelectComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1062,6 +1065,7 @@
 				4EFC7475291C85AB0086A6AB /* InputDateComponent.swift in Sources */,
 				4EE651B92919769D007F115A /* GuestView.swift in Sources */,
 				4E51E58A291EFD180007887B /* HealthLogKind.swift in Sources */,
+				4E235E1029370D3E00A2B0A7 /* MedicineSelectComponent.swift in Sources */,
 				4EB4CE73292AF059004C1281 /* DtoDateFormatter.swift in Sources */,
 				4EFC7447291B0B990086A6AB /* MyPets.swift in Sources */,
 				4E24B6DD29147D7600405D06 /* WolfieApp.swift in Sources */,

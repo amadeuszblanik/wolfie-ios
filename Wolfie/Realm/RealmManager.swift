@@ -433,6 +433,51 @@ class RealmManager: ObservableObject {
             }
         }
     }
+    
+    //    Medicines
+    func fetchMedicines() {
+        deleteMedicinesAll()
+
+        WolfieApi().getMedicines() { results in
+            switch results {
+            case.success(let values):
+                values.forEach { value in
+                    self.addMedicine(value)
+                }
+            case .failure(let error):
+                debugPrint(error)
+                self.logErrorFetch("Medicine")
+            }
+        }
+    }
+
+    func addMedicine(_ value: ApiShortMedicineValue) {
+        if let localRealm = localRealm {
+            do {
+                try localRealm.write {
+                    localRealm.add(MedicineValueDB.fromShortApi(data: value), update: .all)
+                }
+            } catch {
+                debugPrint(error)
+                logErrorAdd("Medicine")
+            }
+        }
+    }
+
+    func deleteMedicinesAll() {
+        if let localRealm = localRealm {
+            let allResults = localRealm.objects(MedicineValueDB.self)
+
+            do {
+                try localRealm.write {
+                    localRealm.delete(allResults)
+                }
+            } catch {
+                debugPrint(error)
+                logErrorDelete("MedicinesAll")
+            }
+        }
+    }
 
     private func logErrorFetch(_ id: String) {
         sentryLog("Error while trying to fetch \(id) to Realm")

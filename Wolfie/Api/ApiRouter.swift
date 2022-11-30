@@ -27,6 +27,7 @@ public enum ApiRouter: ApiConfiguration {
     case patchPetsHealthLog(_ petId: String, healthLogId: String, body: DtoHealthLog)
     case deletePetsHealthLog(_ petId: String, healthLogId: String)
     case getBreeds
+    case getMedicines
 
     public var method: HTTPMethod {
         switch self {
@@ -65,6 +66,8 @@ public enum ApiRouter: ApiConfiguration {
         case .deletePetsHealthLog:
             return .delete
         case .getBreeds:
+            return .get
+        case .getMedicines:
             return .get
         }
     }
@@ -109,6 +112,8 @@ public enum ApiRouter: ApiConfiguration {
             return "/pets/\(petId)/health-log/\(healthLogId)"
         case .getBreeds:
             return "/breed"
+        case .getMedicines:
+            return "/medicine"
         }
     }
 
@@ -157,15 +162,11 @@ public enum ApiRouter: ApiConfiguration {
 
     public var parameters: Parameters? {
         switch self {
-//        case .getPetWeights(let last):
-//            if (last != nil) {
-//                var parameters = Parameters()
-//                parameters["last"] = last
-//
-//                return parameters
-//            }
-//
-//            return nil
+        case .getMedicines:
+            var parameters = Parameters()
+            parameters["long"] = false
+
+            return parameters
         default:
             return nil
         }

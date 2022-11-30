@@ -18,11 +18,10 @@ extension HealthLogForm {
         var nextVisit: Date = Date()
         var description: String = ""
     }
-    
+
     @MainActor class ViewModel: ObservableObject {
         @Published var isNextVisit: Bool = false
         @Published var state = FormState()
-        @Published var medicinesList: [SelectItem] = [SIMPLE_MEDICINE_0].map{ SelectItem(label: $0.name, id: $0.id) }
         @Published var isLoading = false
         @Published var isError = false
 
@@ -36,10 +35,15 @@ extension HealthLogForm {
             self.onSuccess = onSuccess
             var medicinesSet = Set<String>()
             
+            print(data)
+
             if let data = data {
                 data.medicines.forEach { medicineDb in
                     medicinesSet.insert(medicineDb.productNumber)
                 }
+                
+                print("medicinesSet \(medicinesSet)")
+                print("data.additionalMedicines \(data.additionalMedicines)")
 
                 self.id = data.id
                 self.state.kind = data.kind
@@ -56,7 +60,7 @@ extension HealthLogForm {
             }
         }
 
-        func create() -> Void {
+        func create() {
             self.isLoading = true
             let payload = DtoHealthLog(
                 kind: state.kind,
@@ -68,12 +72,12 @@ extension HealthLogForm {
                 veterinary: state.veterinary,
                 description: state.description
             )
-            
+
             WolfieApi().postPetsHealthLog(petId: pet.id, body: payload) { result in
                 switch result {
                 case .success:
                     RealmManager().fetchHealthLog(petId: self.pet.id)
-                    
+
                     self.onSuccess()
                 case .failure(let error):
                     self.isError = true
@@ -89,8 +93,8 @@ extension HealthLogForm {
                 self.isLoading = false
             }
         }
-        
-        func update() -> Void {
+
+        func update() {
             self.isLoading = true
             let payload = DtoHealthLog(
                 kind: state.kind,
@@ -102,17 +106,17 @@ extension HealthLogForm {
                 veterinary: state.veterinary,
                 description: state.description
             )
-            
+
             if let id = self.id {
                 WolfieApi().patchPetsHealthLog(petId: pet.id, healthLogId: id, body: payload) { result in
                     switch result {
                     case .success:
                         RealmManager().fetchHealthLog(petId: self.pet.id)
-                        
+
                         self.onSuccess()
                     case .failure(let error):
                         self.isError = true
-                        
+
                         switch error {
                         case .server(let message):
                             self.errorMessage = message
@@ -120,7 +124,7 @@ extension HealthLogForm {
                             self.errorMessage = String(localized: "error_generic_message")
                         }
                     }
-                    
+
                     self.isLoading = false
                 }
             } else {

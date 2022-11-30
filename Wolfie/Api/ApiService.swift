@@ -27,6 +27,7 @@ protocol WolfieApiProtocol {
     func patchPetsHealthLog(petId: String, healthLogId: String, body: DtoHealthLog, completion: @escaping (Result<ApiHealthLogValue, ApiError>) -> Void)
     func deletePetsHealthLog(petId: String, healthLogId: String, completion: @escaping (Result<ApiMessage, ApiError>) -> Void)
     func getBreeds(completion: @escaping (Result<[ApiBreed], ApiError>) -> Void)
+    func getMedicines(completion: @escaping (Result<[ApiShortMedicineValue], ApiError>) -> Void)
 }
 
 public final class WolfieApi {
@@ -169,5 +170,9 @@ extension WolfieApi: WolfieApiProtocol {
 
     func getBreeds(completion: @escaping (Result<[ApiBreed], ApiError>) -> Void) {
         performRequest(route: .getBreeds, completion: completion)
+    }
+    
+    func getMedicines(completion: @escaping (Result<[ApiShortMedicineValue], ApiError>) -> Void) {
+        performRequest(route: .getMedicines, completion: completion)
     }
 }
