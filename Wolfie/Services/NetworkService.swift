@@ -20,6 +20,7 @@ final class NetworkService: ObservableObject {
                 self?.isConnected = path.status == .satisfied ? true : false
             }
         }
-        monitor.start(queue: q)
+
+        monitor.start(queue: queue)
     }
 }
