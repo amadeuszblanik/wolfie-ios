@@ -98,6 +98,8 @@ struct MainDevView: View {
                     ProfileView()
                 case .playground:
                     RealmPlayground()
+                case .error:
+                    ErrorView()
                 default:
                     Text("Not implemented yet.")
                 }

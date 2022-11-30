@@ -32,10 +32,13 @@ protocol WolfieApiProtocol {
 public final class WolfieApi {
     @discardableResult
     private func performRequest<T: Decodable>(route: ApiRouter, decoder: JSONDecoder = WolfieApi.jsonDecoder, completion: @escaping (Result<T, ApiError>) -> Void) -> DataRequest {
-        return API_SESSION.request(route).validate().responseData() { results in
+        
+        return ApiSession.request(route).validate().responseData() { results in
             let result = results.result
 
             if let response = results.response {
+                UserDefaults.standard.set(false, forKey: "IS_OFFLINE")
+
                 switch result {
                 case .success(let success):
                     if (response.statusCode == 401) {
@@ -79,7 +82,8 @@ public final class WolfieApi {
                 }
             } else {
                 print("💻 Request \(route.path) no response")
-                debugPrint(results)
+                debugPrint(results.result)
+                UserDefaults.standard.set(true, forKey: "IS_OFFLINE")
                 completion(.failure(.unknownError))
             }
         }

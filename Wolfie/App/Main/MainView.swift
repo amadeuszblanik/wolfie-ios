@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct MainView: View {
+    @ObservedObject var networkMonitor = NetworkService()
     @State private var selectedView: AppViews = AppViews.dashboard
     @StateObject private var vm = ViewModel()
     @StateObject var realmDb = RealmManager()
-    
+
     var signed: some View {
         Group {
             NavigationView {
@@ -45,13 +46,30 @@ struct MainView: View {
             realmDb.fetchUser()
         }
     }
-    
+
     var body: some View {
         VStack {
-            if vm.isSigned ?? false {
-                signed
+            if networkMonitor.isConnected {
+                if vm.isOffline ?? false {
+                    ErrorView(
+                        title: String(localized: "error_api_title"),
+                        message: String(localized: "error_api_message"),
+                        feedback: true
+                    ) {
+                        realmDb.fetchUser()
+                    }
+                } else {
+                    if vm.isSigned ?? false {
+                        signed
+                    } else {
+                        GuestView()
+                    }
+                }
             } else {
-                GuestView()
+                ErrorView(
+                    title: String(localized: "error_offline_title"),
+                    message: String(localized: "error_offline_message")
+                )
             }
         }
         .navigationBarHidden(true)

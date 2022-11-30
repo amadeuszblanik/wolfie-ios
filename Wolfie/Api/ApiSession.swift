@@ -8,4 +8,10 @@
 import Foundation
 import Alamofire
 
-let API_SESSION = Session(interceptor: ApiRefreshTokenInterceptor(), eventMonitors: [ APILogger() ])
+var ApiSessionConfiguration: URLSessionConfiguration {
+    let configuration = URLSessionConfiguration.default
+    configuration.timeoutIntervalForRequest = 30
+    configuration.timeoutIntervalForResource = 30
+    return configuration
+}
+let ApiSession = Session(configuration: ApiSessionConfiguration, interceptor: ApiRefreshTokenInterceptor(), eventMonitors: [ APILogger() ])

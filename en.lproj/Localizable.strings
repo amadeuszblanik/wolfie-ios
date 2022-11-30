@@ -23,8 +23,13 @@
 "edit" = "Edit";
 "add" = "Add";
 "save" = "Save";
+"submit" = "Submit";
 "delete" = "Delete";
 "refresh" = "Refresh";
+"retry" = "Try again";
+"feedback" = "Add feedback";
+"comment" = "Comment";
+"error_details" = "System details";
 
 "read_gdpr" = "Policy privacy (GDPR)";
 
@@ -454,6 +459,8 @@
 "health_form_header_edit" = "Edit health log";
 "health_form_header_add" = "Add health log";
 
+"feedback_form_header" = "Feedback";
+
 "action_delete_alert_title" = "Confirm deletion";
 "action_delete_alert_message" = "Are you sure to delete this entry?";
 
@@ -461,5 +468,13 @@
 "error_generic_title" = "Something went wrong";
 "error_generic_message" = "Something went wrong… Please try again later.";
 "error_keychain_generic_message" = "Authorization of this device is not possible at the moment. Our development team was reported.";
+
+"error_api_title" = "Network issue";
+"error_api_message" = "Wolfie.app servers are not responsive at the moment.";
+
+"error_offline_title" = "Offline detected";
+"error_offline_message" = "You are not connected to internet";
+
+"success_generic_message" = "Success!";
 
 "breed_select_label" = "Selected breed";

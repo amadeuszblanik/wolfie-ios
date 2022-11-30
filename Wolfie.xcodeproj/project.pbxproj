@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		4E077EC02933EF640030F560 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E077EBF2933EF640030F560 /* Launch Screen.storyboard */; };
+		4E235E082936EF9000A2B0A7 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E235E072936EF9000A2B0A7 /* ErrorView.swift */; };
+		4E235E0A2936F39B00A2B0A7 /* FeedbackForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E235E092936F39B00A2B0A7 /* FeedbackForm.swift */; };
+		4E235E0C2936F7DA00A2B0A7 /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E235E0B2936F7DA00A2B0A7 /* SuccessView.swift */; };
+		4E235E0E29370A4A00A2B0A7 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E235E0D29370A4A00A2B0A7 /* NetworkService.swift */; };
 		4E24B6DD29147D7600405D06 /* WolfieApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E24B6DC29147D7600405D06 /* WolfieApp.swift */; };
 		4E24B6DF29147D7600405D06 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E24B6DE29147D7600405D06 /* ContentView.swift */; };
 		4E24B6E129147D7700405D06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E24B6E029147D7700405D06 /* Assets.xcassets */; };
@@ -146,6 +150,10 @@
 /* Begin PBXFileReference section */
 		386429BF285A0850E511C6CE /* Pods_Wolfie_WolfieUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wolfie_WolfieUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E077EBF2933EF640030F560 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		4E235E072936EF9000A2B0A7 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		4E235E092936F39B00A2B0A7 /* FeedbackForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackForm.swift; sourceTree = "<group>"; };
+		4E235E0B2936F7DA00A2B0A7 /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
+		4E235E0D29370A4A00A2B0A7 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		4E24B6D929147D7600405D06 /* Wolfie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wolfie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E24B6DC29147D7600405D06 /* WolfieApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WolfieApp.swift; sourceTree = "<group>"; };
 		4E24B6DE29147D7600405D06 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -319,6 +327,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		4E235E062936EF7C00A2B0A7 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				4E235E072936EF9000A2B0A7 /* ErrorView.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		4E24B6D029147D7600405D06 = {
 			isa = PBXGroup;
 			children = (
@@ -471,6 +487,7 @@
 		4EE651AD291971CD007F115A /* App */ = {
 			isa = PBXGroup;
 			children = (
+				4E235E062936EF7C00A2B0A7 /* Error */,
 				4E51E5A1291F29C60007887B /* ProfileView */,
 				4EFC743F291B06830086A6AB /* DashboardView */,
 				4EE651B729197691007F115A /* GuestView */,
@@ -517,6 +534,7 @@
 				4EF572C129215D5300F11E4A /* WebViewComponent.swift */,
 				4EF572C92922FA1900F11E4A /* LoaderFullScreen.swift */,
 				4EB4CE80292EC8B6004C1281 /* BreedSelectComponent.swift */,
+				4E235E0B2936F7DA00A2B0A7 /* SuccessView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -559,6 +577,7 @@
 			isa = PBXGroup;
 			children = (
 				4EF572B329214D4400F11E4A /* KeychainService.swift */,
+				4E235E0D29370A4A00A2B0A7 /* NetworkService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -656,6 +675,7 @@
 				4EFC7486291DA5040086A6AB /* WeightFormViewModel.swift */,
 				4E51E597291F122C0007887B /* HealthLogForm.swift */,
 				4E51E599291F12370007887B /* HealthLogFormViewModel.swift */,
+				4E235E092936F39B00A2B0A7 /* FeedbackForm.swift */,
 			);
 			path = Form;
 			sourceTree = "<group>";
@@ -943,6 +963,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E235E0E29370A4A00A2B0A7 /* NetworkService.swift in Sources */,
 				4E24B6E629147D7700405D06 /* Persistence.swift in Sources */,
 				4EF572AF29214C3E00F11E4A /* ApiRouter.swift in Sources */,
 				4EF572AD29214BBC00F11E4A /* SignIn.swift in Sources */,
@@ -955,6 +976,7 @@
 				4E51E596291F089D0007887B /* HealthLogSingleViewModel.swift in Sources */,
 				4E8B68C2292034EA00A0BBE1 /* BreedDB.swift in Sources */,
 				4EFC746A291C43B00086A6AB /* SelectSearchComponent.swift in Sources */,
+				4E235E082936EF9000A2B0A7 /* ErrorView.swift in Sources */,
 				4EFC7470291C76FD0086A6AB /* CardComponent.swift in Sources */,
 				4EFC7458291B103F0086A6AB /* AvatarComponent.swift in Sources */,
 				4EFC7479291D8D0E0086A6AB /* DashboardWeightViewModel.swift in Sources */,
@@ -976,6 +998,7 @@
 				4E51E59A291F12370007887B /* HealthLogFormViewModel.swift in Sources */,
 				4E51E590291F01F80007887B /* StringExtensions.swift in Sources */,
 				4E8B68B129201E5F00A0BBE1 /* Test.swift in Sources */,
+				4E235E0A2936F39B00A2B0A7 /* FeedbackForm.swift in Sources */,
 				4E51E5A5291F29E20007887B /* ProfileViewModel.swift in Sources */,
 				4ED9547B2933C4E1009B4A81 /* ApiLogger.swift in Sources */,
 				4EB4CE7B292EA652004C1281 /* ApiInterceptor.swift in Sources */,
@@ -1045,6 +1068,7 @@
 				4EE651B32919724A007F115A /* MainDevView.swift in Sources */,
 				4E51E594291F08780007887B /* HealthLogSingleView.swift in Sources */,
 				4EFC7489291DA75C0086A6AB /* WeightDto.swift in Sources */,
+				4E235E0C2936F7DA00A2B0A7 /* SuccessView.swift in Sources */,
 				4EFC744A291B0BF20086A6AB /* PetSingle.swift in Sources */,
 				4EF572AB29214B7500F11E4A /* SignInDto.swift in Sources */,
 				4E51E586291EFC820007887B /* HealthLogViewModel.swift in Sources */,
