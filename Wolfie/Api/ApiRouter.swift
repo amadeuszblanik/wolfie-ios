@@ -12,6 +12,7 @@ public enum ApiRouter: ApiConfiguration {
     case postAuthSignIn(_ body: DtoSignIn)
     case postAuthSignUp(_ body: DtoSignUp)
     case postRefreshToken(_ body: DtoRefreshToken)
+    case postFcmToken(_ body: DtoFcmToken)
     case getProfile
     case getConfig
     case getPetsMy
@@ -36,6 +37,8 @@ public enum ApiRouter: ApiConfiguration {
         case .postAuthSignUp:
             return .post
         case .postRefreshToken:
+            return .post
+        case .postFcmToken:
             return .post
         case .getProfile:
             return .get
@@ -84,6 +87,8 @@ public enum ApiRouter: ApiConfiguration {
             return "/auth/sign-up"
         case .postRefreshToken:
             return "/auth/refresh-token"
+        case .postFcmToken:
+            return "/auth/fcm-token"
         case .getProfile:
             return "/auth/profile"
         case .getConfig:
@@ -128,6 +133,10 @@ public enum ApiRouter: ApiConfiguration {
 
             return json
         case .postRefreshToken(let body):
+            let json = try? body.toData()
+
+            return json
+        case .postFcmToken(let body):
             let json = try? body.toData()
 
             return json
@@ -187,7 +196,7 @@ public enum ApiRouter: ApiConfiguration {
             var urlComponents = URLComponents(string: urlWithPath)!
             urlComponents.queryItems = []
 
-            _ = parameters.map() { (key, value) in
+            parameters.forEach { (key, value) in
                 let item = URLQueryItem(name: key, value: value as? String)
                 urlComponents.queryItems?.append(item)
             }

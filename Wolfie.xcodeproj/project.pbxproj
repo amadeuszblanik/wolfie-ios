@@ -63,6 +63,8 @@
 		4EB93227293998B600B870F1 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 4EB93226293998B600B870F1 /* FirebaseMessaging */; };
 		4EB932292939995600B870F1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4EB932282939995600B870F1 /* GoogleService-Info.plist */; };
 		4EB9322B29399A5E00B870F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB9322A29399A5E00B870F1 /* AppDelegate.swift */; };
+		4EB9322D29399DB100B870F1 /* FcmTokenDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB9322C29399DB100B870F1 /* FcmTokenDto.swift */; };
+		4EB9322F29399E9A00B870F1 /* ApiCommonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB9322E29399E9A00B870F1 /* ApiCommonResponse.swift */; };
 		4ED954772933B029009B4A81 /* ConfigDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED954762933B029009B4A81 /* ConfigDb.swift */; };
 		4ED954792933B3AA009B4A81 /* UserDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED954782933B3AA009B4A81 /* UserDb.swift */; };
 		4ED9547B2933C4E1009B4A81 /* ApiLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9547A2933C4E1009B4A81 /* ApiLogger.swift */; };
@@ -216,6 +218,8 @@
 		4EB4CE80292EC8B6004C1281 /* BreedSelectComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedSelectComponent.swift; sourceTree = "<group>"; };
 		4EB932282939995600B870F1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4EB9322A29399A5E00B870F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4EB9322C29399DB100B870F1 /* FcmTokenDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FcmTokenDto.swift; sourceTree = "<group>"; };
+		4EB9322E29399E9A00B870F1 /* ApiCommonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCommonResponse.swift; sourceTree = "<group>"; };
 		4ED954762933B029009B4A81 /* ConfigDb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigDb.swift; sourceTree = "<group>"; };
 		4ED954782933B3AA009B4A81 /* UserDb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDb.swift; sourceTree = "<group>"; };
 		4ED9547A2933C4E1009B4A81 /* ApiLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiLogger.swift; sourceTree = "<group>"; };
@@ -646,6 +650,7 @@
 				4EF572AC29214BBC00F11E4A /* SignIn.swift */,
 				4EF572BF292154BF00F11E4A /* ErrorMessage.swift */,
 				4EF572C5292168B400F11E4A /* Message.swift */,
+				4EB9322E29399E9A00B870F1 /* ApiCommonResponse.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -705,6 +710,7 @@
 				4EF572C32921620200F11E4A /* SignUpDto.swift */,
 				4EB4CE70292AE7F6004C1281 /* HealthLogDto.swift */,
 				4EB4CE76292EA2D6004C1281 /* RefreshTokenDto.swift */,
+				4EB9322C29399DB100B870F1 /* FcmTokenDto.swift */,
 			);
 			path = Dto;
 			sourceTree = "<group>";
@@ -1019,6 +1025,7 @@
 				4E51E58C291EFDA10007887B /* MedicineValue.swift in Sources */,
 				4EFC7473291C83B10086A6AB /* PetDto.swift in Sources */,
 				4E51E59C291F22480007887B /* MultiSelectSearch.swift in Sources */,
+				4EB9322D29399DB100B870F1 /* FcmTokenDto.swift in Sources */,
 				4E51E588291EFCCF0007887B /* HealthLogValue.swift in Sources */,
 				4E51E59A291F12370007887B /* HealthLogFormViewModel.swift in Sources */,
 				4E51E590291F01F80007887B /* StringExtensions.swift in Sources */,
@@ -1090,6 +1097,7 @@
 				4E51E58A291EFD180007887B /* HealthLogKind.swift in Sources */,
 				4E235E1029370D3E00A2B0A7 /* MedicineSelectComponent.swift in Sources */,
 				4EB4CE73292AF059004C1281 /* DtoDateFormatter.swift in Sources */,
+				4EB9322F29399E9A00B870F1 /* ApiCommonResponse.swift in Sources */,
 				4EFC7447291B0B990086A6AB /* MyPets.swift in Sources */,
 				4E24B6DD29147D7600405D06 /* WolfieApp.swift in Sources */,
 				4EE651B32919724A007F115A /* MainDevView.swift in Sources */,
@@ -1271,7 +1279,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = Wolfie/Wolfie.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Wolfie/Preview Content\"";
 				DEVELOPMENT_TEAM = 6WY65SAG73;
 				ENABLE_PREVIEWS = YES;
@@ -1290,7 +1298,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = me.blanik.Wolfie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1311,7 +1319,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = Wolfie/Wolfie.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Wolfie/Preview Content\"";
 				DEVELOPMENT_TEAM = 6WY65SAG73;
 				ENABLE_PREVIEWS = YES;
@@ -1330,7 +1338,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = me.blanik.Wolfie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
