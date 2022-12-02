@@ -11,6 +11,7 @@ import Sentry
 
 @main
 struct WolfieApp: SwiftUI.App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     let persistenceController = PersistenceController.shared
 
     let realmConfig = Realm.Configuration(schemaVersion: 1, migrationBlock: { migration, oldSchemaVersion in
@@ -18,7 +19,7 @@ struct WolfieApp: SwiftUI.App {
             // Update
         }
     })
-    
+
     init() {
         guard let infoDictionary: [String: Any] = Bundle.main.infoDictionary else { print("Cannot read infoDictionary"); return }
         guard let sentryDsn: String = infoDictionary["SentryDsn"] as? String else { print("Cannot read SentryDsn"); return }
@@ -44,13 +45,13 @@ struct WolfieApp: SwiftUI.App {
 
     var body: some Scene {
         WindowGroup {
-            VStack() {                
+            VStack() {
                 #if DEBUG
-                MainDevView()
-                    .environment(\.realmConfiguration, realmConfig)
+                    MainDevView()
+                        .environment(\.realmConfiguration, realmConfig)
                 #else
-                MainView()
-                    .environment(\.realmConfiguration, realmConfig)
+                    MainView()
+                        .environment(\.realmConfiguration, realmConfig)
                 #endif
             }
         }

@@ -11,24 +11,40 @@ import RealmSwift
 
 struct DashboardWeightsChartView: View {
     var data: Results<WeightValueDB>
-    
+
     var averageValue: Double {
         let total = data.reduce(0) { $0 + $1.raw }
-        
+
         return Double(total) / Double(data.count)
     }
     var firstEntryDate: Date {
         data.map { $0.date }.min()!
     }
-    
+
     var lastEntryDate: Date {
         data.map { $0.date }.max()!
     }
 
+    var minValue: Float {
+        data.map { $0.raw }.min()!
+    }
+
+    var maxValue: Float {
+        data.map { $0.raw }.max()!
+    }
+
+    var xValues: [Float] {
+        stride(from: minValue, to: maxValue, by: (maxValue - minValue) / 5).map { $0 }
+    }
+
     var body: some View {
         VStack {
-            UISummary(averageValue: self.averageValue, unit: "kg", dateRange: DateInterval(start: firstEntryDate, end: lastEntryDate))
-                .padding(.bottom)
+            UISummary(
+                averageValue: self.averageValue,
+                unit: "kg",
+                dateRange: DateInterval(start: firstEntryDate, end: lastEntryDate)
+            )
+            .padding(.bottom)
 
             Chart(data) {
                 LineMark(
@@ -40,7 +56,7 @@ struct DashboardWeightsChartView: View {
                     y: .value("Y", $0.raw)
                 )
             }
-            .frame(height: UIScreen.main.bounds.height / 4.2)
+                .frame(height: UIScreen.main.bounds.height / 4.2)
         }
     }
 }
@@ -51,15 +67,15 @@ struct DashboardWeightsView: View {
     @StateObject var vm = ViewModel()
     @StateObject var realmDb = RealmManager()
     @ObservedResults(WeightValueDB.self) var weightDb
-    
+
     var petWeightDb: Results<WeightValueDB> { weightDb.filter("petId == '\(pet.id)'").sorted(by: \.date, ascending: false) }
-    
+
     init(pet: PetDB) {
         self.pet = pet
-        
+
         RealmManager().fetchWeights(petId: pet.id)
     }
-    
+
     var empty: some View {
         VStack {
             Text(String(localized: "weight_empty"))
@@ -69,7 +85,7 @@ struct DashboardWeightsView: View {
             }
         }
     }
-    
+
     var list: some View {
         Group {
             List() {
@@ -78,14 +94,14 @@ struct DashboardWeightsView: View {
                         HStack {
                             Text(weight.raw.formattedString)
                                 .lineLimit(1)
-                            
+
                             Spacer()
 
                             Text(weight.date.toFormattedWithTime())
                                 .foregroundColor(Color(UIColor.secondaryLabel))
                                 .lineLimit(1)
                         }
-                        .swipeActions() {
+                            .swipeActions() {
                             Button(String(localized: "delete")) {
                                 vm.selectedDeleteWeight = weight
                             }.tint(.red)
@@ -98,8 +114,8 @@ struct DashboardWeightsView: View {
                 } header: {
                     Text(vm.units.rawValue.uppercased())
                 }
-                .listRowBackground(Color(UIColor.secondarySystemBackground))
-                .alert(item: $vm.selectedDeleteWeight) { selectedWeight in
+                    .listRowBackground(Color(UIColor.secondarySystemBackground))
+                    .alert(item: $vm.selectedDeleteWeight) { selectedWeight in
                     Alert(
                         title: Text(String(localized: "action_delete_alert_title")),
                         message: Text(String(localized: "action_delete_alert_message")),
@@ -109,7 +125,7 @@ struct DashboardWeightsView: View {
                         secondaryButton: .cancel()
                     )
                 }
-                .sheet(item: $vm.selectedEditWeight) { selectedWeight in
+                    .sheet(item: $vm.selectedEditWeight) { selectedWeight in
                     VStack {
                         WeightForm(vm: WeightForm.ViewModel(
                             pet: pet,
@@ -117,39 +133,39 @@ struct DashboardWeightsView: View {
                             onSuccess: {
                                 vm.selectedEditWeight = nil
                             }
-                        ))
+                            ))
                     }
                 }
             }
-            .listStyle(.insetGrouped)
-            .scrollContentBackground(.hidden)
-            .cornerRadius(8)
-            .refreshable {
+                .listStyle(.insetGrouped)
+                .scrollContentBackground(.hidden)
+                .cornerRadius(8)
+                .refreshable {
                 realmDb.fetchWeights(petId: pet.id)
             }
         }
     }
-    
+
     var body: some View {
         VStack {
             if (petWeightDb.count >= 3) {
                 DashboardWeightsChartView(data: petWeightDb)
-                .padding(.top)
-                .padding(.horizontal)
+                    .padding(.top)
+                    .padding(.horizontal)
             }
-            
+
             if (petWeightDb.isEmpty) {
                 empty
             } else {
                 list
             }
         }
-        .overlay {
+            .overlay {
             if vm.isLoading {
                 UILoaderFullScreen()
             }
         }
-        .alert(isPresented: $vm.isError) {
+            .alert(isPresented: $vm.isError) {
             Alert(
                 title: Text(String(localized: "error_generic_title")),
                 message: Text(vm.errorMessage)
@@ -161,12 +177,12 @@ struct DashboardWeightsView: View {
 struct DashboardWeightsView_Previews: PreviewProvider {
     static var pet = PetDB.fromApi(data: PET_GOLDIE)
     static var pet2 = PetDB.fromApi(data: PET_TESTIE)
-    
+
     static var previews: some View {
         DashboardWeightsView(pet: pet)
         DashboardWeightsView(pet: pet)
             .preferredColorScheme(.dark)
-        
+
         DashboardWeightsView(pet: pet2)
         DashboardWeightsView(pet: pet2)
             .preferredColorScheme(.dark)

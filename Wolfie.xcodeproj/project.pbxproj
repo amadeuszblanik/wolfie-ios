@@ -13,6 +13,7 @@
 		4E235E0C2936F7DA00A2B0A7 /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E235E0B2936F7DA00A2B0A7 /* SuccessView.swift */; };
 		4E235E0E29370A4A00A2B0A7 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E235E0D29370A4A00A2B0A7 /* NetworkService.swift */; };
 		4E235E1029370D3E00A2B0A7 /* MedicineSelectComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E235E0F29370D3E00A2B0A7 /* MedicineSelectComponent.swift */; };
+		4E235E142937167A00A2B0A7 /* LineChartComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E235E132937167A00A2B0A7 /* LineChartComponent.swift */; };
 		4E24B6DD29147D7600405D06 /* WolfieApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E24B6DC29147D7600405D06 /* WolfieApp.swift */; };
 		4E24B6DF29147D7600405D06 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E24B6DE29147D7600405D06 /* ContentView.swift */; };
 		4E24B6E129147D7700405D06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E24B6E029147D7700405D06 /* Assets.xcassets */; };
@@ -58,6 +59,10 @@
 		4EB4CE7B292EA652004C1281 /* ApiInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4CE7A292EA652004C1281 /* ApiInterceptor.swift */; };
 		4EB4CE7D292EAFB2004C1281 /* ApiSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4CE7C292EAFB2004C1281 /* ApiSession.swift */; };
 		4EB4CE81292EC8B6004C1281 /* BreedSelectComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4CE80292EC8B6004C1281 /* BreedSelectComponent.swift */; };
+		4EB93225293998B600B870F1 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 4EB93224293998B600B870F1 /* FirebaseAnalytics */; };
+		4EB93227293998B600B870F1 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 4EB93226293998B600B870F1 /* FirebaseMessaging */; };
+		4EB932292939995600B870F1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4EB932282939995600B870F1 /* GoogleService-Info.plist */; };
+		4EB9322B29399A5E00B870F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB9322A29399A5E00B870F1 /* AppDelegate.swift */; };
 		4ED954772933B029009B4A81 /* ConfigDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED954762933B029009B4A81 /* ConfigDb.swift */; };
 		4ED954792933B3AA009B4A81 /* UserDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED954782933B3AA009B4A81 /* UserDb.swift */; };
 		4ED9547B2933C4E1009B4A81 /* ApiLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9547A2933C4E1009B4A81 /* ApiLogger.swift */; };
@@ -156,6 +161,7 @@
 		4E235E0B2936F7DA00A2B0A7 /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
 		4E235E0D29370A4A00A2B0A7 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		4E235E0F29370D3E00A2B0A7 /* MedicineSelectComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineSelectComponent.swift; sourceTree = "<group>"; };
+		4E235E132937167A00A2B0A7 /* LineChartComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartComponent.swift; sourceTree = "<group>"; };
 		4E24B6D929147D7600405D06 /* Wolfie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wolfie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E24B6DC29147D7600405D06 /* WolfieApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WolfieApp.swift; sourceTree = "<group>"; };
 		4E24B6DE29147D7600405D06 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -208,6 +214,8 @@
 		4EB4CE7A292EA652004C1281 /* ApiInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiInterceptor.swift; sourceTree = "<group>"; };
 		4EB4CE7C292EAFB2004C1281 /* ApiSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiSession.swift; sourceTree = "<group>"; };
 		4EB4CE80292EC8B6004C1281 /* BreedSelectComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedSelectComponent.swift; sourceTree = "<group>"; };
+		4EB932282939995600B870F1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4EB9322A29399A5E00B870F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4ED954762933B029009B4A81 /* ConfigDb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigDb.swift; sourceTree = "<group>"; };
 		4ED954782933B3AA009B4A81 /* UserDb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDb.swift; sourceTree = "<group>"; };
 		4ED9547A2933C4E1009B4A81 /* ApiLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiLogger.swift; sourceTree = "<group>"; };
@@ -293,6 +301,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EB93227293998B600B870F1 /* FirebaseMessaging in Frameworks */,
+				4EB93225293998B600B870F1 /* FirebaseAnalytics in Frameworks */,
 				AA0B70C3838D2D1041BB2F5C /* Pods_Wolfie.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,6 +377,7 @@
 		4E24B6DB29147D7600405D06 /* Wolfie */ = {
 			isa = PBXGroup;
 			children = (
+				4EB932282939995600B870F1 /* GoogleService-Info.plist */,
 				4E8177312933F6630039906A /* Wolfie.entitlements */,
 				4EF572B229214D3900F11E4A /* Services */,
 				4EF572A729214A9A00F11E4A /* Api */,
@@ -382,6 +393,7 @@
 				4EE651C82919D2FE007F115A /* Gestures */,
 				4EE651B429197343007F115A /* Components */,
 				4EE651AD291971CD007F115A /* App */,
+				4EB9322A29399A5E00B870F1 /* AppDelegate.swift */,
 				4E24B6DC29147D7600405D06 /* WolfieApp.swift */,
 				4E24B6DE29147D7600405D06 /* ContentView.swift */,
 				4E24B6E029147D7700405D06 /* Assets.xcassets */,
@@ -538,6 +550,7 @@
 				4EB4CE80292EC8B6004C1281 /* BreedSelectComponent.swift */,
 				4E235E0B2936F7DA00A2B0A7 /* SuccessView.swift */,
 				4E235E0F29370D3E00A2B0A7 /* MedicineSelectComponent.swift */,
+				4E235E132937167A00A2B0A7 /* LineChartComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -725,6 +738,10 @@
 			dependencies = (
 			);
 			name = Wolfie;
+			packageProductDependencies = (
+				4EB93224293998B600B870F1 /* FirebaseAnalytics */,
+				4EB93226293998B600B870F1 /* FirebaseMessaging */,
+			);
 			productName = Wolfie;
 			productReference = 4E24B6D929147D7600405D06 /* Wolfie.app */;
 			productType = "com.apple.product-type.application";
@@ -801,6 +818,9 @@
 				Base,
 			);
 			mainGroup = 4E24B6D029147D7600405D06;
+			packageReferences = (
+				4EB93223293998B600B870F1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 4E24B6DA29147D7600405D06 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -818,6 +838,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E8B68B729202A0500A0BBE1 /* Config.xcconfig in Resources */,
+				4EB932292939995600B870F1 /* GoogleService-Info.plist in Resources */,
 				4E24B6E429147D7700405D06 /* Preview Assets.xcassets in Resources */,
 				4EE651BC291978E6007F115A /* Localizable.strings in Resources */,
 				4E077EC02933EF640030F560 /* Launch Screen.storyboard in Resources */,
@@ -966,6 +987,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E235E142937167A00A2B0A7 /* LineChartComponent.swift in Sources */,
 				4E235E0E29370A4A00A2B0A7 /* NetworkService.swift in Sources */,
 				4E24B6E629147D7700405D06 /* Persistence.swift in Sources */,
 				4EF572AF29214C3E00F11E4A /* ApiRouter.swift in Sources */,
@@ -1020,6 +1042,7 @@
 				4EE9EA9829256D9B00DDD08A /* MedicineValueDB.swift in Sources */,
 				4E24B6DF29147D7600405D06 /* ContentView.swift in Sources */,
 				4EE9EA9A29256E4000DDD08A /* MedicineAuthorizationStatus.swift in Sources */,
+				4EB9322B29399A5E00B870F1 /* AppDelegate.swift in Sources */,
 				4EFC7452291B0E370086A6AB /* PetCardComponent.swift in Sources */,
 				4ED954792933B3AA009B4A81 /* UserDb.swift in Sources */,
 				4E51E5A3291F29D60007887B /* ProfileView.swift in Sources */,
@@ -1248,7 +1271,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = Wolfie/Wolfie.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Wolfie/Preview Content\"";
 				DEVELOPMENT_TEAM = 6WY65SAG73;
 				ENABLE_PREVIEWS = YES;
@@ -1288,7 +1311,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = Wolfie/Wolfie.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Wolfie/Preview Content\"";
 				DEVELOPMENT_TEAM = 6WY65SAG73;
 				ENABLE_PREVIEWS = YES;
@@ -1439,6 +1462,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4EB93223293998B600B870F1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 9.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4EB93224293998B600B870F1 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4EB93223293998B600B870F1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		4EB93226293998B600B870F1 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4EB93223293998B600B870F1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		4E24B6E729147D7700405D06 /* Wolfie.xcdatamodeld */ = {

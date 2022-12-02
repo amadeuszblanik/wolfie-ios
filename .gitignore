@@ -69,3 +69,5 @@ https://www.toptal.com/developers/gitignore/api/macos,xcode,cocoapods
 Config.xcconfig
 
 ConfigDebug.xcconfig
+
+Wolfie/GoogleService-Info.plist

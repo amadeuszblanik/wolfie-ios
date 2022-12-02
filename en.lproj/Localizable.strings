@@ -31,7 +31,7 @@
 "comment" = "Comment";
 "error_details" = "System details";
 
-"read_gdpr" = "Policy privacy (GDPR)";
+"read_gdpr" = "Privacy policy (GDPR)";
 
 "user_pets" = "Pets";
 "user_role_banned" = "Banned";
@@ -67,9 +67,9 @@
 "health_log_kind_deworming" = "Deworming";
 "health_log_kind_external_parasite" = "External parasite";
 "health_log_kind_regulations_of_breeding" = "Regulations of breeding";
-"health_log_kind_use_of_gamagloubin" = "Use of gamagloubin";
+"health_log_kind_use_of_gamaglobulin" = "Use of gamagloubin";
 "health_log_kind_treatment" = "Treatment";
-"gdpr_consent" = "Lorem ipsum dolor sit amet";
+"gdpr_consent" = "Yes, I have read privacy policy";
 
 "kind" = "Kind";
 "age" = "Age";
@@ -465,6 +465,7 @@
 "action_delete_alert_message" = "Are you sure to delete this entry?";
 
 "web_view_title" = "Browser";
+
 "error_generic_title" = "Something went wrong";
 "error_generic_message" = "Something went wrong… Please try again later.";
 "error_keychain_generic_message" = "Authorization of this device is not possible at the moment. Our development team was reported.";
