@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import RealmSwift
 import Sentry
 
 @main
@@ -14,15 +13,15 @@ struct WolfieApp: SwiftUI.App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     let persistenceController = PersistenceController.shared
 
-    let realmConfig = Realm.Configuration(schemaVersion: 1, migrationBlock: { migration, oldSchemaVersion in
-        if oldSchemaVersion > 1 {
-            // Update
-        }
-    })
-
     init() {
-        guard let infoDictionary: [String: Any] = Bundle.main.infoDictionary else { print("Cannot read infoDictionary"); return }
-        guard let sentryDsn: String = infoDictionary["SentryDsn"] as? String else { print("Cannot read SentryDsn"); return }
+        guard let infoDictionary: [String: Any] = Bundle.main.infoDictionary else {
+            print("Cannot read infoDictionary")
+            return
+        }
+        guard let sentryDsn: String = infoDictionary["SentryDsn"] as? String else {
+            print("Cannot read SentryDsn")
+            return
+        }
         let sentryEnvironment: String = infoDictionary["SentryEnvironment"] as? String ?? "unknown"
 
         SentrySDK.start { options in
@@ -48,10 +47,8 @@ struct WolfieApp: SwiftUI.App {
             VStack() {
                 #if DEBUG
                     MainDevView()
-                        .environment(\.realmConfiguration, realmConfig)
                 #else
                     MainView()
-                        .environment(\.realmConfiguration, realmConfig)
                 #endif
             }
         }
