@@ -12,7 +12,7 @@ public struct DtoPet: Codable {
     var kind: PetKind
     var microchip: String?
     var birthDate: Date
-    var breed: Int
+    var breed: Int?
 }
 
 public struct DtoPetUpdate: Identifiable, Codable {
@@ -21,5 +21,5 @@ public struct DtoPetUpdate: Identifiable, Codable {
     var kind: PetKind
     var microchip: String?
     var birthDate: Date
-    var breed: Int
+    var breed: Int?
 }

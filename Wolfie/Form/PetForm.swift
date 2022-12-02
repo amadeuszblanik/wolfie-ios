@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct PetForm: View {
-    @StateObject var vm = ViewModel()
-    
+    @State private var isDeleteOpen = false
+    @StateObject var vm: ViewModel
+    @StateObject var realmDb = RealmManager()
+
     var dateRange: ClosedRange<Date> {
         let calendar = Calendar.current
         let startComponents = calendar.dateComponents([.day, .month, .year, .hour, .minute], from: Date(timeIntervalSince1970: 0))
         let endComponents = calendar.dateComponents([.day, .month, .year, .hour, .minute], from: Date())
-        
+
         return calendar.date(from: startComponents)!...calendar.date(from: endComponents)!
     }
 
@@ -29,16 +31,15 @@ struct PetForm: View {
                         TextField("", text: $vm.name)
                             .multilineTextAlignment(.trailing)
                     }
-                    
+
                     HStack {
-                        UISelectSearch(
+                        UIBreedSelect(
                             label: String(localized: "breed"),
-                            values: vm.breeds,
                             plain: true,
                             state: $vm.breed
                         )
                     }
-                    
+
                     HStack {
                         Text(String(localized: "microchip"))
                             .foregroundColor(Color(UIColor.secondaryLabel))
@@ -46,7 +47,7 @@ struct PetForm: View {
                         TextField("", text: $vm.microchip)
                             .multilineTextAlignment(.trailing)
                     }
-                    
+
                     HStack {
                         DatePicker(
                             String(localized: "birthdate"),
@@ -65,7 +66,22 @@ struct PetForm: View {
                     Button(String(localized: "save")) {
                         vm.id != nil ? vm.update() : vm.create()
                     }
+                    .disabled(vm.isInvalid || vm.isLoading)
                 }
+                if vm.id != nil {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button(String(localized: "delete")) {
+                            vm.delete()
+                        }
+                        .foregroundColor(.red)
+                    }
+                }
+            }
+            .alert(isPresented: $vm.isError) {
+                Alert(
+                    title: Text(String(localized: "error_generic_title")),
+                    message: Text(vm.errorMessage)
+                )
             }
         }
     }
@@ -73,30 +89,34 @@ struct PetForm: View {
 
 struct PetForm_Previews: PreviewProvider {
     @State static var isOpen = true
-    
+    static var pet = PetDB.fromApi(data: PET_GOLDIE)
+    static func onSuccess() {
+        print("Success")
+    }
+
     static var previews: some View {
         VStack {
-            PetForm()
+            PetForm(vm: PetForm.ViewModel(onSave: onSuccess, onDelete: onSuccess))
         }.sheet(isPresented: $isOpen) {
-            PetForm()
+            PetForm(vm: PetForm.ViewModel(onSave: onSuccess, onDelete: onSuccess))
         }
         VStack {
-            PetForm()
+            PetForm(vm: PetForm.ViewModel(onSave: onSuccess, onDelete: onSuccess))
         }.sheet(isPresented: $isOpen) {
-            PetForm()
+            PetForm(vm: PetForm.ViewModel(onSave: onSuccess, onDelete: onSuccess))
         }
-        .preferredColorScheme(.dark)
-        
+            .preferredColorScheme(.dark)
+
         VStack {
-            PetForm(vm: PetForm.ViewModel(pet: PET_GOLDIE))
+            PetForm(vm: PetForm.ViewModel(pet: pet, onSave: onSuccess, onDelete: onSuccess))
         }.sheet(isPresented: $isOpen) {
-            PetForm(vm: PetForm.ViewModel(pet: PET_GOLDIE))
+            PetForm(vm: PetForm.ViewModel(pet: pet, onSave: onSuccess, onDelete: onSuccess))
         }
         VStack {
-            PetForm(vm: PetForm.ViewModel(pet: PET_GOLDIE))
+            PetForm(vm: PetForm.ViewModel(pet: pet, onSave: onSuccess, onDelete: onSuccess))
         }.sheet(isPresented: $isOpen) {
-            PetForm(vm: PetForm.ViewModel(pet: PET_GOLDIE))
+            PetForm(vm: PetForm.ViewModel(pet: pet, onSave: onSuccess, onDelete: onSuccess))
         }
-        .preferredColorScheme(.dark)
+            .preferredColorScheme(.dark)
     }
 }

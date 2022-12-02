@@ -12,6 +12,7 @@ let BREED_ENGLISH_SETTER = ApiBreed(id: 2, name: "english_setter", group: "Engli
 let BREED_GIANT_SCHNAUZER = ApiBreed(id: 181, name: "giant_schnauzer", group: "Schnauzer", createdAt: Date(), updatedAt: Date())
 let BREED_SCHNAUZER = ApiBreed(id: 182, name: "schnauzer", group: "Schnauzer", createdAt: Date(), updatedAt: Date())
 let BREED_MINIATURE_SCHNAUZER = ApiBreed(id: 183, name: "miniature_schnauzer", group: "Schnauzer", createdAt: Date(), updatedAt: Date())
+let BREED_LONG = ApiBreed(id: 666, name: "portuguese_warren_hound_portuguese_podengo", group: "portuguese_warren_hound_portuguese_podengo", createdAt: Date(), updatedAt: Date())
 
 let WEIGHT_142 = ApiWeightValue(id: "ABC-142", raw: 14.2, formatted: "14.2 KG", rawGram: 14200, date: Date(), createdAt: Date(), updatedAt: Date())
 let WEIGHT_140 = ApiWeightValue(id: "ABC-140", raw: 14, formatted: "14 KG", rawGram: 14000, date: Date(timeIntervalSinceNow: -86400), createdAt: Date(), updatedAt: Date())
@@ -26,12 +27,12 @@ let SIMPLE_USER_0 = ApiUserSimple(email: "amadeusz@blanik.me", fullName: "Amadeu
 
 let SIMPLE_MEDICINE_0 = ApiShortMedicineValue(productNumber: "MEDICINE-0", name: "Medicine from database")
 
-let HEALTHLOG_0 = ApiHealthLogValue(id: "HEALTH-LOG-0", kind: .Deworming, date: "2022-03-23", medicine: [SIMPLE_MEDICINE_0], additionalMedicines: ["Medicine added by user"], veterinary: "London, Common Str 1024", diagnosis: "Everything is good", nextVisit: Date(), description: "Lorem ipsum dolor sit amet",  addedBy: SIMPLE_USER_0, createdAt: Date(), updatedAt: Date())
-let HEALTHLOG_1 = ApiHealthLogValue(id: "HEALTH-LOG-1", kind: .ExternalParasite, date: "2022-03-24", medicine: [], additionalMedicines: ["Medicine added by user"], addedBy: SIMPLE_USER_0, createdAt: Date(), updatedAt: Date())
-let HEALTHLOG_2 = ApiHealthLogValue(id: "HEALTH-LOG-2", kind: .Treatment, date: "2022-03-25", medicine: [], additionalMedicines: [], addedBy: SIMPLE_USER_0, createdAt: Date(), updatedAt: Date())
+let HEALTHLOG_0 = ApiHealthLogValue(id: "HEALTH-LOG-0", kind: .Deworming, date: "2022-03-23", medicines: [SIMPLE_MEDICINE_0], additionalMedicines: ["Medicine added by user"], veterinary: "London, Common Str 1024", diagnosis: "Everything is good", nextVisit: Date(timeIntervalSince1970: 1711052046), description: "Lorem ipsum dolor sit amet",  addedBy: SIMPLE_USER_0, createdAt: Date(), updatedAt: Date())
+let HEALTHLOG_1 = ApiHealthLogValue(id: "HEALTH-LOG-1", kind: .ExternalParasite, date: "2022-03-24", medicines: [], additionalMedicines: ["Medicine added by user"], addedBy: SIMPLE_USER_0, createdAt: Date(), updatedAt: Date())
+let HEALTHLOG_2 = ApiHealthLogValue(id: "HEALTH-LOG-2", kind: .Treatment, date: "2022-03-25", medicines: [], additionalMedicines: [], addedBy: SIMPLE_USER_0, createdAt: Date(), updatedAt: Date())
 
 let PET_GOLDIE = ApiPetSingle(
-    id: "123",
+    id: "0a8dc77c-bde7-4309-aefb-bd8811093fcc",
     name: "Goldie",
     kind: .Dog,
     microchip: "616000000000000",
@@ -49,9 +50,9 @@ let PET_TESTIE = ApiPetSingle(
     name: "Testie",
     kind: .Dog,
     image: "",
-    birthDate: Date(timeIntervalSince1970: 1644663600),
+    birthDate: Date(timeIntervalSince1970: 1656324000),
     healthLog: 0,
-    breed: BREED_ENGLISH_SETTER,
+    breed: BREED_LONG,
     createdAt: Date(),
     updatedAt: Date()
 )

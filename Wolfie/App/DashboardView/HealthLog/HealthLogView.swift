@@ -6,56 +6,64 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct HealthLogView: View {
+    var pet: PetDB
     @Binding var path: [DashboardViews]
-    @Binding var pet: ApiPetSingle
-    
-    @State private var isDeleteOpen = false
+
     @StateObject var vm = ViewModel()
+    @StateObject var realmDb = RealmManager()
+    @ObservedResults(HealthLogDB.self) var healthLogDb
+    
+    var petHealthLogDb: Results<HealthLogDB> { healthLogDb.filter("petId == '\(pet.id)'").sorted(by: \.date, ascending: false) }
     
     var filled: some View {
         Group {
             VStack {
                 List{
                     Section {
-                        ForEach(vm.data) { data in
+                        ForEach(petHealthLogDb) { data in
                             Button {
-                                print("Pressed on healthlog \(data.id)")
-                                path.append(.healthLogSingle)
+                                path.append(.healthLogSingle(pet: pet, healthLog: data))
                             } label: {
                                 HStack {
                                     Text(data.kind.localized)
                                     
                                     Spacer()
                                     
-                                    Text(data.date.asDate.asFormattedMedium)
+                                    Text(data.date.asFormattedMedium)
                                         .foregroundColor(Color(UIColor.secondaryLabel))
                                     
                                     Image(systemName: "chevron.right")
+                                        .foregroundColor(Color(UIColor.secondaryLabel))
                                 }
                             }
                             .swipeActions() {
                                 Button(String(localized: "delete")) {
-                                    isDeleteOpen = true
+                                    vm.selectedDeleteHealthLog = data
                                 }.tint(.red)
-                            }
-                            .alert(isPresented: $isDeleteOpen) {
-                                Alert(
-                                    title: Text(String(localized: "action_delete_alert_title")),
-                                    message: Text(String(localized: "action_delete_alert_message")),
-                                    primaryButton: .destructive(Text(String(localized: "delete"))) {
-                                        vm.delete(data.id)
-                                    },
-                                    secondaryButton: .cancel()
-                                )
                             }
                         }
                     } header: {
                         Text(String(localized: "health_log"))
+                            .foregroundColor(Color(UIColor.secondaryLabel))
                     }
                     .listRowBackground(Color(UIColor.secondarySystemBackground))
                 }
+                .alert(item: $vm.selectedDeleteHealthLog) { selectedDeleteHealthLog in
+                    Alert(
+                        title: Text(String(localized: "action_delete_alert_title")),
+                        message: Text(String(localized: "action_delete_alert_message")),
+                        primaryButton: .destructive(Text(String(localized: "delete"))) {
+                            vm.delete(petId: pet.id, healthLogId: selectedDeleteHealthLog.id)
+                        },
+                        secondaryButton: .cancel()
+                    )
+                }
+            }
+            .refreshable {
+                RealmManager().fetchHealthLog(petId: pet.id)
             }
             .foregroundColor(Color(UIColor.label))
             .listStyle(.insetGrouped)
@@ -66,12 +74,20 @@ struct HealthLogView: View {
     
     var empty: some View {
         Group {
-            Text(String(localized: "healt_log_empty"))
+            VStack {
+                Text(String(localized: "healt_log_empty"))
+                    .padding(.bottom)
+                UIButton(text: String(localized: "refresh")) {
+                    RealmManager().fetchHealthLog(petId: pet.id)
+                }
+            }
+        }.onAppear {
+            RealmManager().fetchHealthLog(petId: pet.id)
         }
     }
     
     var body: some View {
-        if vm.data.isEmpty {
+        if petHealthLogDb.isEmpty {
             empty
         } else {
             filled
@@ -80,16 +96,14 @@ struct HealthLogView: View {
 }
 
 struct HealthLogView_Previews: PreviewProvider {
-    @State static var path = [DashboardViews.healthLog]
-    @State static var pet = PET_GOLDIE
+    static var pet = PetDB.fromApi(data: PET_GOLDIE)
+    static var healthLog = HealthLogDB.fromApi(data: HEALTHLOG_0, petId: pet.id)
+
+    @State static var path: [DashboardViews] = [DashboardViews.healthLogSingle(pet: pet, healthLog: healthLog)]
     
     static var previews: some View {
-        HealthLogView(path: $path, pet: $pet)
-        HealthLogView(path: $path, pet: $pet)
-            .preferredColorScheme(.dark)
-
-        HealthLogView(path: $path, pet: $pet, vm: HealthLogView.ViewModel(data: [HEALTHLOG_0, HEALTHLOG_1, HEALTHLOG_2]))
-        HealthLogView(path: $path, pet: $pet, vm: HealthLogView.ViewModel(data: [HEALTHLOG_0, HEALTHLOG_1, HEALTHLOG_2]))
+        HealthLogView(pet: pet, path: $path)
+        HealthLogView(pet: pet, path: $path)
             .preferredColorScheme(.dark)
     }
 }

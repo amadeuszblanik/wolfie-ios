@@ -21,6 +21,10 @@ struct ApiBreed: Identifiable, Codable {
     var updatedAt: Date;
     
     var localizedName: String {
-        return NSLocalizedString("breed_\(name.lowercased())", comment: "")
+        let name = self.name
+            .replacingOccurrences(of: "[^A-Za-z0-9]", with: "_", options: .regularExpression)
+            .lowercased()
+        
+        return NSLocalizedString("breed_\(name)", comment: "")
     }
 }

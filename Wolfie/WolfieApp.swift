@@ -6,12 +6,19 @@
 //
 
 import SwiftUI
+import RealmSwift
 import Sentry
 
 @main
-struct WolfieApp: App {
+struct WolfieApp: SwiftUI.App {
     let persistenceController = PersistenceController.shared
 
+    let realmConfig = Realm.Configuration(schemaVersion: 1, migrationBlock: { migration, oldSchemaVersion in
+        if oldSchemaVersion > 1 {
+            // Update
+        }
+    })
+    
     init() {
         guard let infoDictionary: [String: Any] = Bundle.main.infoDictionary else { print("Cannot read infoDictionary"); return }
         guard let sentryDsn: String = infoDictionary["SentryDsn"] as? String else { print("Cannot read SentryDsn"); return }
@@ -20,7 +27,7 @@ struct WolfieApp: App {
         SentrySDK.start { options in
             options.dsn = sentryDsn
             options.environment = sentryEnvironment
-            options.debug = true // Enabled debug when first installing is always helpful
+            options.debug = false
 
             // Set tracesSampleRate to 1.0 to capture 100% of transactions for performance monitoring.
             // We recommend adjusting this value in production.
@@ -40,8 +47,10 @@ struct WolfieApp: App {
             VStack() {                
                 #if DEBUG
                 MainDevView()
+                    .environment(\.realmConfiguration, realmConfig)
                 #else
                 MainView()
+                    .environment(\.realmConfiguration, realmConfig)
                 #endif
             }
         }

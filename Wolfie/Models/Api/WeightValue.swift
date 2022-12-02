@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import RealmSwift
+
 
 struct ApiWeightValue: Identifiable, Codable {
     public var id: String

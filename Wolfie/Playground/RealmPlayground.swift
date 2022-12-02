@@ -9,8 +9,11 @@ import SwiftUI
 
 struct RealmPlayground: View {
     @StateObject var realmDb = RealmManager()
+    @State var selectedValue: SelectItem? = nil
     
     var body: some View {
+        UIBreedSelect(state: $selectedValue)
+        
         VStack {
             Text("Realm playground")
             

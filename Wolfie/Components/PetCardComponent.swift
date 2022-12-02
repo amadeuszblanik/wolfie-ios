@@ -12,16 +12,18 @@ struct PetCardDetailText: View {
     var value: String!
     
     var body: some View {
-        HStack {
+        HStack(alignment: .firstTextBaseline) {
             Text(label)
             Text(value)
+                .multilineTextAlignment(.leading)
+                .frame(maxWidth: .infinity, alignment: .leading)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
 
 struct PetCardComponent: View {
-    var pet: ApiPetSingle = PET_GOLDIE
+    var pet: PetDB!
     
     var details: some View {
         Group {
@@ -79,12 +81,23 @@ struct PetCardComponent: View {
 struct PetCardComponent_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            PetCardComponent()
+            PetCardComponent(pet: PetDB.fromApi(data: PET_GOLDIE))
         }
         .padding()
 
         VStack {
-            PetCardComponent()
+            PetCardComponent(pet: PetDB.fromApi(data: PET_GOLDIE))
+        }
+        .padding()
+        .preferredColorScheme(.dark)
+
+        VStack {
+            PetCardComponent(pet: PetDB.fromApi(data: PET_TESTIE))
+        }
+        .padding()
+
+        VStack {
+            PetCardComponent(pet: PetDB.fromApi(data: PET_TESTIE))
         }
         .padding()
         .preferredColorScheme(.dark)

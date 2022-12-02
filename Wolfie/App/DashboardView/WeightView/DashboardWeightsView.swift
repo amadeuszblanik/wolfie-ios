@@ -7,98 +7,168 @@
 
 import SwiftUI
 import Charts
+import RealmSwift
 
-struct DashboardWeightsView: View {
-    @Binding var pet: ApiPetSingle
-
-    @State private var isEditOpen = false
-    @State private var isDeleteOpen = false
-    @StateObject var vm = ViewModel()
+struct DashboardWeightsChartView: View {
+    var data: Results<WeightValueDB>
     
+    var averageValue: Double {
+        let total = data.reduce(0) { $0 + $1.raw }
+        
+        return Double(total) / Double(data.count)
+    }
+    var firstEntryDate: Date {
+        data.map { $0.date }.min()!
+    }
+    
+    var lastEntryDate: Date {
+        data.map { $0.date }.max()!
+    }
+
     var body: some View {
         VStack {
-            if (vm.data.count >= 3) {
-                VStack {
-                    UISummary(averageValue: 19.80, unit: "kg", dateRange: DateInterval(start: Date(timeIntervalSinceNow: -213769420), end: Date()))
-                        .padding(.bottom)
-                    
-                    Chart(vm.data.reversed()) {
-                        LineMark(
-                            x: .value("X", $0.date),
-                            y: .value("Y", $0.raw)
-                        )
-                        PointMark(
-                            x: .value("X", $0.date),
-                            y: .value("Y", $0.raw)
-                        )
-                    }
-                    .frame(height: UIScreen.main.bounds.height / 4.2)
-                }
-                .padding(.top)
-                .padding(.horizontal)
+            UISummary(averageValue: self.averageValue, unit: "kg", dateRange: DateInterval(start: firstEntryDate, end: lastEntryDate))
+                .padding(.bottom)
+
+            Chart(data) {
+                LineMark(
+                    x: .value("X", $0.date),
+                    y: .value("Y", $0.raw)
+                )
+                PointMark(
+                    x: .value("X", $0.date),
+                    y: .value("Y", $0.raw)
+                )
             }
-            
+            .frame(height: UIScreen.main.bounds.height / 4.2)
+        }
+    }
+}
+
+struct DashboardWeightsView: View {
+    var pet: PetDB
+
+    @StateObject var vm = ViewModel()
+    @StateObject var realmDb = RealmManager()
+    @ObservedResults(WeightValueDB.self) var weightDb
+    
+    var petWeightDb: Results<WeightValueDB> { weightDb.filter("petId == '\(pet.id)'").sorted(by: \.date, ascending: false) }
+    
+    init(pet: PetDB) {
+        self.pet = pet
+        
+        RealmManager().fetchWeights(petId: pet.id)
+    }
+    
+    var empty: some View {
+        VStack {
+            Text(String(localized: "weight_empty"))
+                .padding(.bottom)
+            UIButton(text: String(localized: "refresh")) {
+                realmDb.fetchWeights(petId: pet.id)
+            }
+        }
+    }
+    
+    var list: some View {
+        Group {
             List() {
                 Section {
-                    ForEach(vm.data) { data in
+                    ForEach(petWeightDb) { weight in
                         HStack {
-                            Text(data.raw.formattedString)
+                            Text(weight.raw.formattedString)
                                 .lineLimit(1)
                             
                             Spacer()
-                            
-                            Text(data.date.toFormattedWithTime())
+
+                            Text(weight.date.toFormattedWithTime())
                                 .foregroundColor(Color(UIColor.secondaryLabel))
                                 .lineLimit(1)
                         }
                         .swipeActions() {
                             Button(String(localized: "delete")) {
-                                isDeleteOpen = true
+                                vm.selectedDeleteWeight = weight
                             }.tint(.red)
+
                             Button(String(localized: "edit")) {
-                                isEditOpen = true
+                                vm.selectedEditWeight = weight
                             }.tint(.accentColor)
-                        }
-                        .alert(isPresented: $isDeleteOpen) {
-                            Alert(
-                                title: Text(String(localized: "action_delete_alert_title")),
-                                message: Text(String(localized: "action_delete_alert_message")),
-                                primaryButton: .destructive(Text(String(localized: "delete"))) {
-                                    vm.delete(data.id)
-                                },
-                                secondaryButton: .cancel()
-                            )
-                        }
-                        .sheet(isPresented: $isEditOpen) {
-                            WeightForm(pet: $pet, vm: WeightForm.ViewModel(weight: data))
                         }
                     }
                 } header: {
                     Text(vm.units.rawValue.uppercased())
                 }
                 .listRowBackground(Color(UIColor.secondarySystemBackground))
+                .alert(item: $vm.selectedDeleteWeight) { selectedWeight in
+                    Alert(
+                        title: Text(String(localized: "action_delete_alert_title")),
+                        message: Text(String(localized: "action_delete_alert_message")),
+                        primaryButton: .destructive(Text(String(localized: "delete"))) {
+                            vm.delete(petId: pet.id, weight: selectedWeight)
+                        },
+                        secondaryButton: .cancel()
+                    )
+                }
+                .sheet(item: $vm.selectedEditWeight) { selectedWeight in
+                    VStack {
+                        WeightForm(vm: WeightForm.ViewModel(
+                            pet: pet,
+                            weight: selectedWeight,
+                            onSuccess: {
+                                vm.selectedEditWeight = nil
+                            }
+                        ))
+                    }
+                }
             }
             .listStyle(.insetGrouped)
             .scrollContentBackground(.hidden)
             .cornerRadius(8)
+            .refreshable {
+                realmDb.fetchWeights(petId: pet.id)
+            }
+        }
+    }
+    
+    var body: some View {
+        VStack {
+            if (petWeightDb.count >= 3) {
+                DashboardWeightsChartView(data: petWeightDb)
+                .padding(.top)
+                .padding(.horizontal)
+            }
+            
+            if (petWeightDb.isEmpty) {
+                empty
+            } else {
+                list
+            }
+        }
+        .overlay {
+            if vm.isLoading {
+                UILoaderFullScreen()
+            }
+        }
+        .alert(isPresented: $vm.isError) {
+            Alert(
+                title: Text(String(localized: "error_generic_title")),
+                message: Text(vm.errorMessage)
+            )
         }
     }
 }
 
 struct DashboardWeightsView_Previews: PreviewProvider {
-    @State static var pet = PET_GOLDIE
+    static var pet = PetDB.fromApi(data: PET_GOLDIE)
+    static var pet2 = PetDB.fromApi(data: PET_TESTIE)
     
     static var previews: some View {
-        DashboardWeightsView(pet: $pet)
-        DashboardWeightsView(pet: $pet)
+        DashboardWeightsView(pet: pet)
+        DashboardWeightsView(pet: pet)
             .preferredColorScheme(.dark)
         
-        DashboardWeightsView(pet: $pet, vm: DashboardWeightsView.ViewModel(data: [WEIGHT_142]))
-        DashboardWeightsView(pet: $pet, vm: DashboardWeightsView.ViewModel(data: [WEIGHT_142]))
-            .preferredColorScheme(.dark)
-        
-        DashboardWeightsView(pet: $pet, vm: DashboardWeightsView.ViewModel(data: [WEIGHT_142, WEIGHT_140, WEIGHT_138]))
-        DashboardWeightsView(pet: $pet, vm: DashboardWeightsView.ViewModel(data: [WEIGHT_142, WEIGHT_140, WEIGHT_138]))
+        DashboardWeightsView(pet: pet2)
+        DashboardWeightsView(pet: pet2)
             .preferredColorScheme(.dark)
     }
 }

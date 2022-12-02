@@ -11,4 +11,6 @@
 #include "Pods/Target Support Files/Pods-Wolfie/Pods-Wolfie.release.xcconfig"
 
 SENTRY_DSN = // Use https:/$()/ instead of https://
-SentryEnvironment = production
+SENTRY_ENVIRONMENT = production
+API_URL = // Use https:/$()/ instead of https://
+WEB_URL = // Use https:/$()/ instead of https://

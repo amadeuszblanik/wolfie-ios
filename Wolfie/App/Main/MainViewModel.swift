@@ -9,7 +9,10 @@ import SwiftUI
 
 extension MainView {
     @MainActor class ViewModel: ObservableObject {
-        @AppStorage("AUTH_ACCESS_TOKEN") var accessToken: String? {
+        @AppStorage("AUTH_SIGNED") var isSigned: Bool? {
+            willSet { objectWillChange.send() }
+        }
+        @AppStorage("IS_OFFLINE") var isOffline: Bool? {
             willSet { objectWillChange.send() }
         }
     }

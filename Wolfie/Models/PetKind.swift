@@ -6,7 +6,8 @@
 //
 
 import Foundation
+import RealmSwift
 
-enum PetKind: String, Codable  {    
+enum PetKind: String, Codable, PersistableEnum {
     case Dog = "DOG"
 }

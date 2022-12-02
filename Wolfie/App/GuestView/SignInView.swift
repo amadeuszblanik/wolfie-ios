@@ -24,9 +24,11 @@ struct SignInView: View {
             VStack {
                 UIInput(label: String(localized: "username"), state: $vm.username, keyboardType: .emailAddress)
                     .padding(.vertical)
+                    .textContentType(.username)
                 
                 UIInput(label: String(localized: "password"), state: $vm.password, type: .Password)
                     .padding(.vertical)
+                    .textContentType(.password)
                 
                 UICheckbox(label: String(localized: "sign_in_sub_header"), state: $vm.keepSignIn)
                 
@@ -43,22 +45,19 @@ struct SignInView: View {
                     .padding(.bottom)
                 }
                 
-                if (vm.isInvalid) {
-                    Text(vm.errorMessage)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.red)
-                        .padding(.bottom)
-                }
-                
                 UIButton(text: String(localized: "sign_in"), fullWidth: true) {
                     vm.signIn()
                 }
-                .disabled(!vm.isActive)
+                .disabled(!vm.isActive || !vm.isFilled)
             }
             .padding()
+            .alert(isPresented: $vm.isInvalid) {
+                Alert(
+                    title: Text(String(localized: "error_generic_title")),
+                    message: Text(vm.errorMessage)
+                )
+            }
         }
-        .navigationBarHidden(true)
-        .navigationBarBackButtonHidden(true)
     }
 }
 

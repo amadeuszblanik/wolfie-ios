@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E077EC02933EF640030F560 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E077EBF2933EF640030F560 /* Launch Screen.storyboard */; };
+		4E235E082936EF9000A2B0A7 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E235E072936EF9000A2B0A7 /* ErrorView.swift */; };
+		4E235E0A2936F39B00A2B0A7 /* FeedbackForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E235E092936F39B00A2B0A7 /* FeedbackForm.swift */; };
+		4E235E0C2936F7DA00A2B0A7 /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E235E0B2936F7DA00A2B0A7 /* SuccessView.swift */; };
+		4E235E0E29370A4A00A2B0A7 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E235E0D29370A4A00A2B0A7 /* NetworkService.swift */; };
+		4E235E1029370D3E00A2B0A7 /* MedicineSelectComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E235E0F29370D3E00A2B0A7 /* MedicineSelectComponent.swift */; };
 		4E24B6DD29147D7600405D06 /* WolfieApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E24B6DC29147D7600405D06 /* WolfieApp.swift */; };
 		4E24B6DF29147D7600405D06 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E24B6DE29147D7600405D06 /* ContentView.swift */; };
 		4E24B6E129147D7700405D06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E24B6E029147D7700405D06 /* Assets.xcassets */; };
@@ -42,6 +48,19 @@
 		4E8B68B429201F7100A0BBE1 /* RealmPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68B329201F7100A0BBE1 /* RealmPlayground.swift */; };
 		4E8B68B729202A0500A0BBE1 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 4E8B68B52920298B00A0BBE1 /* Config.xcconfig */; };
 		4E8B68BA29202ADC00A0BBE1 /* SentryLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68B929202ADC00A0BBE1 /* SentryLog.swift */; };
+		4E8B68BE292032E300A0BBE1 /* PetDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68BD292032E300A0BBE1 /* PetDB.swift */; };
+		4E8B68C02920349100A0BBE1 /* WeightValueDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68BF2920349100A0BBE1 /* WeightValueDB.swift */; };
+		4E8B68C2292034EA00A0BBE1 /* BreedDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68C1292034EA00A0BBE1 /* BreedDB.swift */; };
+		4EB4CE71292AE7F6004C1281 /* HealthLogDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4CE70292AE7F6004C1281 /* HealthLogDto.swift */; };
+		4EB4CE73292AF059004C1281 /* DtoDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4CE72292AF059004C1281 /* DtoDateFormatter.swift */; };
+		4EB4CE77292EA2D6004C1281 /* RefreshTokenDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4CE76292EA2D6004C1281 /* RefreshTokenDto.swift */; };
+		4EB4CE79292EA48B004C1281 /* MainDevViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4CE78292EA48B004C1281 /* MainDevViewModel.swift */; };
+		4EB4CE7B292EA652004C1281 /* ApiInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4CE7A292EA652004C1281 /* ApiInterceptor.swift */; };
+		4EB4CE7D292EAFB2004C1281 /* ApiSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4CE7C292EAFB2004C1281 /* ApiSession.swift */; };
+		4EB4CE81292EC8B6004C1281 /* BreedSelectComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4CE80292EC8B6004C1281 /* BreedSelectComponent.swift */; };
+		4ED954772933B029009B4A81 /* ConfigDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED954762933B029009B4A81 /* ConfigDb.swift */; };
+		4ED954792933B3AA009B4A81 /* UserDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED954782933B3AA009B4A81 /* UserDb.swift */; };
+		4ED9547B2933C4E1009B4A81 /* ApiLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9547A2933C4E1009B4A81 /* ApiLogger.swift */; };
 		4EE651B0291971EA007F115A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651AF291971EA007F115A /* MainView.swift */; };
 		4EE651B32919724A007F115A /* MainDevView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651B22919724A007F115A /* MainDevView.swift */; };
 		4EE651B62919734F007F115A /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651B52919734F007F115A /* ButtonComponent.swift */; };
@@ -51,6 +70,27 @@
 		4EE651C32919BF82007F115A /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651C22919BF82007F115A /* SignInView.swift */; };
 		4EE651C52919BF8A007F115A /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651C42919BF8A007F115A /* SignUpView.swift */; };
 		4EE651CA2919D310007F115A /* ShakeGestureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE651C92919D310007F115A /* ShakeGestureManager.swift */; };
+		4EE9EA9629256D0200DDD08A /* HealthLogDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE9EA9529256D0200DDD08A /* HealthLogDB.swift */; };
+		4EE9EA9829256D9B00DDD08A /* MedicineValueDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE9EA9729256D9B00DDD08A /* MedicineValueDB.swift */; };
+		4EE9EA9A29256E4000DDD08A /* MedicineAuthorizationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE9EA9929256E4000DDD08A /* MedicineAuthorizationStatus.swift */; };
+		4EE9EA9C2925881400DDD08A /* ShortDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE9EA9B2925881400DDD08A /* ShortDateFormatter.swift */; };
+		4EF572A929214AA500F11E4A /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF572A829214AA500F11E4A /* ApiService.swift */; };
+		4EF572AB29214B7500F11E4A /* SignInDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF572AA29214B7500F11E4A /* SignInDto.swift */; };
+		4EF572AD29214BBC00F11E4A /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF572AC29214BBC00F11E4A /* SignIn.swift */; };
+		4EF572AF29214C3E00F11E4A /* ApiRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF572AE29214C3E00F11E4A /* ApiRouter.swift */; };
+		4EF572B129214C4B00F11E4A /* ApiConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF572B029214C4B00F11E4A /* ApiConfiguration.swift */; };
+		4EF572B429214D4400F11E4A /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF572B329214D4400F11E4A /* KeychainService.swift */; };
+		4EF572B629214DF200F11E4A /* EncodableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF572B529214DF200F11E4A /* EncodableExtensions.swift */; };
+		4EF572B829214E0C00F11E4A /* JsonEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF572B729214E0C00F11E4A /* JsonEncoder.swift */; };
+		4EF572BA29214E2900F11E4A /* isoDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF572B929214E2900F11E4A /* isoDateFormatter.swift */; };
+		4EF572BC29214E8D00F11E4A /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF572BB29214E8D00F11E4A /* ApiError.swift */; };
+		4EF572BE2921511D00F11E4A /* JsonDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF572BD2921511D00F11E4A /* JsonDateFormatter.swift */; };
+		4EF572C0292154BF00F11E4A /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF572BF292154BF00F11E4A /* ErrorMessage.swift */; };
+		4EF572C229215D5300F11E4A /* WebViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF572C129215D5300F11E4A /* WebViewComponent.swift */; };
+		4EF572C42921620200F11E4A /* SignUpDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF572C32921620200F11E4A /* SignUpDto.swift */; };
+		4EF572C6292168B400F11E4A /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF572C5292168B400F11E4A /* Message.swift */; };
+		4EF572C82922DF0C00F11E4A /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF572C72922DF0C00F11E4A /* NumberFormatter.swift */; };
+		4EF572CA2922FA1900F11E4A /* LoaderFullScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF572C92922FA1900F11E4A /* LoaderFullScreen.swift */; };
 		4EFC7435291AE32D0086A6AB /* JumbotronComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7434291AE32D0086A6AB /* JumbotronComponent.swift */; };
 		4EFC7437291AE6C00086A6AB /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7436291AE6C00086A6AB /* MainViewModel.swift */; };
 		4EFC743A291AEA6F0086A6AB /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7439291AEA6F0086A6AB /* SignUpViewModel.swift */; };
@@ -63,13 +103,12 @@
 		4EFC744E291B0C5F0086A6AB /* WeightValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC744D291B0C5F0086A6AB /* WeightValue.swift */; };
 		4EFC7450291B0CE60086A6AB /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC744F291B0CE60086A6AB /* Breed.swift */; };
 		4EFC7452291B0E370086A6AB /* PetCardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7451291B0E370086A6AB /* PetCardComponent.swift */; };
-		4EFC7455291B0E4E0086A6AB /* ApiPets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7454291B0E4E0086A6AB /* ApiPets.swift */; };
+		4EFC7455291B0E4E0086A6AB /* ApiMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7454291B0E4E0086A6AB /* ApiMocks.swift */; };
 		4EFC7458291B103F0086A6AB /* AvatarComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7457291B103F0086A6AB /* AvatarComponent.swift */; };
 		4EFC745B291B1A370086A6AB /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC745A291B1A370086A6AB /* DateExtensions.swift */; };
 		4EFC745D291B1A630086A6AB /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC745C291B1A630086A6AB /* DateFormatter.swift */; };
 		4EFC745F291B1ACD0086A6AB /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC745E291B1ACD0086A6AB /* TimeInterval.swift */; };
 		4EFC7461291B1AE60086A6AB /* TimeInvervalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7460291B1AE60086A6AB /* TimeInvervalFormatter.swift */; };
-		4EFC7463291C30260086A6AB /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7462291C30260086A6AB /* DashboardViewModel.swift */; };
 		4EFC7466291C3F990086A6AB /* PetForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7465291C3F990086A6AB /* PetForm.swift */; };
 		4EFC7468291C403C0086A6AB /* PetFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7467291C403C0086A6AB /* PetFormViewModel.swift */; };
 		4EFC746A291C43B00086A6AB /* SelectSearchComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7469291C43B00086A6AB /* SelectSearchComponent.swift */; };
@@ -111,6 +150,12 @@
 
 /* Begin PBXFileReference section */
 		386429BF285A0850E511C6CE /* Pods_Wolfie_WolfieUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wolfie_WolfieUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E077EBF2933EF640030F560 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		4E235E072936EF9000A2B0A7 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		4E235E092936F39B00A2B0A7 /* FeedbackForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackForm.swift; sourceTree = "<group>"; };
+		4E235E0B2936F7DA00A2B0A7 /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
+		4E235E0D29370A4A00A2B0A7 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		4E235E0F29370D3E00A2B0A7 /* MedicineSelectComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineSelectComponent.swift; sourceTree = "<group>"; };
 		4E24B6D929147D7600405D06 /* Wolfie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wolfie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E24B6DC29147D7600405D06 /* WolfieApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WolfieApp.swift; sourceTree = "<group>"; };
 		4E24B6DE29147D7600405D06 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -144,6 +189,7 @@
 		4E794649291AD3FC000C356C /* InputComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputComponent.swift; sourceTree = "<group>"; };
 		4E79464B291AD58F000C356C /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		4E794650291AE000000C356C /* CheckboxComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxComponent.swift; sourceTree = "<group>"; };
+		4E8177312933F6630039906A /* Wolfie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wolfie.entitlements; sourceTree = "<group>"; };
 		4E8B68AD29201D9900A0BBE1 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		4E8B68B029201E5F00A0BBE1 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		4E8B68B329201F7100A0BBE1 /* RealmPlayground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmPlayground.swift; sourceTree = "<group>"; };
@@ -152,6 +198,19 @@
 		4E8B68B929202ADC00A0BBE1 /* SentryLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentryLog.swift; sourceTree = "<group>"; };
 		4E8B68BB29202DF700A0BBE1 /* ConfigDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigDebug.xcconfig; sourceTree = "<group>"; };
 		4E8B68BC29202E2600A0BBE1 /* ConfigDebugExample.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigDebugExample.xcconfig; sourceTree = "<group>"; };
+		4E8B68BD292032E300A0BBE1 /* PetDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDB.swift; sourceTree = "<group>"; };
+		4E8B68BF2920349100A0BBE1 /* WeightValueDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightValueDB.swift; sourceTree = "<group>"; };
+		4E8B68C1292034EA00A0BBE1 /* BreedDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDB.swift; sourceTree = "<group>"; };
+		4EB4CE70292AE7F6004C1281 /* HealthLogDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthLogDto.swift; sourceTree = "<group>"; };
+		4EB4CE72292AF059004C1281 /* DtoDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DtoDateFormatter.swift; sourceTree = "<group>"; };
+		4EB4CE76292EA2D6004C1281 /* RefreshTokenDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenDto.swift; sourceTree = "<group>"; };
+		4EB4CE78292EA48B004C1281 /* MainDevViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDevViewModel.swift; sourceTree = "<group>"; };
+		4EB4CE7A292EA652004C1281 /* ApiInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiInterceptor.swift; sourceTree = "<group>"; };
+		4EB4CE7C292EAFB2004C1281 /* ApiSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiSession.swift; sourceTree = "<group>"; };
+		4EB4CE80292EC8B6004C1281 /* BreedSelectComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedSelectComponent.swift; sourceTree = "<group>"; };
+		4ED954762933B029009B4A81 /* ConfigDb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigDb.swift; sourceTree = "<group>"; };
+		4ED954782933B3AA009B4A81 /* UserDb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDb.swift; sourceTree = "<group>"; };
+		4ED9547A2933C4E1009B4A81 /* ApiLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiLogger.swift; sourceTree = "<group>"; };
 		4EE651AF291971EA007F115A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		4EE651B22919724A007F115A /* MainDevView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDevView.swift; sourceTree = "<group>"; };
 		4EE651B52919734F007F115A /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
@@ -162,6 +221,27 @@
 		4EE651C22919BF82007F115A /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		4EE651C42919BF8A007F115A /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		4EE651C92919D310007F115A /* ShakeGestureManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeGestureManager.swift; sourceTree = "<group>"; };
+		4EE9EA9529256D0200DDD08A /* HealthLogDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthLogDB.swift; sourceTree = "<group>"; };
+		4EE9EA9729256D9B00DDD08A /* MedicineValueDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineValueDB.swift; sourceTree = "<group>"; };
+		4EE9EA9929256E4000DDD08A /* MedicineAuthorizationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineAuthorizationStatus.swift; sourceTree = "<group>"; };
+		4EE9EA9B2925881400DDD08A /* ShortDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortDateFormatter.swift; sourceTree = "<group>"; };
+		4EF572A829214AA500F11E4A /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		4EF572AA29214B7500F11E4A /* SignInDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInDto.swift; sourceTree = "<group>"; };
+		4EF572AC29214BBC00F11E4A /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
+		4EF572AE29214C3E00F11E4A /* ApiRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRouter.swift; sourceTree = "<group>"; };
+		4EF572B029214C4B00F11E4A /* ApiConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConfiguration.swift; sourceTree = "<group>"; };
+		4EF572B329214D4400F11E4A /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
+		4EF572B529214DF200F11E4A /* EncodableExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableExtensions.swift; sourceTree = "<group>"; };
+		4EF572B729214E0C00F11E4A /* JsonEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonEncoder.swift; sourceTree = "<group>"; };
+		4EF572B929214E2900F11E4A /* isoDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = isoDateFormatter.swift; sourceTree = "<group>"; };
+		4EF572BB29214E8D00F11E4A /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
+		4EF572BD2921511D00F11E4A /* JsonDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDateFormatter.swift; sourceTree = "<group>"; };
+		4EF572BF292154BF00F11E4A /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		4EF572C129215D5300F11E4A /* WebViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewComponent.swift; sourceTree = "<group>"; };
+		4EF572C32921620200F11E4A /* SignUpDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpDto.swift; sourceTree = "<group>"; };
+		4EF572C5292168B400F11E4A /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		4EF572C72922DF0C00F11E4A /* NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
+		4EF572C92922FA1900F11E4A /* LoaderFullScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderFullScreen.swift; sourceTree = "<group>"; };
 		4EFC7434291AE32D0086A6AB /* JumbotronComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JumbotronComponent.swift; sourceTree = "<group>"; };
 		4EFC7436291AE6C00086A6AB /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		4EFC7439291AEA6F0086A6AB /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
@@ -174,14 +254,13 @@
 		4EFC744D291B0C5F0086A6AB /* WeightValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightValue.swift; sourceTree = "<group>"; };
 		4EFC744F291B0CE60086A6AB /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
 		4EFC7451291B0E370086A6AB /* PetCardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetCardComponent.swift; sourceTree = "<group>"; };
-		4EFC7454291B0E4E0086A6AB /* ApiPets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiPets.swift; sourceTree = "<group>"; };
+		4EFC7454291B0E4E0086A6AB /* ApiMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiMocks.swift; sourceTree = "<group>"; };
 		4EFC7456291B0F0A0086A6AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4EFC7457291B103F0086A6AB /* AvatarComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarComponent.swift; sourceTree = "<group>"; };
 		4EFC745A291B1A370086A6AB /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		4EFC745C291B1A630086A6AB /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		4EFC745E291B1ACD0086A6AB /* TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
 		4EFC7460291B1AE60086A6AB /* TimeInvervalFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInvervalFormatter.swift; sourceTree = "<group>"; };
-		4EFC7462291C30260086A6AB /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		4EFC7465291C3F990086A6AB /* PetForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetForm.swift; sourceTree = "<group>"; };
 		4EFC7467291C403C0086A6AB /* PetFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetFormViewModel.swift; sourceTree = "<group>"; };
 		4EFC7469291C43B00086A6AB /* SelectSearchComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSearchComponent.swift; sourceTree = "<group>"; };
@@ -250,6 +329,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		4E235E062936EF7C00A2B0A7 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				4E235E072936EF9000A2B0A7 /* ErrorView.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		4E24B6D029147D7600405D06 = {
 			isa = PBXGroup;
 			children = (
@@ -280,6 +367,9 @@
 		4E24B6DB29147D7600405D06 /* Wolfie */ = {
 			isa = PBXGroup;
 			children = (
+				4E8177312933F6630039906A /* Wolfie.entitlements */,
+				4EF572B229214D3900F11E4A /* Services */,
+				4EF572A729214A9A00F11E4A /* Api */,
 				4E8B68B229201F6500A0BBE1 /* Playground */,
 				4E8B68AC29201D1500A0BBE1 /* Realm */,
 				4E51E5AE291F358C0007887B /* ViewRepresentables */,
@@ -377,6 +467,13 @@
 			isa = PBXGroup;
 			children = (
 				4E8B68B029201E5F00A0BBE1 /* Test.swift */,
+				4E8B68BD292032E300A0BBE1 /* PetDB.swift */,
+				4E8B68BF2920349100A0BBE1 /* WeightValueDB.swift */,
+				4E8B68C1292034EA00A0BBE1 /* BreedDB.swift */,
+				4EE9EA9529256D0200DDD08A /* HealthLogDB.swift */,
+				4EE9EA9729256D9B00DDD08A /* MedicineValueDB.swift */,
+				4ED954762933B029009B4A81 /* ConfigDb.swift */,
+				4ED954782933B3AA009B4A81 /* UserDb.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -392,11 +489,13 @@
 		4EE651AD291971CD007F115A /* App */ = {
 			isa = PBXGroup;
 			children = (
+				4E235E062936EF7C00A2B0A7 /* Error */,
 				4E51E5A1291F29C60007887B /* ProfileView */,
 				4EFC743F291B06830086A6AB /* DashboardView */,
 				4EE651B729197691007F115A /* GuestView */,
 				4EE651B129197234007F115A /* MainDev */,
 				4EE651AE291971D7007F115A /* Main */,
+				4E077EBF2933EF640030F560 /* Launch Screen.storyboard */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -414,6 +513,7 @@
 			isa = PBXGroup;
 			children = (
 				4EE651B22919724A007F115A /* MainDevView.swift */,
+				4EB4CE78292EA48B004C1281 /* MainDevViewModel.swift */,
 			);
 			path = MainDev;
 			sourceTree = "<group>";
@@ -433,6 +533,11 @@
 				4EFC7474291C85AB0086A6AB /* InputDateComponent.swift */,
 				4EFC747C291D9AE50086A6AB /* SummaryComponent.swift */,
 				4E51E59B291F22480007887B /* MultiSelectSearch.swift */,
+				4EF572C129215D5300F11E4A /* WebViewComponent.swift */,
+				4EF572C92922FA1900F11E4A /* LoaderFullScreen.swift */,
+				4EB4CE80292EC8B6004C1281 /* BreedSelectComponent.swift */,
+				4E235E0B2936F7DA00A2B0A7 /* SuccessView.swift */,
+				4E235E0F29370D3E00A2B0A7 /* MedicineSelectComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -457,6 +562,29 @@
 			path = Gestures;
 			sourceTree = "<group>";
 		};
+		4EF572A729214A9A00F11E4A /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				4EF572A829214AA500F11E4A /* ApiService.swift */,
+				4EF572AE29214C3E00F11E4A /* ApiRouter.swift */,
+				4EF572B029214C4B00F11E4A /* ApiConfiguration.swift */,
+				4EF572BB29214E8D00F11E4A /* ApiError.swift */,
+				4EB4CE7A292EA652004C1281 /* ApiInterceptor.swift */,
+				4EB4CE7C292EAFB2004C1281 /* ApiSession.swift */,
+				4ED9547A2933C4E1009B4A81 /* ApiLogger.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		4EF572B229214D3900F11E4A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				4EF572B329214D4400F11E4A /* KeychainService.swift */,
+				4E235E0D29370A4A00A2B0A7 /* NetworkService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		4EFC7438291AE7FA0086A6AB /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -467,6 +595,7 @@
 				4EFC744B291B0C310086A6AB /* PetKind.swift */,
 				4E51E589291EFD180007887B /* HealthLogKind.swift */,
 				4E51E5AA291F2DE00007887B /* UserRoles.swift */,
+				4EE9EA9929256E4000DDD08A /* MedicineAuthorizationStatus.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -477,7 +606,6 @@
 				4E51E592291F08620007887B /* WeightView */,
 				4E51E591291F08560007887B /* HealthLog */,
 				4EFC7440291B06920086A6AB /* DashboardView.swift */,
-				4EFC7462291C30260086A6AB /* DashboardViewModel.swift */,
 				4EFC746D291C76660086A6AB /* DashboardSingleView.swift */,
 			);
 			path = DashboardView;
@@ -502,6 +630,9 @@
 				4E51E58D291EFE440007887B /* User.swift */,
 				4E51E5A6291F2B0B0007887B /* RefreshToken.swift */,
 				4E51E5A8291F2DB20007887B /* Config.swift */,
+				4EF572AC29214BBC00F11E4A /* SignIn.swift */,
+				4EF572BF292154BF00F11E4A /* ErrorMessage.swift */,
+				4EF572C5292168B400F11E4A /* Message.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -509,7 +640,7 @@
 		4EFC7453291B0E430086A6AB /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				4EFC7454291B0E4E0086A6AB /* ApiPets.swift */,
+				4EFC7454291B0E4E0086A6AB /* ApiMocks.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -527,6 +658,13 @@
 				4EFC7482291D9B5A0086A6AB /* DateIntervalFormatter.swift */,
 				4E51E58F291F01F80007887B /* StringExtensions.swift */,
 				4E8B68B929202ADC00A0BBE1 /* SentryLog.swift */,
+				4EF572B529214DF200F11E4A /* EncodableExtensions.swift */,
+				4EF572B729214E0C00F11E4A /* JsonEncoder.swift */,
+				4EF572B929214E2900F11E4A /* isoDateFormatter.swift */,
+				4EF572BD2921511D00F11E4A /* JsonDateFormatter.swift */,
+				4EF572C72922DF0C00F11E4A /* NumberFormatter.swift */,
+				4EE9EA9B2925881400DDD08A /* ShortDateFormatter.swift */,
+				4EB4CE72292AF059004C1281 /* DtoDateFormatter.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -540,6 +678,7 @@
 				4EFC7486291DA5040086A6AB /* WeightFormViewModel.swift */,
 				4E51E597291F122C0007887B /* HealthLogForm.swift */,
 				4E51E599291F12370007887B /* HealthLogFormViewModel.swift */,
+				4E235E092936F39B00A2B0A7 /* FeedbackForm.swift */,
 			);
 			path = Form;
 			sourceTree = "<group>";
@@ -549,6 +688,10 @@
 			children = (
 				4EFC7472291C83B10086A6AB /* PetDto.swift */,
 				4EFC7488291DA75C0086A6AB /* WeightDto.swift */,
+				4EF572AA29214B7500F11E4A /* SignInDto.swift */,
+				4EF572C32921620200F11E4A /* SignUpDto.swift */,
+				4EB4CE70292AE7F6004C1281 /* HealthLogDto.swift */,
+				4EB4CE76292EA2D6004C1281 /* RefreshTokenDto.swift */,
 			);
 			path = Dto;
 			sourceTree = "<group>";
@@ -575,6 +718,7 @@
 				4E24B6D629147D7600405D06 /* Frameworks */,
 				4E24B6D729147D7600405D06 /* Resources */,
 				19D71AB7483872ECFDD632C7 /* [CP] Embed Pods Frameworks */,
+				4EB4CE82292ECFF7004C1281 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -676,6 +820,7 @@
 				4E8B68B729202A0500A0BBE1 /* Config.xcconfig in Resources */,
 				4E24B6E429147D7700405D06 /* Preview Assets.xcassets in Resources */,
 				4EE651BC291978E6007F115A /* Localizable.strings in Resources */,
+				4E077EC02933EF640030F560 /* Launch Screen.storyboard in Resources */,
 				4E24B6E129147D7700405D06 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -730,6 +875,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Wolfie-WolfieUITests/Pods-Wolfie-WolfieUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		4EB4CE82292ECFF7004C1281 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint --lenient\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		932A5DB46480F87832693DBB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -804,19 +966,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E235E0E29370A4A00A2B0A7 /* NetworkService.swift in Sources */,
 				4E24B6E629147D7700405D06 /* Persistence.swift in Sources */,
+				4EF572AF29214C3E00F11E4A /* ApiRouter.swift in Sources */,
+				4EF572AD29214BBC00F11E4A /* SignIn.swift in Sources */,
+				4EB4CE7D292EAFB2004C1281 /* ApiSession.swift in Sources */,
+				4EF572B129214C4B00F11E4A /* ApiConfiguration.swift in Sources */,
+				4ED954772933B029009B4A81 /* ConfigDb.swift in Sources */,
 				4EFC745F291B1ACD0086A6AB /* TimeInterval.swift in Sources */,
+				4EE9EA9629256D0200DDD08A /* HealthLogDB.swift in Sources */,
 				4EFC747D291D9AE50086A6AB /* SummaryComponent.swift in Sources */,
 				4E51E596291F089D0007887B /* HealthLogSingleViewModel.swift in Sources */,
+				4E8B68C2292034EA00A0BBE1 /* BreedDB.swift in Sources */,
 				4EFC746A291C43B00086A6AB /* SelectSearchComponent.swift in Sources */,
+				4E235E082936EF9000A2B0A7 /* ErrorView.swift in Sources */,
 				4EFC7470291C76FD0086A6AB /* CardComponent.swift in Sources */,
 				4EFC7458291B103F0086A6AB /* AvatarComponent.swift in Sources */,
 				4EFC7479291D8D0E0086A6AB /* DashboardWeightViewModel.swift in Sources */,
 				4E51E5A7291F2B0B0007887B /* RefreshToken.swift in Sources */,
+				4E8B68BE292032E300A0BBE1 /* PetDB.swift in Sources */,
 				4E24B6E929147D7700405D06 /* Wolfie.xcdatamodeld in Sources */,
-				4EFC7455291B0E4E0086A6AB /* ApiPets.swift in Sources */,
+				4EFC7455291B0E4E0086A6AB /* ApiMocks.swift in Sources */,
 				4E79464A291AD3FC000C356C /* InputComponent.swift in Sources */,
+				4EB4CE81292EC8B6004C1281 /* BreedSelectComponent.swift in Sources */,
+				4EF572A929214AA500F11E4A /* ApiService.swift in Sources */,
+				4EF572BC29214E8D00F11E4A /* ApiError.swift in Sources */,
+				4EF572B829214E0C00F11E4A /* JsonEncoder.swift in Sources */,
 				4EFC7468291C403C0086A6AB /* PetFormViewModel.swift in Sources */,
+				4EF572C229215D5300F11E4A /* WebViewComponent.swift in Sources */,
 				4E51E58C291EFDA10007887B /* MedicineValue.swift in Sources */,
 				4EFC7473291C83B10086A6AB /* PetDto.swift in Sources */,
 				4E51E59C291F22480007887B /* MultiSelectSearch.swift in Sources */,
@@ -824,57 +1001,80 @@
 				4E51E59A291F12370007887B /* HealthLogFormViewModel.swift in Sources */,
 				4E51E590291F01F80007887B /* StringExtensions.swift in Sources */,
 				4E8B68B129201E5F00A0BBE1 /* Test.swift in Sources */,
+				4E235E0A2936F39B00A2B0A7 /* FeedbackForm.swift in Sources */,
 				4E51E5A5291F29E20007887B /* ProfileViewModel.swift in Sources */,
+				4ED9547B2933C4E1009B4A81 /* ApiLogger.swift in Sources */,
+				4EB4CE7B292EA652004C1281 /* ApiInterceptor.swift in Sources */,
 				4EFC743C291AF64C0086A6AB /* SelectComponent.swift in Sources */,
 				4E8B68B429201F7100A0BBE1 /* RealmPlayground.swift in Sources */,
+				4EB4CE71292AE7F6004C1281 /* HealthLogDto.swift in Sources */,
 				4E51E5A9291F2DB20007887B /* Config.swift in Sources */,
 				4EFC7483291D9B5A0086A6AB /* DateIntervalFormatter.swift in Sources */,
 				4EE651CA2919D310007F115A /* ShakeGestureManager.swift in Sources */,
+				4EB4CE79292EA48B004C1281 /* MainDevViewModel.swift in Sources */,
 				4EFC746C291C53E70086A6AB /* SequenceTypeExtensions.swift in Sources */,
 				4EFC743A291AEA6F0086A6AB /* SignUpViewModel.swift in Sources */,
 				4EFC7477291D8CC60086A6AB /* DashboardWeightsView.swift in Sources */,
 				4E8B68BA29202ADC00A0BBE1 /* SentryLog.swift in Sources */,
 				4EFC7466291C3F990086A6AB /* PetForm.swift in Sources */,
+				4EE9EA9829256D9B00DDD08A /* MedicineValueDB.swift in Sources */,
 				4E24B6DF29147D7600405D06 /* ContentView.swift in Sources */,
+				4EE9EA9A29256E4000DDD08A /* MedicineAuthorizationStatus.swift in Sources */,
 				4EFC7452291B0E370086A6AB /* PetCardComponent.swift in Sources */,
+				4ED954792933B3AA009B4A81 /* UserDb.swift in Sources */,
 				4E51E5A3291F29D60007887B /* ProfileView.swift in Sources */,
+				4EF572BE2921511D00F11E4A /* JsonDateFormatter.swift in Sources */,
 				4E51E584291EFC750007887B /* HealthLogView.swift in Sources */,
 				4E51E5B0291F35A10007887B /* WebView.swift in Sources */,
+				4EF572C0292154BF00F11E4A /* ErrorMessage.swift in Sources */,
 				4EFC744C291B0C310086A6AB /* PetKind.swift in Sources */,
 				4EFC745B291B1A370086A6AB /* DateExtensions.swift in Sources */,
 				4EE651C129197D2E007F115A /* AppViews.swift in Sources */,
+				4EE9EA9C2925881400DDD08A /* ShortDateFormatter.swift in Sources */,
 				4EFC7435291AE32D0086A6AB /* JumbotronComponent.swift in Sources */,
 				4E794651291AE000000C356C /* CheckboxComponent.swift in Sources */,
 				4EFC7485291DA4F90086A6AB /* WeightForm.swift in Sources */,
+				4EB4CE77292EA2D6004C1281 /* RefreshTokenDto.swift in Sources */,
 				4EFC7441291B06920086A6AB /* DashboardView.swift in Sources */,
+				4EF572BA29214E2900F11E4A /* isoDateFormatter.swift in Sources */,
 				4E51E5AB291F2DE00007887B /* UserRoles.swift in Sources */,
+				4EF572B429214D4400F11E4A /* KeychainService.swift in Sources */,
+				4EF572C6292168B400F11E4A /* Message.swift in Sources */,
 				4EFC747F291D9B100086A6AB /* NumberExtensions.swift in Sources */,
 				4EFC7461291B1AE60086A6AB /* TimeInvervalFormatter.swift in Sources */,
+				4EF572C42921620200F11E4A /* SignUpDto.swift in Sources */,
 				4EFC746E291C76660086A6AB /* DashboardSingleView.swift in Sources */,
 				4EFC744E291B0C5F0086A6AB /* WeightValue.swift in Sources */,
 				4EFC7437291AE6C00086A6AB /* MainViewModel.swift in Sources */,
 				4EFC7450291B0CE60086A6AB /* Breed.swift in Sources */,
 				4E8B68AE29201D9900A0BBE1 /* RealmManager.swift in Sources */,
 				4EE651C32919BF82007F115A /* SignInView.swift in Sources */,
+				4EF572B629214DF200F11E4A /* EncodableExtensions.swift in Sources */,
 				4EE651C52919BF8A007F115A /* SignUpView.swift in Sources */,
 				4EFC745D291B1A630086A6AB /* DateFormatter.swift in Sources */,
 				4E79464C291AD58F000C356C /* SignInViewModel.swift in Sources */,
-				4EFC7463291C30260086A6AB /* DashboardViewModel.swift in Sources */,
+				4EF572CA2922FA1900F11E4A /* LoaderFullScreen.swift in Sources */,
 				4EE651B0291971EA007F115A /* MainView.swift in Sources */,
 				4E51E598291F122C0007887B /* HealthLogForm.swift in Sources */,
 				4EFC7487291DA5040086A6AB /* WeightFormViewModel.swift in Sources */,
 				4EFC743E291AF6920086A6AB /* WeightUnits.swift in Sources */,
+				4EF572C82922DF0C00F11E4A /* NumberFormatter.swift in Sources */,
 				4EFC7481291D9B3C0086A6AB /* DateIntervalExtensions.swift in Sources */,
+				4E8B68C02920349100A0BBE1 /* WeightValueDB.swift in Sources */,
 				4EE651B62919734F007F115A /* ButtonComponent.swift in Sources */,
 				4EFC7475291C85AB0086A6AB /* InputDateComponent.swift in Sources */,
 				4EE651B92919769D007F115A /* GuestView.swift in Sources */,
 				4E51E58A291EFD180007887B /* HealthLogKind.swift in Sources */,
+				4E235E1029370D3E00A2B0A7 /* MedicineSelectComponent.swift in Sources */,
+				4EB4CE73292AF059004C1281 /* DtoDateFormatter.swift in Sources */,
 				4EFC7447291B0B990086A6AB /* MyPets.swift in Sources */,
 				4E24B6DD29147D7600405D06 /* WolfieApp.swift in Sources */,
 				4EE651B32919724A007F115A /* MainDevView.swift in Sources */,
 				4E51E594291F08780007887B /* HealthLogSingleView.swift in Sources */,
 				4EFC7489291DA75C0086A6AB /* WeightDto.swift in Sources */,
+				4E235E0C2936F7DA00A2B0A7 /* SuccessView.swift in Sources */,
 				4EFC744A291B0BF20086A6AB /* PetSingle.swift in Sources */,
+				4EF572AB29214B7500F11E4A /* SignInDto.swift in Sources */,
 				4E51E586291EFC820007887B /* HealthLogViewModel.swift in Sources */,
 				4E51E58E291EFE440007887B /* User.swift in Sources */,
 			);
@@ -1045,6 +1245,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = Wolfie/Wolfie.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Wolfie/Preview Content\"";
@@ -1057,6 +1259,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -1067,9 +1270,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = me.blanik.Wolfie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1079,6 +1285,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = Wolfie/Wolfie.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Wolfie/Preview Content\"";
@@ -1091,6 +1299,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -1101,9 +1310,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = me.blanik.Wolfie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

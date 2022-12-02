@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import RealmSwift
 
-enum HealthLogKind: String, CaseIterable, Codable {
+enum HealthLogKind: String, CaseIterable, Codable, PersistableEnum {
     case VaccinationRabies = "VACCINATION_RABIES"
     case Vaccination = "VACCINATION"
     case Deworming = "DEWORMING"

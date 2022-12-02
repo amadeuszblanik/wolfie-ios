@@ -9,15 +9,37 @@ import Foundation
 
 extension DashboardWeightsView {
     @MainActor class ViewModel: ObservableObject {
-        var data: [ApiWeightValue]
         var units: WeightUnits = .Kilogram
         
-        init (data: [ApiWeightValue] = []) {
-            self.data = data
-        }
+        @Published var selectedEditWeight: WeightValueDB? = nil
+        @Published var selectedDeleteWeight: WeightValueDB? = nil
+        @Published var isLoading = false
+        @Published var isError = false
         
-        func delete(_ id: String) -> Void {
-            print("Delete \(id)")
+        var errorMessage = ""
+
+        func delete(petId: String, weight: WeightValueDB) -> Void {
+            self.isLoading = true
+            
+            WolfieApi().deletePetsWeights(petId: petId, weightId: weight.id) { result in
+                switch result {
+                case .success:
+                    RealmManager().fetchWeights(petId: petId)
+                    
+                    self.selectedDeleteWeight = nil
+                case .failure(let error):
+                    self.isError = true
+                    
+                    switch error {
+                    case .server(let message):
+                        self.errorMessage = message
+                    default:
+                        self.errorMessage = String(localized: "error_generic_message")
+                    }
+                }
+                
+                self.isLoading = false
+            }
         }
     }
 }

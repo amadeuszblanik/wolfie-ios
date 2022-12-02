@@ -9,8 +9,10 @@ import SwiftUI
 
 struct UISelectSearch: View {
     var label: String!
+    var unselectedLabel = "–"
     var values: [SelectItem]
     var plain = false
+    var allowDeselect = false
     @Binding var state: SelectItem?
     @State private var isOpen = false
     @State private var query = ""
@@ -20,7 +22,7 @@ struct UISelectSearch: View {
             return values
         }
         
-        return values.filter { $0.label.contains(query) }
+        return values.filter { $0.label.lowercased().contains(query.lowercased()) }
     }
     
     var body: some View {
@@ -30,29 +32,43 @@ struct UISelectSearch: View {
             
             Spacer()
             
-            Button(state?.label ?? String(localized: "breed_mixed")) {
+            Button(state?.label ?? unselectedLabel) {
                 isOpen = true
             }
         }
         .sheet(isPresented: $isOpen) {
             NavigationView {
                 VStack {
-                    List(searchResults) { value in
-                        Button {
-                            state = value
-                            isOpen = false
-                        } label: {
-                            HStack {
-                                Text(value.label)
-
-                                Spacer()
-
-                                Text (value.id)
-                                    .font(.callout)
-                                    .lineLimit(1)
-                                    .foregroundColor(Color(UIColor.secondaryLabel))
+                    List {
+                        if allowDeselect {
+                            Button {
+                                state = nil
+                                isOpen = false
+                            } label: {
+                                HStack {
+                                    Text(unselectedLabel)
+                                }
+                                .foregroundColor(Color(UIColor.label))
                             }
-                            .foregroundColor(Color(UIColor.label))
+                        }
+                        
+                        ForEach(searchResults) { value in
+                            Button {
+                                state = value
+                                isOpen = false
+                            } label: {
+                                HStack {
+                                    Text(value.label)
+
+                                    Spacer()
+
+                                    Text (value.id)
+                                        .font(.callout)
+                                        .lineLimit(1)
+                                        .foregroundColor(Color(UIColor.secondaryLabel))
+                                }
+                                .foregroundColor(Color(UIColor.label))
+                            }
                         }
                     }
                 }
@@ -95,6 +111,14 @@ struct UISelectSearch_Previews: PreviewProvider {
                 plain: true,
                 state: $selectedValue
             )
+            .padding(.bottom)
+
+            UISelectSearch(
+                label: "Select breed",
+                values: values,
+                allowDeselect: true,
+                state: $selectedValue
+            )
         }
         .padding(.horizontal)
         
@@ -110,6 +134,14 @@ struct UISelectSearch_Previews: PreviewProvider {
                 label: "Select breed",
                 values: values,
                 plain: true,
+                state: $selectedValue
+            )
+            .padding(.bottom)
+
+            UISelectSearch(
+                label: "Select breed",
+                values: values,
+                allowDeselect: true,
                 state: $selectedValue
             )
         }

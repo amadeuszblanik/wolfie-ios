@@ -12,7 +12,7 @@ let MOCKED_PASSWORD = "Passw0rd!1"
 
 extension SignInView {
     @MainActor class ViewModel: ObservableObject {
-        @AppStorage("AUTH_ACCESS_TOKEN") var accessToken: String? {
+        @AppStorage("AUTH_SIGNED") var isSigned: Bool? {
             willSet { objectWillChange.send() }
         }
         
@@ -23,39 +23,63 @@ extension SignInView {
         @Published var isLoading: Bool = false
         @Published var isInvalid: Bool = false
         
-        var errorMessage: String = "Lorem ipsum dolor sit amet"
+        
+        var isFilled: Bool {
+            !username.isEmpty && !password.isEmpty
+        }
+
+        var errorMessage: String = ""
         
         var device: String = UIDevice().name
         
-        func setAccessToken(_ next: String? = nil) {
+        func setIsSigned(_ next: Bool? = nil) {
             self.password = ""
             
             withAnimation {
-                accessToken = next
+                isSigned = next
             }
         }
         
         func signIn() -> Void {
-            isInvalid = false
             isActive = false
             isLoading = true
-            print("Tried to sign in as \(username)/\(password) and \(keepSignIn ? "Keep session" : "Do not keep session") with device \(device)")
-
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
-                self.isLoading = false
-                self.isActive = true
-                
-                guard self.username.lowercased() == MOCKED_USERNAME else {
+            
+            let payload: DtoSignIn = DtoSignIn(
+                username: self.username,
+                password: self.password,
+                keepSignIn: self.keepSignIn,
+                device: UIDevice().name
+            )
+            
+            WolfieApi().postSignIn(body: payload) { result in
+                switch result {
+                case .success(let response):
+                    do {
+                        try KeychainService.standard.save(Data(response.accessToken.utf8), service: "access-token", account: "wolfie")
+                        
+                        if let refreshToken = response.refreshToken {
+                            try KeychainService.standard.save(Data(refreshToken.utf8), service: "refresh-token", account: "wolfie")
+                        }
+                        
+                        self.setIsSigned(true)
+                    } catch {
+                        self.isInvalid = true
+                        self.isActive = true
+                        self.isLoading = false
+                        self.errorMessage = String(localized: "error_keychain_generic_message")
+                    }
+                case .failure(let error):
                     self.isInvalid = true
-                    return
+                    self.isActive = true
+                    self.isLoading = false
+                    
+                    switch error {
+                    case .server(let message):
+                        self.errorMessage = message
+                    default:
+                        self.errorMessage = String(localized: "error_generic_message")
+                    }
                 }
-                
-                guard self.password == MOCKED_PASSWORD else {
-                    self.isInvalid = true
-                    return
-                }
-                
-                self.setAccessToken("ACCESS_TOKEN")
             }
         }
     }
