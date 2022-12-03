@@ -51,11 +51,11 @@ extension SignUpView {
                     self.isInvalid = true
                     self.isActive = true
                     self.isLoading = false
+                    self.isSuccess = false
 
                     switch error {
                     case .server(let message):
                         self.errorMessage = message
-                        self.isSuccess = false
                     default:
                         self.errorMessage = String(localized: "error_generic_message")
                     }

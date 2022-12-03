@@ -99,7 +99,7 @@ struct HealthLogForm: View {
                         .listRowBackground(Color(UIColor.secondarySystemBackground))
 
                     HStack {
-                        Text(String(localized: "veterinary"))
+                        Text(String(localized: "vet"))
 
                         TextField("", text: $vm.state.veterinary)
                             .multilineTextAlignment(.trailing)

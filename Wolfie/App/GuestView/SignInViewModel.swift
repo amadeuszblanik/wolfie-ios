@@ -54,6 +54,9 @@ extension SignInView {
             WolfieApi().postSignIn(body: payload) { result in
                 switch result {
                 case .success(let response):
+                    self.isActive = true
+                    self.isLoading = false
+
                     do {
                         try KeychainService.standard.save(Data(response.accessToken.utf8), service: "access-token", account: "wolfie")
 

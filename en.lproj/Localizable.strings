@@ -52,7 +52,7 @@
 "deactivate_account" = "Deactivate account";
 "delete_account" = "Delete account";
 
-"read_gdpr" = "Policy privacy (GDPR)";
+"read_gdpr" = "Privacy policy";
 
 "user_pets" = "Pets";
 "user_role_banned" = "Banned";
@@ -90,7 +90,7 @@
 "health_log_kind_regulations_of_breeding" = "Regulations of breeding";
 "health_log_kind_use_of_gamagloubin" = "Use of gamagloubin";
 "health_log_kind_treatment" = "Treatment";
-"gdpr_consent" = "Lorem ipsum dolor sit amet";
+"gdpr_consent" = "Yes, I have read privacy policy";
 
 "kind" = "Kind";
 "age" = "Age";
@@ -458,7 +458,7 @@
 "medicines" = "Medicines";
 "additional_medicines" = "Additional medicines";
 "additional_medicines_short" = "More meds";
-"veterinary" = "Veterinary";
+"vet" = "Vet";
 "diagnosis" = "Diagnosis";
 "next_visit" = "Next visit";
 "description" = "Description";
@@ -488,7 +488,7 @@
 "web_view_title" = "Browser";
 "error_generic_title" = "Something went wrong";
 "error_generic_message" = "Something went wrong… Please try again later.";
-"error_keychain_generic_message" = "Authorization of this device is not possible at the moment. Our development team was reported.";
+"error_keychain_generic_message" = "Authorization of this device is not possible at the moment. Our development team got the reoprt.";
 
 "error_api_title" = "Network issue";
 "error_api_message" = "Wolfie.app servers are not responsive at the moment.";
@@ -498,5 +498,5 @@
 
 "success_generic_message" = "Success!";
 
-"breed_select_label" = "Selected breed";
-"medicine_select_label" = "Selected medicines";
+"breed_select_label" = "Select breed";
+"medicine_select_label" = "Select medicines";

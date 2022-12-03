@@ -52,7 +52,9 @@ struct ProfileView: View {
                     Text(config.userPetsAllowed.formatted())
                 }
 
-                ProgressView(value: Float(config.userPets), total: Float(config.userPetsAllowed))
+                if let total = [Float(config.userPets), Float(config.userPetsAllowed)].max() {
+                    ProgressView(value: Float(config.userPets), total: total)
+                }
 
                 if !config.canAddNewPet {
                     Text(String(localized: "user_out_of_limit"))
@@ -75,25 +77,25 @@ struct ProfileView: View {
 
             Section {
                 Button {
-                    path.append(.updateProfile)
+                    path.append(ProfileViews.updateProfile)
                 } label: {
                     ProfileItemView(label: String(localized: "update_profile"))
                 }
 
                 Button {
-                    path.append(.changePassword)
+                    path.append(ProfileViews.changePassword)
                 } label: {
                     ProfileItemView(label: String(localized: "change_password"))
                 }
 
                 Button {
-                    path.append(.authorizedDevices)
+                    path.append(ProfileViews.authorizedDevices)
                 } label: {
                     ProfileItemView(label: String(localized: "authorized_devices"))
                 }
 
                 Button {
-                    path.append(.privacyPolicy)
+                    path.append(ProfileViews.privacyPolicy)
                 } label: {
                     ProfileItemView(label: String(localized: "read_gdpr"))
                 }
@@ -101,7 +103,7 @@ struct ProfileView: View {
 
             Section {
                 Button {
-                    path.append(.deleteAccount)
+                    path.append(ProfileViews.deleteAccount)
                 } label: {
                     ProfileItemView(label: String(localized: "delete_account"))
                 }
@@ -118,47 +120,49 @@ struct ProfileView: View {
     var body: some View {
         NavigationStack(path: $path) {
             navigationList
-        }
-        .navigationDestination(for: ProfileViews.self) { view in
-            switch view {
-            case .updateProfile:
-                UIWebView(url: vm.updateProfileUrl, title: String(localized: "update_profile"))
-            case .changePassword:
-                UIWebView(url: vm.changePasswordUrl, title: String(localized: "change_password"))
-            case .authorizedDevices:
-                UIWebView(url: vm.authorizedDevicesUrl, title: String(localized: "authorized_devices"))
-            case .privacyPolicy:
-                UIWebView(url: vm.gdprUrl, title: String(localized: "read_gdpr"))
-            case .deleteAccount:
-                DeleteAccountView(vm: DeleteAccountView.ViewModel(onSignOff: {
-                    path = []
-                    vm.signOff()
-                }))
-            }
+                .navigationDestination(for: ProfileViews.self) { view in
+                    switch view {
+                    case .updateProfile:
+                        UIWebView(url: vm.updateProfileUrl, title: String(localized: "update_profile"))
+                    case .changePassword:
+                        UIWebView(url: vm.changePasswordUrl, title: String(localized: "change_password"))
+                    case .authorizedDevices:
+                        UIWebView(url: vm.authorizedDevicesUrl, title: String(localized: "authorized_devices"))
+                    case .privacyPolicy:
+                        UIWebView(url: vm.gdprUrl, title: String(localized: "read_gdpr"))
+                    case .deleteAccount:
+                        DeleteAccountView(vm: DeleteAccountView.ViewModel(onSignOff: {
+                            path = []
+                            vm.signOff()
+                        }))
+                    default:
+                        Text("Not implemented yet")
+                    }
+                }
         }
     }
 }
 
-struct ProfileView_Previews: PreviewProvider {
-    static var VM_0 = ProfileView.ViewModel(config: CONFIG_0, user: USER_0)
-    static var VM_1 = ProfileView.ViewModel(config: CONFIG_1, user: USER_0)
-    static var VM_2 = ProfileView.ViewModel(config: CONFIG_0, user: USER_0)
-
-    static var previews: some View {
-        ProfileView(vm: VM_0)
-        ProfileView(vm: VM_0)
-            .preferredColorScheme(.dark)
-
-        ProfileView(vm: VM_1)
-        ProfileView(vm: VM_1)
-            .preferredColorScheme(.dark)
-
-        NavigationView {
-            ProfileView(vm: VM_2)
-        }
-        NavigationView {
-            ProfileView(vm: VM_2)
-        }
-            .preferredColorScheme(.dark)
-    }
-}
+//struct ProfileView_Previews: PreviewProvider {
+//    static var VM_0 = ProfileView.ViewModel(config: CONFIG_0, user: USER_0)
+//    static var VM_1 = ProfileView.ViewModel(config: CONFIG_1, user: USER_0)
+//    static var VM_2 = ProfileView.ViewModel(config: CONFIG_0, user: USER_0)
+//
+//    static var previews: some View {
+//        ProfileView(vm: VM_0)
+//        ProfileView(vm: VM_0)
+//            .preferredColorScheme(.dark)
+//
+//        ProfileView(vm: VM_1)
+//        ProfileView(vm: VM_1)
+//            .preferredColorScheme(.dark)
+//
+//        NavigationView {
+//            ProfileView(vm: VM_2)
+//        }
+//        NavigationView {
+//            ProfileView(vm: VM_2)
+//        }
+//            .preferredColorScheme(.dark)
+//    }
+//}

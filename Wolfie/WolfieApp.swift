@@ -18,7 +18,7 @@ struct WolfieApp: SwiftUI.App {
             // Update
         }
     })
-    
+
     init() {
         guard let infoDictionary: [String: Any] = Bundle.main.infoDictionary else { print("Cannot read infoDictionary"); return }
         guard let sentryDsn: String = infoDictionary["SentryDsn"] as? String else { print("Cannot read SentryDsn"); return }
@@ -38,20 +38,14 @@ struct WolfieApp: SwiftUI.App {
             options.enableFileIOTracking = true
             options.enableCoreDataTracking = true
             options.enableCaptureFailedRequests = true
-            options.attachScreenshot = true
+            options.attachScreenshot = sentryEnvironment != "production"
         }
     }
 
     var body: some Scene {
         WindowGroup {
-            VStack() {                
-                #if DEBUG
-                MainDevView()
-                    .environment(\.realmConfiguration, realmConfig)
-                #else
+            VStack() {
                 MainView()
-                    .environment(\.realmConfiguration, realmConfig)
-                #endif
             }
         }
     }

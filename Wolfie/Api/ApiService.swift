@@ -77,6 +77,7 @@ public final class WolfieApi {
 
                     do {
                         let errorMessage = try decoder.decode(ApiErrorMessage.self, from: results.data!)
+
                         completion(.failure(.server(message: errorMessage.message)))
                     } catch {
                         completion(.failure(.unknownError))

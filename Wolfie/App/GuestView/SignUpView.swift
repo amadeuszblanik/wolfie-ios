@@ -11,7 +11,7 @@ struct SignUpView: View {
     @State private var isGdprOpen = false
     @Binding var selectedView: GuestViews?
     @StateObject private var vm = ViewModel()
-    
+
     var success: some View {
         Group {
             Text(vm.sucessMessage)
@@ -19,7 +19,7 @@ struct SignUpView: View {
                 .foregroundColor(Color.green)
                 .multilineTextAlignment(.center)
             Spacer()
-            
+
             UIButton(text: String(localized: "sign_in"), fullWidth: true) {
                 withAnimation {
                     selectedView = .signIn
@@ -27,7 +27,7 @@ struct SignUpView: View {
             }
         }
     }
-    
+
     var form: some View {
         Group {
             UIInput(label: String(localized: "email"), state: $vm.email, keyboardType: .emailAddress)
