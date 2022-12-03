@@ -104,7 +104,7 @@ struct SignUpView: View {
                 }
             }
             .padding()
-            .alert(isPresented: $vm.isInvalid) {
+                .alert(isPresented: $vm.isInvalid) {
                 Alert(
                     title: Text(String(localized: "error_generic_title")),
                     message: Text(vm.errorMessage)
@@ -116,7 +116,7 @@ struct SignUpView: View {
 
 struct SignUpView_Previews: PreviewProvider {
     @State static var selectedView: GuestViews? = GuestViews.signUp
-    
+
     static var previews: some View {
         SignUpView(selectedView: $selectedView)
         SignUpView(selectedView: $selectedView)

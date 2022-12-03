@@ -10,7 +10,7 @@ import SwiftUI
 struct UIWebView: View {
     var url: String
     var title = String(localized: "web_view_title")
-    
+
     var body: some View {
         NavigationView {
             WebView(url: url)
@@ -25,7 +25,7 @@ struct UIWebView: View {
 }
 
 struct UIWebView_Previews: PreviewProvider {
-    static var url = "https://next.wolfie.app"
+    static var url = "https://wolfie.app"
     @State static var isOpen = true
     
     static var previews: some View {

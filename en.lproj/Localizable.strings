@@ -17,6 +17,25 @@
 "sign_up_header" = "Welcome new Hooman!";
 "sign_up_sub_header" = "Create your new account";
 
+"delete_account" = "Delete account";
+"delete_account_header" = "Delete account";
+"delete_account_sub_header" = "We will miss our Hooman!";
+
+"delete_account_introduction_header" = "Introduction";
+"delete_account_introduction_content_0" = "We value your privacy and want to make perfect match options for user that don't want to stay with Wolfie any longer.";
+"delete_account_introduction_content_1" = "We prepared two options to our Hooman friends that doesn't want to delete their account.";
+
+"delete_account_immediately_header" = "Delete data immediately";
+"delete_account_immediately_content_0" = "If you check that you want to remove your account all connected data will be removed for forever.";
+"delete_account_immediately_confirmation_content" = "I understand that there's no way back and all my data will be deleted!";
+
+"delete_account_deactivate_header" = "Deactivate account for 30 days";
+"delete_account_deactivate_content_0" = "If you choose to deactivate account you can change your mind in next 30 days. We will notify you by e-mail and push notifications on 2 days before that your deletion date in near.";
+"delete_account_deactivate_confirmation_content" = "I understand that all of my data will be stored for next 30 days and I can decide later.";
+
+"delete_account_backup_header" = "Back-up information";
+"delete_account_backup_content_0" = "Your data might be stored in encrypted backup. We keep our backups safely and do our best to prevent need of use them. Back-ups are not stored longer than 7 days after their creation date.";
+
 "please_wait" = "Please wait…";
 "sample_data" = "Sample data";
 "update" = "Update";
@@ -30,6 +49,8 @@
 "feedback" = "Add feedback";
 "comment" = "Comment";
 "error_details" = "System details";
+"deactivate_account" = "Deactivate account";
+"delete_account" = "Delete account";
 
 "read_gdpr" = "Policy privacy (GDPR)";
 

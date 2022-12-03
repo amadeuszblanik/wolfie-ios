@@ -13,6 +13,8 @@ protocol WolfieApiProtocol {
     func postSignUp(body: DtoSignUp, completion: @escaping (Result<ApiMessage, ApiError>) -> Void)
     func postRefreshToken(body: DtoRefreshToken, completion: @escaping (Result<ApiSignIn, ApiError>) -> Void)
     func getProfile(completion: @escaping (Result<ApiUser, ApiError>) -> Void)
+    func deleteUser(body: DtoDeleteUser, completion: @escaping (Result<ApiMessage, ApiError>) -> Void)
+    func deleteDeactivateUser(body: DtoDeleteUser, completion: @escaping (Result<ApiMessage, ApiError>) -> Void)
     func getConfig(completion: @escaping (Result<ApiConfig, ApiError>) -> Void)
     func getPetsMy(completion: @escaping (Result<[ApiPetSingle], ApiError>) -> Void)
     func postPets(body: DtoPet, completion: @escaping (Result<ApiPetSingle, ApiError>) -> Void)
@@ -114,6 +116,14 @@ extension WolfieApi: WolfieApiProtocol {
 
     func getProfile(completion: @escaping (Result<ApiUser, ApiError>) -> Void) {
         performRequest(route: .getProfile, completion: completion)
+    }
+
+    func deleteUser(body: DtoDeleteUser, completion: @escaping (Result<ApiMessage, ApiError>) -> Void) {
+        performRequest(route: .deleteUser(body), completion: completion)
+    }
+
+    func deleteDeactivateUser(body: DtoDeleteUser, completion: @escaping (Result<ApiMessage, ApiError>) -> Void) {
+        performRequest(route: .deleteDeactivateUser(body), completion: completion)
     }
 
     func getConfig(completion: @escaping (Result<ApiConfig, ApiError>) -> Void) {
