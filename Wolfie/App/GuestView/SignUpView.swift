@@ -60,7 +60,7 @@ struct SignUpView: View {
                 isGdprOpen = true
             }
             .sheet(isPresented: $isGdprOpen) {
-                WebView(url: "https://next.wolfie.app/privacy-policy")
+                WebView(url: "https://wolfie.app/privacy-policy")
             }
             .padding(.top)
         }
