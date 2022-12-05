@@ -71,3 +71,6 @@ Config.xcconfig
 ConfigDebug.xcconfig
 
 Wolfie/GoogleService-Info.plist
+
+# Jetbrains
+.idea
