@@ -68,12 +68,20 @@ struct DashboardView: View {
 
     var empty: some View {
         Group {
-            Spacer()
-
-            Text(String(localized: "dashboard_empty"))
-                .fontWeight(.semibold)
-
-            UIButton(text: String(localized: "refresh")) {
+            GeometryReader { geometry in
+                ScrollView(.vertical) {
+                    VStack {
+                        Spacer()
+                        
+                        Text(String(localized: "dashboard_empty"))
+                            .fontWeight(.semibold)
+                        Spacer()
+                    }
+                    .frame(width: geometry.size.width)
+                    .frame(minHeight: geometry.size.height)
+                }
+            }
+            .refreshable {
                 realmDb.fetchPets()
             }
         }
@@ -82,7 +90,7 @@ struct DashboardView: View {
     var body: some View {
         NavigationStack(path: $path) {
             VStack {
-                if (petDb.isEmpty) {
+                if petDb.isEmpty {
                     empty
                 } else {
                     list

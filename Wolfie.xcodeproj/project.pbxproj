@@ -100,7 +100,6 @@
 		4EFC743C291AF64C0086A6AB /* SelectComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC743B291AF64C0086A6AB /* SelectComponent.swift */; };
 		4EFC743E291AF6920086A6AB /* WeightUnits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC743D291AF6920086A6AB /* WeightUnits.swift */; };
 		4EFC7441291B06920086A6AB /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7440291B06920086A6AB /* DashboardView.swift */; };
-		4EFC7447291B0B990086A6AB /* MyPets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7446291B0B990086A6AB /* MyPets.swift */; };
 		4EFC744A291B0BF20086A6AB /* PetSingle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7449291B0BF20086A6AB /* PetSingle.swift */; };
 		4EFC744C291B0C310086A6AB /* PetKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC744B291B0C310086A6AB /* PetKind.swift */; };
 		4EFC744E291B0C5F0086A6AB /* WeightValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC744D291B0C5F0086A6AB /* WeightValue.swift */; };
@@ -254,7 +253,6 @@
 		4EFC743B291AF64C0086A6AB /* SelectComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectComponent.swift; sourceTree = "<group>"; };
 		4EFC743D291AF6920086A6AB /* WeightUnits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightUnits.swift; sourceTree = "<group>"; };
 		4EFC7440291B06920086A6AB /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
-		4EFC7446291B0B990086A6AB /* MyPets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPets.swift; sourceTree = "<group>"; };
 		4EFC7449291B0BF20086A6AB /* PetSingle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetSingle.swift; sourceTree = "<group>"; };
 		4EFC744B291B0C310086A6AB /* PetKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetKind.swift; sourceTree = "<group>"; };
 		4EFC744D291B0C5F0086A6AB /* WeightValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightValue.swift; sourceTree = "<group>"; };
@@ -383,7 +381,6 @@
 				4EFC7459291B1A2B0086A6AB /* Utils */,
 				4EFC7456291B0F0A0086A6AB /* Info.plist */,
 				4EFC7453291B0E430086A6AB /* Mocks */,
-				4EFC7445291B0B860086A6AB /* DataDisplays */,
 				4EFC7438291AE7FA0086A6AB /* Models */,
 				4EE651C82919D2FE007F115A /* Gestures */,
 				4EE651B429197343007F115A /* Components */,
@@ -625,14 +622,6 @@
 				4EFC746D291C76660086A6AB /* DashboardSingleView.swift */,
 			);
 			path = DashboardView;
-			sourceTree = "<group>";
-		};
-		4EFC7445291B0B860086A6AB /* DataDisplays */ = {
-			isa = PBXGroup;
-			children = (
-				4EFC7446291B0B990086A6AB /* MyPets.swift */,
-			);
-			path = DataDisplays;
 			sourceTree = "<group>";
 		};
 		4EFC7448291B0BD00086A6AB /* Api */ = {
@@ -1087,7 +1076,6 @@
 				4E51E58A291EFD180007887B /* HealthLogKind.swift in Sources */,
 				4E235E1029370D3E00A2B0A7 /* MedicineSelectComponent.swift in Sources */,
 				4EB4CE73292AF059004C1281 /* DtoDateFormatter.swift in Sources */,
-				4EFC7447291B0B990086A6AB /* MyPets.swift in Sources */,
 				4E24B6DD29147D7600405D06 /* WolfieApp.swift in Sources */,
 				4EE651B32919724A007F115A /* MainDevView.swift in Sources */,
 				4E51E594291F08780007887B /* HealthLogSingleView.swift in Sources */,
@@ -1268,7 +1256,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = Wolfie/Wolfie.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"Wolfie/Preview Content\"";
 				DEVELOPMENT_TEAM = 6WY65SAG73;
 				ENABLE_PREVIEWS = YES;
@@ -1308,7 +1296,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = Wolfie/Wolfie.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"Wolfie/Preview Content\"";
 				DEVELOPMENT_TEAM = 6WY65SAG73;
 				ENABLE_PREVIEWS = YES;

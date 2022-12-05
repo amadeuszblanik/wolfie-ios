@@ -74,10 +74,16 @@ struct HealthLogView: View {
     
     var empty: some View {
         Group {
-            VStack {
-                Text(String(localized: "healt_log_empty"))
-                    .padding(.bottom)
-                UIButton(text: String(localized: "refresh")) {
+            GeometryReader { geometry in
+                ScrollView(.vertical) {
+                    VStack {
+                        Text(String(localized: "healt_log_empty"))
+                            .padding(.bottom)
+                    }
+                    .frame(width: geometry.size.width)
+                    .frame(minHeight: geometry.size.height)
+                }
+                .refreshable {
                     RealmManager().fetchHealthLog(petId: pet.id)
                 }
             }

@@ -36,9 +36,6 @@ final class ApiRefreshTokenInterceptor: RequestInterceptor {
         print("💻 Request intercepetor retrying…")
 
         guard let response = request.task?.response as? HTTPURLResponse, response.statusCode == 401 else {
-            print("💻 Request intercepetor failed to retry due to invalid refresh token")
-            UserDefaults.standard.set(false, forKey: "AUTH_SIGNED")
-
             return completion(.doNotRetryWithError(error))
         }
 

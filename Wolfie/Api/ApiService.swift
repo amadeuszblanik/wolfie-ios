@@ -35,7 +35,6 @@ protocol WolfieApiProtocol {
 public final class WolfieApi {
     @discardableResult
     private func performRequest<T: Decodable>(route: ApiRouter, decoder: JSONDecoder = WolfieApi.jsonDecoder, completion: @escaping (Result<T, ApiError>) -> Void) -> DataRequest {
-        
         return ApiSession.request(route).validate().responseData() { results in
             let result = results.result
 
@@ -96,7 +95,7 @@ public final class WolfieApi {
     static var jsonDecoder: JSONDecoder {
         let jsonDecoder = JSONDecoder()
         jsonDecoder.dateDecodingStrategy = .formatted(jsonDateFormatter())
-        jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase;
+        jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
 
         return jsonDecoder
     }
@@ -134,19 +133,19 @@ extension WolfieApi: WolfieApiProtocol {
     func getPetsMy(completion: @escaping (Result<[ApiPetSingle], ApiError>) -> Void) {
         performRequest(route: .getPetsMy, completion: completion)
     }
-    
+
     func postPets(body: DtoPet, completion: @escaping (Result<ApiPetSingle, ApiError>) -> Void) {
         performRequest(route: .postPets(body), completion: completion)
     }
-    
+
     func putPets(petId: String, body: DtoPetUpdate, completion: @escaping (Result<ApiPetSingle, ApiError>) -> Void) {
         performRequest(route: .putPets(petId, body: body), completion: completion)
     }
-    
+
     func deletePets(petId: String, completion: @escaping (Result<ApiMessage, ApiError>) -> Void) {
         performRequest(route: .deletePets(petId), completion: completion)
     }
-    
+
     func getPetsWeights(petId: String, completion: @escaping (Result<[ApiWeightValue], ApiError>) -> Void) {
         performRequest(route: .getPetsWeights(petId), completion: completion)
     }
@@ -182,7 +181,7 @@ extension WolfieApi: WolfieApiProtocol {
     func getBreeds(completion: @escaping (Result<[ApiBreed], ApiError>) -> Void) {
         performRequest(route: .getBreeds, completion: completion)
     }
-    
+
     func getMedicines(completion: @escaping (Result<[ApiShortMedicineValue], ApiError>) -> Void) {
         performRequest(route: .getMedicines, completion: completion)
     }
