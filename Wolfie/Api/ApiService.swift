@@ -13,6 +13,7 @@ protocol WolfieApiProtocol {
     func postSignUp(body: DtoSignUp, completion: @escaping (Result<ApiMessage, ApiError>) -> Void)
     func postRefreshToken(body: DtoRefreshToken, completion: @escaping (Result<ApiSignIn, ApiError>) -> Void)
     func postFcmToken(body: DtoFcmToken, completion: @escaping (Result<ApiCommonResponse, ApiError>) -> Void)
+    func postTestNotification(completion: @escaping (Result<ApiCommonResponse, ApiError>) -> Void)
     func getProfile(completion: @escaping (Result<ApiUser, ApiError>) -> Void)
     func deleteUser(body: DtoDeleteUser, completion: @escaping (Result<ApiMessage, ApiError>) -> Void)
     func deleteDeactivateUser(body: DtoDeleteUser, completion: @escaping (Result<ApiMessage, ApiError>) -> Void)
@@ -117,6 +118,10 @@ extension WolfieApi: WolfieApiProtocol {
 
     func postFcmToken(body: DtoFcmToken, completion: @escaping (Result<ApiCommonResponse, ApiError>) -> Void) {
         performRequest(route: .postFcmToken(body), completion: completion)
+    }
+
+    func postTestNotification(completion: @escaping (Result<ApiCommonResponse, ApiError>) -> Void) {
+        performRequest(route: .postTestNotification, completion: completion)
     }
 
     func getProfile(completion: @escaping (Result<ApiUser, ApiError>) -> Void) {

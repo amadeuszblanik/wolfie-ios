@@ -49,6 +49,7 @@
 "feedback" = "Add feedback";
 "comment" = "Comment";
 "error_details" = "System details";
+"test_notification" = "Test notification";
 "deactivate_account" = "Deactivate account";
 "delete_account" = "Delete account";
 

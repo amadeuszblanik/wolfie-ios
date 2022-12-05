@@ -65,6 +65,7 @@ extension SignInView {
                         }
 
                         self.setIsSigned(true)
+                        FirebaseService().updateFcmToken()
                     } catch {
                         self.isInvalid = true
                         self.isActive = true

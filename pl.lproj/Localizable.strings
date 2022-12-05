@@ -49,8 +49,9 @@
 "feedback" = "Informacja zwrotna";
 "comment" = "Komentarz";
 "error_details" = "Dane systemowe";
+"test_notification" = "Wyślij testową notyfikację";
 
-"read_gdpr" = "Polityka Prywatności (RODO)";
+"read_gdpr" = "Polityka Prywatności";
 
 "user_pets" = "Zwierzęta";
 "user_role_banned" = "Zablokowany";

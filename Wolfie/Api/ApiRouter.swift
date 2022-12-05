@@ -13,6 +13,7 @@ public enum ApiRouter: ApiConfiguration {
     case postAuthSignUp(_ body: DtoSignUp)
     case postRefreshToken(_ body: DtoRefreshToken)
     case postFcmToken(_ body: DtoFcmToken)
+    case postTestNotification
     case getProfile
     case deleteUser(_ body: DtoDeleteUser)
     case deleteDeactivateUser(_ body: DtoDeleteUser)
@@ -41,6 +42,8 @@ public enum ApiRouter: ApiConfiguration {
         case .postRefreshToken:
             return .post
         case .postFcmToken:
+            return .post
+        case .postTestNotification:
             return .post
         case .getProfile:
             return .get
@@ -95,6 +98,8 @@ public enum ApiRouter: ApiConfiguration {
             return "/auth/refresh-token"
         case .postFcmToken:
             return "/auth/fcm-token"
+        case .postTestNotification:
+            return "/auth/test-notification"
         case .getProfile:
             return "/auth/profile"
         case .getConfig:

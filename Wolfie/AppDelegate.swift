@@ -57,17 +57,14 @@ class AppDelegate: NSObject, UIApplicationDelegate, MessagingDelegate, UNUserNot
 
 extension AppDelegate {
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        UserDefaults.standard.set(fcmToken, forKey: "FCM_TOKEN")
 
-        let deviceToken: [String: String] = ["token": fcmToken ?? ""]
-
-        print("Device token: ", deviceToken) // This token can be used for testing notifications on FCM
+        FirebaseService().updateFcmToken()
     }
 }
 
 @available(iOS 10, *)
 extension AppDelegate {
-
-    // Receive displayed notifications for iOS 10 devices.
     func userNotificationCenter(
         _ center: UNUserNotificationCenter,
         willPresent notification: UNNotification,
@@ -81,7 +78,6 @@ extension AppDelegate {
 
         print(userInfo)
 
-        // Change this to your preferred presentation option
         completionHandler([[.banner, .badge, .sound]])
     }
 

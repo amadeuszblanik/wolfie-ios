@@ -52,6 +52,7 @@
 		4E8B68BE292032E300A0BBE1 /* PetDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68BD292032E300A0BBE1 /* PetDB.swift */; };
 		4E8B68C02920349100A0BBE1 /* WeightValueDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68BF2920349100A0BBE1 /* WeightValueDB.swift */; };
 		4E8B68C2292034EA00A0BBE1 /* BreedDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68C1292034EA00A0BBE1 /* BreedDB.swift */; };
+		4EA1F551293E701600A7AF5C /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA1F550293E701600A7AF5C /* FirebaseService.swift */; };
 		4EA4D191293AC7FC0091D58C /* DeleteAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA4D190293AC7FC0091D58C /* DeleteAccountView.swift */; };
 		4EA4D193293AE1360091D58C /* DeleteUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA4D192293AE1360091D58C /* DeleteUserViewModel.swift */; };
 		4EA4D195293AE2200091D58C /* DeleteUserDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA4D194293AE2200091D58C /* DeleteUserDto.swift */; };
@@ -211,6 +212,7 @@
 		4E8B68BD292032E300A0BBE1 /* PetDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDB.swift; sourceTree = "<group>"; };
 		4E8B68BF2920349100A0BBE1 /* WeightValueDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightValueDB.swift; sourceTree = "<group>"; };
 		4E8B68C1292034EA00A0BBE1 /* BreedDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDB.swift; sourceTree = "<group>"; };
+		4EA1F550293E701600A7AF5C /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		4EA4D190293AC7FC0091D58C /* DeleteAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountView.swift; sourceTree = "<group>"; };
 		4EA4D192293AE1360091D58C /* DeleteUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteUserViewModel.swift; sourceTree = "<group>"; };
 		4EA4D194293AE2200091D58C /* DeleteUserDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteUserDto.swift; sourceTree = "<group>"; };
@@ -611,6 +613,7 @@
 			children = (
 				4EF572B329214D4400F11E4A /* KeychainService.swift */,
 				4E235E0D29370A4A00A2B0A7 /* NetworkService.swift */,
+				4EA1F550293E701600A7AF5C /* FirebaseService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1083,6 +1086,7 @@
 				4EFC746E291C76660086A6AB /* DashboardSingleView.swift in Sources */,
 				4EFC744E291B0C5F0086A6AB /* WeightValue.swift in Sources */,
 				4EFC7437291AE6C00086A6AB /* MainViewModel.swift in Sources */,
+				4EA1F551293E701600A7AF5C /* FirebaseService.swift in Sources */,
 				4EFC7450291B0CE60086A6AB /* Breed.swift in Sources */,
 				4E8B68AE29201D9900A0BBE1 /* RealmManager.swift in Sources */,
 				4EE651C32919BF82007F115A /* SignInView.swift in Sources */,
