@@ -100,8 +100,10 @@ struct MainDevView: View {
                     RealmPlayground()
                 case .error:
                     ErrorView()
-                default:
-                    Text("Not implemented yet.")
+                case .deleteAccount:
+                    DeleteAccountView(vm: DeleteAccountView.ViewModel(onSignOff: {
+                        print("Sign off")
+                    }))
                 }
             } else {
                 ProgressView()
