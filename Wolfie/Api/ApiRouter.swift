@@ -14,6 +14,8 @@ public enum ApiRouter: ApiConfiguration {
     case postRefreshToken(_ body: DtoRefreshToken)
     case postFcmToken(_ body: DtoFcmToken)
     case getProfile
+    case deleteUser(_ body: DtoDeleteUser)
+    case deleteDeactivateUser(_ body: DtoDeleteUser)
     case getConfig
     case getPetsMy
     case postPets(_ body: DtoPet)
@@ -44,6 +46,10 @@ public enum ApiRouter: ApiConfiguration {
             return .get
         case .getConfig:
             return .get
+        case .deleteUser:
+            return .delete
+        case .deleteDeactivateUser:
+            return .delete
         case .getPetsMy:
             return .get
         case .postPets:
@@ -93,6 +99,10 @@ public enum ApiRouter: ApiConfiguration {
             return "/auth/profile"
         case .getConfig:
             return "/config"
+        case .deleteUser:
+            return "/auth/delete-account"
+        case .deleteDeactivateUser:
+            return "/auth/deactivate-account"
         case .getPetsMy:
             return "/pets/my"
         case .postPets:
@@ -133,6 +143,14 @@ public enum ApiRouter: ApiConfiguration {
 
             return json
         case .postRefreshToken(let body):
+            let json = try? body.toData()
+
+            return json
+        case .deleteUser(let body):
+            let json = try? body.toData()
+
+            return json
+        case .deleteDeactivateUser(let body):
             let json = try? body.toData()
 
             return json

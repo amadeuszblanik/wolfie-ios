@@ -77,10 +77,16 @@ struct DashboardWeightsView: View {
     }
 
     var empty: some View {
-        VStack {
-            Text(String(localized: "weight_empty"))
-                .padding(.bottom)
-            UIButton(text: String(localized: "refresh")) {
+        GeometryReader { geometry in
+            ScrollView(.vertical) {
+                VStack {
+                    Text(String(localized: "weight_empty"))
+                        .padding(.bottom)
+                }
+                .frame(width: geometry.size.width)
+                .frame(minHeight: geometry.size.height)
+            }
+            .refreshable {
                 realmDb.fetchWeights(petId: pet.id)
             }
         }

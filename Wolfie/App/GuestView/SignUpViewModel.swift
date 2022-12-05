@@ -24,14 +24,14 @@ extension SignUpView {
         var isFilled: Bool {
             !firstName.isEmpty && !lastName.isEmpty && !password.isEmpty && !passwordConfirm.isEmpty && !weightUnit.isEmpty && gdprConsent
         }
-        
+
         var sucessMessage: String = "Lorem ipsum dolor sit amet"
         var errorMessage: String = "Lorem ipsum dolor sit amet"
 
         func signUp() {
             isActive = false
             isLoading = true
-            
+
             let payload: DtoSignUp = DtoSignUp(
                 email: self.email,
                 firstName: self.firstName,
@@ -41,7 +41,7 @@ extension SignUpView {
                 weightUnit: self.weightUnit,
                 gdprConsent: self.gdprConsent
             )
-            
+
             WolfieApi().postSignUp(body: payload) { result in
                 switch result {
                 case .success(let response):
@@ -51,11 +51,11 @@ extension SignUpView {
                     self.isInvalid = true
                     self.isActive = true
                     self.isLoading = false
-                    
+                    self.isSuccess = false
+
                     switch error {
                     case .server(let message):
                         self.errorMessage = message
-                        self.isSuccess = false
                     default:
                         self.errorMessage = String(localized: "error_generic_message")
                     }

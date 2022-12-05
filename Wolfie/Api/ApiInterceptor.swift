@@ -9,11 +9,15 @@ import Foundation
 import Alamofire
 
 final class ApiRefreshTokenInterceptor: RequestInterceptor {
-    func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
+    func adapt(
+        _ urlRequest: URLRequest,
+        for session: Session,
+        completion: @escaping (Result<URLRequest, Error>) -> Void
+    ) {
         print("💻 Request intercepetor adapt access token…")
 
         var urlRequest = urlRequest
-        
+
         if let data = KeychainService.standard.read(service: "access-token", account: "wolfie") {
             if let accessToken = String(data: data, encoding: .utf8) {
                 urlRequest.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
@@ -23,9 +27,14 @@ final class ApiRefreshTokenInterceptor: RequestInterceptor {
         completion(.success(urlRequest))
     }
 
-    func retry(_ request: Request, for session: Session, dueTo error: Error, completion: @escaping (RetryResult) -> Void) {
+    func retry(
+        _ request: Request,
+        for session: Session,
+        dueTo error: Error,
+        completion: @escaping (RetryResult) -> Void
+    ) {
         print("💻 Request intercepetor retrying…")
-        
+
         guard let response = request.task?.response as? HTTPURLResponse, response.statusCode == 401 else {
             return completion(.doNotRetryWithError(error))
         }
@@ -33,38 +42,51 @@ final class ApiRefreshTokenInterceptor: RequestInterceptor {
         if let data = KeychainService.standard.read(service: "refresh-token", account: "wolfie") {
             if let refreshToken = String(data: data, encoding: .utf8) {
                 let payload = DtoRefreshToken(refreshToken: refreshToken)
-                
+
                 postRefreshToken(payload: payload) { results in
                     switch results {
                     case .success(let response):
                         do {
                             try KeychainService.standard.save(Data(response.accessToken.utf8), service: "access-token", account: "wolfie")
-                            
+
                             if let refreshToken = response.refreshToken {
                                 try KeychainService.standard.save(Data(refreshToken.utf8), service: "refresh-token", account: "wolfie")
                             }
 
                             completion(.retry)
                         } catch {
+                            print("💻 Request intercepetor failed to retry due to invalid refresh token response")
+                            UserDefaults.standard.set(false, forKey: "AUTH_SIGNED")
+
                             completion(.doNotRetryWithError(error))
                         }
                     case .failure(let error):
+                        print("💻 Request intercepetor failed to retry due to failed refresh token response")
+                        UserDefaults.standard.set(false, forKey: "AUTH_SIGNED")
+
                         completion(.doNotRetryWithError(error))
                     }
                 }
             } else {
                 print("💻 Request intercepetor failed to retry due to cannot parse refresh token")
+
+                UserDefaults.standard.set(false, forKey: "AUTH_SIGNED")
                 completion(.doNotRetry)
             }
         } else {
             print("💻 Request intercepetor failed to retry due to cannot read refresh token")
+            UserDefaults.standard.set(false, forKey: "AUTH_SIGNED")
+
             completion(.doNotRetry)
         }
     }
-    
-    private func postRefreshToken(payload: DtoRefreshToken, completion: @escaping (Result<ApiSignIn, ApiError>) -> Void) -> DataRequest {
+
+    private func postRefreshToken(
+        payload: DtoRefreshToken,
+        completion: @escaping (Result<ApiSignIn, ApiError>) -> Void
+    ) -> DataRequest {
         let route = ApiRouter.postRefreshToken(payload)
-        
+
         return AF.request(route).responseData() { results in
             let result = results.result
             let decoder = WolfieApi.jsonDecoder
@@ -74,11 +96,11 @@ final class ApiRefreshTokenInterceptor: RequestInterceptor {
                 case .success(let success):
                     print("💻 Request intercepetor \(route.path) success with status code \(response.statusCode)")
                     debugPrint(success)
-                    
+
                     if (response.statusCode == 401) {
                         completion(.failure(.authentication))
                     }
-                    
+
                     if (response.statusCode >= 300) {
                         do {
                             let errorMessage = try decoder.decode(ApiErrorMessage.self, from: success)
@@ -87,10 +109,10 @@ final class ApiRefreshTokenInterceptor: RequestInterceptor {
                             completion(.failure(.unknownError))
                             sentryLog("Cannot connect to API [\(response.statusCode)]", code: response.statusCode)
                         }
-                        
+
                         return
                     }
-                    
+
                     do {
                         let data = try decoder.decode(ApiSignIn.self, from: success)
                         print("💻 Request intercepetor \(route.path) successfully decoded")

@@ -38,7 +38,7 @@ struct WolfieApp: SwiftUI.App {
             options.enableFileIOTracking = true
             options.enableCoreDataTracking = true
             options.enableCaptureFailedRequests = true
-            options.attachScreenshot = true
+            options.attachScreenshot = sentryEnvironment != "production"
         }
     }
 

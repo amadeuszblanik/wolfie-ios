@@ -52,6 +52,9 @@
 		4E8B68BE292032E300A0BBE1 /* PetDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68BD292032E300A0BBE1 /* PetDB.swift */; };
 		4E8B68C02920349100A0BBE1 /* WeightValueDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68BF2920349100A0BBE1 /* WeightValueDB.swift */; };
 		4E8B68C2292034EA00A0BBE1 /* BreedDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68C1292034EA00A0BBE1 /* BreedDB.swift */; };
+		4EA4D191293AC7FC0091D58C /* DeleteAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA4D190293AC7FC0091D58C /* DeleteAccountView.swift */; };
+		4EA4D193293AE1360091D58C /* DeleteUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA4D192293AE1360091D58C /* DeleteUserViewModel.swift */; };
+		4EA4D195293AE2200091D58C /* DeleteUserDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA4D194293AE2200091D58C /* DeleteUserDto.swift */; };
 		4EB4CE71292AE7F6004C1281 /* HealthLogDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4CE70292AE7F6004C1281 /* HealthLogDto.swift */; };
 		4EB4CE73292AF059004C1281 /* DtoDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4CE72292AF059004C1281 /* DtoDateFormatter.swift */; };
 		4EB4CE77292EA2D6004C1281 /* RefreshTokenDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4CE76292EA2D6004C1281 /* RefreshTokenDto.swift */; };
@@ -104,7 +107,6 @@
 		4EFC743C291AF64C0086A6AB /* SelectComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC743B291AF64C0086A6AB /* SelectComponent.swift */; };
 		4EFC743E291AF6920086A6AB /* WeightUnits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC743D291AF6920086A6AB /* WeightUnits.swift */; };
 		4EFC7441291B06920086A6AB /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7440291B06920086A6AB /* DashboardView.swift */; };
-		4EFC7447291B0B990086A6AB /* MyPets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7446291B0B990086A6AB /* MyPets.swift */; };
 		4EFC744A291B0BF20086A6AB /* PetSingle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC7449291B0BF20086A6AB /* PetSingle.swift */; };
 		4EFC744C291B0C310086A6AB /* PetKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC744B291B0C310086A6AB /* PetKind.swift */; };
 		4EFC744E291B0C5F0086A6AB /* WeightValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFC744D291B0C5F0086A6AB /* WeightValue.swift */; };
@@ -209,6 +211,9 @@
 		4E8B68BD292032E300A0BBE1 /* PetDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDB.swift; sourceTree = "<group>"; };
 		4E8B68BF2920349100A0BBE1 /* WeightValueDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightValueDB.swift; sourceTree = "<group>"; };
 		4E8B68C1292034EA00A0BBE1 /* BreedDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDB.swift; sourceTree = "<group>"; };
+		4EA4D190293AC7FC0091D58C /* DeleteAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountView.swift; sourceTree = "<group>"; };
+		4EA4D192293AE1360091D58C /* DeleteUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteUserViewModel.swift; sourceTree = "<group>"; };
+		4EA4D194293AE2200091D58C /* DeleteUserDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteUserDto.swift; sourceTree = "<group>"; };
 		4EB4CE70292AE7F6004C1281 /* HealthLogDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthLogDto.swift; sourceTree = "<group>"; };
 		4EB4CE72292AF059004C1281 /* DtoDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DtoDateFormatter.swift; sourceTree = "<group>"; };
 		4EB4CE76292EA2D6004C1281 /* RefreshTokenDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenDto.swift; sourceTree = "<group>"; };
@@ -260,7 +265,6 @@
 		4EFC743B291AF64C0086A6AB /* SelectComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectComponent.swift; sourceTree = "<group>"; };
 		4EFC743D291AF6920086A6AB /* WeightUnits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightUnits.swift; sourceTree = "<group>"; };
 		4EFC7440291B06920086A6AB /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
-		4EFC7446291B0B990086A6AB /* MyPets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPets.swift; sourceTree = "<group>"; };
 		4EFC7449291B0BF20086A6AB /* PetSingle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetSingle.swift; sourceTree = "<group>"; };
 		4EFC744B291B0C310086A6AB /* PetKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetKind.swift; sourceTree = "<group>"; };
 		4EFC744D291B0C5F0086A6AB /* WeightValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightValue.swift; sourceTree = "<group>"; };
@@ -392,7 +396,6 @@
 				4EFC7459291B1A2B0086A6AB /* Utils */,
 				4EFC7456291B0F0A0086A6AB /* Info.plist */,
 				4EFC7453291B0E430086A6AB /* Mocks */,
-				4EFC7445291B0B860086A6AB /* DataDisplays */,
 				4EFC7438291AE7FA0086A6AB /* Models */,
 				4EE651C82919D2FE007F115A /* Gestures */,
 				4EE651B429197343007F115A /* Components */,
@@ -456,6 +459,7 @@
 		4E51E5A1291F29C60007887B /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
+				4EA4D18F293AC7D30091D58C /* DeleteAccount */,
 				4E51E5A2291F29D60007887B /* ProfileView.swift */,
 				4E51E5A4291F29E20007887B /* ProfileViewModel.swift */,
 			);
@@ -500,6 +504,15 @@
 				4E8B68B329201F7100A0BBE1 /* RealmPlayground.swift */,
 			);
 			path = Playground;
+			sourceTree = "<group>";
+		};
+		4EA4D18F293AC7D30091D58C /* DeleteAccount */ = {
+			isa = PBXGroup;
+			children = (
+				4EA4D190293AC7FC0091D58C /* DeleteAccountView.swift */,
+				4EA4D192293AE1360091D58C /* DeleteUserViewModel.swift */,
+			);
+			path = DeleteAccount;
 			sourceTree = "<group>";
 		};
 		4EE651AD291971CD007F115A /* App */ = {
@@ -628,14 +641,6 @@
 			path = DashboardView;
 			sourceTree = "<group>";
 		};
-		4EFC7445291B0B860086A6AB /* DataDisplays */ = {
-			isa = PBXGroup;
-			children = (
-				4EFC7446291B0B990086A6AB /* MyPets.swift */,
-			);
-			path = DataDisplays;
-			sourceTree = "<group>";
-		};
 		4EFC7448291B0BD00086A6AB /* Api */ = {
 			isa = PBXGroup;
 			children = (
@@ -711,6 +716,7 @@
 				4EB4CE70292AE7F6004C1281 /* HealthLogDto.swift */,
 				4EB4CE76292EA2D6004C1281 /* RefreshTokenDto.swift */,
 				4EB9322C29399DB100B870F1 /* FcmTokenDto.swift */,
+				4EA4D194293AE2200091D58C /* DeleteUserDto.swift */,
 			);
 			path = Dto;
 			sourceTree = "<group>";
@@ -1038,6 +1044,7 @@
 				4E8B68B429201F7100A0BBE1 /* RealmPlayground.swift in Sources */,
 				4EB4CE71292AE7F6004C1281 /* HealthLogDto.swift in Sources */,
 				4E51E5A9291F2DB20007887B /* Config.swift in Sources */,
+				4EA4D195293AE2200091D58C /* DeleteUserDto.swift in Sources */,
 				4EFC7483291D9B5A0086A6AB /* DateIntervalFormatter.swift in Sources */,
 				4EE651CA2919D310007F115A /* ShakeGestureManager.swift in Sources */,
 				4EB4CE79292EA48B004C1281 /* MainDevViewModel.swift in Sources */,
@@ -1083,12 +1090,14 @@
 				4EE651C52919BF8A007F115A /* SignUpView.swift in Sources */,
 				4EFC745D291B1A630086A6AB /* DateFormatter.swift in Sources */,
 				4E79464C291AD58F000C356C /* SignInViewModel.swift in Sources */,
+				4EA4D191293AC7FC0091D58C /* DeleteAccountView.swift in Sources */,
 				4EF572CA2922FA1900F11E4A /* LoaderFullScreen.swift in Sources */,
 				4EE651B0291971EA007F115A /* MainView.swift in Sources */,
 				4E51E598291F122C0007887B /* HealthLogForm.swift in Sources */,
 				4EFC7487291DA5040086A6AB /* WeightFormViewModel.swift in Sources */,
 				4EFC743E291AF6920086A6AB /* WeightUnits.swift in Sources */,
 				4EF572C82922DF0C00F11E4A /* NumberFormatter.swift in Sources */,
+				4EA4D193293AE1360091D58C /* DeleteUserViewModel.swift in Sources */,
 				4EFC7481291D9B3C0086A6AB /* DateIntervalExtensions.swift in Sources */,
 				4E8B68C02920349100A0BBE1 /* WeightValueDB.swift in Sources */,
 				4EE651B62919734F007F115A /* ButtonComponent.swift in Sources */,
@@ -1098,7 +1107,6 @@
 				4E235E1029370D3E00A2B0A7 /* MedicineSelectComponent.swift in Sources */,
 				4EB4CE73292AF059004C1281 /* DtoDateFormatter.swift in Sources */,
 				4EB9322F29399E9A00B870F1 /* ApiCommonResponse.swift in Sources */,
-				4EFC7447291B0B990086A6AB /* MyPets.swift in Sources */,
 				4E24B6DD29147D7600405D06 /* WolfieApp.swift in Sources */,
 				4EE651B32919724A007F115A /* MainDevView.swift in Sources */,
 				4E51E594291F08780007887B /* HealthLogSingleView.swift in Sources */,

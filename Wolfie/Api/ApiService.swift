@@ -14,6 +14,8 @@ protocol WolfieApiProtocol {
     func postRefreshToken(body: DtoRefreshToken, completion: @escaping (Result<ApiSignIn, ApiError>) -> Void)
     func postFcmToken(body: DtoFcmToken, completion: @escaping (Result<ApiCommonResponse, ApiError>) -> Void)
     func getProfile(completion: @escaping (Result<ApiUser, ApiError>) -> Void)
+    func deleteUser(body: DtoDeleteUser, completion: @escaping (Result<ApiMessage, ApiError>) -> Void)
+    func deleteDeactivateUser(body: DtoDeleteUser, completion: @escaping (Result<ApiMessage, ApiError>) -> Void)
     func getConfig(completion: @escaping (Result<ApiConfig, ApiError>) -> Void)
     func getPetsMy(completion: @escaping (Result<[ApiPetSingle], ApiError>) -> Void)
     func postPets(body: DtoPet, completion: @escaping (Result<ApiPetSingle, ApiError>) -> Void)
@@ -34,7 +36,6 @@ protocol WolfieApiProtocol {
 public final class WolfieApi {
     @discardableResult
     private func performRequest<T: Decodable>(route: ApiRouter, decoder: JSONDecoder = WolfieApi.jsonDecoder, completion: @escaping (Result<T, ApiError>) -> Void) -> DataRequest {
-        
         return ApiSession.request(route).validate().responseData() { results in
             let result = results.result
 
@@ -76,6 +77,7 @@ public final class WolfieApi {
 
                     do {
                         let errorMessage = try decoder.decode(ApiErrorMessage.self, from: results.data!)
+
                         completion(.failure(.server(message: errorMessage.message)))
                     } catch {
                         completion(.failure(.unknownError))
@@ -94,7 +96,7 @@ public final class WolfieApi {
     static var jsonDecoder: JSONDecoder {
         let jsonDecoder = JSONDecoder()
         jsonDecoder.dateDecodingStrategy = .formatted(jsonDateFormatter())
-        jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase;
+        jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
 
         return jsonDecoder
     }
@@ -121,6 +123,14 @@ extension WolfieApi: WolfieApiProtocol {
         performRequest(route: .getProfile, completion: completion)
     }
 
+    func deleteUser(body: DtoDeleteUser, completion: @escaping (Result<ApiMessage, ApiError>) -> Void) {
+        performRequest(route: .deleteUser(body), completion: completion)
+    }
+
+    func deleteDeactivateUser(body: DtoDeleteUser, completion: @escaping (Result<ApiMessage, ApiError>) -> Void) {
+        performRequest(route: .deleteDeactivateUser(body), completion: completion)
+    }
+
     func getConfig(completion: @escaping (Result<ApiConfig, ApiError>) -> Void) {
         performRequest(route: .getConfig, completion: completion)
     }
@@ -128,19 +138,19 @@ extension WolfieApi: WolfieApiProtocol {
     func getPetsMy(completion: @escaping (Result<[ApiPetSingle], ApiError>) -> Void) {
         performRequest(route: .getPetsMy, completion: completion)
     }
-    
+
     func postPets(body: DtoPet, completion: @escaping (Result<ApiPetSingle, ApiError>) -> Void) {
         performRequest(route: .postPets(body), completion: completion)
     }
-    
+
     func putPets(petId: String, body: DtoPetUpdate, completion: @escaping (Result<ApiPetSingle, ApiError>) -> Void) {
         performRequest(route: .putPets(petId, body: body), completion: completion)
     }
-    
+
     func deletePets(petId: String, completion: @escaping (Result<ApiMessage, ApiError>) -> Void) {
         performRequest(route: .deletePets(petId), completion: completion)
     }
-    
+
     func getPetsWeights(petId: String, completion: @escaping (Result<[ApiWeightValue], ApiError>) -> Void) {
         performRequest(route: .getPetsWeights(petId), completion: completion)
     }
@@ -176,7 +186,7 @@ extension WolfieApi: WolfieApiProtocol {
     func getBreeds(completion: @escaping (Result<[ApiBreed], ApiError>) -> Void) {
         performRequest(route: .getBreeds, completion: completion)
     }
-    
+
     func getMedicines(completion: @escaping (Result<[ApiShortMedicineValue], ApiError>) -> Void) {
         performRequest(route: .getMedicines, completion: completion)
     }

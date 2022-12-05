@@ -25,22 +25,22 @@ struct MainView: View {
                     }
                 }
                     .toolbar {
-                        ToolbarItemGroup(placement: .bottomBar) {
-                            ForEach(AppViews.allCases, id: \.self) { appView in
-                                Button {
-                                    withAnimation {
-                                        selectedView = appView
-                                    }
-                                } label: {
-                                    appView.icon
-                                        .resizable()
-                                        .scaleEffect()
-                                        .frame(width: 24, height: 24)
-                                        .padding()
+                    ToolbarItemGroup(placement: .bottomBar) {
+                        ForEach(AppViews.allCases, id: \.self) { appView in
+                            Button {
+                                withAnimation {
+                                    selectedView = appView
                                 }
+                            } label: {
+                                appView.icon
+                                    .resizable()
+                                    .scaleEffect()
+                                    .frame(width: 24, height: 24)
+                                    .padding()
                             }
                         }
                     }
+                }
             }
         }.onAppear {
             realmDb.fetchUser()
@@ -72,7 +72,7 @@ struct MainView: View {
                 )
             }
         }
-        .navigationBarHidden(true)
+            .navigationBarHidden(true)
     }
 }
 

@@ -1,4 +1,4 @@
-/* 
+/*
   Localizable.strings
   Wolfie
 
@@ -16,6 +16,25 @@
 "sign_up" = "Zapisz się";
 "sign_up_header" = "Poznajmy się człowieku!";
 "sign_up_sub_header" = "Utwórz nowe konto";
+
+"delete_account" = "Usuń konto";
+"delete_account_header" = "Usuń konto";
+"delete_account_sub_header" = "Będzie nam Ciebie brakować Człowieku";
+
+"delete_account_introduction_header" = "Wprowadzenie";
+"delete_account_introduction_content_0" = "Cenimy Twoją prywatność i chcemy stworzyć doskonałe opcje dopasowania dla użytkowników, którzy nie chcą dłużej pozostawać z Wolfie.";
+"delete_account_introduction_content_1" = "Przygotowaliśmy dwie opcje dla naszych ludzkich przyjaciół, którzy nie chcą usunąć swojego konta.";
+
+"delete_account_immediately_header" = "Usuń dane natychmiast";
+"delete_account_immediately_content_0" = "Jeśli zaznaczysz, że chcesz usunąć swoje konto, wszystkie powiązane dane zostaną usunięte na zawsze.";
+"delete_account_immediately_confirmation_content" = "Rozumiem, że nie ma odwrotu i wszystkie moje dane zostaną usunięte!";
+
+"delete_account_deactivate_header" = "Dezaktywuj konto na 30 dni";
+"delete_account_deactivate_content_0" = "Jeśli zdecydujesz się dezaktywować konto, możesz zmienić zdanie w ciągu następnych 30 dni. Powiadomimy Cię e-mailem i powiadomieniami push na 2 dni przed zbliżającą się datą usunięcia.";
+"delete_account_deactivate_confirmation_content" = "Rozumiem, że wszystkie moje dane będą przechowywane przez następne 30 dni i mogę podjąć decyzję później.";
+
+"delete_account_backup_header" = "Informacje o kopii zapasowej";
+"delete_account_backup_content_0" = "Twoje dane mogą być przechowywane w zaszyfrowanej kopii zapasowej. Przechowujemy nasze kopie zapasowe w bezpieczny sposób i dokładamy wszelkich starań, aby zapobiec konieczności ich użycia. Kopie zapasowe nie są przechowywane dłużej niż 7 dni od daty ich utworzenia.";
 
 "please_wait" = "Proszę czekać…";
 "sample_data" = "Dane próbki";
@@ -462,7 +481,7 @@
 "feedback_form_header" = "Informacja zwrotna";
 
 "action_delete_alert_title" = "Potwierdź usunięcie";
-"action_delete_alert_message" = "Czy jest pewien usunięcia wpisu?";
+"action_delete_alert_message" = "Czy na pewno chcesz usunąć ten wpis?";
 
 "web_view_title" = "Przeglądarka";
 
