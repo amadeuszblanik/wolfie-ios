@@ -10,14 +10,18 @@ import SwiftUI
 struct UIStatus: View {
     var message: String?
     var icon = "warning-outline"
+    var color: Color = .orange
     var onTryAgain: (() -> Void)?
 
-    init(_ message: String?, icon: String? = nil, onTryAgain: (() -> Void)? = nil) {
+    init(_ message: String?, icon: String? = nil, color: Color? = .orange, onTryAgain: (() -> Void)? = nil) {
         if let message = message {
             self.message = message
         }
         if let icon = icon {
             self.icon = icon
+        }
+        if let color = color {
+            self.color = color
         }
         if let onTryAgain = onTryAgain {
             self.onTryAgain = onTryAgain
@@ -30,14 +34,14 @@ struct UIStatus: View {
                 .resizable()
                 .frame(width: 64.0, height: 64.0)
                 .padding(.bottom)
-                .foregroundColor(.orange)
+                .foregroundColor(color)
 
             Text(message ?? String(localized: "error_generic_title"))
                 .font(.headline)
                 .multilineTextAlignment(.center)
 
             if let onTryAgain = self.onTryAgain {
-                UIButton(text: String(localized: "retry"), color: .orange, fullWidth: true) {
+                UIButton(text: String(localized: "retry"), color: color, fullWidth: true) {
                     onTryAgain()
                 }
                 .padding(.top)

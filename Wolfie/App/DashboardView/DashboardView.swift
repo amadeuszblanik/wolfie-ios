@@ -41,6 +41,19 @@ struct DashboardView: View {
         path = []
     }
 
+    var addPet: some View {
+        UIButton(
+            text: String(localized: petDb.isEmpty ? "dashboard_empty_button" : "dashboard_button"),
+            fullWidth: true
+        ) {
+            isPetAddOpen = true
+        }
+            .padding()
+            .sheet(isPresented: $isPetAddOpen) {
+                PetForm(vm: PetForm.ViewModel(onSave: handleSave, onDelete: handleDelete))
+        }
+    }
+
     var list: some View {
         Group {
             VStack {
@@ -54,18 +67,9 @@ struct DashboardView: View {
                                 .padding(.bottom)
                         }
                     }
-                    
+
                     if canAddNewPets {
-                        UIButton(
-                            text: String(localized: petDb.isEmpty ? "dashboard_empty_button" : "dashboard_button"),
-                            fullWidth: true
-                        ) {
-                            isPetAddOpen = true
-                        }
-                            .padding()
-                            .sheet(isPresented: $isPetAddOpen) {
-                                PetForm(vm: PetForm.ViewModel(onSave: handleSave, onDelete: handleDelete))
-                        }
+                        addPet
                     }
                 }
                     .refreshable {
@@ -82,16 +86,24 @@ struct DashboardView: View {
                     VStack {
                         Spacer()
 
-                        Text(String(localized: "dashboard_empty"))
+                        UIStatus(
+                            String(localized: "dashboard_empty"),
+                            icon: "sad-outline",
+                            color: .accentColor
+                        )
                             .fontWeight(.semibold)
+
                         Spacer()
                     }
                         .frame(width: geometry.size.width)
                         .frame(minHeight: geometry.size.height)
                 }
             }
-                .refreshable {
+            .refreshable {
                 realmDb.fetchPets()
+            }
+            if canAddNewPets {
+                addPet
             }
         }
     }
