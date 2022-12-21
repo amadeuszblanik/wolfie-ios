@@ -39,6 +39,7 @@ final class FirebaseService {
             case .success:
                 print("🔥 Successfully updated FCM Token with \(fcmToken)")
             case .failure(let error):
+                debugPrint(error)
                 print("🔥 Cannot updated FCM Token due to \(error.localizedDescription)")
                 sentryLog("Cannot updated FCM Token due to \(error.localizedDescription)")
             }

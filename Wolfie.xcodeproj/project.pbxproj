@@ -42,6 +42,7 @@
 		4E51E5AB291F2DE00007887B /* UserRoles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E51E5AA291F2DE00007887B /* UserRoles.swift */; };
 		4E51E5B0291F35A10007887B /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E51E5AF291F35A10007887B /* WebView.swift */; };
 		4E74C3AD2953701200417FF1 /* SignInWithAppleComponentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E74C3AC2953701200417FF1 /* SignInWithAppleComponentViewModel.swift */; };
+		4E74C3AF29537A7500417FF1 /* StatusComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E74C3AE29537A7500417FF1 /* StatusComponent.swift */; };
 		4E79464A291AD3FC000C356C /* InputComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E794649291AD3FC000C356C /* InputComponent.swift */; };
 		4E79464C291AD58F000C356C /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E79464B291AD58F000C356C /* SignInViewModel.swift */; };
 		4E794651291AE000000C356C /* CheckboxComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E794650291AE000000C356C /* CheckboxComponent.swift */; };
@@ -201,6 +202,7 @@
 		4E51E5AA291F2DE00007887B /* UserRoles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRoles.swift; sourceTree = "<group>"; };
 		4E51E5AF291F35A10007887B /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		4E74C3AC2953701200417FF1 /* SignInWithAppleComponentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleComponentViewModel.swift; sourceTree = "<group>"; };
+		4E74C3AE29537A7500417FF1 /* StatusComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusComponent.swift; sourceTree = "<group>"; };
 		4E794649291AD3FC000C356C /* InputComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputComponent.swift; sourceTree = "<group>"; };
 		4E79464B291AD58F000C356C /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		4E794650291AE000000C356C /* CheckboxComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxComponent.swift; sourceTree = "<group>"; };
@@ -578,6 +580,7 @@
 				4E235E132937167A00A2B0A7 /* LineChartComponent.swift */,
 				4EA1F554293E839800A7AF5C /* SignInWithAppleComponent.swift */,
 				4E74C3AC2953701200417FF1 /* SignInWithAppleComponentViewModel.swift */,
+				4E74C3AE29537A7500417FF1 /* StatusComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1092,6 +1095,7 @@
 				4E51E5AB291F2DE00007887B /* UserRoles.swift in Sources */,
 				4EF572B429214D4400F11E4A /* KeychainService.swift in Sources */,
 				4EF572C6292168B400F11E4A /* Message.swift in Sources */,
+				4E74C3AF29537A7500417FF1 /* StatusComponent.swift in Sources */,
 				4EFC747F291D9B100086A6AB /* NumberExtensions.swift in Sources */,
 				4EFC7461291B1AE60086A6AB /* TimeInvervalFormatter.swift in Sources */,
 				4EF572C42921620200F11E4A /* SignUpDto.swift in Sources */,

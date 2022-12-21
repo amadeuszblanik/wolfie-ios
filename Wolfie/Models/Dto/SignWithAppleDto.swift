@@ -14,4 +14,5 @@ public struct DtoSignWithApple: Codable {
     var firstName: String?
     var lastName: String?
     var email: String?
+    var device: String
 }
