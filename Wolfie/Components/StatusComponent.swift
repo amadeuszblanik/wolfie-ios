@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct UIStatus: View {
-    var message: String
+    var message: String?
     var icon = "warning-outline"
     var onTryAgain: (() -> Void)?
 
-    init(_ message: String, icon: String? = nil, onTryAgain: (() -> Void)? = nil) {
-        self.message = message
+    init(_ message: String?, icon: String? = nil, onTryAgain: (() -> Void)? = nil) {
+        if let message = message {
+            self.message = message
+        }
         if let icon = icon {
             self.icon = icon
         }
@@ -30,7 +32,7 @@ struct UIStatus: View {
                 .padding(.bottom)
                 .foregroundColor(.orange)
 
-            Text(message)
+            Text(message ?? String(localized: "error_generic_title"))
                 .font(.headline)
                 .multilineTextAlignment(.center)
 
@@ -45,17 +47,23 @@ struct UIStatus: View {
 }
 
 struct UIStatus_Previews: PreviewProvider {
+    static var message = "Something went wrong. Please try again later."
+
     static func handleTryAgain() {
         print("Handle try again")
     }
 
     static var previews: some View {
-        UIStatus("Something went wrong")
-        UIStatus("Something went wrong")
+        UIStatus(message)
+        UIStatus(message)
             .preferredColorScheme(.dark)
 
-        UIStatus("Something went wrong", onTryAgain: handleTryAgain)
-        UIStatus("Something went wrong", onTryAgain: handleTryAgain)
+        UIStatus(nil)
+        UIStatus(nil)
+            .preferredColorScheme(.dark)
+
+        UIStatus(message, onTryAgain: handleTryAgain)
+        UIStatus(message, onTryAgain: handleTryAgain)
             .preferredColorScheme(.dark)
     }
 }

@@ -105,7 +105,7 @@ struct DashboardView: View {
                     }
                 case .failed:
                     Spacer()
-                    UIStatus(String(localized: "dashboard_failed_fetch"), onTryAgain: realmDb.fetchPets)
+                    UIStatus(realmDb.petsErrorMessage, onTryAgain: realmDb.fetchPets)
                         .padding(.horizontal)
                 }
 

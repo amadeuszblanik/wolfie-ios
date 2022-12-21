@@ -13,6 +13,7 @@ class RealmManager: ObservableObject {
 
     @Published var tests: [Test] = []
     @Published var petsStatus: ApiStatus = .initialized
+    var petsErrorMessage: String?
 
     init() {
         openRealm()
@@ -107,6 +108,7 @@ class RealmManager: ObservableObject {
     func fetchPets() {
         deletPetAll()
         self.petsStatus = .fetching
+        self.petsErrorMessage = nil
 
         WolfieApi().getPetsMy { results in
             switch results {
@@ -118,6 +120,13 @@ class RealmManager: ObservableObject {
             case .failure(let error):
                 self.petsStatus = .failed
                 self.logErrorFetch("Pets \(error.localizedDescription)")
+
+                switch error {
+                case.server(let message):
+                    self.petsErrorMessage = message
+                default:
+                    self.petsErrorMessage = String(localized: "realm_pet_fetch_failed")
+                }
             }
         }
     }
