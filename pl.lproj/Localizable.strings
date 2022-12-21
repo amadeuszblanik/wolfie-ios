@@ -60,6 +60,7 @@
 "user_role_superuser" = "Super Użytkownik";
 "user_out_of_limit" = "Wyczerpałeś limit swojego konta. Nie możesz dodawać nowych zwierząt";
 
+"profile" = "Profil";
 "update_profile" = "Zaaktualizuj profil";
 "change_password" = "Zmień hasło";
 "authorized_devices" = "Zaufane urządzenia";

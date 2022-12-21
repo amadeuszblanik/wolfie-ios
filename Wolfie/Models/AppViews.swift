@@ -12,6 +12,36 @@ enum AppViews: String, CaseIterable {
     case dashboard = "DashboardView()"
     case profile = "ProfileView()"
 
+    var systemImage: String {
+        switch self {
+        case .dashboard:
+            return "circle.grid.3x3"
+
+        case .profile:
+            return "person"
+        }
+    }
+
+    var view: AnyView {
+        switch self {
+        case .dashboard:
+            return AnyView(DashboardView())
+
+        case .profile:
+            return AnyView(ProfileView())
+        }
+    }
+
+    var label: String {
+        switch self {
+        case .dashboard:
+            return String(localized: "dashboard")
+
+        case .profile:
+            return String(localized: "profile")
+        }
+    }
+
     var icon: Image {
         switch self {
         case .dashboard:
@@ -19,9 +49,6 @@ enum AppViews: String, CaseIterable {
 
         case .profile:
             return Image("person-outline")
-
-        default:
-            return Image("help-circle-outline")
         }
     }
 }
