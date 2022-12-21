@@ -493,6 +493,9 @@
 "error_generic_title" = "Something went wrong";
 "error_generic_message" = "Something went wrong… Please try again later.";
 "error_keychain_generic_message" = "Authorization of this device is not possible at the moment. Our development team got the reoprt.";
+"error_sign_in_with_apple_generic_message" = "Sign in with apple is not possible at the moment. Please try using your credentials.";
+"error_sign_in_with_apple_device_message" = "Sign in with apple is not possible at your device. Please try using your credentials.";
+"error_sign_in_with_apple_server_message" = "Sign in with apple is not possible at the moment. Please try again later.";
 
 "error_api_title" = "Network issue";
 "error_api_message" = "Wolfie.app servers are not responsive at the moment.";

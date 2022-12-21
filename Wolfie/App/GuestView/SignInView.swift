@@ -32,7 +32,7 @@ struct SignInView: View {
 
                 Spacer()
 
-                if (vm.isLoading) {
+                if vm.isLoading {
                     HStack {
                         ProgressView()
                             .padding(.trailing)

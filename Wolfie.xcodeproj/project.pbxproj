@@ -41,6 +41,8 @@
 		4E51E5A9291F2DB20007887B /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E51E5A8291F2DB20007887B /* Config.swift */; };
 		4E51E5AB291F2DE00007887B /* UserRoles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E51E5AA291F2DE00007887B /* UserRoles.swift */; };
 		4E51E5B0291F35A10007887B /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E51E5AF291F35A10007887B /* WebView.swift */; };
+		4E74C3AD2953701200417FF1 /* SignInWithAppleComponentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E74C3AC2953701200417FF1 /* SignInWithAppleComponentViewModel.swift */; };
+		4E74C3AF29537A7500417FF1 /* StatusComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E74C3AE29537A7500417FF1 /* StatusComponent.swift */; };
 		4E79464A291AD3FC000C356C /* InputComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E794649291AD3FC000C356C /* InputComponent.swift */; };
 		4E79464C291AD58F000C356C /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E79464B291AD58F000C356C /* SignInViewModel.swift */; };
 		4E794651291AE000000C356C /* CheckboxComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E794650291AE000000C356C /* CheckboxComponent.swift */; };
@@ -53,6 +55,8 @@
 		4E8B68C02920349100A0BBE1 /* WeightValueDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68BF2920349100A0BBE1 /* WeightValueDB.swift */; };
 		4E8B68C2292034EA00A0BBE1 /* BreedDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68C1292034EA00A0BBE1 /* BreedDB.swift */; };
 		4EA1F551293E701600A7AF5C /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA1F550293E701600A7AF5C /* FirebaseService.swift */; };
+		4EA1F555293E839800A7AF5C /* SignInWithAppleComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA1F554293E839800A7AF5C /* SignInWithAppleComponent.swift */; };
+		4EA1F557293E86EB00A7AF5C /* SignWithAppleDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA1F556293E86EB00A7AF5C /* SignWithAppleDto.swift */; };
 		4EA4D191293AC7FC0091D58C /* DeleteAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA4D190293AC7FC0091D58C /* DeleteAccountView.swift */; };
 		4EA4D193293AE1360091D58C /* DeleteUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA4D192293AE1360091D58C /* DeleteUserViewModel.swift */; };
 		4EA4D195293AE2200091D58C /* DeleteUserDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA4D194293AE2200091D58C /* DeleteUserDto.swift */; };
@@ -197,6 +201,8 @@
 		4E51E5A8291F2DB20007887B /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		4E51E5AA291F2DE00007887B /* UserRoles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRoles.swift; sourceTree = "<group>"; };
 		4E51E5AF291F35A10007887B /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		4E74C3AC2953701200417FF1 /* SignInWithAppleComponentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleComponentViewModel.swift; sourceTree = "<group>"; };
+		4E74C3AE29537A7500417FF1 /* StatusComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusComponent.swift; sourceTree = "<group>"; };
 		4E794649291AD3FC000C356C /* InputComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputComponent.swift; sourceTree = "<group>"; };
 		4E79464B291AD58F000C356C /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		4E794650291AE000000C356C /* CheckboxComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxComponent.swift; sourceTree = "<group>"; };
@@ -213,6 +219,8 @@
 		4E8B68BF2920349100A0BBE1 /* WeightValueDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightValueDB.swift; sourceTree = "<group>"; };
 		4E8B68C1292034EA00A0BBE1 /* BreedDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDB.swift; sourceTree = "<group>"; };
 		4EA1F550293E701600A7AF5C /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
+		4EA1F554293E839800A7AF5C /* SignInWithAppleComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleComponent.swift; sourceTree = "<group>"; };
+		4EA1F556293E86EB00A7AF5C /* SignWithAppleDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignWithAppleDto.swift; sourceTree = "<group>"; };
 		4EA4D190293AC7FC0091D58C /* DeleteAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountView.swift; sourceTree = "<group>"; };
 		4EA4D192293AE1360091D58C /* DeleteUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteUserViewModel.swift; sourceTree = "<group>"; };
 		4EA4D194293AE2200091D58C /* DeleteUserDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteUserDto.swift; sourceTree = "<group>"; };
@@ -570,6 +578,9 @@
 				4E235E0B2936F7DA00A2B0A7 /* SuccessView.swift */,
 				4E235E0F29370D3E00A2B0A7 /* MedicineSelectComponent.swift */,
 				4E235E132937167A00A2B0A7 /* LineChartComponent.swift */,
+				4EA1F554293E839800A7AF5C /* SignInWithAppleComponent.swift */,
+				4E74C3AC2953701200417FF1 /* SignInWithAppleComponentViewModel.swift */,
+				4E74C3AE29537A7500417FF1 /* StatusComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -716,6 +727,7 @@
 				4EFC7488291DA75C0086A6AB /* WeightDto.swift */,
 				4EF572AA29214B7500F11E4A /* SignInDto.swift */,
 				4EF572C32921620200F11E4A /* SignUpDto.swift */,
+				4EA1F556293E86EB00A7AF5C /* SignWithAppleDto.swift */,
 				4EB4CE70292AE7F6004C1281 /* HealthLogDto.swift */,
 				4EB4CE76292EA2D6004C1281 /* RefreshTokenDto.swift */,
 				4EB9322C29399DB100B870F1 /* FcmTokenDto.swift */,
@@ -1008,6 +1020,7 @@
 				4EF572AF29214C3E00F11E4A /* ApiRouter.swift in Sources */,
 				4EF572AD29214BBC00F11E4A /* SignIn.swift in Sources */,
 				4EB4CE7D292EAFB2004C1281 /* ApiSession.swift in Sources */,
+				4E74C3AD2953701200417FF1 /* SignInWithAppleComponentViewModel.swift in Sources */,
 				4EF572B129214C4B00F11E4A /* ApiConfiguration.swift in Sources */,
 				4ED954772933B029009B4A81 /* ConfigDb.swift in Sources */,
 				4EFC745F291B1ACD0086A6AB /* TimeInterval.swift in Sources */,
@@ -1029,6 +1042,7 @@
 				4EF572A929214AA500F11E4A /* ApiService.swift in Sources */,
 				4EF572BC29214E8D00F11E4A /* ApiError.swift in Sources */,
 				4EF572B829214E0C00F11E4A /* JsonEncoder.swift in Sources */,
+				4EA1F555293E839800A7AF5C /* SignInWithAppleComponent.swift in Sources */,
 				4EFC7468291C403C0086A6AB /* PetFormViewModel.swift in Sources */,
 				4EF572C229215D5300F11E4A /* WebViewComponent.swift in Sources */,
 				4E51E58C291EFDA10007887B /* MedicineValue.swift in Sources */,
@@ -1040,6 +1054,7 @@
 				4E51E590291F01F80007887B /* StringExtensions.swift in Sources */,
 				4E8B68B129201E5F00A0BBE1 /* Test.swift in Sources */,
 				4E235E0A2936F39B00A2B0A7 /* FeedbackForm.swift in Sources */,
+				4EA1F557293E86EB00A7AF5C /* SignWithAppleDto.swift in Sources */,
 				4E51E5A5291F29E20007887B /* ProfileViewModel.swift in Sources */,
 				4ED9547B2933C4E1009B4A81 /* ApiLogger.swift in Sources */,
 				4EB4CE7B292EA652004C1281 /* ApiInterceptor.swift in Sources */,
@@ -1080,6 +1095,7 @@
 				4E51E5AB291F2DE00007887B /* UserRoles.swift in Sources */,
 				4EF572B429214D4400F11E4A /* KeychainService.swift in Sources */,
 				4EF572C6292168B400F11E4A /* Message.swift in Sources */,
+				4E74C3AF29537A7500417FF1 /* StatusComponent.swift in Sources */,
 				4EFC747F291D9B100086A6AB /* NumberExtensions.swift in Sources */,
 				4EFC7461291B1AE60086A6AB /* TimeInvervalFormatter.swift in Sources */,
 				4EF572C42921620200F11E4A /* SignUpDto.swift in Sources */,
@@ -1291,7 +1307,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = Wolfie/Wolfie.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Wolfie/Preview Content\"";
 				DEVELOPMENT_TEAM = 6WY65SAG73;
 				ENABLE_PREVIEWS = YES;
@@ -1331,7 +1347,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = Wolfie/Wolfie.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Wolfie/Preview Content\"";
 				DEVELOPMENT_TEAM = 6WY65SAG73;
 				ENABLE_PREVIEWS = YES;

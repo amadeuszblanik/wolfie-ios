@@ -22,7 +22,7 @@ struct UIInput: View {
     var type: InputTypes = InputTypes.Text
     var error: String?
     var hint: String?
-    
+
     var body: some View {
         VStack(alignment: .trailing) {
             if (state.count > 0 || (placeholder != nil)) {
@@ -35,7 +35,7 @@ struct UIInput: View {
                     .padding(.horizontal)
                     .transition(.slide)
             }
-            
+
             HStack(alignment: .lastTextBaseline) {
                 switch type {
                 case .Text:
@@ -60,16 +60,16 @@ struct UIInput: View {
                         .cornerRadius(8)
                         .keyboardType(keyboardType)
                 }
-                
-                if (suffix != nil) {
+
+                if suffix != nil {
                     Text(suffix!)
                         .font(.title3)
                         .fontWeight(.light)
                 }
             }
-            
+
             HStack(alignment: .top) {
-                if ((error) != nil) {
+                if error != nil {
                     Text(error!)
                         .font(.caption)
                         .foregroundColor(Color.red)
@@ -79,8 +79,8 @@ struct UIInput: View {
                         .padding(.bottom)
                         .transition(.slide)
                 }
-                
-                if ((hint) != nil) {
+
+                if hint != nil {
                     Text(hint!)
                         .font(.caption)
                         .foregroundColor(Color.gray)
@@ -98,66 +98,66 @@ struct UIInput: View {
 
 struct UIInput_Previews: PreviewProvider {
     @State static var state = ""
-    
+
     static var previews: some View {
         VStack {
             UIInput(label: "Default input", state: $state)
                 .padding()
-            
+
             UIInput(label: "Default input", placeholder: "goldie@doggo.rocks", state: $state)
                 .padding()
-            
+
             UIInput(label: "Password input", state: $state, type: .Password)
                 .padding()
-            
+
             UIInput(label: "E-mail address", placeholder: "goldie@doggo.rocks", state: $state, keyboardType: .emailAddress, error: "Wrong e-mail format")
                 .padding()
-            
+
             UIInput(label: "Password", state: $state, type: .Password, error: "Password should have 1 upper case, lowcase letter along with a number and special character.")
                 .padding()
-            
+
             UIInput(label: "E-mail address", state: $state, keyboardType: .emailAddress, hint: "goldie@doggo.rocks")
                 .padding()
-            
+
             UIInput(label: "E-mail address", placeholder: "goldie@doggo.rocks", state: $state, keyboardType: .emailAddress, error: "Wrong e-mail format", hint: "Example: goldie@doggo.rocks")
                 .padding()
-            
+
             UIInput(label: "Password", state: $state, type: .Password, error: "Password should have 1 upper case, lowcase letter along with a number and special character.", hint: "Must be secure!")
                 .padding()
-            
+
             UIInput(label: "Weight", suffix: "kg", state: $state, type: .Number)
                 .padding()
         }
-        .preferredColorScheme(.light)
+            .preferredColorScheme(.light)
 
         VStack {
             UIInput(label: "Default input", state: $state)
                 .padding()
-            
+
             UIInput(label: "Default input", placeholder: "goldie@doggo.rocks", state: $state)
                 .padding()
-            
+
             UIInput(label: "Password input", state: $state, type: .Password)
                 .padding()
-            
+
             UIInput(label: "E-mail address", placeholder: "goldie@doggo.rocks", state: $state, keyboardType: .emailAddress, error: "Wrong e-mail format")
                 .padding()
-            
+
             UIInput(label: "Password", state: $state, type: .Password, error: "Password should have 1 upper case, lowcase letter along with a number and special character.")
                 .padding()
-            
+
             UIInput(label: "E-mail address", state: $state, keyboardType: .emailAddress, hint: "goldie@doggo.rocks")
                 .padding()
-            
+
             UIInput(label: "E-mail address", placeholder: "goldie@doggo.rocks", state: $state, keyboardType: .emailAddress, error: "Wrong e-mail format", hint: "Example: goldie@doggo.rocks")
                 .padding()
-            
+
             UIInput(label: "Password", state: $state, type: .Password, error: "Password should have 1 upper case, lowcase letter along with a number and special character.", hint: "Must be secure!")
                 .padding()
-            
+
             UIInput(label: "Weight", suffix: "kg", state: $state, type: .Number)
                 .padding()
         }
-        .preferredColorScheme(.dark)
+            .preferredColorScheme(.dark)
     }
 }

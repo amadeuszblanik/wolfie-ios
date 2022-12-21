@@ -33,46 +33,46 @@ struct SignUpView: View {
             UIInput(label: String(localized: "email"), state: $vm.email, keyboardType: .emailAddress)
                 .padding(.vertical)
                 .textContentType(.username)
-            
+
             UIInput(label: String(localized: "first_name"), state: $vm.firstName)
                 .padding(.vertical)
                 .textContentType(.givenName)
-            
+
             UIInput(label: String(localized: "last_name"), state: $vm.lastName)
                 .padding(.vertical)
                 .textContentType(.familyName)
-            
+
             UIInput(label: String(localized: "password"), state: $vm.password, type: .Password)
                 .padding(.vertical)
                 .textContentType(.newPassword)
-            
+
             UIInput(label: String(localized: "password_confirm"), state: $vm.passwordConfirm, type: .Password)
                 .padding(.vertical)
                 .textContentType(.newPassword)
 
             UISelect(label: String(localized: "weight_unit"), values: WeightUnits.selectItemList, state: $vm.weightUnit)
                 .padding(.vertical)
-            
+
             UICheckbox(label: String(localized: "gdpr_consent"), state: $vm.gdprConsent)
                 .padding(.vertical)
-            
+
             Button(String(localized: "read_gdpr")) {
                 isGdprOpen = true
             }
-            .sheet(isPresented: $isGdprOpen) {
+                .sheet(isPresented: $isGdprOpen) {
                 WebView(url: "https://wolfie.app/privacy-policy")
             }
-            .padding(.top)
+                .padding(.top)
         }
     }
-    
+
     var body: some View {
         VStack {
             UIJumbotron(
                 header: String(localized: "sign_up_header"),
                 subHeader: String(localized: "sign_up_sub_header")
             )
-            
+
             Spacer()
 
             VStack {
@@ -83,27 +83,27 @@ struct SignUpView: View {
                         form
                             .padding(.bottom)
                     }
-                    
+
                     Spacer()
-                    
+
                     if (vm.isLoading) {
                         HStack {
                             ProgressView()
                                 .padding(.trailing)
-                            
+
                             Text(String(localized: "please_wait"))
                                 .foregroundColor(Color(UIColor.secondaryLabel))
                         }
-                        .padding(.bottom)
+                            .padding(.bottom)
                     }
-                    
+
                     UIButton(text: String(localized: "sign_up"), fullWidth: true) {
                         vm.signUp()
                     }
-                    .disabled(!vm.isActive || !vm.isFilled)
+                        .disabled(!vm.isActive || !vm.isFilled)
                 }
             }
-            .padding()
+                .padding()
                 .alert(isPresented: $vm.isInvalid) {
                 Alert(
                     title: Text(String(localized: "error_generic_title")),

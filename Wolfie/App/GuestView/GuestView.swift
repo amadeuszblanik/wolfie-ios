@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct GuestView: View {
-    @State private var selectedView: GuestViews? = nil
-    
+    @State private var selectedView: GuestViews?
+
     var body: some View {
         NavigationSplitView {
             VStack {
@@ -18,22 +18,22 @@ struct GuestView: View {
                     .scaleEffect()
                     .frame(width: 150, height: 150)
                     .padding()
-                
+
                 Spacer()
-                
+
                 Text(String(localized: "guest_view_header"))
                     .font(.title)
                     .padding(.bottom, 1)
                 Text(String(localized: "app_name"))
                     .font(.title2)
                     .padding(.bottom)
-                
+
                 Spacer()
 
-                List(selection: $selectedView) {}
-                .listStyle(.plain)
-                .frame(height: 0)
-                
+                List(selection: $selectedView) { }
+                    .listStyle(.plain)
+                    .frame(height: 0)
+
                 ForEach(GuestViews.allCases.reversed(), id: \.self) { guestView in
                     UIButton(
                         text: guestView.localized,
@@ -42,10 +42,10 @@ struct GuestView: View {
                     ) {
                         selectedView = guestView
                     }
-                    
                 }
+                UISignInWithApple()
             }
-            .padding()
+                .padding()
         } detail: {
             if let guestView = selectedView {
                 switch guestView {
@@ -58,8 +58,8 @@ struct GuestView: View {
                 ProgressView()
             }
         }
-        .navigationBarTitle("")
-        .navigationBarHidden(true)
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
     }
 }
 
@@ -67,5 +67,6 @@ struct GuestView_Previews: PreviewProvider {
     static var previews: some View {
         GuestView()
         GuestView()
+            .preferredColorScheme(.dark)
     }
 }
