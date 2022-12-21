@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.6.2)
+  - InjectHotReload (1.2.2)
   - Realm (10.32.3):
     - Realm/Headers (= 10.32.3)
   - Realm/Headers (10.32.3)
@@ -12,6 +13,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 5)
+  - InjectHotReload
   - RealmSwift (~> 10)
   - Sentry (from `https://github.com/getsentry/sentry-cocoa.git`, tag `7.30.2`)
   - SwiftLint
@@ -19,6 +21,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - InjectHotReload
     - Realm
     - RealmSwift
     - SwiftLint
@@ -35,11 +38,12 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
+  InjectHotReload: e524b7c46ec063d84e407e65df5fe251cde19b32
   Realm: fdf6732924dc5e69e30e0db2c11e869f92b53f3d
   RealmSwift: 7c181da8fa1c2fe613656a77c198d6a3dc3879a1
   Sentry: 9be48e341494bc976c963b05aa4a8ca48308c684
   SwiftLint: 9cbf846727f3312f3ba722f2d7108a162cd050a5
 
-PODFILE CHECKSUM: 34e2e4174b87d924724265ca58dce2f3205b0752
+PODFILE CHECKSUM: 9df30ec448eef986c58c5bab4fc511d4037aad17
 
 COCOAPODS: 1.11.3

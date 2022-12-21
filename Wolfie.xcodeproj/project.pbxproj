@@ -48,6 +48,9 @@
 		4E79464A291AD3FC000C356C /* InputComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E794649291AD3FC000C356C /* InputComponent.swift */; };
 		4E79464C291AD58F000C356C /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E79464B291AD58F000C356C /* SignInViewModel.swift */; };
 		4E794651291AE000000C356C /* CheckboxComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E794650291AE000000C356C /* CheckboxComponent.swift */; };
+		4E895E462953B33800BBBB1D /* PetCardSkeletonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E895E452953B33800BBBB1D /* PetCardSkeletonComponent.swift */; };
+		4E895E482953B49900BBBB1D /* SkeletonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E895E472953B49900BBBB1D /* SkeletonComponent.swift */; };
+		4E895E4A2953B8E500BBBB1D /* ApiStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E895E492953B8E500BBBB1D /* ApiStatus.swift */; };
 		4E8B68AE29201D9900A0BBE1 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68AD29201D9900A0BBE1 /* RealmManager.swift */; };
 		4E8B68B129201E5F00A0BBE1 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68B029201E5F00A0BBE1 /* Test.swift */; };
 		4E8B68B429201F7100A0BBE1 /* RealmPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68B329201F7100A0BBE1 /* RealmPlayground.swift */; };
@@ -211,6 +214,9 @@
 		4E79464B291AD58F000C356C /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		4E794650291AE000000C356C /* CheckboxComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxComponent.swift; sourceTree = "<group>"; };
 		4E8177312933F6630039906A /* Wolfie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wolfie.entitlements; sourceTree = "<group>"; };
+		4E895E452953B33800BBBB1D /* PetCardSkeletonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetCardSkeletonComponent.swift; sourceTree = "<group>"; };
+		4E895E472953B49900BBBB1D /* SkeletonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonComponent.swift; sourceTree = "<group>"; };
+		4E895E492953B8E500BBBB1D /* ApiStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiStatus.swift; sourceTree = "<group>"; };
 		4E8B68AD29201D9900A0BBE1 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		4E8B68B029201E5F00A0BBE1 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		4E8B68B329201F7100A0BBE1 /* RealmPlayground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmPlayground.swift; sourceTree = "<group>"; };
@@ -586,6 +592,8 @@
 				4EA1F554293E839800A7AF5C /* SignInWithAppleComponent.swift */,
 				4E74C3AC2953701200417FF1 /* SignInWithAppleComponentViewModel.swift */,
 				4E74C3AE29537A7500417FF1 /* StatusComponent.swift */,
+				4E895E452953B33800BBBB1D /* PetCardSkeletonComponent.swift */,
+				4E895E472953B49900BBBB1D /* SkeletonComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -645,6 +653,7 @@
 				4E51E589291EFD180007887B /* HealthLogKind.swift */,
 				4E51E5AA291F2DE00007887B /* UserRoles.swift */,
 				4EE9EA9929256E4000DDD08A /* MedicineAuthorizationStatus.swift */,
+				4E895E492953B8E500BBBB1D /* ApiStatus.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1024,6 +1033,7 @@
 				4E235E0E29370A4A00A2B0A7 /* NetworkService.swift in Sources */,
 				4E24B6E629147D7700405D06 /* Persistence.swift in Sources */,
 				4EF572AF29214C3E00F11E4A /* ApiRouter.swift in Sources */,
+				4E895E4A2953B8E500BBBB1D /* ApiStatus.swift in Sources */,
 				4EF572AD29214BBC00F11E4A /* SignIn.swift in Sources */,
 				4EB4CE7D292EAFB2004C1281 /* ApiSession.swift in Sources */,
 				4E74C3AD2953701200417FF1 /* SignInWithAppleComponentViewModel.swift in Sources */,
@@ -1134,11 +1144,13 @@
 				4E51E58A291EFD180007887B /* HealthLogKind.swift in Sources */,
 				4E235E1029370D3E00A2B0A7 /* MedicineSelectComponent.swift in Sources */,
 				4EB4CE73292AF059004C1281 /* DtoDateFormatter.swift in Sources */,
+				4E895E462953B33800BBBB1D /* PetCardSkeletonComponent.swift in Sources */,
 				4EB9322F29399E9A00B870F1 /* ApiCommonResponse.swift in Sources */,
 				4E24B6DD29147D7600405D06 /* WolfieApp.swift in Sources */,
 				4EE651B32919724A007F115A /* MainDevView.swift in Sources */,
 				4E51E594291F08780007887B /* HealthLogSingleView.swift in Sources */,
 				4EFC7489291DA75C0086A6AB /* WeightDto.swift in Sources */,
+				4E895E482953B49900BBBB1D /* SkeletonComponent.swift in Sources */,
 				4E235E0C2936F7DA00A2B0A7 /* SuccessView.swift in Sources */,
 				4EFC744A291B0BF20086A6AB /* PetSingle.swift in Sources */,
 				4EF572AB29214B7500F11E4A /* SignInDto.swift in Sources */,
@@ -1315,7 +1327,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = Wolfie/Wolfie.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"Wolfie/Preview Content\"";
 				DEVELOPMENT_TEAM = 6WY65SAG73;
 				ENABLE_PREVIEWS = YES;
@@ -1355,7 +1367,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = Wolfie/Wolfie.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"Wolfie/Preview Content\"";
 				DEVELOPMENT_TEAM = 6WY65SAG73;
 				ENABLE_PREVIEWS = YES;

@@ -11,6 +11,7 @@ target 'Wolfie' do
   pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', 
 :tag => '7.30.2'
   pod 'SwiftLint'
+  pod 'InjectHotReload'
 
   target 'WolfieTests' do
     inherit! :search_paths

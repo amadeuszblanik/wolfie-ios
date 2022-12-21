@@ -27,10 +27,6 @@ struct DashboardView: View {
         return false
     }
 
-    init() {
-        RealmManager().fetchPets()
-    }
-
     func handleSave() {
         isPetAddOpen = false
         isPetEditOpen = false
@@ -59,7 +55,7 @@ struct DashboardView: View {
                         }
                     }
                 }
-                    .refreshable {
+                .refreshable {
                     realmDb.fetchPets()
                 }
             }
@@ -72,7 +68,7 @@ struct DashboardView: View {
                 ScrollView(.vertical) {
                     VStack {
                         Spacer()
-                        
+
                         Text(String(localized: "dashboard_empty"))
                             .fontWeight(.semibold)
                         Spacer()
@@ -90,10 +86,27 @@ struct DashboardView: View {
     var body: some View {
         NavigationStack(path: $path) {
             VStack {
-                if petDb.isEmpty {
-                    empty
-                } else {
-                    list
+                switch realmDb.petsStatus {
+                case .initialized:
+                    Spacer()
+                    ProgressView()
+                        .onAppear {
+                            realmDb.fetchPets()
+                        }
+                case .fetching:
+                    PetCardSkeletonComponent()
+                        .padding(.horizontal)
+                        .padding(.bottom)
+                case .success:
+                    if !petDb.isEmpty {
+                        list
+                    } else {
+                        empty
+                    }
+                case .failed:
+                    Spacer()
+                    UIStatus(String(localized: "dashboard_failed_fetch"), onTryAgain: realmDb.fetchPets)
+                        .padding(.horizontal)
                 }
 
                 Spacer()
@@ -112,7 +125,7 @@ struct DashboardView: View {
                 }
             }
                 .navigationDestination(for: DashboardViews.self) { dashboardView in
-                switch (dashboardView) {
+                switch dashboardView {
                 case .details(let pet):
                     DashboardSingleView(id: pet.id, path: $path)
                         .navigationTitle(pet.name)
@@ -186,12 +199,13 @@ struct DashboardView: View {
                             ))
                     }
                         .navigationTitle(String(localized: "health_log"))
-                default:
-                    Text("Not implemented yet")
                 }
             }
                 .navigationTitle(String(localized: "dashboard"))
                 .navigationBarTitleDisplayMode(.large)
+                .onAppear {
+                    realmDb.fetchPets()
+                }
         }
     }
 }

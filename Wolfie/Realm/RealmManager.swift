@@ -12,6 +12,7 @@ class RealmManager: ObservableObject {
     private(set) var localRealm: Realm?
 
     @Published var tests: [Test] = []
+    @Published var petsStatus: ApiStatus = .initialized
 
     init() {
         openRealm()
@@ -105,14 +106,17 @@ class RealmManager: ObservableObject {
 //    Pets
     func fetchPets() {
         deletPetAll()
+        self.petsStatus = .fetching
 
         WolfieApi().getPetsMy { results in
             switch results {
             case.success(let pets):
+                self.petsStatus = .success
                 pets.forEach { pet in
                     self.addPet(pet)
                 }
             case .failure(let error):
+                self.petsStatus = .failed
                 self.logErrorFetch("Pets \(error.localizedDescription)")
             }
         }

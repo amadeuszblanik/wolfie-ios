@@ -9,6 +9,7 @@ import SwiftUI
 import RealmSwift
 
 struct MainDevView: View {
+    @ObservedObject var vm = ViewModel()
     @State private var selectedView: AppDevViews?
     @StateObject var realmDb = RealmManager()
     @AppStorage("AUTH_ACCESS_TOKEN") var accessToken: String?
@@ -35,6 +36,9 @@ struct MainDevView: View {
                 Section("Utils") {
                     Button("Sentry test") {
                         sentryLog("Sentry test")
+                    }
+                    Button("Sign in") {
+                        vm.signIn()
                     }
                     Button("Clear database") {
                         realmDb.clearAll()

@@ -10,7 +10,7 @@ import SwiftUI
 struct PetCardDetailText: View {
     var label: String!
     var value: String!
-    
+
     var body: some View {
         HStack(alignment: .firstTextBaseline) {
             Text(label)
@@ -18,13 +18,13 @@ struct PetCardDetailText: View {
                 .multilineTextAlignment(.leading)
                 .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
+            .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
 
 struct PetCardComponent: View {
     var pet: PetDB!
-    
+
     var details: some View {
         Group {
             VStack(alignment: .leading) {
@@ -32,49 +32,49 @@ struct PetCardComponent: View {
                     label: String(localized: "age"),
                     value: pet.birthDate.toToday().toFormattedString()
                 )
-                
+
                 PetCardDetailText(
                     label: String(localized: "birthday"),
                     value: pet.birthDate.toFormatted()
                 )
-                
+
                 PetCardDetailText(
                     label: String(localized: "microchip"),
                     value: pet.microchip ?? "–"
                 )
-                
+
                 PetCardDetailText(
                     label: String(localized: "breed"),
                     value: pet.breed?.localizedName ?? String(localized: "breed_mixed")
                 )
             }
-            .frame(maxWidth: .infinity)
-            .foregroundColor(Color(UIColor.lightText))
+                .frame(maxWidth: .infinity)
+                .foregroundColor(Color(UIColor.lightText))
         }
     }
-    
+
     var body: some View {
         VStack {
             HStack(alignment: .top) {
                 Text(pet.name)
                     .font(.largeTitle)
                     .fontWeight(.medium)
-                
+
                 Spacer()
-                
+
                 UIAvatar(url: pet.image, size: 120.0)
             }
-            .padding(.bottom)
-            
+                .padding(.bottom)
+
             details
         }
-        .padding(.vertical, 20)
-        .padding(.horizontal)
-        .foregroundColor(.white)
-        .background(
+            .padding(.vertical, 20)
+            .padding(.horizontal)
+            .foregroundColor(.white)
+            .background(
             LinearGradient(gradient: Gradient(colors: [.indigo, .blue]), startPoint: .bottomLeading, endPoint: .topTrailing)
         )
-        .cornerRadius(8)
+            .cornerRadius(8)
     }
 }
 
@@ -83,23 +83,23 @@ struct PetCardComponent_Previews: PreviewProvider {
         VStack {
             PetCardComponent(pet: PetDB.fromApi(data: PET_GOLDIE))
         }
-        .padding()
+            .padding()
 
         VStack {
             PetCardComponent(pet: PetDB.fromApi(data: PET_GOLDIE))
         }
-        .padding()
-        .preferredColorScheme(.dark)
+            .padding()
+            .preferredColorScheme(.dark)
 
         VStack {
             PetCardComponent(pet: PetDB.fromApi(data: PET_TESTIE))
         }
-        .padding()
+            .padding()
 
         VStack {
             PetCardComponent(pet: PetDB.fromApi(data: PET_TESTIE))
         }
-        .padding()
-        .preferredColorScheme(.dark)
+            .padding()
+            .preferredColorScheme(.dark)
     }
 }

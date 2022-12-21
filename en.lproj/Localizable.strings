@@ -472,6 +472,7 @@
 "dashboard_empty" = "You have not added any pet yet";
 "dashboard_button" = "Add new pet";
 "dashboard_empty_button" = "Add your first one";
+"dashboard_failed_fetch" = "Pets cannot be downloaded. Please check your network connection and try again";
 
 "pet_form_header_edit" = "Edit pet";
 "pet_form_header_add" = "Add pet";
