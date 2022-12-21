@@ -54,8 +54,21 @@ struct DashboardView: View {
                                 .padding(.bottom)
                         }
                     }
+                    
+                    if canAddNewPets {
+                        UIButton(
+                            text: String(localized: petDb.isEmpty ? "dashboard_empty_button" : "dashboard_button"),
+                            fullWidth: true
+                        ) {
+                            isPetAddOpen = true
+                        }
+                            .padding()
+                            .sheet(isPresented: $isPetAddOpen) {
+                                PetForm(vm: PetForm.ViewModel(onSave: handleSave, onDelete: handleDelete))
+                        }
+                    }
                 }
-                .refreshable {
+                    .refreshable {
                     realmDb.fetchPets()
                 }
             }
@@ -73,11 +86,11 @@ struct DashboardView: View {
                             .fontWeight(.semibold)
                         Spacer()
                     }
-                    .frame(width: geometry.size.width)
-                    .frame(minHeight: geometry.size.height)
+                        .frame(width: geometry.size.width)
+                        .frame(minHeight: geometry.size.height)
                 }
             }
-            .refreshable {
+                .refreshable {
                 realmDb.fetchPets()
             }
         }
@@ -91,8 +104,8 @@ struct DashboardView: View {
                     Spacer()
                     ProgressView()
                         .onAppear {
-                            realmDb.fetchPets()
-                        }
+                        realmDb.fetchPets()
+                    }
                 case .fetching:
                     PetCardSkeletonComponent()
                         .padding(.horizontal)
@@ -110,19 +123,6 @@ struct DashboardView: View {
                 }
 
                 Spacer()
-
-                if canAddNewPets {
-                    UIButton(
-                        text: String(localized: petDb.isEmpty ? "dashboard_empty_button" : "dashboard_button"),
-                        fullWidth: true
-                    ) {
-                        isPetAddOpen = true
-                    }
-                        .padding()
-                        .sheet(isPresented: $isPetAddOpen) {
-                            PetForm(vm: PetForm.ViewModel(onSave: handleSave, onDelete: handleDelete))
-                    }
-                }
             }
                 .navigationDestination(for: DashboardViews.self) { dashboardView in
                 switch dashboardView {
@@ -137,7 +137,7 @@ struct DashboardView: View {
                         }
                     }
                         .sheet(isPresented: $isPetEditOpen) {
-                            PetForm(vm: PetForm.ViewModel(pet: pet, onSave: handleSave, onDelete: handleDelete))
+                        PetForm(vm: PetForm.ViewModel(pet: pet, onSave: handleSave, onDelete: handleDelete))
                     }
                 case .weight(let pet):
                     DashboardWeightsView(pet: pet)
@@ -204,8 +204,8 @@ struct DashboardView: View {
                 .navigationTitle(String(localized: "dashboard"))
                 .navigationBarTitleDisplayMode(.large)
                 .onAppear {
-                    realmDb.fetchPets()
-                }
+                realmDb.fetchPets()
+            }
         }
     }
 }
@@ -215,15 +215,15 @@ struct DashboardView_Previews: PreviewProvider {
         TabView {
             DashboardView()
                 .tabItem {
-                    Label(AppViews.dashboard.label, systemImage: AppViews.dashboard.systemImage)
-                }
+                Label(AppViews.dashboard.label, systemImage: AppViews.dashboard.systemImage)
+            }
         }
         TabView {
             DashboardView()
                 .tabItem {
-                    Label(AppViews.dashboard.label, systemImage: AppViews.dashboard.systemImage)
-                }
+                Label(AppViews.dashboard.label, systemImage: AppViews.dashboard.systemImage)
+            }
         }
-        .preferredColorScheme(.dark)
+            .preferredColorScheme(.dark)
     }
 }
