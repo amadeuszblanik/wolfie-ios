@@ -103,6 +103,16 @@ struct ProfileView: View {
 
             Section {
                 Button {
+                    WolfieApi().postTestNotification { result in
+                        print(result)
+                    }
+                } label: {
+                    ProfileItemView(label: String(localized: "test_notification"))
+                }
+            }
+
+            Section {
+                Button {
                     path.append(ProfileViews.deleteAccount)
                 } label: {
                     ProfileItemView(label: String(localized: "delete_account"))

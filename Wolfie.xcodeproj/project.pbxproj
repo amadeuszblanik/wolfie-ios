@@ -13,6 +13,7 @@
 		4E235E0C2936F7DA00A2B0A7 /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E235E0B2936F7DA00A2B0A7 /* SuccessView.swift */; };
 		4E235E0E29370A4A00A2B0A7 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E235E0D29370A4A00A2B0A7 /* NetworkService.swift */; };
 		4E235E1029370D3E00A2B0A7 /* MedicineSelectComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E235E0F29370D3E00A2B0A7 /* MedicineSelectComponent.swift */; };
+		4E235E142937167A00A2B0A7 /* LineChartComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E235E132937167A00A2B0A7 /* LineChartComponent.swift */; };
 		4E24B6DD29147D7600405D06 /* WolfieApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E24B6DC29147D7600405D06 /* WolfieApp.swift */; };
 		4E24B6DF29147D7600405D06 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E24B6DE29147D7600405D06 /* ContentView.swift */; };
 		4E24B6E129147D7700405D06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E24B6E029147D7700405D06 /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 		4E8B68BE292032E300A0BBE1 /* PetDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68BD292032E300A0BBE1 /* PetDB.swift */; };
 		4E8B68C02920349100A0BBE1 /* WeightValueDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68BF2920349100A0BBE1 /* WeightValueDB.swift */; };
 		4E8B68C2292034EA00A0BBE1 /* BreedDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68C1292034EA00A0BBE1 /* BreedDB.swift */; };
+		4EA1F551293E701600A7AF5C /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA1F550293E701600A7AF5C /* FirebaseService.swift */; };
 		4EA4D191293AC7FC0091D58C /* DeleteAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA4D190293AC7FC0091D58C /* DeleteAccountView.swift */; };
 		4EA4D193293AE1360091D58C /* DeleteUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA4D192293AE1360091D58C /* DeleteUserViewModel.swift */; };
 		4EA4D195293AE2200091D58C /* DeleteUserDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA4D194293AE2200091D58C /* DeleteUserDto.swift */; };
@@ -61,6 +63,12 @@
 		4EB4CE7B292EA652004C1281 /* ApiInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4CE7A292EA652004C1281 /* ApiInterceptor.swift */; };
 		4EB4CE7D292EAFB2004C1281 /* ApiSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4CE7C292EAFB2004C1281 /* ApiSession.swift */; };
 		4EB4CE81292EC8B6004C1281 /* BreedSelectComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4CE80292EC8B6004C1281 /* BreedSelectComponent.swift */; };
+		4EB93225293998B600B870F1 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 4EB93224293998B600B870F1 /* FirebaseAnalytics */; };
+		4EB93227293998B600B870F1 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 4EB93226293998B600B870F1 /* FirebaseMessaging */; };
+		4EB932292939995600B870F1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4EB932282939995600B870F1 /* GoogleService-Info.plist */; };
+		4EB9322B29399A5E00B870F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB9322A29399A5E00B870F1 /* AppDelegate.swift */; };
+		4EB9322D29399DB100B870F1 /* FcmTokenDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB9322C29399DB100B870F1 /* FcmTokenDto.swift */; };
+		4EB9322F29399E9A00B870F1 /* ApiCommonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB9322E29399E9A00B870F1 /* ApiCommonResponse.swift */; };
 		4ED954772933B029009B4A81 /* ConfigDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED954762933B029009B4A81 /* ConfigDb.swift */; };
 		4ED954792933B3AA009B4A81 /* UserDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED954782933B3AA009B4A81 /* UserDb.swift */; };
 		4ED9547B2933C4E1009B4A81 /* ApiLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED9547A2933C4E1009B4A81 /* ApiLogger.swift */; };
@@ -158,6 +166,7 @@
 		4E235E0B2936F7DA00A2B0A7 /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
 		4E235E0D29370A4A00A2B0A7 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		4E235E0F29370D3E00A2B0A7 /* MedicineSelectComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineSelectComponent.swift; sourceTree = "<group>"; };
+		4E235E132937167A00A2B0A7 /* LineChartComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartComponent.swift; sourceTree = "<group>"; };
 		4E24B6D929147D7600405D06 /* Wolfie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wolfie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E24B6DC29147D7600405D06 /* WolfieApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WolfieApp.swift; sourceTree = "<group>"; };
 		4E24B6DE29147D7600405D06 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -203,6 +212,7 @@
 		4E8B68BD292032E300A0BBE1 /* PetDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDB.swift; sourceTree = "<group>"; };
 		4E8B68BF2920349100A0BBE1 /* WeightValueDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightValueDB.swift; sourceTree = "<group>"; };
 		4E8B68C1292034EA00A0BBE1 /* BreedDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDB.swift; sourceTree = "<group>"; };
+		4EA1F550293E701600A7AF5C /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		4EA4D190293AC7FC0091D58C /* DeleteAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountView.swift; sourceTree = "<group>"; };
 		4EA4D192293AE1360091D58C /* DeleteUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteUserViewModel.swift; sourceTree = "<group>"; };
 		4EA4D194293AE2200091D58C /* DeleteUserDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteUserDto.swift; sourceTree = "<group>"; };
@@ -213,6 +223,10 @@
 		4EB4CE7A292EA652004C1281 /* ApiInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiInterceptor.swift; sourceTree = "<group>"; };
 		4EB4CE7C292EAFB2004C1281 /* ApiSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiSession.swift; sourceTree = "<group>"; };
 		4EB4CE80292EC8B6004C1281 /* BreedSelectComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedSelectComponent.swift; sourceTree = "<group>"; };
+		4EB932282939995600B870F1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4EB9322A29399A5E00B870F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4EB9322C29399DB100B870F1 /* FcmTokenDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FcmTokenDto.swift; sourceTree = "<group>"; };
+		4EB9322E29399E9A00B870F1 /* ApiCommonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCommonResponse.swift; sourceTree = "<group>"; };
 		4ED954762933B029009B4A81 /* ConfigDb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigDb.swift; sourceTree = "<group>"; };
 		4ED954782933B3AA009B4A81 /* UserDb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDb.swift; sourceTree = "<group>"; };
 		4ED9547A2933C4E1009B4A81 /* ApiLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiLogger.swift; sourceTree = "<group>"; };
@@ -297,6 +311,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EB93227293998B600B870F1 /* FirebaseMessaging in Frameworks */,
+				4EB93225293998B600B870F1 /* FirebaseAnalytics in Frameworks */,
 				AA0B70C3838D2D1041BB2F5C /* Pods_Wolfie.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -371,6 +387,7 @@
 		4E24B6DB29147D7600405D06 /* Wolfie */ = {
 			isa = PBXGroup;
 			children = (
+				4EB932282939995600B870F1 /* GoogleService-Info.plist */,
 				4E8177312933F6630039906A /* Wolfie.entitlements */,
 				4EF572B229214D3900F11E4A /* Services */,
 				4EF572A729214A9A00F11E4A /* Api */,
@@ -385,6 +402,7 @@
 				4EE651C82919D2FE007F115A /* Gestures */,
 				4EE651B429197343007F115A /* Components */,
 				4EE651AD291971CD007F115A /* App */,
+				4EB9322A29399A5E00B870F1 /* AppDelegate.swift */,
 				4E24B6DC29147D7600405D06 /* WolfieApp.swift */,
 				4E24B6DE29147D7600405D06 /* ContentView.swift */,
 				4E24B6E029147D7700405D06 /* Assets.xcassets */,
@@ -551,6 +569,7 @@
 				4EB4CE80292EC8B6004C1281 /* BreedSelectComponent.swift */,
 				4E235E0B2936F7DA00A2B0A7 /* SuccessView.swift */,
 				4E235E0F29370D3E00A2B0A7 /* MedicineSelectComponent.swift */,
+				4E235E132937167A00A2B0A7 /* LineChartComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -594,6 +613,7 @@
 			children = (
 				4EF572B329214D4400F11E4A /* KeychainService.swift */,
 				4E235E0D29370A4A00A2B0A7 /* NetworkService.swift */,
+				4EA1F550293E701600A7AF5C /* FirebaseService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -638,6 +658,7 @@
 				4EF572AC29214BBC00F11E4A /* SignIn.swift */,
 				4EF572BF292154BF00F11E4A /* ErrorMessage.swift */,
 				4EF572C5292168B400F11E4A /* Message.swift */,
+				4EB9322E29399E9A00B870F1 /* ApiCommonResponse.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -697,6 +718,7 @@
 				4EF572C32921620200F11E4A /* SignUpDto.swift */,
 				4EB4CE70292AE7F6004C1281 /* HealthLogDto.swift */,
 				4EB4CE76292EA2D6004C1281 /* RefreshTokenDto.swift */,
+				4EB9322C29399DB100B870F1 /* FcmTokenDto.swift */,
 				4EA4D194293AE2200091D58C /* DeleteUserDto.swift */,
 			);
 			path = Dto;
@@ -731,6 +753,10 @@
 			dependencies = (
 			);
 			name = Wolfie;
+			packageProductDependencies = (
+				4EB93224293998B600B870F1 /* FirebaseAnalytics */,
+				4EB93226293998B600B870F1 /* FirebaseMessaging */,
+			);
 			productName = Wolfie;
 			productReference = 4E24B6D929147D7600405D06 /* Wolfie.app */;
 			productType = "com.apple.product-type.application";
@@ -807,6 +833,9 @@
 				Base,
 			);
 			mainGroup = 4E24B6D029147D7600405D06;
+			packageReferences = (
+				4EB93223293998B600B870F1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 4E24B6DA29147D7600405D06 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -824,6 +853,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E8B68B729202A0500A0BBE1 /* Config.xcconfig in Resources */,
+				4EB932292939995600B870F1 /* GoogleService-Info.plist in Resources */,
 				4E24B6E429147D7700405D06 /* Preview Assets.xcassets in Resources */,
 				4EE651BC291978E6007F115A /* Localizable.strings in Resources */,
 				4E077EC02933EF640030F560 /* Launch Screen.storyboard in Resources */,
@@ -972,6 +1002,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E235E142937167A00A2B0A7 /* LineChartComponent.swift in Sources */,
 				4E235E0E29370A4A00A2B0A7 /* NetworkService.swift in Sources */,
 				4E24B6E629147D7700405D06 /* Persistence.swift in Sources */,
 				4EF572AF29214C3E00F11E4A /* ApiRouter.swift in Sources */,
@@ -1003,6 +1034,7 @@
 				4E51E58C291EFDA10007887B /* MedicineValue.swift in Sources */,
 				4EFC7473291C83B10086A6AB /* PetDto.swift in Sources */,
 				4E51E59C291F22480007887B /* MultiSelectSearch.swift in Sources */,
+				4EB9322D29399DB100B870F1 /* FcmTokenDto.swift in Sources */,
 				4E51E588291EFCCF0007887B /* HealthLogValue.swift in Sources */,
 				4E51E59A291F12370007887B /* HealthLogFormViewModel.swift in Sources */,
 				4E51E590291F01F80007887B /* StringExtensions.swift in Sources */,
@@ -1027,6 +1059,7 @@
 				4EE9EA9829256D9B00DDD08A /* MedicineValueDB.swift in Sources */,
 				4E24B6DF29147D7600405D06 /* ContentView.swift in Sources */,
 				4EE9EA9A29256E4000DDD08A /* MedicineAuthorizationStatus.swift in Sources */,
+				4EB9322B29399A5E00B870F1 /* AppDelegate.swift in Sources */,
 				4EFC7452291B0E370086A6AB /* PetCardComponent.swift in Sources */,
 				4ED954792933B3AA009B4A81 /* UserDb.swift in Sources */,
 				4E51E5A3291F29D60007887B /* ProfileView.swift in Sources */,
@@ -1053,6 +1086,7 @@
 				4EFC746E291C76660086A6AB /* DashboardSingleView.swift in Sources */,
 				4EFC744E291B0C5F0086A6AB /* WeightValue.swift in Sources */,
 				4EFC7437291AE6C00086A6AB /* MainViewModel.swift in Sources */,
+				4EA1F551293E701600A7AF5C /* FirebaseService.swift in Sources */,
 				4EFC7450291B0CE60086A6AB /* Breed.swift in Sources */,
 				4E8B68AE29201D9900A0BBE1 /* RealmManager.swift in Sources */,
 				4EE651C32919BF82007F115A /* SignInView.swift in Sources */,
@@ -1076,6 +1110,7 @@
 				4E51E58A291EFD180007887B /* HealthLogKind.swift in Sources */,
 				4E235E1029370D3E00A2B0A7 /* MedicineSelectComponent.swift in Sources */,
 				4EB4CE73292AF059004C1281 /* DtoDateFormatter.swift in Sources */,
+				4EB9322F29399E9A00B870F1 /* ApiCommonResponse.swift in Sources */,
 				4E24B6DD29147D7600405D06 /* WolfieApp.swift in Sources */,
 				4EE651B32919724A007F115A /* MainDevView.swift in Sources */,
 				4E51E594291F08780007887B /* HealthLogSingleView.swift in Sources */,
@@ -1256,7 +1291,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = Wolfie/Wolfie.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Wolfie/Preview Content\"";
 				DEVELOPMENT_TEAM = 6WY65SAG73;
 				ENABLE_PREVIEWS = YES;
@@ -1275,7 +1310,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = me.blanik.Wolfie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1296,7 +1331,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = Wolfie/Wolfie.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Wolfie/Preview Content\"";
 				DEVELOPMENT_TEAM = 6WY65SAG73;
 				ENABLE_PREVIEWS = YES;
@@ -1315,7 +1350,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = me.blanik.Wolfie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1447,6 +1482,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4EB93223293998B600B870F1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 9.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4EB93224293998B600B870F1 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4EB93223293998B600B870F1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		4EB93226293998B600B870F1 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4EB93223293998B600B870F1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		4E24B6E729147D7700405D06 /* Wolfie.xcdatamodeld */ = {

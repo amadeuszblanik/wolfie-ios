@@ -14,8 +14,8 @@
 "sign_in_sub_header" = "Wpisz się do swojego konta";
 
 "sign_up" = "Zapisz się";
-"sign_up_header" = "Witaj nowy Człowieku!";
-"sign_up_sub_header" = "Stwórz swoje nowe konto";
+"sign_up_header" = "Poznajmy się człowieku!";
+"sign_up_sub_header" = "Utwórz nowe konto";
 
 "delete_account" = "Usuń konto";
 "delete_account_header" = "Usuń konto";
@@ -37,7 +37,7 @@
 "delete_account_backup_content_0" = "Twoje dane mogą być przechowywane w zaszyfrowanej kopii zapasowej. Przechowujemy nasze kopie zapasowe w bezpieczny sposób i dokładamy wszelkich starań, aby zapobiec konieczności ich użycia. Kopie zapasowe nie są przechowywane dłużej niż 7 dni od daty ich utworzenia.";
 
 "please_wait" = "Proszę czekać…";
-"sample_data" = "Próbka danych";
+"sample_data" = "Dane próbki";
 "update" = "Aktualizuj";
 "edit" = "Edytuj";
 "add" = "Dodaj";
@@ -46,26 +46,23 @@
 "delete" = "Usuń";
 "refresh" = "Odśwież";
 "retry" = "Spróbuj ponownie";
-"feedback" = "Dodaj informację zwrotną";
+"feedback" = "Informacja zwrotna";
 "comment" = "Komentarz";
-"error_details" = "Szczegóły systemu";
-"deactivate_account" = "Dezaktywuj konto";
-"delete_account" = "Usuń konto";
+"error_details" = "Dane systemowe";
+"test_notification" = "Wyślij testową notyfikację";
 
-"average" = "Średnia";
-
-"read_gdpr" = "Polityka prywatności";
+"read_gdpr" = "Polityka Prywatności";
 
 "user_pets" = "Zwierzęta";
 "user_role_banned" = "Zablokowany";
 "user_role_user" = "Użytkownik";
 "user_role_plus" = "Użytkownik+";
 "user_role_superuser" = "Super Użytkownik";
-"user_out_of_limit" = "Nie możesz dodać żadnego nowego zwierzaka";
+"user_out_of_limit" = "Wyczerpałeś limit swojego konta. Nie możesz dodawać nowych zwierząt";
 
-"update_profile" = "Zaktualizować profil";
+"update_profile" = "Zaaktualizuj profil";
 "change_password" = "Zmień hasło";
-"authorized_devices" = "Autoryzowane urządzenia";
+"authorized_devices" = "Zaufane urządzenia";
 "sign_off" = "Wypisz się";
 
 "email" = "Email";
@@ -74,30 +71,30 @@
 "first_name" = "Imię";
 "last_name" = "Nazwisko";
 "password" = "Hasło";
-"password_confirm" = "Potwierdź hasło";
-"keep_me_signed_in" = "Nie wylogowuj mnie";
+"password_confirm" = "Potwierdzenia hasła";
+"keep_me_signed_in" = "Zachowaj sesję na tym urządzeniu";
 "weight" = "Waga";
-"weight_unit" = "Jednostki wagi";
+"weight_unit" = "Jednoski wagi";
 "weight_unit_kg" = "Kilogramy";
 "weight_unit_g" = "Gramy";
-"weight_unit_lb" = "Funtów";
-"weight_unit_oz" = "Uncji";
+"weight_unit_lb" = "Funty";
+"weight_unit_oz" = "Uncje";
 "weights" = "Wagi";
 "health_log" = "Dziennik zdrowia";
-"healt_log_empty" = "Nie masz żadnych danych dziennika zdrowia";
-"health_log_kind_vaccination_rabies" = "Szczepienia przeciew wściekliznie";
-"health_log_kind_vaccination" = "Szczepienia";
-"health_log_kind_deworming" = "Odrobaczenie";
+"healt_log_empty" = "Nie masz żadnych wpisów w dzienniku zdrowia";
+"health_log_kind_vaccination_rabies" = "Szczepienie przeciw wściekliźnie";
+"health_log_kind_vaccination" = "Szczepienie";
+"health_log_kind_deworming" = "Odrobaczanie";
 "health_log_kind_external_parasite" = "Pasożyty zewnętrzne";
 "health_log_kind_regulations_of_breeding" = "Regulacja hodowli";
-"health_log_kind_use_of_gamagloubin" = "Zastosowanie gamaglobiny";
+"health_log_kind_use_of_gamaglobulin" = "Zastosowanie gamaglobiny";
 "health_log_kind_treatment" = "Leczenie";
 "gdpr_consent" = "Tak, zapoznałem się z polityką prywatności";
 
 "kind" = "Rodzaj";
 "age" = "Wiek";
 "microchip" = "Mikroczip";
-"birthdate" = "Data urodzin";
+"birthdate" = "Data urodzenia";
 "birthday" = "Urodziny";
 "date" = "Data";
 "time" = "Czas";
@@ -457,30 +454,30 @@
 "breed_miniature_american_shepherd" = "Miniature american shepherd";
 "breed_transmontano_mastiff" = "Transmontano mastiff";
 "breed_mixed" = "Mieszana";
-"medicines" = "Leki";
-"additional_medicines" = "Dodatkowe leki";
-"additional_medicines_short" = "Więcej leków";
-"vet" = "Weterynarz";
+"medicines" = "Medykamenty";
+"additional_medicines" = "Dodatkowe medykamenty";
+"additional_medicines_short" = "Dod. med.";
+"veterinary" = "Weterynarz";
 "diagnosis" = "Diagnoza";
 "next_visit" = "Następna wizyta";
 "description" = "Opis";
 "added_by" = "Dodano przez";
 
-"dashboard" = "Tablica";
-"dashboard_empty" = "Nie dodałeś jeszcze żadnego zwierzaka";
-"dashboard_button" = "Dodaj nowego zwierzaka";
-"dashboard_empty_button" = "Dodaj swojego pierwszego zwierzak";
+"dashboard" = "Panel";
+"dashboard_empty" = "Nie masz dodanych żadnych zwierząt";
+"dashboard_button" = "Dodaj nowe zwierzę";
+"dashboard_empty_button" = "Dodaj swoje pierwsze zwierzę";
 
-"pet_form_header_edit" = "Edytuj zwierzaka";
-"pet_form_header_add" = "Dodaj zwierzaka";
+"pet_form_header_edit" = "Zaaktualizuj zwierze";
+"pet_form_header_add" = "Dodaj zwierze";
 
-"weight_empty" = "Nie dodałeś jeszcze żadnych wag zwierząt";
+"weight_empty" = "Nie masz dodanych żadnych wag";
 
-"weight_form_header_edit" = "Edytuj wagę";
+"weight_form_header_edit" = "Zaaktualizuj wagę";
 "weight_form_header_add" = "Dodaj wagę";
 
-"health_form_header_edit" = "Edytuj dziennik stanu";
-"health_form_header_add" = "Dodaj dziennik stanu";
+"health_form_header_edit" = "Zaaktualizuj wpis";
+"health_form_header_add" = "Dodaj wpis";
 
 "feedback_form_header" = "Informacja zwrotna";
 
@@ -488,17 +485,18 @@
 "action_delete_alert_message" = "Czy na pewno chcesz usunąć ten wpis?";
 
 "web_view_title" = "Przeglądarka";
-"error_generic_title" = "Coś poszło nie tak";
-"error_generic_message" = "Coś poszło nie tak. Proszę spróbować później.";
-"error_keychain_generic_message" = "Autoryzacja tego urządzenia nie jest obecnie możliwa. Nasz zespół programistów otrzymał raport.";
 
-"error_api_title" = "Problem z połączeniem";
+"error_generic_title" = "Coś poszło nie tak";
+"error_generic_message" = "Coś poszło nie tak… Spróbuj ponownie później.";
+"error_keychain_generic_message" = "Autoryzacja tego urządzenia nie jest obecnie możliwa. Nasz zespół programistów został zgłoszony.";
+
+"error_api_title" = "Problem z siecią";
 "error_api_message" = "Serwery Wolfie.app w tej chwili nie odpowiadają.";
 
-"error_offline_title" = "Wykryto offline";
-"error_offline_message" = "Nie masz połączenia z Internetem";
+"error_offline_title" = "Wykryto brak połączenia";
+"error_offline_message" = "Nie masz połączenia z internetem";
 
-"success_generic_message" = "Powodzenie!";
+"success_generic_message" = "Udało się!";
 
 "breed_select_label" = "Wybrana rasa";
-"medicine_select_label" = "Wybrane leki";
+"medicine_select_label" = "Wybrane medykamenty";

@@ -7,7 +7,7 @@
 		<key>Wolfie Prod.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>7</integer>
+			<integer>6</integer>
 		</dict>
 		<key>Wolfie.xcscheme_^#shared#^_</key>
 		<dict>
@@ -20,17 +20,17 @@
 		<key>4E24B6D829147D7600405D06</key>
 		<dict>
 			<key>primary</key>
-			<true/>
+			<true />
 		</dict>
 		<key>4E24B6ED29147D7700405D06</key>
 		<dict>
 			<key>primary</key>
-			<true/>
+			<true />
 		</dict>
 		<key>4E24B6F729147D7700405D06</key>
 		<dict>
 			<key>primary</key>
-			<true/>
+			<true />
 		</dict>
 	</dict>
 </dict>

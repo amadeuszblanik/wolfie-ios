@@ -49,6 +49,7 @@
 "feedback" = "Add feedback";
 "comment" = "Comment";
 "error_details" = "System details";
+"test_notification" = "Test notification";
 "deactivate_account" = "Deactivate account";
 "delete_account" = "Delete account";
 
@@ -90,7 +91,7 @@
 "health_log_kind_deworming" = "Deworming";
 "health_log_kind_external_parasite" = "External parasite";
 "health_log_kind_regulations_of_breeding" = "Regulations of breeding";
-"health_log_kind_use_of_gamagloubin" = "Use of gamagloubin";
+"health_log_kind_use_of_gamaglobulin" = "Use of gamagloubin";
 "health_log_kind_treatment" = "Treatment";
 "gdpr_consent" = "Yes, I have read privacy policy";
 
@@ -488,6 +489,7 @@
 "action_delete_alert_message" = "Are you sure to delete this entry?";
 
 "web_view_title" = "Browser";
+
 "error_generic_title" = "Something went wrong";
 "error_generic_message" = "Something went wrong… Please try again later.";
 "error_keychain_generic_message" = "Authorization of this device is not possible at the moment. Our development team got the reoprt.";
