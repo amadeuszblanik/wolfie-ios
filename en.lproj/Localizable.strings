@@ -64,6 +64,7 @@
 "user_role_superuser" = "Super User";
 "user_out_of_limit" = "You are not allowed to add any new pet";
 
+"profile" = "Profile";
 "update_profile" = "Update profile";
 "change_password" = "Change password";
 "authorized_devices" = "Authorized devices";
