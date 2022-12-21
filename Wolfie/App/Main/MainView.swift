@@ -26,7 +26,7 @@ struct MainView: View {
                     }
                 } else {
                     if vm.isSigned ?? false {
-                        ProfileView()
+                        MainSignedInView()
                     } else {
                         GuestView()
                     }
