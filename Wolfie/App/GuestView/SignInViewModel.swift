@@ -37,6 +37,7 @@ extension SignInView {
         }
 
         func signIn() -> Void {
+            hideKeyboard()
             isActive = false
             isLoading = true
 

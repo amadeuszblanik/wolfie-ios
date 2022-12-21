@@ -29,6 +29,7 @@ extension SignUpView {
         var errorMessage: String = "Lorem ipsum dolor sit amet"
 
         func signUp() {
+            hideKeyboard()
             isActive = false
             isLoading = true
 

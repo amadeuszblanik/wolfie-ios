@@ -191,14 +191,25 @@ struct DashboardView: View {
                 }
             }
                 .navigationTitle(String(localized: "dashboard"))
+                .navigationBarTitleDisplayMode(.large)
         }
     }
 }
 
 struct DashboardView_Previews: PreviewProvider {
     static var previews: some View {
-        DashboardView()
-        DashboardView()
-            .preferredColorScheme(.dark)
+        TabView {
+            DashboardView()
+                .tabItem {
+                    Label(AppViews.dashboard.label, systemImage: AppViews.dashboard.systemImage)
+                }
+        }
+        TabView {
+            DashboardView()
+                .tabItem {
+                    Label(AppViews.dashboard.label, systemImage: AppViews.dashboard.systemImage)
+                }
+        }
+        .preferredColorScheme(.dark)
     }
 }

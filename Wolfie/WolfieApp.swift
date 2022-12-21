@@ -45,11 +45,11 @@ struct WolfieApp: SwiftUI.App {
     var body: some Scene {
         WindowGroup {
             VStack() {
-                #if DEBUG
-                    MainDevView()
-                #else
+//                #if DEBUG
+//                    MainDevView()
+//                #else
                     MainView()
-                #endif
+//                #endif
             }
         }
     }
