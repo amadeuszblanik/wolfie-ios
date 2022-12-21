@@ -11,6 +11,7 @@ import Alamofire
 protocol WolfieApiProtocol {
     func postSignIn(body: DtoSignIn, completion: @escaping (Result<ApiSignIn, ApiError>) -> Void)
     func postSignUp(body: DtoSignUp, completion: @escaping (Result<ApiMessage, ApiError>) -> Void)
+    func postSignInWithApple(body: DtoSignWithApple, completion: @escaping (Result<ApiSignIn, ApiError>) -> Void)
     func postRefreshToken(body: DtoRefreshToken, completion: @escaping (Result<ApiSignIn, ApiError>) -> Void)
     func postFcmToken(body: DtoFcmToken, completion: @escaping (Result<ApiCommonResponse, ApiError>) -> Void)
     func postTestNotification(completion: @escaping (Result<ApiCommonResponse, ApiError>) -> Void)
@@ -110,6 +111,10 @@ extension WolfieApi: WolfieApiProtocol {
 
     func postSignUp(body: DtoSignUp, completion: @escaping (Result<ApiMessage, ApiError>) -> Void) {
         performRequest(route: .postAuthSignUp(body), completion: completion)
+    }
+
+    func postSignInWithApple(body: DtoSignWithApple, completion: @escaping (Result<ApiSignIn, ApiError>) -> Void) {
+        performRequest(route: .postAuthSignWithApple(body), completion: completion)
     }
 
     func postRefreshToken(body: DtoRefreshToken, completion: @escaping (Result<ApiSignIn, ApiError>) -> Void) {

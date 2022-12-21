@@ -7,9 +7,6 @@
 
 import SwiftUI
 
-let MOCKED_USERNAME = "amadeusz@blanik.me"
-let MOCKED_PASSWORD = "Passw0rd!1"
-
 extension SignInView {
     @MainActor class ViewModel: ObservableObject {
         @AppStorage("AUTH_SIGNED") var isSigned: Bool? {
@@ -22,7 +19,6 @@ extension SignInView {
         @Published var isActive: Bool = true
         @Published var isLoading: Bool = false
         @Published var isInvalid: Bool = false
-
 
         var isFilled: Bool {
             !username.isEmpty && !password.isEmpty
@@ -58,10 +54,18 @@ extension SignInView {
                     self.isLoading = false
 
                     do {
-                        try KeychainService.standard.save(Data(response.accessToken.utf8), service: "access-token", account: "wolfie")
+                        try KeychainService.standard.save(
+                            Data(response.accessToken.utf8),
+                            service: "access-token",
+                            account: "wolfie"
+                        )
 
                         if let refreshToken = response.refreshToken {
-                            try KeychainService.standard.save(Data(refreshToken.utf8), service: "refresh-token", account: "wolfie")
+                            try KeychainService.standard.save(
+                                Data(refreshToken.utf8),
+                                service: "refresh-token",
+                                account: "wolfie"
+                            )
                         }
 
                         self.setIsSigned(true)

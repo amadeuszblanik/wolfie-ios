@@ -11,6 +11,7 @@ import Alamofire
 public enum ApiRouter: ApiConfiguration {
     case postAuthSignIn(_ body: DtoSignIn)
     case postAuthSignUp(_ body: DtoSignUp)
+    case postAuthSignWithApple(_ body: DtoSignWithApple)
     case postRefreshToken(_ body: DtoRefreshToken)
     case postFcmToken(_ body: DtoFcmToken)
     case postTestNotification
@@ -38,6 +39,8 @@ public enum ApiRouter: ApiConfiguration {
         case .postAuthSignIn:
             return .post
         case .postAuthSignUp:
+            return .post
+        case .postAuthSignWithApple:
             return .post
         case .postRefreshToken:
             return .post
@@ -94,6 +97,8 @@ public enum ApiRouter: ApiConfiguration {
             return "/auth/sign-in"
         case .postAuthSignUp:
             return "/auth/sign-up"
+        case .postAuthSignWithApple:
+            return "/auth/apple"
         case .postRefreshToken:
             return "/auth/refresh-token"
         case .postFcmToken:
@@ -144,6 +149,10 @@ public enum ApiRouter: ApiConfiguration {
 
             return json
         case .postAuthSignUp(let body):
+            let json = try? body.toData()
+
+            return json
+        case .postAuthSignWithApple(let body):
             let json = try? body.toData()
 
             return json

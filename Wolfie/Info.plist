@@ -22,6 +22,8 @@
 		<string>fetch</string>
 		<string>remote-notification</string>
 	</array>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>WebUrl</key>
 	<string>${WEB_URL}</string>
 </dict>
