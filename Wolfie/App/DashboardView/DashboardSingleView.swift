@@ -10,14 +10,19 @@ import RealmSwift
 
 struct DashboardSingleView: View {
     var id: String
-    
+
     @Binding var path: [DashboardViews]
     @ObservedResults(PetDB.self) var petDb
-    
+    @ObservedResults(WeightValueDB.self) var weightDb
+
     var petSingleDb: PetDB? { petDb.find { $0.id == id } }
-    
+    var petWeightDb: Results<WeightValueDB> {
+        weightDb
+            .filter("petId == '\(id)'").sorted(by: \.date, ascending: false)
+    }
+
     @State private var isOpenEdit = false
-    
+
     var body: some View {
         if let pet = petSingleDb {
             NavigationView {
@@ -25,9 +30,9 @@ struct DashboardSingleView: View {
                     ScrollView {
                         PetCardComponent(pet: pet)
                             .padding()
-                        
+
                         Spacer()
-                        
+
                         HStack {
                             Button {
                                 path.append(.weight(pet: pet))
@@ -35,10 +40,10 @@ struct DashboardSingleView: View {
                                 CardComponent(
                                     label: String(localized: "weight"),
                                     icon: "barbell-outline",
-                                    value: pet.currentWeight?.formatted
+                                    value: petWeightDb.first?.formatted ?? pet.currentWeight?.formatted
                                 )
                             }
-                            
+
                             Button {
                                 path.append(.healthLog(pet: pet))
                             } label: {
@@ -50,14 +55,14 @@ struct DashboardSingleView: View {
                                 )
                             }
                         }
-                        .padding(.horizontal)
+                            .padding(.horizontal)
                     }
-                    .refreshable {
+                        .refreshable {
                         RealmManager().fetchPets()
                     }
                 }
             }
-            .navigationBarTitleDisplayMode(.inline)
+                .navigationBarTitleDisplayMode(.inline)
         } else {
             Text(String(localized: "error_generic_message"))
         }
@@ -66,7 +71,7 @@ struct DashboardSingleView: View {
 
 struct DashboardSingleView_Previews: PreviewProvider {
     @State static var path: [DashboardViews] = []
-    
+
     static var previews: some View {
         DashboardSingleView(id: PET_GOLDIE.id, path: $path)
         DashboardSingleView(id: PET_GOLDIE.id, path: $path)
