@@ -18,6 +18,9 @@ class RealmManager: ObservableObject {
     @Published var petWeightsStatus: ApiStatus = .initialized
     var petWeightsErrorMessage: String?
 
+    @Published var petHealthLogsStatus: ApiStatus = .initialized
+    var petHealthLogsErrorMessage: String?
+
     init() {
         openRealm()
         getTests()
@@ -220,6 +223,7 @@ class RealmManager: ObservableObject {
     func fetchWeights(petId: String) {
         print("💿 Realm/Fetch Weights")
         self.petWeightsStatus = .fetching
+        self.petWeightsErrorMessage = nil
 
         WolfieApi().getPetsWeights(petId: petId) { results in
             self.deleteWeightAll(petId)
@@ -238,7 +242,7 @@ class RealmManager: ObservableObject {
                 case.server(let message):
                     self.petWeightsErrorMessage = message
                 default:
-                    self.petWeightsErrorMessage = String(localized: "realm_pet_fetch_failed")
+                    self.petWeightsErrorMessage = String(localized: "realm_pet_weights_fetch_failed")
                 }
             }
         }
@@ -296,18 +300,29 @@ class RealmManager: ObservableObject {
     //    Weights
     func fetchHealthLog(petId: String) {
         print("💿 Realm/Fetch HealthLogs")
+        self.petHealthLogsStatus = .fetching
+        self.petHealthLogsErrorMessage = nil
 
         WolfieApi().getPetsHealthLog(petId: petId) { results in
             self.deleteHealthLogAll(petId)
 
             switch results {
             case.success(let healthLogs):
+                self.petHealthLogsStatus = .success
                 healthLogs.forEach { healthLog in
                     self.addHealthLog(healthLog, petId: petId)
                 }
             case .failure(let error):
+                self.petHealthLogsStatus = .failed
                 debugPrint(error)
                 self.logErrorFetch("HealthLog")
+                
+                switch error {
+                case.server(let message):
+                    self.petHealthLogsErrorMessage = message
+                default:
+                    self.petHealthLogsErrorMessage = String(localized: "realm_pet_health_logs_fetch_failed")
+                }
             }
         }
     }

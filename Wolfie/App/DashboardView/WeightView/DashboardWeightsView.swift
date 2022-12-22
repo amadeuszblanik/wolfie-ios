@@ -10,11 +10,7 @@ import Charts
 import RealmSwift
 
 struct DashboardWeightsView: View {
-    var pet: PetDB {
-        didSet {
-            print("🐕‍🦺 \(pet)")
-        }
-    }
+    var pet: PetDB
     @StateObject var vm = ViewModel()
     @StateObject var realmDb = RealmManager()
     @ObservedResults(WeightValueDB.self) var weightDb
@@ -71,14 +67,14 @@ struct DashboardWeightsView: View {
                         }
                             .listRowBackground(Color(UIColor.secondarySystemBackground))
                             .swipeActions {
-                            Button(String(localized: "delete")) {
-                                vm.selectedDeleteWeight = weight
-                            }.tint(.red)
+                                Button(String(localized: "delete")) {
+                                    vm.selectedDeleteWeight = weight
+                                }.tint(.red)
 
-                            Button(String(localized: "edit")) {
-                                vm.selectedEditWeight = weight
-                            }.tint(.accentColor)
-                        }
+                                Button(String(localized: "edit")) {
+                                    vm.selectedEditWeight = weight
+                                }.tint(.accentColor)
+                            }
                     }
                 } header: {
                     Text(vm.units.rawValue.uppercased())

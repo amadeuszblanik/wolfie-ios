@@ -510,3 +510,5 @@
 "medicine_select_label" = "Select medicines";
 
 "realm_pet_fetch_failed" = "Your pets list cannot be updated. Please check your connection and try again.";
+"realm_pet_weights_fetch_failed" = "Your pet weights list cannot be updated. Please check your connection and try again.";
+"realm_pet_health_logs_fetch_failed" = "Your pet health log list cannot be updated. Please check your connection and try again.";
