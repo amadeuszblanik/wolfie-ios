@@ -19,6 +19,11 @@ extension SignInView {
         @Published var isActive: Bool = true
         @Published var isLoading: Bool = false
         @Published var isInvalid: Bool = false
+        
+        init() {
+            self.username = "amadeusz@blanik.me"
+            self.password = "Passw0rd!1"
+        }
 
         var isFilled: Bool {
             !username.isEmpty && !password.isEmpty

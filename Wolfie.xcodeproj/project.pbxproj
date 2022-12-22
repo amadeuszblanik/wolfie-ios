@@ -51,6 +51,8 @@
 		4E895E462953B33800BBBB1D /* PetCardSkeletonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E895E452953B33800BBBB1D /* PetCardSkeletonComponent.swift */; };
 		4E895E482953B49900BBBB1D /* SkeletonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E895E472953B49900BBBB1D /* SkeletonComponent.swift */; };
 		4E895E4A2953B8E500BBBB1D /* ApiStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E895E492953B8E500BBBB1D /* ApiStatus.swift */; };
+		4E895E512953CC1500BBBB1D /* WeightChartComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E895E502953CC1500BBBB1D /* WeightChartComponent.swift */; };
+		4E895E532953D0EC00BBBB1D /* SkeletonListComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E895E522953D0EC00BBBB1D /* SkeletonListComponent.swift */; };
 		4E8B68AE29201D9900A0BBE1 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68AD29201D9900A0BBE1 /* RealmManager.swift */; };
 		4E8B68B129201E5F00A0BBE1 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68B029201E5F00A0BBE1 /* Test.swift */; };
 		4E8B68B429201F7100A0BBE1 /* RealmPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8B68B329201F7100A0BBE1 /* RealmPlayground.swift */; };
@@ -217,6 +219,8 @@
 		4E895E452953B33800BBBB1D /* PetCardSkeletonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetCardSkeletonComponent.swift; sourceTree = "<group>"; };
 		4E895E472953B49900BBBB1D /* SkeletonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonComponent.swift; sourceTree = "<group>"; };
 		4E895E492953B8E500BBBB1D /* ApiStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiStatus.swift; sourceTree = "<group>"; };
+		4E895E502953CC1500BBBB1D /* WeightChartComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightChartComponent.swift; sourceTree = "<group>"; };
+		4E895E522953D0EC00BBBB1D /* SkeletonListComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonListComponent.swift; sourceTree = "<group>"; };
 		4E8B68AD29201D9900A0BBE1 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		4E8B68B029201E5F00A0BBE1 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		4E8B68B329201F7100A0BBE1 /* RealmPlayground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmPlayground.swift; sourceTree = "<group>"; };
@@ -594,6 +598,8 @@
 				4E74C3AE29537A7500417FF1 /* StatusComponent.swift */,
 				4E895E452953B33800BBBB1D /* PetCardSkeletonComponent.swift */,
 				4E895E472953B49900BBBB1D /* SkeletonComponent.swift */,
+				4E895E502953CC1500BBBB1D /* WeightChartComponent.swift */,
+				4E895E522953D0EC00BBBB1D /* SkeletonListComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1073,6 +1079,7 @@
 				4EA1F557293E86EB00A7AF5C /* SignWithAppleDto.swift in Sources */,
 				4E51E5A5291F29E20007887B /* ProfileViewModel.swift in Sources */,
 				4ED9547B2933C4E1009B4A81 /* ApiLogger.swift in Sources */,
+				4E895E532953D0EC00BBBB1D /* SkeletonListComponent.swift in Sources */,
 				4EB4CE7B292EA652004C1281 /* ApiInterceptor.swift in Sources */,
 				4EFC743C291AF64C0086A6AB /* SelectComponent.swift in Sources */,
 				4E74C3B129538B9A00417FF1 /* MainSignedInView.swift in Sources */,
@@ -1150,6 +1157,7 @@
 				4EE651B32919724A007F115A /* MainDevView.swift in Sources */,
 				4E51E594291F08780007887B /* HealthLogSingleView.swift in Sources */,
 				4EFC7489291DA75C0086A6AB /* WeightDto.swift in Sources */,
+				4E895E512953CC1500BBBB1D /* WeightChartComponent.swift in Sources */,
 				4E895E482953B49900BBBB1D /* SkeletonComponent.swift in Sources */,
 				4E235E0C2936F7DA00A2B0A7 /* SuccessView.swift in Sources */,
 				4EFC744A291B0BF20086A6AB /* PetSingle.swift in Sources */,

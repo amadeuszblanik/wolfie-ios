@@ -89,7 +89,7 @@ struct DashboardView: View {
                         UIStatus(
                             String(localized: "dashboard_empty"),
                             icon: "sad-outline",
-                            color: .accentColor
+                            color: Color(UIColor.label)
                         )
                             .fontWeight(.semibold)
 

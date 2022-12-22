@@ -15,6 +15,9 @@ class RealmManager: ObservableObject {
     @Published var petsStatus: ApiStatus = .initialized
     var petsErrorMessage: String?
 
+    @Published var petWeightsStatus: ApiStatus = .initialized
+    var petWeightsErrorMessage: String?
+
     init() {
         openRealm()
         getTests()
@@ -106,20 +109,22 @@ class RealmManager: ObservableObject {
 
 //    Pets
     func fetchPets() {
-        deletPetAll()
+        print("💿 Realm/Fetch Pets")
         self.petsStatus = .fetching
         self.petsErrorMessage = nil
 
         WolfieApi().getPetsMy { results in
+            self.deletePetAll()
+
             switch results {
             case.success(let pets):
-                self.petsStatus = .success
                 pets.forEach { pet in
                     self.addPet(pet)
                 }
+                self.petsStatus = .success
             case .failure(let error):
-                self.petsStatus = .failed
                 self.logErrorFetch("Pets \(error.localizedDescription)")
+                self.petsStatus = .failed
 
                 switch error {
                 case.server(let message):
@@ -176,7 +181,10 @@ class RealmManager: ObservableObject {
         }
     }
 
-    func deletPetAll() {
+    func deletePetAll() {
+        print("💿 Realm/Delete PetAll")
+        self.petWeightsStatus = .initialized
+
         if let localRealm = localRealm {
             let allResults = localRealm.objects(PetDB.self)
 
@@ -191,7 +199,7 @@ class RealmManager: ObservableObject {
         }
     }
 
-    func deletPet(_ id: String) {
+    func deletePet(_ id: String) {
         if let localRealm = localRealm {
             let allResults = localRealm.objects(PetDB.self)
 
@@ -210,16 +218,28 @@ class RealmManager: ObservableObject {
 
 //    Weights
     func fetchWeights(petId: String) {
-        deleteWeightAll(petId)
+        print("💿 Realm/Fetch Weights")
+        self.petWeightsStatus = .fetching
 
         WolfieApi().getPetsWeights(petId: petId) { results in
+            self.deleteWeightAll(petId)
+
             switch results {
             case.success(let weights):
                 weights.forEach { weight in
                     self.addWeight(weight, petId: petId)
                 }
+                self.petWeightsStatus = .success
             case .failure(let error):
                 self.logErrorFetch("Weights")
+                self.petWeightsStatus = .failed
+
+                switch error {
+                case.server(let message):
+                    self.petWeightsErrorMessage = message
+                default:
+                    self.petWeightsErrorMessage = String(localized: "realm_pet_fetch_failed")
+                }
             }
         }
     }
@@ -238,8 +258,12 @@ class RealmManager: ObservableObject {
     }
 
     func deleteWeightAll(_ petId: String?) {
+        print("💿 Realm/Delete WeightAll")
+
         if let localRealm = localRealm {
-            let allResults = petId != nil ? localRealm.objects(WeightValueDB.self).filter("petId == '\(petId!)'") : localRealm.objects(WeightValueDB.self)
+            let allResults = petId != nil
+                ? localRealm.objects(WeightValueDB.self).filter("petId == '\(petId!)'")
+            : localRealm.objects(WeightValueDB.self)
 
             do {
                 try localRealm.write {
@@ -271,9 +295,11 @@ class RealmManager: ObservableObject {
 
     //    Weights
     func fetchHealthLog(petId: String) {
-        deleteHealthLogAll(petId)
+        print("💿 Realm/Fetch HealthLogs")
 
         WolfieApi().getPetsHealthLog(petId: petId) { results in
+            self.deleteHealthLogAll(petId)
+
             switch results {
             case.success(let healthLogs):
                 healthLogs.forEach { healthLog in
@@ -300,8 +326,11 @@ class RealmManager: ObservableObject {
     }
 
     func deleteHealthLogAll(_ petId: String?) {
+        print("💿 Realm/Delete WeightAll")
         if let localRealm = localRealm {
-            let allResults = petId != nil ? localRealm.objects(HealthLogDB.self).filter("petId == '\(petId!)'") : localRealm.objects(HealthLogDB.self)
+            let allResults = petId != nil
+                ? localRealm.objects(HealthLogDB.self).filter("petId == '\(petId!)'")
+                : localRealm.objects(HealthLogDB.self)
 
             do {
                 try localRealm.write {
@@ -316,9 +345,11 @@ class RealmManager: ObservableObject {
 
     //    Breeds
     func fetchBreed() {
-        deleteBreedAll()
+        print("💿 Realm/Fetch Breeds")
 
-        WolfieApi().getBreeds() { results in
+        WolfieApi().getBreeds { results in
+            self.deleteBreedAll()
+
             switch results {
             case.success(let values):
                 values.forEach { value in
@@ -345,6 +376,8 @@ class RealmManager: ObservableObject {
     }
 
     func deleteBreedAll() {
+        print("💿 Realm/Delete BreedAll")
+
         if let localRealm = localRealm {
             let allResults = localRealm.objects(BreedDB.self)
 
@@ -361,9 +394,12 @@ class RealmManager: ObservableObject {
 
     //    Config
     func fetchConfig(userEmail: String) {
-        deleteConfigAll()
+        print("💿 Realm/Fetch Config")
+
 
         WolfieApi().getConfig { results in
+            self.deleteConfigAll()
+
             switch results {
             case.success(let value):
                 self.addConfig(value, userEmail: userEmail)
@@ -388,6 +424,8 @@ class RealmManager: ObservableObject {
     }
 
     func deleteConfigAll() {
+        print("💿 Realm/Delete ConfigAll")
+
         if let localRealm = localRealm {
             let allResults = localRealm.objects(ConfigDB.self)
 
@@ -404,9 +442,11 @@ class RealmManager: ObservableObject {
 
     //    User
     func fetchUser() {
-        deleteUserAll()
+        print("💿 Realm/Fetch User")
 
         WolfieApi().getProfile { results in
+            self.deleteUserAll()
+
             switch results {
             case.success(let value):
                 self.addUser(value)
@@ -433,6 +473,8 @@ class RealmManager: ObservableObject {
     }
 
     func deleteUserAll() {
+        print("💿 Realm/Delete UserAll")
+
         if let localRealm = localRealm {
             let allResults = localRealm.objects(UserDB.self)
 
@@ -446,12 +488,14 @@ class RealmManager: ObservableObject {
             }
         }
     }
-    
+
     //    Medicines
     func fetchMedicines() {
-        deleteMedicinesAll()
+        print("💿 Realm/Fetch Medicines")
 
-        WolfieApi().getMedicines() { results in
+        WolfieApi().getMedicines { results in
+            self.deleteMedicinesAll()
+
             switch results {
             case.success(let values):
                 values.forEach { value in
@@ -478,6 +522,8 @@ class RealmManager: ObservableObject {
     }
 
     func deleteMedicinesAll() {
+        print("💿 Realm/Fetch MedicinesAll")
+
         if let localRealm = localRealm {
             let allResults = localRealm.objects(MedicineValueDB.self)
 

@@ -9,92 +9,54 @@ import SwiftUI
 import Charts
 import RealmSwift
 
-struct DashboardWeightsChartView: View {
-    var data: Results<WeightValueDB>
-
-    var averageValue: Double {
-        let total = data.reduce(0) { $0 + $1.raw }
-
-        return Double(total) / Double(data.count)
-    }
-    var firstEntryDate: Date {
-        data.map { $0.date }.min()!
-    }
-
-    var lastEntryDate: Date {
-        data.map { $0.date }.max()!
-    }
-
-    var minValue: Float {
-        data.map { $0.raw }.min()!
-    }
-
-    var maxValue: Float {
-        data.map { $0.raw }.max()!
-    }
-
-    var xValues: [Float] {
-        stride(from: minValue, to: maxValue, by: (maxValue - minValue) / 5).map { $0 }
-    }
-
-    var body: some View {
-        VStack {
-            UISummary(
-                averageValue: self.averageValue,
-                unit: "kg",
-                dateRange: DateInterval(start: firstEntryDate, end: lastEntryDate)
-            )
-            .padding(.bottom)
-
-            Chart(data) {
-                LineMark(
-                    x: .value("X", $0.date),
-                    y: .value("Y", $0.raw)
-                )
-                PointMark(
-                    x: .value("X", $0.date),
-                    y: .value("Y", $0.raw)
-                )
-            }
-                .frame(height: UIScreen.main.bounds.height / 4.2)
+struct DashboardWeightsView: View {
+    var pet: PetDB {
+        didSet {
+            print("🐕‍🦺 \(pet)")
         }
     }
-}
-
-struct DashboardWeightsView: View {
-    var pet: PetDB
-
     @StateObject var vm = ViewModel()
     @StateObject var realmDb = RealmManager()
     @ObservedResults(WeightValueDB.self) var weightDb
 
-    var petWeightDb: Results<WeightValueDB> { weightDb.filter("petId == '\(pet.id)'").sorted(by: \.date, ascending: false) }
-
-    init(pet: PetDB) {
-        self.pet = pet
-
-        RealmManager().fetchWeights(petId: pet.id)
+    var petWeightDb: Results<WeightValueDB> {
+        weightDb
+            .filter("petId == '\(pet.id)'").sorted(by: \.date, ascending: false)
     }
 
-    var empty: some View {
-        GeometryReader { geometry in
-            ScrollView(.vertical) {
-                VStack {
-                    Text(String(localized: "weight_empty"))
-                        .padding(.bottom)
-                }
-                .frame(width: geometry.size.width)
-                .frame(minHeight: geometry.size.height)
-            }
-            .refreshable {
-                realmDb.fetchWeights(petId: pet.id)
-            }
+    var initialized: some View {
+        ProgressView()
+    }
+
+    var fetching: some View {
+        VStack {
+            UISkeletonList(listRowBackground: Color(UIColor.secondarySystemBackground))
         }
     }
 
-    var list: some View {
-        Group {
-            List() {
+    var failed: some View {
+        UIStatus(realmDb.petWeightsErrorMessage, onTryAgain: { realmDb.fetchWeights(petId: pet.id) })
+            .padding(.horizontal)
+    }
+
+    var empty: some View {
+        UIStatus(
+            String(localized: "weight_empty"),
+            icon: "sad-outline",
+            color: Color(UIColor.label)
+        )
+            .fontWeight(.semibold)
+    }
+
+    var filled: some View {
+        VStack {
+            if petWeightDb.count >= 3 {
+                UIWeightChart(data: petWeightDb)
+                    .padding(.top)
+                    .padding(.horizontal)
+            }
+
+            List {
                 Section {
                     ForEach(petWeightDb) { weight in
                         HStack {
@@ -107,7 +69,8 @@ struct DashboardWeightsView: View {
                                 .foregroundColor(Color(UIColor.secondaryLabel))
                                 .lineLimit(1)
                         }
-                            .swipeActions() {
+                            .listRowBackground(Color(UIColor.secondarySystemBackground))
+                            .swipeActions {
                             Button(String(localized: "delete")) {
                                 vm.selectedDeleteWeight = weight
                             }.tint(.red)
@@ -120,7 +83,6 @@ struct DashboardWeightsView: View {
                 } header: {
                     Text(vm.units.rawValue.uppercased())
                 }
-                    .listRowBackground(Color(UIColor.secondarySystemBackground))
                     .alert(item: $vm.selectedDeleteWeight) { selectedWeight in
                     Alert(
                         title: Text(String(localized: "action_delete_alert_title")),
@@ -133,49 +95,52 @@ struct DashboardWeightsView: View {
                 }
                     .sheet(item: $vm.selectedEditWeight) { selectedWeight in
                     VStack {
-                        WeightForm(vm: WeightForm.ViewModel(
-                            pet: pet,
-                            weight: selectedWeight,
-                            onSuccess: {
-                                vm.selectedEditWeight = nil
-                            }
-                            ))
+                        WeightForm(
+                            vm: WeightForm.ViewModel(
+                                pet: pet,
+                                weight: selectedWeight,
+                                onSuccess: { vm.selectedEditWeight = nil }
+                            )
+                        )
                     }
                 }
             }
-                .listStyle(.insetGrouped)
-                .scrollContentBackground(.hidden)
                 .cornerRadius(8)
-                .refreshable {
-                realmDb.fetchWeights(petId: pet.id)
-            }
         }
     }
 
     var body: some View {
-        VStack {
-            if (petWeightDb.count >= 3) {
-                DashboardWeightsChartView(data: petWeightDb)
-                    .padding(.top)
-                    .padding(.horizontal)
+        GeometryReader { geo in
+            ScrollView {
+                switch realmDb.petWeightsStatus {
+                case .initialized:
+                    initialized
+                        .frame(height: geo.size.height - 50)
+                        .onAppear {
+                        realmDb.fetchWeights(petId: pet.id)
+                    }
+                case .fetching:
+                    fetching
+                        .frame(height: geo.size.height - 50)
+                case .success:
+                    if petWeightDb.isEmpty {
+                        empty
+                            .frame(height: geo.size.height - 50)
+                    } else {
+                        filled
+                            .frame(height: geo.size.height - 50)
+                    }
+                case .failed:
+                    failed
+                        .frame(height: geo.size.height - 50)
+                }
             }
-
-            if (petWeightDb.isEmpty) {
-                empty
-            } else {
-                list
+                .listStyle(.insetGrouped)
+                .scrollContentBackground(.hidden)
+                .frame(width: geo.size.width - 5, height: geo.size.height - 50, alignment: .center)
+                .refreshable {
+                realmDb.fetchWeights(petId: pet.id)
             }
-        }
-            .overlay {
-            if vm.isLoading {
-                UILoaderFullScreen()
-            }
-        }
-            .alert(isPresented: $vm.isError) {
-            Alert(
-                title: Text(String(localized: "error_generic_title")),
-                message: Text(vm.errorMessage)
-            )
         }
     }
 }
