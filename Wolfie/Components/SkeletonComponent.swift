@@ -8,15 +8,31 @@
 import SwiftUI
 
 struct UISkeleton: View {
+    @State var animationValue = false
+    @State var startPoint: UnitPoint = .leading
+    @State var endPoint: UnitPoint = .trailing
+
+    var colors: [Color] = [Color(UIColor.tertiaryLabel), Color(UIColor.quaternaryLabel), Color(UIColor.tertiaryLabel)]
+
     var body: some View {
         Rectangle()
             .fill(
-            LinearGradient(
-                gradient: .init(colors: [Color(UIColor.tertiaryLabel), Color(UIColor.quaternaryLabel)]),
-                startPoint: .leading,
-                endPoint: .trailing
+                LinearGradient(
+                    gradient: Gradient(colors: colors),
+                    startPoint: startPoint,
+                    endPoint: endPoint
+                )
             )
-        )
+            .onAppear {
+                let animation = Animation.easeInOut(duration: 3)
+                let repeated = animation.repeatForever(autoreverses: true)
+
+                withAnimation(repeated) {
+                    self.animationValue = false
+                    self.startPoint = .trailing
+                    self.endPoint = .leading
+                }
+            }
     }
 }
 
