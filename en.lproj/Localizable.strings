@@ -36,6 +36,8 @@
 "delete_account_backup_header" = "Back-up information";
 "delete_account_backup_content_0" = "Your data might be stored in encrypted backup. We keep our backups safely and do our best to prevent need of use them. Back-ups are not stored longer than 7 days after their creation date.";
 
+"deactivate_account" = "Deactivate account";
+
 "please_wait" = "Please wait…";
 "sample_data" = "Sample data";
 "update" = "Update";
@@ -50,8 +52,6 @@
 "comment" = "Comment";
 "error_details" = "System details";
 "test_notification" = "Test notification";
-"deactivate_account" = "Deactivate account";
-"delete_account" = "Delete account";
 
 "average" = "Average";
 

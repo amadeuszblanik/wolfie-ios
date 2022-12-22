@@ -36,6 +36,8 @@
 "delete_account_backup_header" = "Informacje o kopii zapasowej";
 "delete_account_backup_content_0" = "Twoje dane mogą być przechowywane w zaszyfrowanej kopii zapasowej. Przechowujemy nasze kopie zapasowe w bezpieczny sposób i dokładamy wszelkich starań, aby zapobiec konieczności ich użycia. Kopie zapasowe nie są przechowywane dłużej niż 7 dni od daty ich utworzenia.";
 
+"deactivate_account" = "Dezaktywuj konto";
+
 "please_wait" = "Proszę czekać…";
 "sample_data" = "Dane próbki";
 "update" = "Aktualizuj";
@@ -50,6 +52,8 @@
 "comment" = "Komentarz";
 "error_details" = "Dane systemowe";
 "test_notification" = "Wyślij testową notyfikację";
+
+"average" = "Średnia";
 
 "read_gdpr" = "Polityka Prywatności";
 
@@ -458,7 +462,7 @@
 "medicines" = "Medykamenty";
 "additional_medicines" = "Dodatkowe medykamenty";
 "additional_medicines_short" = "Dod. med.";
-"veterinary" = "Weterynarz";
+"vet" = "Weterynarz";
 "diagnosis" = "Diagnoza";
 "next_visit" = "Następna wizyta";
 "description" = "Opis";
@@ -504,3 +508,7 @@
 
 "breed_select_label" = "Wybrana rasa";
 "medicine_select_label" = "Wybrane medykamenty";
+
+"realm_pet_fetch_failed" = "Nie można zaktualizować listy twoich zwierząków. Proszę, sprawdź swoje połączenie i spróbuj ponownie.";
+"realm_pet_weights_fetch_failed" = "Nie można zaktualizować listy wagi Twojego zwierzaka. Proszę, sprawdź swoje połączenie i spróbuj ponownie.";
+"realm_pet_health_logs_fetch_failed" = "Nie można zaktualizować listy dziennika zdrowia Twojego zwierzaka. Proszę, sprawdź swoje połączenie i spróbuj ponownie.";
